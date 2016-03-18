@@ -1,0 +1,31 @@
+<script id="accountsignin-template" type="text/x-handlebars-template">
+<form class="formProfileAssets" id="{{id}}item-form{{serviceId}}">
+    <p id="{{id}}downloadMessage" class="profileEmph"></p>
+    <div id="{{id}}pContent">
+{{#loginParams}}
+    <p>
+        <label class="profileEmph" style="font-size:1.1em;" for="{{ParameterCaption}}">{{ParameterCaption}}</label>
+        <br>
+        <input class="profileAccName fields" autocomplete="off" type="{{ParameterType}}" name="{{ParameterId}}" id="{{id}}-{{ParameterId}}" placeholder="{{ParameterCaption}}">
+    </p>
+{{/loginParams}}
+    </div>
+    <hr id="{{id}}addhrsignin">
+    <div class="floatL">
+        <button id="{{id}}additemBtn" class="lsPillBtnGreen btn btn-success additemBtn" value="{{serviceId}}" type="button" style="width: 150px; margin-top: 3px">&nbsp;Connect Account&nbsp;</button>
+        {{#if id}}
+            <button id="{{id}}DeleteItemBtn" class="lsPillBtnGreenSec btn btn-success deleteItemBtn" type="button" style="width: 120px; margin-top:3px">&nbsp;Remove&nbsp;</button>&nbsp;&nbsp;
+        {{/if}}
+    </div>
+    {{#unless showCancel}}
+    <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                   
+        <a href="#" id="{{id}}btnBackItem" class="btnBackItem">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                            
+        <a href="#" id="{{id}}btnCancelItem" class="btnCancelItem">Start Over</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+        <a href="./faqs#connectingAccounts" target="_blank">FAQ</a>
+    </div>
+    {{/unless}}
+    <div class="clearOnly"></div>
+    <input type="hidden" name="finame{{serviceId}}" id="{{id}}finame{{serviceId}}" value="{{displayName}}">
+</form>
+
+</script>

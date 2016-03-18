@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/leapscore-master/cms/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.5.1" -->
+<!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.9" -->
+<!-- generated-on="April 25, 2013 1:11 pm" -->
+<!-- Debug: Total comment count: 1 -->
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
+		<loc>http://localhost/leapscore-master/cms/</loc>
+		<lastmod>2013-04-23T19:15:53+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+<!-- Debug: Start Postings -->
+<!-- Debug: Priority report of postID 1242: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1242</loc>
+		<lastmod>2013-04-22T17:35:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1132: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1132</loc>
+		<lastmod>2013-04-22T17:27:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1232: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1232</loc>
+		<lastmod>2013-04-19T21:53:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1234: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1234</loc>
+		<lastmod>2013-04-19T15:49:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1236: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1236</loc>
+		<lastmod>2013-04-19T15:40:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1238: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1238</loc>
+		<lastmod>2013-04-18T23:42:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1230: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1230</loc>
+		<lastmod>2013-04-18T23:36:49+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 221: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=221</loc>
+		<lastmod>2013-04-18T23:24:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1226: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1226</loc>
+		<lastmod>2013-04-18T23:11:26+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1215: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1215</loc>
+		<lastmod>2013-04-18T23:08:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1227: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1227</loc>
+		<lastmod>2013-04-18T22:58:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1221: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1221</loc>
+		<lastmod>2013-04-18T22:42:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1144: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1144</loc>
+		<lastmod>2013-04-18T21:20:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1126: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1126</loc>
+		<lastmod>2013-04-18T21:18:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1204: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1204</loc>
+		<lastmod>2013-04-18T19:52:42+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1211: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1211</loc>
+		<lastmod>2013-04-18T19:33:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1146: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1146</loc>
+		<lastmod>2013-04-18T16:47:41+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1142: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1142</loc>
+		<lastmod>2013-04-18T16:15:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1140: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1140</loc>
+		<lastmod>2013-04-18T15:58:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1138: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1138</loc>
+		<lastmod>2013-04-18T15:51:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1134: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1134</loc>
+		<lastmod>2013-04-18T15:45:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1130: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1130</loc>
+		<lastmod>2013-04-18T15:28:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1128: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1128</loc>
+		<lastmod>2013-04-18T15:19:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1124: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1124</loc>
+		<lastmod>2013-04-18T02:53:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1122: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1122</loc>
+		<lastmod>2013-04-18T02:50:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1120: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1120</loc>
+		<lastmod>2013-04-18T02:47:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 622: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=622</loc>
+		<lastmod>2013-04-18T02:44:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1118: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1118</loc>
+		<lastmod>2013-04-18T02:38:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1107: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1107</loc>
+		<lastmod>2013-04-18T02:35:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1113: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1113</loc>
+		<lastmod>2013-04-18T02:30:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1109: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1109</loc>
+		<lastmod>2013-04-18T02:26:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1103: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1103</loc>
+		<lastmod>2013-04-18T02:18:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1099: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1099</loc>
+		<lastmod>2013-04-18T02:10:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 613: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=613</loc>
+		<lastmod>2013-04-18T02:04:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 917: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=917</loc>
+		<lastmod>2013-04-18T01:58:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 891: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=891</loc>
+		<lastmod>2013-04-18T01:55:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 265: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=265</loc>
+		<lastmod>2013-04-18T01:48:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 646: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=646</loc>
+		<lastmod>2013-04-18T01:46:44+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 111: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=111</loc>
+		<lastmod>2013-04-18T01:43:35+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 641: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=641</loc>
+		<lastmod>2013-04-18T01:37:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 650: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=650</loc>
+		<lastmod>2013-04-18T01:34:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 814: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=814</loc>
+		<lastmod>2013-04-18T01:28:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 656: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=656</loc>
+		<lastmod>2013-04-18T01:25:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 1136: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=1136</loc>
+		<lastmod>2013-04-17T22:47:39+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 77: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=77</loc>
+		<lastmod>2013-04-16T20:21:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 767: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=767</loc>
+		<lastmod>2013-04-16T20:21:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 25: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=25</loc>
+		<lastmod>2013-04-16T20:18:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 898: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=898</loc>
+		<lastmod>2013-04-16T20:16:43+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 73: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=73</loc>
+		<lastmod>2013-04-16T20:14:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 668: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=668</loc>
+		<lastmod>2013-04-16T20:12:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 838: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=838</loc>
+		<lastmod>2013-04-16T20:11:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 165: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=165</loc>
+		<lastmod>2013-04-16T20:10:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 79: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=79</loc>
+		<lastmod>2013-04-16T20:00:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 56: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=56</loc>
+		<lastmod>2013-04-16T19:56:18+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 729: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=729</loc>
+		<lastmod>2013-04-16T19:47:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 722: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=722</loc>
+		<lastmod>2013-04-16T19:46:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 85: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=85</loc>
+		<lastmod>2013-04-16T19:41:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 755: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=755</loc>
+		<lastmod>2013-04-16T19:40:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 849: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=849</loc>
+		<lastmod>2013-04-16T19:34:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 636: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=636</loc>
+		<lastmod>2013-04-16T19:27:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 196: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=196</loc>
+		<lastmod>2013-04-16T19:17:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 224: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=224</loc>
+		<lastmod>2013-04-16T19:15:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 64: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=64</loc>
+		<lastmod>2013-04-16T19:13:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 235: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=235</loc>
+		<lastmod>2013-04-16T19:09:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 28: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=28</loc>
+		<lastmod>2013-04-16T19:07:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 858: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=858</loc>
+		<lastmod>2013-04-16T19:06:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 255: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=255</loc>
+		<lastmod>2013-04-16T19:05:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 268: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=268</loc>
+		<lastmod>2013-04-16T19:01:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 92: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=92</loc>
+		<lastmod>2013-04-16T18:57:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 280: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=280</loc>
+		<lastmod>2013-04-16T18:55:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 882: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=882</loc>
+		<lastmod>2013-04-16T18:54:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 886: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=886</loc>
+		<lastmod>2013-04-16T18:51:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 801: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=801</loc>
+		<lastmod>2013-04-16T18:47:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 232: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=232</loc>
+		<lastmod>2013-04-16T18:45:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 809: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=809</loc>
+		<lastmod>2013-04-16T18:44:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 748: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=748</loc>
+		<lastmod>2013-04-16T18:42:49+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 245: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=245</loc>
+		<lastmod>2013-04-16T18:39:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 717: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=717</loc>
+		<lastmod>2013-04-16T18:38:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 712: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=712</loc>
+		<lastmod>2013-04-16T18:37:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 908: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=908</loc>
+		<lastmod>2013-04-16T18:35:44+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 738: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=738</loc>
+		<lastmod>2013-04-16T18:34:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 213: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=213</loc>
+		<lastmod>2013-04-16T18:33:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 854: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=854</loc>
+		<lastmod>2013-04-16T18:30:18+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 914: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=914</loc>
+		<lastmod>2013-04-16T18:27:49+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 781: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=781</loc>
+		<lastmod>2013-04-16T18:24:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 215: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=215</loc>
+		<lastmod>2013-04-16T18:22:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 271: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=271</loc>
+		<lastmod>2013-04-16T18:14:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 874: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=874</loc>
+		<lastmod>2013-04-16T18:10:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 771: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=771</loc>
+		<lastmod>2013-04-16T18:08:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 776: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=776</loc>
+		<lastmod>2013-04-16T18:07:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 708: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=708</loc>
+		<lastmod>2013-04-16T18:06:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 903: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=903</loc>
+		<lastmod>2013-04-16T18:05:35+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 664: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=664</loc>
+		<lastmod>2013-04-16T18:02:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 616: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=616</loc>
+		<lastmod>2013-04-16T17:56:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 277: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=277</loc>
+		<lastmod>2013-04-16T17:54:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 699: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=699</loc>
+		<lastmod>2013-04-16T17:47:18+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 868: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=868</loc>
+		<lastmod>2013-04-16T17:37:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 671: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=671</loc>
+		<lastmod>2013-04-16T17:36:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 218: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=218</loc>
+		<lastmod>2013-04-16T17:33:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 186: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=186</loc>
+		<lastmod>2013-04-16T17:31:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 760: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=760</loc>
+		<lastmod>2013-04-16T17:26:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 252: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=252</loc>
+		<lastmod>2013-04-16T17:25:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 763: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=763</loc>
+		<lastmod>2013-04-16T17:24:26+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 805: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=805</loc>
+		<lastmod>2013-04-16T17:23:35+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 844: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=844</loc>
+		<lastmod>2013-04-16T17:22:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 796: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=796</loc>
+		<lastmod>2013-04-16T17:20:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 862: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=862</loc>
+		<lastmod>2013-04-16T17:17:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 210: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=210</loc>
+		<lastmod>2013-04-16T17:14:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 262: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=262</loc>
+		<lastmod>2013-04-16T17:12:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 697: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=697</loc>
+		<lastmod>2013-04-16T17:08:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 274: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=274</loc>
+		<lastmod>2013-04-16T17:04:26+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 249: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=249</loc>
+		<lastmod>2013-04-16T17:03:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 674: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=674</loc>
+		<lastmod>2013-04-16T17:01:21+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 792: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=792</loc>
+		<lastmod>2013-04-16T17:00:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 787: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=787</loc>
+		<lastmod>2013-04-16T16:44:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 204: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=204</loc>
+		<lastmod>2013-04-16T16:40:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 81: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=81</loc>
+		<lastmod>2013-04-16T16:35:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 202: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=202</loc>
+		<lastmod>2013-04-16T16:34:21+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 694: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=694</loc>
+		<lastmod>2013-04-16T16:32:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 62: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=62</loc>
+		<lastmod>2013-04-16T16:29:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 690: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=690</loc>
+		<lastmod>2013-04-16T16:28:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 833: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=833</loc>
+		<lastmod>2013-04-16T16:26:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 823: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=823</loc>
+		<lastmod>2013-04-12T18:59:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 40: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=40</loc>
+		<lastmod>2013-03-28T20:50:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 193: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=193</loc>
+		<lastmod>2013-03-28T20:43:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 239: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=239</loc>
+		<lastmod>2013-03-28T20:01:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 229: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=229</loc>
+		<lastmod>2013-03-28T19:59:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 71: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=71</loc>
+		<lastmod>2013-03-28T19:56:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 48: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=48</loc>
+		<lastmod>2013-03-28T19:44:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 258: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=258</loc>
+		<lastmod>2013-03-28T19:28:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 181: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=181</loc>
+		<lastmod>2013-03-28T19:18:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 178: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=178</loc>
+		<lastmod>2013-03-28T18:59:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 199: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=199</loc>
+		<lastmod>2013-03-28T18:38:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 207: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=207</loc>
+		<lastmod>2013-03-28T18:32:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 51: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=51</loc>
+		<lastmod>2013-03-28T18:29:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 227: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=227</loc>
+		<lastmod>2013-03-28T18:11:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 242: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=242</loc>
+		<lastmod>2013-03-28T17:58:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 68: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=68</loc>
+		<lastmod>2013-03-28T17:54:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 66: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=66</loc>
+		<lastmod>2013-03-28T17:43:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 34: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=34</loc>
+		<lastmod>2013-03-28T17:25:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 175: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=175</loc>
+		<lastmod>2013-03-28T17:04:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 184: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=184</loc>
+		<lastmod>2013-03-28T16:51:43+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 37: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost/leapscore-master/cms/?p=37</loc>
+		<lastmod>2013-03-28T16:11:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: End Postings -->
+<!-- Debug: Start Custom Pages -->
+<!-- Debug: End Custom Pages -->
+<!-- Debug: Start additional URLs -->
+<!-- Debug: End additional URLs -->
+</urlset>

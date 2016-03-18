@@ -1,0 +1,123 @@
+<script id="template" type="text/x-handlebars-template">
+	<!--<h3 class="infoH1">Advisor List</h3>-->
+		<div id="allAdvisors" class="round mediumGray smallGlow">
+			<div class="lightGray roundTop bevelBottom" style="padding-top:5px;">
+				<span class="pagination"></span>
+				<div class="sectionHeader1">
+					<h3 style="margin-left:10px;">
+						<span class="financialPeople"></span>Advisors
+						<span style="color: #666; margin-right:20px;" id='counter'></span>
+						<input type="button" id="assigned" title='Show assigned clients'  class='advisor_list adv_buttons active' list_type = 'assigned' value="Assigned">
+					<input type="button" id="unassigned"  title='Show unassigned clients'  class='advisor_list adv_buttons' list_type = 'unassigned' value="Unassigned">
+					<input type="button" id="deleted" title='Show deleted clients'  class='advisor_list adv_buttons' list_type = 'deleted' value="Deleted">
+					<input type="button" id="all" title='Show all clients' class='advisor_list adv_buttons' list_type = 'all' value="All">
+					<input type="button" id="others" title='Show clients assigned to others' class='advisor_list adv_buttons' list_type = 'others' value="Others">
+					</h3>
+				</div>
+			</div>
+			<div class="sectionHeader">
+				<div id="msg-box" class="alert alert-success " >
+					<!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+					<div id="msg"></div>
+				</div>
+
+			</div>
+			<div class="myAdvisorCol12">
+            <ul class="list margin-0">
+				<li class="advisordash" style="border-bottom: 1px solid #cfcfcf;margin: 0 25px;">
+				<div class="advisorBox_100">
+					<ul class="innerlist advisorBox_100 list-heading">
+						<li class="width_advisor_title sorting" sorttype="firstname" style='cursor:pointer'>First Name</li>
+						<li class="width_advisor_title sorting" sorttype="lastname" style='cursor:pointer'>Last Name</li>
+						<li class="width_advisor_email sorting" sorttype="email" style='cursor:pointer'>Email</li>
+						<!--<li class="width15 sorting" sorttype="phone">Phone</li> -->
+						<li class="width_advisor_title">Verified</li>
+						<li class="width_advisor_title">Unverified</li>
+						<li class="width_advisor_title crd">Crd#</li>
+                                                <li class="width_advisor_title signupdate">Date Signed Up</li>
+						<li class="width10 assignto">Assignee</li>
+						<li class="width15" style="text-align: right;">Action</li>
+
+					</ul>
+					</div>
+				</li>
+
+				{{#each this}}
+					<li>
+						<div class="advisorBox advisorBox_100" style="overflow: visible;">
+							<ul class="innerlist innerlistad">
+								<li class="width_advisor_title"><span class="name">{{#ifeq firstname ''}} N/A {{/ifeq}}{{firstname}} </span> </li>
+								<li class="width_advisor_title"><span class="name">{{#ifeq lastname ''}} N/A {{/ifeq}}{{lastname}}</span></li>
+								<li class="width_advisor_email"><span class="name">{{email}}</span></li>
+								<!--<li class="width15 fl">{{phone}}</li>-->
+								<li class="width_advisor_title custom-width">
+									<span id ="unedit{{id}}">{{verified}}</span>
+									<span style="display:none;" class="designations_container{{id}}">
+										<select name="designation" replace-id = {{id}} class="multiselect designations{{id}} " style="display:none;" id="designation{{id}}" multiple='multiple'>
+											{{#ifeq count 0 }}
+												<option disabled='disabled'> None</option>
+											{{/ifeq}}
+											{{#each all}}
+												{{#if status}}
+													<option value="{{name}}" selected='selected' title= "{{name}}"> {{name}} </option>
+												{{else }}
+													<option value="{{name}}" title= "{{name}}"> {{name}} </option>
+												{{/if}}
+											{{/each}}
+										</select>
+									<span>
+								</li>
+								<li class="width_advisor_title"><span id ="unverfied{{id}}">{{unverified}}</span></li>
+								<li class="width_advisor_title"><span id ="crd{{id}}">{{individualcrd}}</span></li>
+                                                                <li class="signupdate width10"><span id ="unverfied{{id}}">{{createdtimestamp}}</span></li>
+								{{#if assigned_to}}<li class="width_advisor_title assignto" id="assig" ><span class="name">{{#ifeq assigned_to ' '}} N/A {{/ifeq}}{{assigned_to}}</span></li>{{/if}}
+								{{#if assigned_to}}<li class="width15 floatR">{{else}}<li class="width25_6 floatR">{{/if}}
+									<a href="javascript:void(0);" class="deleteadv btn fr " id="deleteadv{{id}}" adv_id = '{{id}}' >Delete</a>
+									<a href="javascript:void(0);" class="revoke revokebtn{{id}}  btn fr" adv_id = '{{id}}' >Re-activate</a>
+									<a href="javascript:void(0);" class="release  releasebtn{{id}} btn fr" adv_id = '{{id}}' >Unassign</a>
+									<a href="javascript:void(0);" class="advisor_designations editbtn{{id}} btn fr" adv_id = '{{id}}' id='advisor_designations{{id}}'>Verify</a>
+                                                                        <input type="hidden" name="assigneeId{{id}}" id="assigneeId{{id}}" value='{{user_id}}' >
+									{{#ifeq isactive "1"}}<a href="javascript:void(0);" class="viewprofile viewprofilebtn{{id}}  btn fr" adv_id = '{{id}}' adv_hash = '{{advhash}}' >Profile</a>{{/ifeq}}
+									{{#ifeq user_id null}}
+										<a href="javascript:void(0);" class="assignme  btn fr" adv_id = '{{id}}' >Assign</a>
+									{{/ifeq}}
+									<a href="javascript:void(0);" class="savebtn savebtn{{id}} btn fr" adv_id = '{{id}}' id='save_designation' style="display:none;">Verify</a>
+									<a href="javascript:void(0);" class=" cancelbtn cancelbtn{{id}} btn fr" adv_id = '{{id}}' id='cancel_designation' style="display:none;">Cancel</a>
+								</li>
+
+
+								<!--li class="width15 fl"><a href="javascript:void(0);" class="advisor_designations btn" adv_id = '{{id}}' id='advisor_designations'>Edit</a>
+								<a href="javascript:void(0);" class="assignme  btn" adv_id = '{{id}}' >Assign</a></li>
+								<li class="width15 fl" id="assig" style="display:none;"><span class="name">{{assigned_to}}</span></li-->
+							</ul>
+						</div>
+					</li>
+			   {{/each}}
+					<li id="no-record" style="display:none;text-align:center"></li>
+
+			</ul>
+			</div>
+			<div class="clearOnly"></div>
+			<div class="clearOnly"></div>
+			<span class="footer">
+				<span class="list-heading" style="padding-left:25px; float:left;">
+				</span>
+				<span class="pagination"></span>
+			</span>
+			<div class="clearEverything"></div>
+		</div>
+
+	<br class="clearLeft">
+	<script type="text/javascript">
+	$(document).ready( function (){
+
+		$('.multiselect').multiselect({
+			buttonContainer: '<div class="btn-group boxHover adv_multiselect88px"></div>',
+			buttonClass: 'ddPlainBtn',
+			includeSelectAllOption: false,
+			buttonWidth: '93px',
+			numberDisplayed: 1,
+			nonSelectedText : 'None',
+		});
+	});
+</script>

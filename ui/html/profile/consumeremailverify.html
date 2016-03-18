@@ -1,0 +1,53 @@
+<script id="uploadnewclientlist-template" type="text/x-handlebars-template">
+
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+            <span class="accTitle">Email Verification
+            </span>
+        </div>
+        <a class="floatR accX accTopX" id="signoutAndClose"> </a>
+        <div class="clearOnly">
+        </div>
+
+    </div>
+    <div class="clearOnly">
+    </div>
+
+    <div class="clearOnly">
+    </div>
+    <table align="center" width="650px">
+    <tr>
+    <td>
+    <div style="font-size: 14px;padding:50px 25px" class="articleContent" id="verificationContent">
+        <p id="verificationContentNew" style="display:none;padding-bottom:25px;color:#5fa439">A verification email has been sent to {{email}}. Please log in to your email account and follow the simple directions to quickly complete the verification process. If you didn't receive an email, please click the Send Verification Button below to resend it.</p>
+        <p style="font-size:16px;font-weight:bold">Verifying your email address is essential for three important reasons:</p>
+        <br/>
+        <p>1. If you need to use the &quot;Forgotten Password?&quot; link to reset your password, only a valid email address will be able to receive the reset instructions.</p>
+        <p style="padding:25px 0px">2. We need a reliable way of communicating with you to give you updates on your FlexScore, Action Steps, and ways you can improve financially.</p>
+        <p>3. Verified email addresses help us prevent &quot;spam-bots&quot; from creating fake accounts which could slow down your logged-in experience.</p>
+
+     	<div id="communicationMsg" style="text-align:center;">&nbsp;</div>
+
+        <div class="clearEverything"></div>
+
+    </div>
+    <div style="font-size: 14px;padding:50px 25px;display:none" class="articleContent" id="verificationResults">
+    </div>
+    </td>
+    </tr>
+    </table>
+
+    <div class="profileBottomRow roundBottom">
+    	<div align="right" style="padding:15px;">
+            <div id="EmailVerification" >
+                    <button id="sendEmailVerification" aria-hidden="true" style="margin-left:30px;" class="simpleGreenCTAButton" type="button">Send Verification Email</button>&nbsp;&nbsp;
+                    <button id="iAmDone" aria-hidden="true" style="width: 130px; margin-top: 3px;display:none" class="lsPillBtnGray btn btn-success " type="button">&nbsp;I'm Done&nbsp;</button>&nbsp;&nbsp;
+            </div>
+             </form>
+            <div id="successNewClient" style="display:none" >
+	    </div>
+        </div>
+    </div>
+    </script>

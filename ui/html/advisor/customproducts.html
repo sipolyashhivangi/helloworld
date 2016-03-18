@@ -1,0 +1,87 @@
+<script id="advisorhome-template" type="text/x-handlebars-template">
+ <!--<h1 class="infoH1">My Clients<input id="inputIcon" class="span2 leftNavSrc" type="text" placeholder="Search" style=" float: right; width: 150px !important;"></h1>-->
+<div style="">
+    <div id="allAdvisors" class="round mediumGray smallGlow">
+        <div class="lightGray roundTop bevelBottom ">
+            <div class="sectionHeader1">
+                <h3 style="margin-left:10px;">
+                     <div class="floatL msActionSteps" style="margin-top: 2px;"></div>
+                     <div class="floatL" style="padding-top:7px;">
+                        <span class="accTitle">Custom Products</span>
+                        <span style="color: #666" id='total_clients'></span>
+                    </div>
+                </h3>
+                <div align="right"> <input class="btn" value="Back to Dashboard" roleId="999" type="button" id="btnCreateNewClient" class="floatR" style="margin-right:10px;" onclick="location.href='./dashboard'"/>  </div>
+            </div>
+        </div>
+        <div class="myAdvisorCol12">
+         <div id="customProducts">
+            {{#if asdata}}
+            <ul class="list">
+                <li class="advisordash">
+                    <ul class="innerlist advisorBox_100 list-heading">
+                        <li class="width20Per_ag sorting" id="nameSorting" sorttype="name" style="cursor:pointer;width:40% !important">Action Step Title</li>
+                        <li class="width20Per_ag" id="scoreSorting" sorttype="score" style="cursor:pointer;width:40% !important">Action Step Recommendation</li>
+                        <li style="width:5% !important"> &nbsp; </li>
+                        <li class="width20" style="text-align:center">Actions</li>
+                    </ul>
+                </li>
+                 {{#each asdata}}
+                <li>
+                    <div class="advisorBox advisorBox_100">
+                            <table width="100%">
+                            <tr>
+                                <td class="width20Per_ag advisorName" style="width:150px !important">
+                                    <span style="display:block;" class="name list-heading clearEverything" id="firstnme"></span>
+                                     <span class="contact advisorPaleText">{{actionname}}</span>
+                                </td>
+                                <td style="width:150px;padding-left:10px">
+                                    {{#if product_link}}
+                                        <a id="{{actionid}}productImageTableCell" href="{{product_link}}" target="_blank">
+                                    {{/if}}
+                                    {{#if product_image}}
+                                        <img src="{{product_image}}" style="border-radius:5px;" width="100%">
+                                    {{/if}}
+                                    {{#if product_link}}
+                                        </a>
+                                    {{/if}}
+                                </td>
+                                <td class="width20Per_ag" style="width:55% !important;padding-left:0px">
+                                    <div id="advproductname{{actionid}}" style="{{#if product_description}}display:none{{/if}}">No recommendation available.</div>
+                                    <div id="advproducttype{{actionid}}" style="background-color:#ffffff;border:1px solid #BCBCBC;border-radius:4px;padding:10px;margin-left:10px;width:425px;{{#unless product_description}}display:none{{/unless}}"><span>{{product_description}}</span>
+                                        {{#if product_link}}
+                                            <a href="{{product_link}}" target="_blank">Click Here</a> to begin.</div>
+                                        {{/if}}
+                                </td>
+                                <td>
+                                    <input type="hidden" id="productname{{actionid}}" value="{{product_name}}">
+                                    <input type="hidden" id="productimage{{actionid}}" value="{{product_image}}">
+                                    <input type="hidden" id="productlink{{actionid}}" value="{{product_link}}">
+                                    <input type="hidden" id="asdesc{{actionid}}" value="{{product_description}}">
+                                    <input type="hidden" id="flexasdesc{{actionid}}" value="{{flexdescription}}">
+                                    <button id="changeASDescription" class="btn asdesc" type="button" style="width:120px;" onclick="addASDescription({{actionid}},'{{actionname}}')">View / Edit</button>
+                                    <br>                                    
+                                    <button id="{{actionid}}restoreDefaultASDesc" class="btn asdesc restoreDefaultASDesc" type="button" style="width:120px;margin-top:10px;{{#unless product_description}}display:none{{/unless}}">Restore Default</button>
+                                </td>
+                            </tr>
+                            </table>
+                    </div>
+                </li>
+                {{/each}}
+              </ul>
+           {{/if}}
+            </div>
+
+        </div>
+        <div class="clearOnly twentypx"></div>
+        <div class="clearOnly twentypx"></div>
+    </div>
+    <div class="clearOnly twentypx"></div>
+</div>
+<!-- left column -->
+<div class="lightGray round smallGlow" style="width: 240px; float:left">
+    <div class="clearOnly">
+    </div>
+</div>
+
+</script>

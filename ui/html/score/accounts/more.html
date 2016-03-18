@@ -1,0 +1,232 @@
+<script id="accountsmore-template" type="text/x-handlebars-template">
+<!-- More -->
+<div id="moreProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">
+    <div id="moreAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper">
+        <span class="profileEmph" id="MoreNameSummary"><h3>More</h3>
+        </span>
+    </div>
+    <div class="accordion-body mediumGray roundBottom" id="moreCollapseBox" style="height: auto;">
+        <div id="PermissionToggleButtonmore" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 100%;">
+                <div style="padding-top:5px">
+                    <span class="profileEmph">Do you manually move money into savings/retirement accounts or are funds transferred automatically?
+                    </span>
+                    <br>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.moremoney "0" operator="=="}}Manually{{/compare}}
+                            {{#compare misc.moremoney 1 operator="=="}}Automatically{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moremoney "0" operator="=="}}checked{{/compare}} name="MoreMoneyTransfer" id="MoreMoneyTransfer" value="0" >&nbsp;Manually&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moremoney 1 operator="=="}}checked{{/compare}} name="MoreMoneyTransfer" id="MoreMoneyTransfer" value="1" >&nbsp;Automatically
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px">
+                    <span class="profileEmph">Do you have investments set to automatically re-balance at a specific time interval or
+                    if some other criteria are met ?
+                    </span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.moreinvrebal 1 operator="=="}}Yes, auto rebalance{{/compare}}
+                            {{#compare misc.moreinvrebal "0" operator="=="}}No rebalance{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreinvrebal 1 operator="=="}}checked{{/compare}} name="MoreInvestmentRebalance" id="MoreInvestmentRebalance" value="1" >&nbsp;Yes, auto rebalance&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreinvrebal "0" operator="=="}}checked{{/compare}} name="MoreInvestmentRebalance" id="MoreInvestmentRebalance" value="0" >&nbsp;No rebalance
+                        {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px">
+                    <span class="profileEmph">Once money is contributed to an investment account, is it automatically invested, or do you give direction to invest it?
+                    </span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.moreautoinvest 1 operator="=="}}Automatically Invests{{/compare}}
+                            {{#compare misc.moreautoinvest "0" operator="=="}}Have to Give Direction to Invest{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreautoinvest 1 operator="=="}}checked{{/compare}} name="MoreContributionInvested" id-"MoreContributionInvested" value="1" >&nbsp;Automatically Invests&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreautoinvest "0" operator="=="}}checked{{/compare}} name="MoreContributionInvested" id="MoreContributionInvested" value="0" >&nbsp;Have to Give Direction to Invest
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px">
+                    <span class="profileEmph">Have you considered how liquid (i.e. easy access to full value) your assets are?
+                    </span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.moreliquidasset 1 operator="=="}}Yes{{/compare}}
+                            {{#compare misc.moreliquidasset "0" operator="=="}}No{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreliquidasset 1 operator="=="}}checked{{/compare}} name="MoreLiquidAssets" id="MoreLiquidAssets" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.moreliquidasset "0" operator="=="}}checked{{/compare}} name="MoreLiquidAssets" id-"MoreLiquidAssets" value="0" >&nbsp;No
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px">
+                    <span class="profileEmph">Do you currently give to charity or do you plan to upon your death?
+                    </span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.morecharity 1 operator="=="}}Yes{{/compare}}
+                            {{#compare misc.morecharity "0" operator="=="}}No{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.morecharity 1 operator="=="}}checked{{/compare}} name="MoreCharity" id="MoreCharity" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="miscmore" {{#compare misc.morecharity "0" operator="=="}}checked{{/compare}} name="MoreCharity" id="MoreCharity" value="0" >&nbsp;No
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px;width:55%" class="floatL">
+                    <span class="profileEmph">Enter your approximate credit score, if you know it.
+                    </span>
+                    <div style="padding-top:7px">
+                     {{#if permission}}
+                     <span class="readOnlyValue numberamount" id="MoreCreditScore">{{misc.morecreditscore}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                        <input type="text" class="miscmore numberamount" placeholder="Enter credit score" id="MoreCreditScore" value="{{misc.morecreditscore}}">
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px;padding-left:25px;width:40%" class="floatL">
+                    <span class="profileEmph">When was it last reviewed?
+                    </span>
+                    <div style="padding-top:7px">
+                     {{#if permission}}
+                     <span class="readOnlyValue">
+
+                            {{#compare misc.morereviewmonth 1 operator="=="}}January {{/compare}}
+                            {{#compare misc.morereviewmonth 2 operator="=="}}February{{/compare}}
+                            {{#compare misc.morereviewmonth 3 operator="=="}}March{{/compare}}
+                            {{#compare misc.morereviewmonth 4 operator="=="}}April{{/compare}}
+                            {{#compare misc.morereviewmonth 5 operator="=="}}May{{/compare}}
+                            {{#compare misc.morereviewmonth 6 operator="=="}}June{{/compare}}
+                            {{#compare misc.morereviewmonth 7 operator="=="}}July{{/compare}}
+                            {{#compare misc.morereviewmonth 8 operator="=="}}August{{/compare}}
+                            {{#compare misc.morereviewmonth 9 operator="=="}}September{{/compare}}
+                            {{#compare misc.morereviewmonth 10 operator="=="}}October{{/compare}}
+                            {{#compare misc.morereviewmonth 11 operator="=="}}November{{/compare}}
+                            {{#compare misc.morereviewmonth 12 operator="=="}}December{{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select style="width:115px;" class="miscmore" id="MoreCreditScoreReviewMonth">
+                        <option value="">Month
+                        </option>
+                        <option value="1" {{#compare misc.morereviewmonth 1 operator="=="}}selected{{/compare}}>January
+                        </option>
+                        <option value="2" {{#compare misc.morereviewmonth 2 operator="=="}}selected{{/compare}}>February
+                        </option>
+                        <option value="3" {{#compare misc.morereviewmonth 3 operator="=="}}selected{{/compare}}>March
+                        </option>
+                        <option value="4" {{#compare misc.morereviewmonth 4 operator="=="}}selected{{/compare}}>April
+                        </option>
+                        <option value="5" {{#compare misc.morereviewmonth 5 operator="=="}}selected{{/compare}}>May
+                        </option>
+                        <option value="6" {{#compare misc.morereviewmonth 6 operator="=="}}selected{{/compare}}>June
+                        </option>
+                        <option value="7" {{#compare misc.morereviewmonth 7 operator="=="}}selected{{/compare}}>July
+                        </option>
+                        <option value="8" {{#compare misc.morereviewmonth 8 operator="=="}}selected{{/compare}}>August
+                        </option>
+                        <option value="9" {{#compare misc.morereviewmonth 9 operator="=="}}selected{{/compare}}>September
+                        </option>
+                        <option value="10" {{#compare misc.morereviewmonth 10 operator="=="}}selected{{/compare}}>October
+                        </option>
+                        <option value="11" {{#compare misc.morereviewmonth 11 operator="=="}}selected{{/compare}}>November
+                        </option>
+                        <option value="12" {{#compare misc.morereviewmonth 12 operator="=="}}selected{{/compare}}>December
+                        </option>
+                    </select>
+                    {{/unless}}
+                     {{#if permission}}
+                     <span class="readOnlyValue">
+
+                            {{#compare misc.morescorereviewyear 2015 operator="=="}}2015{{/compare}}
+                            {{#compare misc.morescorereviewyear 2014 operator="=="}}2014{{/compare}}
+                            {{#compare misc.morescorereviewyear 2013 operator="=="}}2013{{/compare}}
+                            {{#compare misc.morescorereviewyear 2012 operator="=="}}2012{{/compare}}
+                            {{#compare misc.morescorereviewyear 2011 operator="=="}}2011{{/compare}}
+                            {{#compare misc.morescorereviewyear 2010 operator="=="}}2010{{/compare}}
+                            {{#compare misc.morescorereviewyear 2009 operator="=="}}2009{{/compare}}
+                            {{#compare misc.morescorereviewyear 2008 operator="=="}}2008{{/compare}}
+                            {{#compare misc.morescorereviewyear 2007 operator="=="}}2007{{/compare}}
+                            {{#compare misc.morescorereviewyear 2006 operator="=="}}2006{{/compare}}
+                            {{#compare misc.morescorereviewyear 2005 operator="=="}}2005{{/compare}}
+                            {{#compare misc.morescorereviewyear 2004 operator="=="}}2004{{/compare}}
+                            {{#compare misc.morescorereviewyear 2003 operator="=="}}2003{{/compare}}
+                            {{#compare misc.morescorereviewyear 2002 operator="=="}}2002{{/compare}}
+                            {{#compare misc.morescorereviewyear 2001 operator="=="}}2001{{/compare}}
+                            {{#compare misc.morescorereviewyear 2000 operator="=="}}2000{{/compare}}
+                            {{#compare misc.morescorereviewyear 1999 operator="=="}}Before 2000{{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select style="width:115px" class="miscmore" id="MoreCreditScoreReviewYear">
+                        <option value="Year">Year
+                        </option>
+                        <option value="2015" {{#compare misc.morescorereviewyear 2015 operator="=="}}selected{{/compare}}>2015
+                        </option>
+                        <option value="2014" {{#compare misc.morescorereviewyear 2014 operator="=="}}selected{{/compare}}>2014
+                        </option>
+                        <option value="2013" {{#compare misc.morescorereviewyear 2013 operator="=="}}selected{{/compare}}>2013
+                        </option>
+                        <option value="2012" {{#compare misc.morescorereviewyear 2012 operator="=="}}selected{{/compare}}>2012
+                        </option>
+                        <option value="2011" {{#compare misc.morescorereviewyear 2011 operator="=="}}selected{{/compare}}>2011
+                        </option>
+                        <option value="2010" {{#compare misc.morescorereviewyear 2010 operator="=="}}selected{{/compare}}>2010
+                        </option>
+                        <option value="2009" {{#compare misc.morescorereviewyear 2009 operator="=="}}selected{{/compare}}>2009
+                        </option>
+                        <option value="2008" {{#compare misc.morescorereviewyear 2008 operator="=="}}selected{{/compare}}>2008
+                        </option>
+                        <option value="2007" {{#compare misc.morescorereviewyear 2007 operator="=="}}selected{{/compare}}>2007
+                        </option>
+                        <option value="2006" {{#compare misc.morescorereviewyear 2006 operator="=="}}selected{{/compare}}>2006
+                        </option>
+                        <option value="2005" {{#compare misc.morescorereviewyear 2005 operator="=="}}selected{{/compare}}>2005
+                        </option>
+                        <option value="2004" {{#compare misc.morescorereviewyear 2004 operator="=="}}selected{{/compare}}>2004
+                        </option>
+                        <option value="2003" {{#compare misc.morescorereviewyear 2003 operator="=="}}selected{{/compare}}>2003
+                        </option>
+                        <option value="2002" {{#compare misc.morescorereviewyear 2002 operator="=="}}selected{{/compare}}>2002
+                        </option>
+                        <option value="2001" {{#compare misc.morescorereviewyear 2001 operator="=="}}selected{{/compare}}>2001
+                        </option>
+                        <option value="2000" {{#compare misc.morescorereviewyear 2000 operator="=="}}selected{{/compare}}>2000
+                        </option>
+                        <option value="1999" {{#compare misc.morescorereviewyear 1999 operator="=="}}selected{{/compare}}>Before 2000
+                        </option>
+                    </select>
+                    {{/unless}}
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<div id="moreProfileVSpace" class="profileVSpace">
+</div>
+</script>

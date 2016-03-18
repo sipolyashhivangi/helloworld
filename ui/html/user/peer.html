@@ -1,0 +1,35 @@
+<script id="userpeer-template" type="text/x-handlebars-template">
+    {{#peerval}}
+    <!-- comparison charts -->
+    <div class="roundBottom" style="height:303px; padding-top:20">
+        <div style="position:relative; float:right; width:295px; border-style:solid; border-color:white; border-width:1px; border-left-color:#CFCFCF; height:270px; padding-left:3px">
+            <div style="width:100%; text-align:center; color:black; font-family:'OpenSansBold'; font-size:1.1em">National<!--<span style="font-size:.6em"> avg</span>--></div>
+                <!-- img chart -->
+                <img src="./ui/images/horseshoes/variations/compare/{{nationalimage}}.png" alt="myScoreChart" style="margin-left:29px; margin-top:8px">
+                <div style="top: 112px" class="floatedScoreBreakdown">
+                    <span style="color:#00B1B9">{{nationalpeer}}</span>
+                </div>
+                <!--<div class="btn-group" data-toggle="buttons-radio" style="margin-left: 80px; margin-bottom: 20px">
+                    <button type="button" class="btn active">Local</button>
+                    <button type="button" class="btn">National</button>
+                </div>-->                
+            </div>
+            <div style="position: relative; width: 270px">
+                <div style="width:100%; text-align:center; color:black; font-family:'OpenSansBold'; font-size:1.1em">Peers</div>
+                <!-- img chart -->
+                <img src="./ui/images/horseshoes/variations/compare/{{localimage}}.png" alt="myScoreChart" style="margin-left: 25px; margin-top: 8px">
+                <div style="top:112px; left:92px" class="floatedScoreBreakdown">
+                    <span style="color: #00B1B9">{{localpeer}}</span>
+                </div>
+                <!-- No zip code -->
+                {{#compare zip 0 operator="=="}}
+                <div id="peerDataTab" class="round smallGlow quickScore" style="position: absolute; left: 16px; top: 120px; width: 240px; z-index: 999;">
+                Update your <a href="#" class="aboutHeader" id="aboutyou">zipcode</a> to find out how you compare with local peers.                
+                </div>
+                {{/compare}}
+            </div>
+            <div class="clearOnly">&nbsp;</div>
+        </div>
+        <div class="mediumGray roundBottom compareFooter" id="PeerPercent" style="width:642px"></div>
+    {{/peerval}}
+</script>

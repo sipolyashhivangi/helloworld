@@ -1,0 +1,94 @@
+<script id="lpostview-template" type="text/x-handlebars-template">
+    <div class="navSpacer">&nbsp;</div>
+    <div class="container">
+        <div id="singlePostRead">
+            <div class="row">
+                <div class="round lightGray smallGlow">
+                    <!-- right column -->
+                    
+                    <div style="padding:0px" id="idArticleContent" class="articleContent">
+                    <div class="lcArticles">			                                                   
+                        <div class="row-fluid">                                                                     
+                            <div class="span12 roundTop smallGlow whiteBg">                                                                                       
+                                <div class="sectionHeader">       
+                                    <div style="padding-top:10px" class="floatL">
+                                        <span class="reports"></span>
+                                    </div>
+                                    <div style="padding-left:5px;" class="floatL">
+                                        <h3 style="padding-top:0px">Users By State Report</h3>                                                                                                     
+                                    </div>   
+                                    <div class="floatR" style="padding:10px;"><a href="./reports"><< Back To Report Page</a>
+                                    <div class="clearEverything"></div>                                                                         
+                                </div>      	                                                             
+                            </div>                                                         
+                        </div>
+
+    
+                    <!-- row one -->
+                    <div style="" class="row-fluid bevelTop roundBottom mediumGray smallGlow">    		                                                             
+                    {{#result}}
+<div class="signupTitleArea">
+    <h1>Users By State Report</h1>
+    <div class="analyticsMenu">
+        <i id="printReport" title="Print"></i>
+        <i id="pdfReport" title="PDF"></i>
+        <i id="refreshReport" title="Refresh"></i>
+        <i id="closeReport" title="Close"></i>
+    </div>
+</div>
+<div class="clearOnly">&nbsp;</div>
+    <table align="center" width="95%">
+  
+        <tr><td colspan="3"><hr size="1" style="border-color:#000000;"></td></tr> 
+        {{#if usersByState}}
+        {{#usersByState}}
+         <tr><td colspan="3">
+         <table width="100%" class="mcReportStriped">
+         <tr>
+            <th align="left" style="padding-left:0px"><strong>State</strong></th>
+            <th align="left" style="padding-left:0px"><strong>Region</strong></th>
+            <th align="left" style="padding-left:0px"><strong>Users</strong></th>
+            <th align="left" style="padding-left:0px"><strong>%</strong></th>
+        </tr>
+        
+        {{#each dataByState}}
+        <tr>
+            <td>{{state}}</td>
+            <td>{{regionname}}</td>
+            <td>{{user_count}}</td>
+            <td>{{user_per}}</td>
+       </tr>
+       {{/each}}
+       <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" align="center"><b>Total Users Count: {{totalUsers}}</b></td>
+            <td>&nbsp;</td>
+       </tr>
+       </table>
+       <td></tr>
+       {{/usersByState}}
+       {{/if}}
+       <tr><td colspan="3">Users by State Report in FlexScore as on {{todate}}<br></td></tr>
+    </table>   
+{{/result}}
+                        
+        
+        
+       
+                        
+                    <div class="clearEverything">&nbsp;</div>           
+                    </div>
+                    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    
+                </div>
+                <div class="clearOnly">&nbsp;</div>
+                </div>
+                </div>
+                <div class="clearOnly visible-phone twentypx">&nbsp;                    
+                </div>                     
+           </div>
+        </div>
+        <div class="vSpace">&nbsp;</div>
+    </div>
+    <div class="vSpace visible-phone">&nbsp;</div>
+</script>

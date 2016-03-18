@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddBankAccountCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddBankAccountCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>myscore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>BankInputName</td>
+	<td>BankInputName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>BankInputBalance</td>
+	<td>BankInputBalance</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>BankInputInterestYield</td>
+	<td>BankInputInterestYield</td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - My Score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=gnav_finSnap</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#gnav_finSnap &gt; a &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - Financial Snapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addOther</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addOther</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=bankAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=bankAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=BankInputName</td>
+	<td>${BankInputName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=BankInputBalance</td>
+	<td>${BankInputBalance}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=BankInputInterestYield</td>
+	<td>${BankInputInterestYield}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>cumulativeAssetsTotalBANK</td>
+	<td>cumulativeAssetsTotalBANK</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cumulativeAssetsTotal</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=cumulativeAssetsTotal</td>
+	<td>${cumulativeAssetsTotalBANK}</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

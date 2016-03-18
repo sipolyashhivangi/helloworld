@@ -1,0 +1,29 @@
+<script id="searchresult-template" type="text/x-handlebars-template">
+<span class="advisorName" style="color:#333;">Search Results: 
+</span>                                                        
+<br>							                                                         
+<div id="searchResults" style="padding-top:5px">
+    {{#if totalRecords}}
+        <div class="floatL" style="width:50%">
+            {{#itemsLeft}}
+                <div style="width:90%;padding-top:5px;word-wrap:break-word">
+                    <a class="addBtn" href="#" id="{{serviceId}}">{{displayName}} </a>
+                </div> 
+            {{/itemsLeft}}
+        </div>
+        <div class="floatL" style="width:50%">
+            {{#itemsRight}}
+                <div style="width:90%;padding-top:5px;word-wrap:break-word">
+                    <a class="addBtn" href="#" id="{{serviceId}}">{{displayName}} </a>
+                </div> 
+            {{/itemsRight}}
+        </div>
+    {{else}}
+        <div  style="color:#333;">Your search came back with no results.</div>
+    {{/if}}
+    <div style="line-height:50px;text-align:right">
+         You can view <a href="./faqs#connectingAccounts" target="_blank">FAQ</a>.
+    </div>      
+    <div class="clearOnly" style="padding-top:5px"></div>
+</div>
+</script>

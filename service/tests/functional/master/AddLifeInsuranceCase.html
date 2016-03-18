@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AddLifeInsuranceCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddLifeInsuranceCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsuranceName</td>
+	<td>lifeInsuranceName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsurancePolicyType</td>
+	<td>lifeInsurancePolicyType</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsuranceInputIncome</td>
+	<td>lifeInsuranceInputIncome</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsuranceInputPremiumPayment</td>
+	<td>lifeInsuranceInputPremiumPayment</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsuranceReviewYear</td>
+	<td>lifeInsuranceReviewYear</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>lifeInsuranceInputCashValue</td>
+	<td>lifeInsuranceInputCashValue</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addInsurance</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addInsurance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lifeinsuranceAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=lifeinsuranceAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=insuranceSummarySpan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LifeInsuranceName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LifeInsuranceName</td>
+	<td>${lifeInsuranceName}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=closeInsurance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=insuranceSummarySpan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=LifeInsurancePolicyType</td>
+	<td>${lifeInsurancePolicyType}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LifeInsuranceInputPremiumPayment</td>
+	<td>${lifeInsuranceInputPremiumPayment}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LifeInsuranceInputIncome</td>
+	<td>${lifeInsuranceInputIncome}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LifeInsuranceInputPremiumPayment</td>
+	<td>${lifeInsuranceInputPremiumPayment}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=LifeInsuranceReviewYear</td>
+	<td>${lifeInsuranceReviewYear}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LifeInsuranceInputCashValue</td>
+	<td>${lifeInsuranceInputCashValue}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=LifeInsurancePolicyMethod</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

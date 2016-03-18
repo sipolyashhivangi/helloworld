@@ -1,0 +1,49 @@
+	ul#abtCarosel, ul#abtCarosel2{		
+		width:880px;
+		height:290px;
+		overflow:hidden;
+		margin: 0;
+		padding: 0;
+		}
+	ul#abtCarosel li, ul#abtCarosel2 li{
+		list-style:none;
+		float:left;
+		height:290px;
+		overflow:hidden;
+		margin:0 4px;
+		text-align:center;
+		margin-left: 80px;
+		}
+	ul#abtCarosel li:hover, ul#abtCarosel2 li:hover{color:#333;}
+	ul#abtCarosel li .image, ul#abtCarosel2 li .image{
+		margin:20px 20px 10px 20px;
+		width:220px;
+		height:150px;
+		overflow:hidden;
+		border:2px solid #fff;
+		-moz-box-shadow:0 1px 1px #bbb;
+		-webkit-box-shadow:0 1px 1px #bbb;
+		box-shadow:0 1px 1px #bbb;
+		}	
+	ul#abtCarosel h3, ul#abtCarosel2 h3{text-transform:uppercase;font-size:14px;font-weight:bold;margin:.25em 0;text-shadow:#f1f1f1 0 1px 0;}	
+	ul#abtCarosel .info, ul#abtCarosel2 .info{color:#999;text-shadow:#f1f1f1 0 1px 0;}	
+	ol#pagination{ position:relative;text-align:center; padding:0; }
+	ol#pagination li{
+		display:inline-block;
+		width:24px;
+		height:24px;
+		background: url(../images/carosel-page.png) no-repeat -24px 0;
+		text-align:left;
+		text-indent:-8000px;
+		list-style:none;
+		cursor:pointer;
+		margin:0 2px;
+		}
+	ol#pagination li:hover{background:url(../images/carosel-page.png) no-repeat -24px 0;}
+	ol#pagination li.current{color:#f00;font-weight:bold;background:url(../images/carosel-page.png) no-repeat -2px 0;}
+	ol#pagination li.prev, ol#pagination li.next{
+		position:absolute;
+		top:-160px;
+		}
+	ol#pagination li.prev{height: 54px; width: 54px; left:0px;background:url(../images/caro-prev.png) no-repeat 0 0;}
+	ol#pagination li.next{height: 54px; width: 54px; right:0px;background:url(../images/caro-next.png) no-repeat 0 0;}

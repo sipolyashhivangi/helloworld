@@ -1,0 +1,45 @@
+<script id="accountsce-template" type="text/x-handlebars-template">
+<form class="formProfileAssets">
+    <div class="profileEmph">Please help us classify the following accounts.</div>
+        {{#pending}}
+        <p style="margin-bottom:0em">
+            <span style="color:#333">{{FIAcctNameParamVal}} - {{AcctNumber}}</span>
+        </p>        
+        <p style="display:none">
+            <select id="{{id}}addAccountType{{counter}}">
+                <option value="Debts">Debts</div>
+                <option value="Assets">Assets</div>
+                <option value="Insurance">Insurance</div>
+            </select>
+        </p>
+        <p style="display:none">
+            <select id="{{id}}addAccountSpecificType{{counter}}"> </select>
+        </p>
+        <p style="margin-top:0.5em">
+            <select id="{{id}}addAccountVal{{counter}}" class="profileAccType">
+            {{#compare flag "1" operator="!="}}
+            {{#accountsSupported}}               
+                <option value="{{AcctTypeId}}">{{AcctName}}</div>
+            {{/accountsSupported}}
+            {{/compare}}
+            {{#compare flag "1" operator="=="}}
+            {{#accountsSupported}}
+                <option value="{{AcctTypeId}}|{{AcctName}}|{{AcctGroup}}">{{AcctName}}</div>
+            {{/accountsSupported}}
+            {{/compare}}                            
+            </select>
+        </p>
+        <div>
+            <input type="hidden" value="{{Fiid}}|{{AcctNumber}}|{{FIAcctNameParamName}}|{{FIAcctNameParamVal}}|{{AccBal.AccBalType}}|{{AccBal.CurAmt}}|{{AccBal.CurCode}}" name="{{id}}accountMeta{{counter}}" id="{{id}}accountMeta{{counter}}"/>
+            <input type="hidden" value="{{flag}}" name="{{id}}accountFlag{{counter}}" id="{{id}}accountFlag{{counter}}"/>            
+        </div>
+        {{/pending}}    
+    <hr>
+    <div>
+        <input type="hidden" value="{{ptotal}}" name="total" id="{{id}}total"/>
+        <input type="hidden" value="{{cid}}" name="cid" id="{{id}}cid"/>
+        <button class="lsPillBtnGreen btn btn-success btnAddItemToLS" id="{{id}}btnAddItemToLS" type="button">Classify</button>
+        <button id="{{id}}DeleteClassification" class="lsPillBtnGreenSec btn btn-success deleteClassification" type="button" style="width: 80px; margin-top:0px">&nbsp;Remove&nbsp;</button>&nbsp;&nbsp;
+    </div>
+</form>
+</script>

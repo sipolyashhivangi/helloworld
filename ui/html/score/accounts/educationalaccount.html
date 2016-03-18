@@ -1,0 +1,214 @@
+<script id="accountseducationalaccount-template" type="text/x-handlebars-template">
+<!-- Educational Account -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}educationalaccountProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}educationalaccountAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}educationalaccountCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDrageducationalaccount" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionToggleeducationalaccount" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}educationalaccountAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabeleducationalaccount" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabeleducationalaccount" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{else}}
+        <div id="{{id}}educationalaccountConnectAccount" class="floatR financialDetails">
+            <div style="width: 186px;margin-bottom:0px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}educationalaccountFAQArrow" class="floatL faqArrow"></div>
+                <span class="profileEmph" id="{{id}}EducationalAccountNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Educational Account{{/if}}
+                </span>
+                {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}educationalaccountManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}educationalaccountManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                    <span id="{{id}}educationalaccountManual">Manual Entry</span>
+            {{/if}}            
+<!--	            <span id="{{id}}educationalaccountLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span> -->
+        	</a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}educationalaccountCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtoneducationalaccount" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Account
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}EducationalInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}EducationalInputName">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Account Type
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}EducationalInputName">
+                        {{#compare assettype 53 operator="=="}}529 Savings Account{{/compare}}
+                        {{#compare assettype 54 operator="=="}}Educational Savings{{/compare}}
+                        {{#compare assettype 55 operator="=="}}Custodial Account{{/compare}}
+                        {{#compare assettype 56 operator="=="}}Regular Brokerage{{/compare}}
+                        {{#compare assettype 57 operator="=="}}Savings Account {{/compare}}
+                        </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select class="profileAccType" id="{{id}}EducationalAccType" >
+                        <option value="53" {{#compare assettype 53 operator="=="}}selected{{/compare}}>529 Savings Account
+                        </option>
+                        <option value="54" {{#compare assettype 54 operator="=="}}selected{{/compare}}>Educational Savings
+                        </option>
+                        <option value="55" {{#compare assettype 55 operator="=="}}selected{{/compare}}>Custodial Account
+                        </option>
+                        <option value="56" {{#compare assettype 56 operator="=="}}selected{{/compare}}>Regular Brokerage
+                        </option>
+                        <option value="57" {{#compare assettype 57 operator="=="}}selected{{/compare}}>Savings Account
+                        </option>
+                    </select>
+                    {{/unless}}
+                </p>
+                <p>   
+                    <span class="profileEmph">Are Beneficiaries Listed and Up to Date?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare beneficiary 1 operator="=="}} Yes {{/compare}} {{#compare beneficiary "0" operator="=="}} No {{/compare}} {{#compare beneficiary 2 operator="=="}} Not Sure {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" value="1" {{#if id}}{{#compare beneficiary 1 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}EducationalAccountBeneficiaries">&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" value="0" {{#if id}}{{#compare beneficiary "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}EducationalAccountBeneficiaries">&nbsp;No&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" value="2" {{#if id}}{{#compare beneficiary 2 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}EducationalAccountBeneficiaries">&nbsp;Not Sure
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Balance
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                        <span class="readOnlyValue dollaramount" id="{{id}}EducationalInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a balance" value="{{amount}}" id="{{id}}EducationalInputBalance" class="dollaramount">
+                    {{/unless}}
+                </p>
+	                <p style="{{#if retired}}{{#compare retired '1' operator='=='}}display:none{{/compare}}{{/if}}">
+                    <span class="profileEmph">How much do you contribute?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                        <span class="readOnlyValue dollaramount" id="{{id}}EducationalInputContribution">{{contribution}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{contribution}}" id="{{id}}EducationalInputContribution" class="dollaramount">
+                    {{/unless}}
+					<span class="profileEmph">monthly
+                    </span>
+                    <select style="display:none">
+                        <option>monthly
+                        </option>
+                        <option>annually
+                        </option>
+                    </select>
+                </p>
+                <p style="{{#unless retired}}display:none{{else}}{{#compare retired '0' operator='=='}}display:none{{/compare}}{{/unless}}">
+                    <span class="profileEmph">How much do you take out each month?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$                                                         
+                    </span>
+                    {{#if permission}}
+                        <span class="readOnlyValue dollaramount" id="{{id}}EducationalInputWithdrawal">{{withdrawal}}</span>
+                    {{/if}}
+                   {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{withdrawal}}" id="{{id}}EducationalInputWithdrawal" class="dollaramount">
+                    {{/unless}}
+					<span class="profileEmph">monthly
+                    </span>
+                    <select style="display:none">
+                        <option>monthly
+                        </option>
+                        <option selected="selected">annually
+                        </option>
+	                </select>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+           {{#unless permission}}
+             <hr>
+            <input type="hidden" id="{{id}}educationalaccountSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateEducationalAccountButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateEducationalAccountButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelEducationalButton" class="cancelEducationalAccountButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtoneducationalaccount" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createEducationalButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="educationalaccountRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}educationaccountProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

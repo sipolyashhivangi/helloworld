@@ -1,0 +1,4 @@
+update actionstepmeta set externallink = 'https://www.everbank.com/banking/money-market' where actionid = 20;
+update actionstepmeta set externallink = 'http://www.bankrate.com/insurance.aspx?ic_id=home_smart-spending_home_globalnav' where actionid = 66; 
+update actionstepmeta set externallink = 'http://www.bankrate.com/insurance.aspx?ic_id=home_smart-spending_home_globalnav' where actionid = 67;
+update actionstepmeta set externallinkname = 'Bankrate', external_institution_logo = 'https://www.flexscore.com/ui/images/bankrate.jpg', externallinkdescription = 'Bankrate, Inc. is the Web`s leading aggregator of financial rate information, offering an unparalleled depth and breadth of rate data and financial content.' where actionid in (66,67);

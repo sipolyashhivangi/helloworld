@@ -1,0 +1,902 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+    <title>Pure-PHP Mersenne Twister</title>
+
+          <base href="http://kingfisher.nfshost.com/sw/twister/">
+          <style type="text/css" media="all">
+	
+.container1, .container2 {
+  margin: 0 auto 0 0;
+}
+
+.container1 {
+  max-width: 60em;
+}
+
+.container2 {
+  max-width: 70ex;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+
+  /* required for IE 6, it seems */
+  height: auto !important;
+  height: 100%;
+
+  margin: 0 auto -3em;
+}
+
+.push {
+  height: 3em;
+  margin: 0;
+}
+
+body.numconns .push {
+  clear: both;
+}
+
+.footer {
+  height: 1em;
+  padding: 1em 0;
+  margin: 0;
+}
+
+.lastmod {
+  text-align: center;
+  margin: 0;
+}
+
+.lastmod .description {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-weight: bold;
+}
+
+.navbar {
+  border-bottom: solid medium;
+  padding: 1ex 0 0 1ex;
+  margin-bottom: 1em;
+}
+
+.navbar a {
+  float: left;
+  padding: 1em;
+  border: solid .3333em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  padding: .5em;
+  border: solid .8333em;
+}
+
+.content {
+  margin: 0;
+  padding: 0 1em;
+}
+
+.content > *:last-child {
+  margin-bottom: 0;
+}
+
+.code {
+  font-family: monospace;
+  margin: 1em 0 1em 0;
+  white-space: pre;
+  white-space: pre-wrap;
+}
+
+.indent {
+  margin-left: 6ex;
+}
+
+.term_box {
+  /*
+    float: right;
+    width: 50%;
+    margin: 1.5ex;
+  */
+  margin: 1em 0;
+  padding: 0 1.2ex;
+  border: dashed thin;
+}
+
+.term_box .term { display: none; }
+
+body.cinip table.not-implemented th {
+  padding-bottom: 1em;
+  padding-left: 4em;
+  text-align: left;
+}
+
+body.cinip table.not-implemented th:first-child {
+  padding-left: 0;
+}
+
+body.cinip table.not-implemented td {
+  vertical-align: top;
+}
+
+body.cinip table.not-implemented .code2 {
+  margin: 0 0 3em 4em;
+}
+
+body.cinip table.not-implemented > tbody > tr.last-row > td > .code2 {
+  margin-bottom: 1.6em;
+}
+
+div.code-variant {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+div.code-variant-inner {
+  margin: 0;
+  padding: 1em 1ex;
+  border: solid thin;
+}
+
+div.code-variant-inner-left { margin-right: .75em; }
+div.code-variant-inner-right { margin-left: .75em; }
+
+zzz div.code-variant { background-color: #f00; }
+zzz div.code-variant-inner { background-color: #0f0; }
+
+zzz body.cinip table.not-implemented {
+  border-spacing: 6em 2em;
+}
+
+zzz body.cinip table.not-implemented {
+  outline: 1px solid;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+zzz body.cinip table.not-implemented .code2 { background-color: #f0f; }
+zzz body.cinip table.not-implemented th, zzz body.cinip table.not-implemented td { background-color: #f00; }
+
+.code2 {
+  margin: 1em 0 1em 4ex;
+}
+
+.code2 .code_line {
+  margin: 0;
+  font-family: monospace;
+  white-space: pre;
+  white-space: pre-wrap;
+  /*
+  outline: solid #0f0 1px;
+  */
+}
+
+.code-with-link .code2 {
+  margin-bottom: 0;
+}
+
+.code-with-link .code-link {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.note {
+  margin: 1em 0;
+  padding: 1.2ex;
+  border: dashed thin;
+}
+
+.note:before {
+  content: "Note: ";
+  font-weight: bold;
+}
+
+div.note2 {
+  border: dashed thin;
+  padding: 0 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+div.note2 span.intro {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.note3 {
+  font-size: smaller;
+  font-style: italic;
+  margin-left: 4em;
+  margin-right: 4em;
+}
+
+zzz .note3:after {
+  font-size: larger;
+  white-space: pre;
+  content: "\a\a\a\a\a\a";
+  content: "\a\a";
+}
+
+dl.opt_keys > dt {
+  font-weight: bold;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+.temporal_sequence > li {
+  list-style-type: disc;
+}
+
+.commands {
+  margin: 2ex 0;
+}
+
+.command {
+  font-family: monospace;
+  white-space: pre;
+  padding-left: 5ex;
+}
+
+.command:after {
+  content: "\a";
+}
+
+.centred-image {
+  text-align: center;
+}
+
+/*
+  .term_box .term {
+    font-weight: bold;
+    display: inline;
+  }
+
+  .term_box .term:after {
+    content: ",";
+  }
+
+  li .term_box .term:first-child:after {
+    content: none;
+  }
+*/
+
+.phpcode {
+  background-color: #fff;
+  border: solid thin;
+  padding: 1em;
+}
+.phpcode * {
+  white-space: pre;
+  white-space: pre-wrap;
+}
+
+.func-sig {
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+}
+.func-sig .func-param {
+  font-family: serif;
+  font-style: italic;
+  font-weight: normal;
+}
+span.func-sig span.opt-part {
+  font-family: serif;
+  font-style: italic;
+  font-weight: normal;
+}
+span.func-sig span.opt-param-default {
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+}
+
+#mersenne-twister {
+  font-family: serif;
+}
+
+#mersenne-twister #mersenne-stats .indices {
+  width: 5ex;
+}
+
+#mersenne-twister #mersenne-stats {
+  border-collapse: separate;
+  border-spacing: 1em;
+  margin: 1em 0;
+  border: dotted 1px;
+}
+
+.operators {
+  margin-left: 6ex;
+  margin-bottom: 1em;
+}
+
+.operators > .operator {
+  font-weight: 900;
+  font-family: monospace;
+  font-size: larger;
+  margin: 0 3ex;
+}
+
+zzz .extcode { border-right: 1px dotted; }
+
+/*
+#mersenne-twister #mersenne-stats .heading {
+  border-bottom: solid thin;
+}
+
+#mersenne-stats td { border: solid thin }
+*/
+
+body.changewords .contains_text {
+  margin: 1ex;
+  padding: 1ex;
+  border: thin solid;
+  background-color: white;
+  color: black;
+}
+
+body.changewords .highlight_words .word {
+  background-color: red;
+}
+
+body.changewords .highlight_words .word_being_changed {
+  background-color: yellow;
+}
+
+body.changewords .debug {
+  white-space: pre;
+}
+
+dl.sw-list dt {
+  font-size: 142%;
+  font-weight: bold;
+}
+
+.footnote-ref {
+  vertical-align: super;
+}
+
+.footnote-ref-back {
+  text-decoration: none;
+  font-size: smaller;
+  vertical-align: top;
+}
+
+.footnote-ref-back:hover {
+  text-decoration: underline;
+}
+
+.code-display {
+  background-color: white;
+  color: black;
+  margin: 1em 0;
+  border: solid thin black;
+
+  outline: solid thin;
+  outline: none;
+}
+
+.code-display code {
+  margin: 0;
+  display: block;
+  padding: 1ex;
+}
+
+.code-display .code2 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.code-display .output:before {
+  content: 'Output';
+  display: block;
+  font-weight: bold;
+  font-size: 1.6em;
+  font-size: large;
+  margin: 1em 0 1em 0;
+  margin: 1ex 0 1ex 0;
+  margin: 1ex 0;
+}
+
+.code-display .output {
+  margin-top: 1em 0 0 0;
+  padding: 1ex;
+}
+
+.code-display .output .code_line:before {
+  content: "\0025B6  ";
+  display: block;
+  display: inline;
+  position: absolute;
+  position: static;
+  left: auto;
+  color: black;
+  color: lime;
+  color: green;
+  color: red;
+  background-color: white;
+}
+
+      </style>
+    
+    
+	<style type='text/css'>
+	  body:before {
+	    content: '[rewritten to .tpl]';
+	    font-style: italic;
+	    display: block;
+	    position: absolute;
+	    right: 1em;
+	  }
+	</style>
+      
+  </head>
+    <body class="mersenne-twister">
+    <div class="wrapper">
+      <div class="container1">
+	<div class="container2">
+	  <div class="navbar">
+	    	    <a href="/">Home</a>
+	    <a href="/contact.html">Contact</a>
+	    <div style="clear: both"></div>
+	  </div>
+
+	  <div class="content">
+	    <h1>The Mersenne Twister, in PHP</h1>
+
+<h2>Introduction</h2>
+
+<p>
+  This page describes a
+  pure-PHP implementation of the Mersenne Twister,
+  in the public domain and available
+  for download in <a href="/archives/mersenne_twister-1.1.0.tar.gz">tgz</a> and <a href="/archives/mersenne_twister-1.1.0.zip">zip</a>
+  formats.  It uses namespaces, and therefore requires PHP 5.3.0 at least.
+
+<p>
+  The current version of the software is 1.1.0.
+
+<h2>Example</h2>
+
+<div class="phpcode">
+  <code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once </span><span style="color: #DD0000">"mersenne_twister.php"</span><span style="color: #007700">;<br /><br />use </span><span style="color: #0000BB">mersenne_twister</span><span style="color: #007700">\</span><span style="color: #0000BB">twister</span><span style="color: #007700">;<br /><br /></span><span style="color: #000">#--------------------------------------------<br /><br /></span><span style="color: #0000BB">$twister1 </span><span style="color: #007700">= new </span><span style="color: #0000BB">twister</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$twister2 </span><span style="color: #007700">= new </span><span style="color: #0000BB">twister</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br /></span><span style="color: #000">/*<br />  42 is a seed for initialising<br />  the random-number generator.<br />*/<br /><br /></span><span style="color: #007700">for(</span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">10</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++)<br />  </span><span style="color: #000"># int32 returns a random 32-bit integer<br />  </span><span style="color: #007700">if(</span><span style="color: #0000BB">$twister1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">int32</span><span style="color: #007700">() !== </span><span style="color: #0000BB">$twister2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">int32</span><span style="color: #007700">())<br />    print </span><span style="color: #DD0000">"They're different -- " </span><span style="color: #007700">.<br />      </span><span style="color: #DD0000">"this is not supposed to happen!\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #000">#--------------------------------------------<br /><br /></span><span style="color: #0000BB">$num_iters </span><span style="color: #007700">= </span><span style="color: #0000BB">1000</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$twister3 </span><span style="color: #007700">= new </span><span style="color: #0000BB">twister</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$saved </span><span style="color: #007700">= </span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$twister3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sum </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />for(</span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">$num_iters</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++)<br />  </span><span style="color: #0000BB">$sum </span><span style="color: #007700">+= </span><span style="color: #0000BB">$twister3</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rangereal_halfopen</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">);<br />  </span><span style="color: #000">/*<br />    the call to rangereal_halfopen produces a<br />    floating-point number &gt;= 10 and &lt; 20<br />  */<br /><br /></span><span style="color: #007700">print </span><span style="color: #DD0000">"This is the average, " </span><span style="color: #007700">.<br />  </span><span style="color: #DD0000">"which should be about 15: " </span><span style="color: #007700">.<br />  (</span><span style="color: #0000BB">$sum </span><span style="color: #007700">/ </span><span style="color: #0000BB">$num_iters</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$twister3 </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$saved</span><span style="color: #007700">);<br /><br /></span><span style="color: #000"># run the loop again<br />#<br /></span><span style="color: #0000BB">$sum </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />for(</span><span style="color: #0000BB">$i </span><span style="color: #007700">= </span><span style="color: #0000BB">0</span><span style="color: #007700">; </span><span style="color: #0000BB">$i </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">$num_iters</span><span style="color: #007700">; </span><span style="color: #0000BB">$i</span><span style="color: #007700">++)<br />  </span><span style="color: #0000BB">$sum </span><span style="color: #007700">+= </span><span style="color: #0000BB">$twister3</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rangereal_halfopen</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /><br />print </span><span style="color: #DD0000">"This is the average again, " </span><span style="color: #007700">.<br />  </span><span style="color: #DD0000">"which should be the same as before: " </span><span style="color: #007700">.<br />  (</span><span style="color: #0000BB">$sum </span><span style="color: #007700">/ </span><span style="color: #0000BB">$num_iters</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #000">#--------------------------------------------<br /><br /></span><span style="color: #0000BB">$twister4 </span><span style="color: #007700">= new </span><span style="color: #0000BB">twister</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$twister4</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">init_with_file</span><span style="color: #007700">(</span><span style="color: #DD0000">"/dev/urandom"</span><span style="color: #007700">, </span><span style="color: #0000BB">twister</span><span style="color: #007700">::</span><span style="color: #0000BB">N</span><span style="color: #007700">);<br /></span><span style="color: #000">/*<br />  This reads characters from /dev/urandom and<br />  uses them to initialise the random number<br />  generator.<br /><br />  The second argument is multiplied by 4 and<br />  then used as an upper bound on the number of<br />  characters to read.<br />*/<br /><br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">$twister4</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rangeint</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">, </span><span style="color: #0000BB">6</span><span style="color: #007700">) == </span><span style="color: #0000BB">6</span><span style="color: #007700">)<br />  print </span><span style="color: #DD0000">"You've won -- congratulations!\n"</span><span style="color: #007700">;<br /></span>
+</span>
+</code></div>
+
+<h2>API</h2>
+
+<p>
+  The software resides in a single file, called
+  <tt>mersenne_twister.php</tt>, which
+  should be loaded with <tt>require_once</tt> or <tt>include_once</tt>.
+  Everything in this file is defined in a namespace called
+  <tt>mersenne_twister</tt>.
+
+<p>
+  Among the things defined is 
+  a class called <tt>twister</tt>, which constitutes the API;
+  apart from this class, everything 
+  else in the namespace should be considered private.
+
+<p>
+  The following are the methods of <tt>twister</tt>.
+
+<dl>
+  <dt><span class='func-sig'>__construct()</span>
+
+  <dd>
+    <p>
+      Does nothing if it receives no arguments.
+    <p>
+      If it receives exactly one argument,
+      it behaves like <tt>init_with_integer</tt>.
+      In other words, the single line 
+	<div class='code2'>
+<div class='code_line'>$twister = new twister(42);</div>
+</div>
+
+      is functionally identical to
+	<div class='code2'>
+<div class='code_line'>$twister = new twister;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(42);</div>
+</div>
+
+
+  <dt><span class='func-sig'>init_with_integer(<span class=func-param>$integer_seed</span>)</span>
+
+  <dd>
+    <p>
+      Uses <i>$integer_seed</i> to initialise the random number generator.
+    <p>
+      It is not necessary for <tt>is_integer($integer_seed)</tt> to be
+      true, because <tt>init_with_integer</tt> will
+      call a function named <tt>force_32_bit_int</tt>, which
+      will do its utmost to
+      obtain a 32-bit unsigned integer from <i>$integer_seed</i>.
+      For example, any of these calls will do something
+      sensible:
+	<div class='code2'>
+<div class='code_line'>$twister-&gt;init_with_integer(12.34);</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(&quot;42&quot;);</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(&quot;-42&quot;);</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(pow(2, 40));</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(-pow(2, 40));</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>$twister-&gt;init_with_integer(1 &lt;&lt; 40 | 1);</div>
+<div class='code_line'>/*</div>
+<div class='code_line'>  intended for a 64-bit machine; it's not</div>
+<div class='code_line'>  clear what meaning it has on a 32-bit machine.</div>
+<div class='code_line'>*/</div>
+</div>
+
+
+    <p>
+      <tt>force_32_bit_int</tt> is not part of the API, and is
+      mentioned here only to make the exposition clearer.
+
+  <dt><span class='func-sig'>init_with_array(<span class=func-param>$integer_array</span>)</span>
+
+  <dd>
+    <p>
+      The elements of <i>$integer_array</i> are processed
+      with <tt>force_32_bit_int</tt> and then used to initialise
+      the random number generator.
+    <p>
+      The running time of this function is asymptotically
+      linear in <tt>count($integer_array)</tt>.
+      However, all integer arrays whose length is less than or
+      equal to <tt>twister::N</tt> should have
+      the same running time.
+      (<tt>twister::N</tt> has the value 624.)
+    <p>
+      The internal state of
+      a newly-seeded <tt>twister</tt> object is represented
+      by 624 PHP integers.
+      This means that
+      if <i>$integer_array</i> is randomly chosen, and its
+      entropy is as large as possible, then there is no point in having
+      <tt>count($integer_array)</tt> be greater than
+      624.
+        <p>
+      These remarks apply, <i>mutatis mutandis</i>,
+      to the next
+      three methods (<tt>init_with_string</tt>,
+      <tt>init_with_files</tt>, <tt>init_with_file</tt>), all of which are
+      merely wrappers for <tt>init_with_array</tt>.
+
+  <dt><span class='func-sig'>init_with_string(<span class=func-param>$string</span>)</span>
+
+  <dd>
+    <p>
+      <i>$string</i> is broken up into 4-byte fragments, which are then
+      converted to integers and passed to <tt>init_with_array</tt>.
+    <p>
+      If the length of <i>$string</i> is not divisible by 4,
+      we begin by padding it at the end with zero bytes.
+    <p>
+      The algorithm for 
+      converting a fragment to a string could be implemented
+      as follows:
+      <div class='code2'>
+<div class='code_line'>function convert($fragment) {</div>
+<div class='code_line'>  assert(strlen($fragment) == 4);</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>  $result = 0;</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>  for($i = 0; $i &lt; 4; $i++) {</div>
+<div class='code_line'>    $result &lt;&lt;= 8;</div>
+<div class='code_line'>    $result |= ord(substr($fragment, $i, 1));</div>
+<div class='code_line'>  }</div>
+<div class='code_line'>&nbsp;</div>
+<div class='code_line'>  return $result;</div>
+<div class='code_line'>}</div>
+</div>
+
+
+    <p>
+      However, we use <tt>unpack</tt>, since it's faster.
+
+  <dt><span class='func-sig'>init_with_files(<span class=func-param>$files</span>)</span>
+
+  <dd>
+    <p>
+      The contents of the files
+      are concatenated and the resulting
+      string is then passed to <tt>init_with_string</tt>.
+    <p>
+      This method has an optional second argument.  If
+      supplied, it is multiplied
+      by 4 (because there are 4 bytes in a 32-bit integer)
+      to give an upper bound on the length of
+      the generated string.  It also causes the method to process
+      only as many files as it needs to,
+      and read only as many bytes as are necessary.
+
+  <dt><span class='func-sig'>init_with_file(<span class=func-param>$file</span>)</span>
+
+  <dd>
+    <p>
+      The contents of <i>$file</i>
+      are read and the resulting
+      string is then passed to <tt>init_with_string</tt>.
+    <p>
+      This method has an optional second argument; if
+      supplied, it is multiplied by 4 to give
+      an upper bound on the number of bytes
+      read from <i>$file</i>.
+
+  <dt><span class='func-sig'>int32()</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random 32-bit integer.
+      On a 32-bit machine, the return value may be
+      negative;
+      on a 64-bit machine it will always be positive.
+
+  <dt><span class='func-sig'>int31()</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random 31-bit integer
+      (which must be positive, of course).
+
+  <dt><span class='func-sig'>real_closed()</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random quantity <i>x</i>, of type <tt>float</tt>,
+      such that <i>0&nbsp;&le;&nbsp;x&nbsp;&le;&nbsp;1</i>.
+
+  <dt><span class='func-sig'>real_open()</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random quantity <i>x</i>, of type <tt>float</tt>,
+      such that <i>0&nbsp;&lt;&nbsp;x&nbsp;&lt;&nbsp;1</i>.
+
+  <dt><span class='func-sig'>real_halfopen()</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random quantity <i>x</i>, of type <tt>float</tt>,
+      such that <i>0&nbsp;&le;&nbsp;x&nbsp;&lt;&nbsp;1</i>.
+    <p>
+      (Mathematicians speak of intervals as being 
+      <i>closed</i>,
+      <i>open</i>,
+      or
+      <i>half-open</i>, hence the names of the
+      preceding 3 functions.
+      See MathWorld for an
+      <a href="http://mathworld.wolfram.com/ClosedInterval.html">explanation</a>.)
+
+  <dt><span class='func-sig'>real_halfopen2()</span>
+
+  <dd>
+    <p>
+      The same as real_halfopen, except that the number returned has
+      53-bit resolution.
+
+  <dt><span class='func-sig'>rangeint(<span class=func-param>$lower_bound</span>, <span class=func-param>$upper_bound</span>)</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random integer drawn from the range
+      defined by <i>$lower_bound</i> and <i>$upper_bound</i>,
+      with each integer in the range having an equal probability
+      of being chosen.
+    <p>
+      The worst-case running time of this function is unbounded,
+      because <tt>rangeint</tt> calls <tt>int32</tt> an indefinite number of times.
+      However, even with the most
+      unfavourable range possible, the expected number of calls
+      is 2 on a 32-bit machine, and 3 otherwise,
+      where the word &lsquo;expected&rsquo; is used in the
+      sense which it has in statistics.
+          <p>
+      Note that rangeint begins with the following code:
+      <div class='code2'>
+<div class='code_line'>$lower_bound = intval($lower_bound);</div>
+<div class='code_line'>$upper_bound = intval($upper_bound);</div>
+</div>
+
+      This means that
+      a programmer who writes either of the following two lines
+      (for a 32-bit machine)
+      is probably making a mistake:
+      <div class='code2'>
+<div class='code_line'>$twister-&gt;rangeint(-pow(2, 40), pow(2, 40))</div>
+<div class='code_line'>$twister-&gt;rangeint(pow(2, 40), pow(2, 40) + 10)</div>
+</div>
+
+
+  <dt><span class='func-sig'>rangereal_open(<span class=func-param>$lower_bound</span>, <span class=func-param>$upper_bound</span>)</span>
+
+
+  <dd>
+    <p>
+      Returns a pseudo-random number, of type <tt>float</tt>, such
+      that the following is guaranteed to be true:
+
+      
+      <div class='code2'>
+<div class='code_line'>$lower_bound &lt; ($x = $twister-&gt;rangereal_open ($lower_bound, $upper_bound)) &amp;&amp; $x &lt; $upper_bound</div>
+</div>
+
+
+    <p>
+      The number generated is uniformly distributed over
+      the specified range (or rather, as uniformly as is
+      permitted by the finite resolution of PHP's <tt>float</tt>
+      type.)
+
+  <dt><span class='func-sig'>rangereal_halfopen(<span class=func-param>$lower_bound</span>, <span class=func-param>$upper_bound</span>)</span>
+
+  <dd>
+    <p>
+      Returns a pseudo-random number, of type <tt>float</tt>, such
+      that the following is guaranteed to be true:
+
+      <div class='code2'>
+<div class='code_line'>$lower_bound &lt;= ($x = $twister-&gt;rangereal_open ($lower_bound, $upper_bound)) &amp;&amp; $x &lt; $upper_bound</div>
+</div>
+
+
+    <p>
+      The number generated is uniformly distributed over
+      the specified range (or rather, as uniformly as is
+      permitted by the finite resolution of PHP's <tt>float</tt>
+      type.)
+
+    <p>
+      Informally: this is just like <tt>rangereal_open</tt>
+      except that <i>$lower_bound</i> is a possible return value.
+
+  <dt><span class='func-sig'>rangereal_halfopen2(<span class=func-param>$lower_bound</span>, <span class=func-param>$upper_bound</span>)</span>
+
+  <dd>
+    <p>
+      The same as <tt>rangereal_halfopen</tt>, except that
+      its resolution will be higher.
+      The price to pay for this higher resolution
+      is higher CPU usage.
+
+      <div style="border: dashed 1px; padding: 0 1em;
+	margin: 1em 0; font-style: italic">
+
+	<p>
+	  In fact, it is possible to conjure up values
+	  of <span style='font-style: normal'>$lower_bound</span> and <span style='font-style: normal'>$upper_bound</span>
+	  for which
+	  the resolution is no higher than for
+	  <span style='font-style: normal'><tt>rangereal_halfopen</tt></span>, but I would expect that
+	  these are unlikely to arise for most users
+	  of this software.
+	  
+	<p>
+	  Note that,
+	  even where <span style='font-style: normal'><tt>rangereal_halfopen2</tt></span> has a higher resolution
+	  than <span style='font-style: normal'><tt>rangereal_halfopen</tt></span>, no guarantees are made about
+	  its size.  In particular, it is not guaranteed to be 53 bits.
+      </div>
+
+  <dt><span class='func-sig'>test()</span>
+
+  <dd>
+    <p>
+      Performs a comprehensive test of <tt>int32</tt> and <tt>real_halfopen</tt>.
+      Prints a brief message if the test failed;
+      otherwise, does nothing.
+</dl>
+
+<h2>Benchmarks</h2>
+
+The table below displays the time, in seconds, taken by various
+operations.
+The performance may seem very poor, but bear in mind
+that these figures were obtained on a desktop PC
+which was purchased in May
+<span style="font-family: sans-serif">2006</span>.
+Its CPU is an Intel Celeron 2.66GHz,
+having an L2 cache of 256KB.
+
+
+<table id=mersenne-stats>
+  <tr>
+    <th colspan=2><span class=heading>Initialisation</span>
+  <tr>
+    <th>Operation <th>Running time
+  <tr>
+    <td><tt>init_with_integer</tt>
+    <td>0.00839
+  <tr>
+    <td><tt>init_with_array</tt>, where the array has 624 elements
+    <td>0.0300
+  <tr>
+    <td>
+      <tt>init_with_array</tt>,
+      where the array has 2 &times; 624 = 1248 elements
+    <td>0.0430
+  <tr>
+    <th colspan=2><span class=heading>Generation</span>
+  <tr>
+    <th>Operation <th>Running time
+  <tr>
+    <td><tt>int32</tt>
+    <td>0.00000832
+  <tr>
+    <td><tt>rangeint(1, 100)</tt>
+    <td>0.0000262
+  <tr>
+    <td><tt>rangeint(1, 1000000)</tt>
+    <td>0.0000258
+</table>
+
+<h2>Assumptions</h2>
+
+<p>
+  The software makes some assumptions about 
+  how numbers are represented.
+  They almost certainly hold on your machine,
+  and are mentioned here only for
+  completeness.  The assumptions are:
+
+<p>
+  <ul>
+    <li>
+      PHP integers are 32 or 64 bits wide, and
+      are represented using
+      <a href="http://en.wikipedia.org/wiki/Two_complement">two's-complement arithmetic</a>;
+    <li>
+      Floating-point arithmetic conforms to
+      <a href="http://en.wikipedia.org/wiki/IEEE754">IEEE 754</a>.
+  </ul>
+
+<p>
+  In fact, the second requirement could be weakened considerably;
+  it is likely that any modern floating-point implementation
+  would work.
+	  </div>
+	</div>
+      </div>
+
+      <div class="push"></div>
+    </div>
+
+    <div class="footer">
+      <div class="container1">
+	<div class="container2">
+	  <div class=lastmod>
+	    <span class=description>Page last modified:</span>
+	    2011-04-22	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>

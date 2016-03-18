@@ -1,0 +1,59 @@
+<script id="advisorhome-template" type="text/x-handlebars-template">   
+	<!-- advisor -->
+	
+	<div id='search-result-area'>
+	<div id="valid" style="display:none;"><p id="searchFound"><!--Hey, we have found the advisors registered in your state. To get other state advisors <a id="showAdvisors" style="cursor:pointer;">Click Here.</a>-->
+    This is great news!  The below advisors are registered in your state and may be able to help you.
+    </p>
+	</div>
+	<div id="notFound">
+	{{#each this}}
+	
+			<div class="advisorBox viewprofile" id={{advisorhash}} title="View {{firstname}} {{lastname}} profile" >
+				<div class="myAdvisorCol1" style="padding-top:8px;">
+					<img  src="{{profilepic}}" style="width:103px;height:103px;" alt="advisor">
+					<div class="clearOnly"></div>
+				</div>
+				<div class="myAdvisorCol2">
+					<span class="advisorName">{{firstname}} {{lastname}}</span>
+					<br>
+					<span class="advisorPaleText">{{designationverify}}</span>
+					<div>
+						<div class="floatL advisorStatusTxt"><strong>Firm:</strong>
+							<span class="advisorPaleText">
+								{{firmname}}
+							</span>
+							<br><strong>Status:</strong>
+							{{#ifeq connectionstatus null}}
+								<span class="advisorPaleText">Not Connected</span>
+							{{/ifeq}}
+							{{#ifeq connectionstatus "YES"}}
+								<span class="advisorPaleText"> Connected </span>
+							{{/ifeq}}
+							{{#ifeq connectionstatus "NO"}}
+							<span class="advisorPaleText">You have requested a connection to advisor {{firstname}}  {{lastname}} </span>{{/ifeq}}
+							<br><strong>Products and Services:</strong>
+							<span class="advisorPaleText">{{advpns}}</span>
+						</div>
+					</div>
+					<div class="advisorStatusVSpace"></div>
+					<div class="clearOnly"></div>
+				</div>		                                                                                   
+			    <div class="clearOnly "></div>
+			</div>
+		
+		{{/each}}                                                                                    
+		<div class="clearOnly twentypx"></div>
+		<div class="center">
+			<div class="seeMore center pagination_btns">
+				<div id="more-result" class="msdwn paginationbtn center recButton">See&nbsp;More&nbsp;Advisors</div>
+			</div>
+			<div class="seeMore center pagination_btns">
+				<div id="less-result" class="msdwn center recButton">See&nbsp;Fewer&nbsp;Advisors</div>
+			</div>
+			</div>
+		<div class="clearOnly"></div>
+	</div>
+	</div>
+	<div class="clearOnly twentypx"></div>
+</script>

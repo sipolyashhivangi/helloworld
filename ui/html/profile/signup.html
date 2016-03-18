@@ -1,0 +1,111 @@
+<script id="signup-template" type="text/x-handlebars-template">
+<form class="form-horizontal">
+    <div class="signupTitleArea">
+        <h1 id="signupTitle">Create Your Free Account</h1>
+        <p style="margin:1em 0;">FlexScore is safe, free, and fun. We'll help you get your assets in gear and find the financial freedom you always wanted.</p>
+        <div id="signupbrowsercheck" style="display: none;">
+            <p style="margin:1em 0; color:#ff4444; font-weight:bold;" >To get the most out of FlexScore.com, we recommend that you use the latest version of your browser, otherwise some features might not work or display properly.</p>
+        </div>
+        <p>
+            <span></span>
+        </p>
+    </div>
+    <div class="clearOnly">&nbsp;
+    </div>
+    <div class="login-sign-up" id="emailDiv">
+        <label class="signupFormLabel control-label" for="inputEmail"><strong>Email Address</strong>
+        </label>
+        <div id="emaildiv" class="controls">
+                <input type="text" id="email" placeholder="Email">
+                <div id="emailTick" class="login-sign-up-tick">
+                    <img src="./ui/images/green-tick-mark.png" title="Email Addresses Matched" width="20" height"20">
+                </div>
+            <!-- error tooltip -->
+            <div id="emailbubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="emailerror">Invalid Email Address</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+            <!-- end error tooltip -->
+        </div>
+    </div>
+    <div class="login-sign-up" id="email2Div">
+        <label class="signupFormLabel control-label" for="inputEmail2"><strong>Confirm Email Address</strong>
+        </label>
+        <div id="email2div" class="controls">
+            <input type="text" id="email2" placeholder="Email">
+            <div id="email2Tick" class="login-sign-up-tick">
+                <img src="./ui/images/green-tick-mark.png" title="Email Addresses Matched" width="20" height"20">
+            </div>
+            <!-- error tooltip -->
+            <div id="email2bubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="email2error">Invalid Email Address</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+            <!-- end error tooltip -->
+        </div>
+        <div class="controls" style="padding-top: 5px; font-size:13px;">
+            It is important that you have a valid email address in order to use FlexScore.
+        </div>
+    </div>
+    <div class="login-sign-up" id="password1Div">
+        <label class="signupFormLabel control-label" for="inputPassword1"><strong>Password</strong>
+        </label>
+        <div id="password1div" class="controls">
+            <input type="password" id="password1" placeholder="Password">
+            <div id="password1bubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="password1error"></p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-sign-up" id="password2Div">
+        <label class="signupFormLabel control-label" for="inputPassword2"><strong>Confirm Password</strong>
+        </label>
+        <div class="controls">
+            <input type="password" id="password2" placeholder="Password">
+        </div>
+        <div class="control-group" style="padding: 5px 20px 0px 180px; font-size:13px;">
+           Passwords must be at least eight characters in length with no spaces and include at least one uppercase letter, lowercase letter, symbol, and number.
+        </div>
+    </div>
+    <div class="control-group">
+        <div id="termscheckdiv" class="controls" style="">
+            <div class="floatL" style="padding: 2px 0px 0px">
+                <input id="termscheck" type="checkbox" style="width:15px;height:15px">
+            </div>
+            <div class="floatL" style="padding-top:2px;padding-left:5px;width:90%">
+                I have read and agree to the
+                <a href="./terms" target="_blank">Terms of Use</a> and
+                <a href="./privacy" target="_blank">Privacy Policy</a>.
+            </div>
+            <div class="clearOnly">
+            </div>
+            <div id="termscheckbubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="termscheckerror">You must accept the Terms of Use and Privacy Policy.</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+            <div class="clearOnly">&nbsp;
+            </div>
+            <label class="checkbox">
+            </label>
+        </div>
+        <div class="controls" id="submitSignupDiv">
+            <button id="signup" type="submit" class="simpleGreenCTAButton" style="">Create Account
+            </button>&nbsp;&nbsp;&nbsp;
+            <a class="cancelPopup" href="#"><strong>Cancel</strong></a>
+        </div>
+    </div>
+</form>
+</script>

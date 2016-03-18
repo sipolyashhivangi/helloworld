@@ -1,0 +1,266 @@
+<script id="lpostview-template" type="text/x-handlebars-template">
+    <div class="navSpacer">&nbsp;</div>
+    <div class="container">
+        <div id="singlePostRead">
+            <div class="row">
+                <div class="span9 round {{#if article}}lightGray smallGlow{{/if}} {{#compare searchurl "search" operator="=="}}floatR{{/compare}}">
+                    <!-- right column -->
+                    
+                    <div class="{{#if article}}articleContent{{/if}}" id="idArticleContent">
+                        {{#article}}
+                            <p><a href="{{category_type}}/{{categoryslug}}">{{categoryname}}</a></p>
+                            <h1 class="smallerHeader">{{post_title}}</h1>
+                            <div class="clearEverything">&nbsp;</div>
+                            {{#files}}
+                                {{#images}}
+                                {{#if link}}
+                                    <div>
+                                        <img alt="" src="{{link}}">
+                                    </div>
+                                    <br>
+                                {{/if}}
+                                {{/images}}
+                                {{#videos}}
+                                {{#if link}}
+                                    <div>
+                                        <video poster={{link}} width="100%" controls autoplay>
+                                        <source src="{{link}}" type="video/{{ext}}">
+                                        Your browser does not support the video tag.
+                                        </video>                                                                       
+                                    </div>
+                                    <br>
+                                {{/if}}
+                                {{/videos}}
+                                {{#youtube}}
+                                {{#if link}}
+                                    <div class="videoContainer">
+                                        <iframe {{#if showSandbox}}sandbox="allow-scripts allow-same-origin"{{/if}} width="560" height="315" src="{{{protocol}}}://www.youtube.com/embed/{{link}}?autoplay=1&amp;rel=0&amp;autohide=1&amp;wmode=transparent&amp;showinfo=0{{#if showSandbox}}&amp;html5=1{{/if}}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <br>
+                                {{/if}}
+                                {{/youtube}}
+                            {{/files}}
+                            
+                            <div class="floatR" id="shareDiv"></div>
+                            <div class="clearEverything">&nbsp;</div>
+                            <div class="entry-content">
+                                {{{post_content}}}
+                            </div>
+                            {{#if relatedarticle}}
+                            <div class="clearEverything">&nbsp;</div>
+                            <p class="regBold">Related Articles</p>
+                            <ul class="grnList">
+                                 {{#relatedarticle}}
+                                 <li><a href="{{post_url}}/{{post_name}}">{{post_title}}</a></li>
+                                 {{/relatedarticle}}
+                             </ul>
+                             {{/if}}
+                             {{#compare category_type "category" operator="=="}}
+                                                                           
+                                                                           {{#if video}}
+                                                                            <br/>
+                
+                    <p class="regBold">Disclaimer</p>
+                    <p style="text-align:justify">
+                     Videos were produced by FlexScore and are for educational purposes. The information contained in videos is not intended to be and does not constitute financial advice, investment advice, legal advice, tax advice, or any other advice. Content is provided solely to educate and entertain and is meant to be generic in nature.</p>
+                                                                         
+                                                                                    
+                 {{else}}
+                  <br/>
+                                                                           
+                                                                               <p class="regBold">Disclaimer</p>
+                                                                               <p style="text-align:justify">The information presented here is not specific to any individual's personal circumstances and is meant to be educational in nature. To  the extent that this material concerns tax or legal matters, it is not intended or written to be used, and cannot be used, by a person for the purpose of avoiding taxes or penalties that may be imposed by law, or by a person to evade any other law. You should seek independent advice from a tax or legal professional based on your individual circumstances.  These materials are provided for general information and educational purposes based upon publicly available information from sources believed to be reliable&mdash;we cannot assure the accuracy or completeness of these materials. The information in these materials may change at any time and without notice.
+
+                                                                                   Prepared by Broadridge Investor Communication Solutions, Inc. Copyright 2015. </p> 
+                 {{/if}}
+                 {{/compare}}
+                         {{/article}}
+                    </div>
+                </div>
+                <div class="clearOnly visible-phone twentypx">&nbsp;</div>                     
+                <div class="floatL" {{#if blogaction}}style="width:150px"{{/if}}>
+					<div class="span3 round lightGray smallGlow" {{#if blogaction}}style="width:220px"{{/if}}><!-- left column -->
+						<div class="articleNavls">
+							<div class="control-group">
+								<div class="controls">
+									<div class="input-append">
+										<input class="span2" id="search" type="text" placeholder="Search"{{#if blogaction}}style="width:150px"{{/if}} >
+										<span class="add-on searchBtnPost" id="{{searchurl}}-link"><img alt="" src="./ui/images/icon_search.png" id="{{searchurl}}-image"></span>
+									</div>
+								</div>
+							</div>
+							<span class="articleNavHdr">Topics</span>
+							<ul>
+								{{#categories}}
+								<li id="{{categoryId}}CategoryListActive" class="articleNavOn hdn">
+									{{categoryName}}
+								</li>
+								<li id="{{categoryId}}CategoryListInActive"  class="articleNavOff">
+									<a href="{{baseUrl}}/{{post_url}}/{{categorySlug}}" class="lcTopicsLink clickCatPost" id="{{categoryId}}CategoryLink">{{categoryName}}</a>
+								</li>
+								{{/categories}}
+							</ul>
+							{{#if blogaction}}
+							<div class="clearEverything">&nbsp;</div>
+							<!--- Share Buttons-->
+							<h3>Connect With Us</h3>
+							<div style="width:85%">
+								<div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:5px">
+									<a target="_blank" href="https://facebook.com/flexscore" class="facebookPage">
+										<img width="32" alt="FlexScore Facebook Page" src="./ui/images/facebook.png" title="Check out our Facebook Page" style="width:32px;">
+									</a>
+								</div>
+								<div class="floatL" style="padding-left:5px;padding-right:5px">
+									<a target="_blank" href="https://twitter.com/flexscore" class="twitterPage">
+										<img width="50" alt="FlexScore Twitter Page" src="./ui/images/twitter.png" title="Check out our Twitter Page" style="width:50px;">
+									</a>
+								</div>
+								<div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:5px">
+									<a target="_blank" href="https://plus.google.com/105392538218647163512" class="googleplusPage">
+										<img width="32" alt="FlexScore Google+ Page" src="./ui/images/googleplus.jpg" title="Check out our Google+ Page" style="width:32px;">
+									</a>
+								</div>
+								<div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:15px">
+									<a target="_blank" href="https://youtube.com/flexscoretv" class="youtubePage">
+										<img width="32" alt="FlexScore YouTube Channel" src="./ui/images/youtube.png" title="Check out our YouTube Channel" style="width:32px;">
+									</a>
+								</div>
+								<div class="floatL" style="padding-top:10px;padding-left:5px;padding-right:10px">
+									<a target="_blank" href="https://pinterest.com/flexscore" class="pinterestPage">
+										<img width="35" alt="FlexScore Pinterest Page" src="./ui/images/pinterest.png" title="Check out our Pinterest Page" style="width:35px;">
+									</a>
+								</div>
+								<div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:0px">
+									<a target="_blank" href="http://www.linkedin.com/company/3066612" class="linkedinPage">
+										<img width="35" alt="FlexScore LinkedIn Page" src="./ui/images/linkedin.png" title="Check out our LinkedIn Page" style="width:35px;">
+									</a>
+								</div>
+								<div class="clearEverything" style="padding-top:25px"></div>
+							</div>
+							<!--Add Recommended Articles-->                            
+							{{#if recoposts}}
+								<h3 style="line-height:25px">Recommended&nbsp;Reading</h3>
+								<ul class="recomList" style="padding-left:0px;">
+								{{#recoposts}}
+								<li class="item"> 	                           
+									<a href="{{post_url}}/{{post_name}}">{{post_title}}</a>
+									<a href="category/{{categoryslug}}" style="font-size:0.8em;color:#3E3E3E">{{categoryname}} / {{posted_date}}</a>
+								</li>
+								{{/recoposts}}
+								</ul>
+								<div style="padding-bottom:10px"></div>
+							{{/if}}                            
+							<!--Recommended Articles End-->                                                        
+				            {{/if}}
+						</div>
+					</div>                
+					<div class="clearEverything">&nbsp;</div>
+					{{#compare checklogin "not_loggedin" operator="=="}}
+					<!---purple signup for blog-->              
+					<button type="button" class="lsPillBtnGreen btn btn-success signupPopup" id="signupPopupButton" style="display:none">&nbsp;See your FlexScore Now: Sign Up for Free&nbsp;</button>  
+					<div id="signupbox" class="span3 round" style="position: relative;height:330px;width:220px">
+						<div style="text-align: center; width: 100%">               
+							<h3 style="font-size:1.20em;color:#FFFFFF">Create Your Free Account</h3>
+							<div id="bottomSignUpDiv" style="text-align: center; width: 100%; margin: 0 auto; margin-top:-10px">   
+							</div>          
+						</div>      
+					</div>                     
+					<!--end purple signup for blog-->
+					{{/compare}}  
+				</div>
+			</div>
+	    </div>            
+        <div class="clearEverything">&nbsp;</div>
+        
+        {{#compare searchurl "search" operator="=="}}       
+        <div class="vSpace">&nbsp;</div>
+        <div class="row-fluid">                                                                
+            <div class="span12 roundTop smallGlow whiteBg">                                                                          
+                <div class="span12 roundTop smallGlow whiteBg">                                                                                           
+                    <div class="sectionHeaderls">                                                                                                                   
+                        <div class="lcGlossary">                                                                                                    
+                            <div class="financialDivls">
+                            <h3>Financial&nbsp;Glossary  </h3>                                                                                                    
+                            </div>                                                                                          
+                        </div>                                                                                          
+                    </div>                                                                           
+                </div>                                                             
+            </div>
+            <div  id="glossaryIndex" class="span12 mediumGray bevelTop roundBottom smallGlow glossaryIndex" style="text-align: center; padding: 10px; padding-bottom: 0; padding-top: 0; margin-left: 0">                                                                                    
+                <br>                                                                                     
+                <span id="numGlossaryInactive" class="articleNavOn hdn"><b>#</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="numGlossaryActive"><a id="#" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/0">#</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="AGlossaryInactive" class="articleNavOn hdn"><b>A</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="AGlossaryActive"><a id="A" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/A">A</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="BGlossaryInactive" class="articleNavOn hdn"><b>B</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="BGlossaryActive"><a id="B" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/B">B</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="CGlossaryInactive" class="articleNavOn hdn"><b>C</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="CGlossaryActive"><a id="C" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/C">C</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="DGlossaryInactive" class="articleNavOn hdn"><b>D</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="DGlossaryActive"><a id="D" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/D">D</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="EGlossaryInactive" class="articleNavOn hdn"><b>E</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="EGlossaryActive"><a id="E" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/E">E</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="FGlossaryInactive" class="articleNavOn hdn"><b>F</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="FGlossaryActive"><a id="F" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/F">F</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="GGlossaryInactive" class="articleNavOn hdn"><b>G</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="GGlossaryActive"><a id="G" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/G">G</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="HGlossaryInactive" class="articleNavOn hdn"><b>H</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="HGlossaryActive"><a id="H" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/H">H</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="IGlossaryInactive" class="articleNavOn hdn"><b>I</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="IGlossaryActive"><a id="I" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/I">I</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="JGlossaryInactive" class="articleNavOn hdn"><b>J</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="JGlossaryActive"><a id="J" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/J">J</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="KGlossaryInactive" class="articleNavOn hdn"><b>K</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="KGlossaryActive"><a id="K" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/K">K</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="LGlossaryInactive" class="articleNavOn hdn"><b>L</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="LGlossaryActive"><a id="L" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/L">L</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="MGlossaryInactive" class="articleNavOn hdn"><b>M</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="MGlossaryActive"><a id="M" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/M">M</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="NGlossaryInactive" class="articleNavOn hdn"><b>N</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="NGlossaryActive"><a id="N" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/N">N</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="OGlossaryInactive" class="articleNavOn hdn"><b>O</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="OGlossaryActive"><a id="O" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/O">O</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="PGlossaryInactive" class="articleNavOn hdn"><b>P</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="PGlossaryActive"><a id="P" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/P">P</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="QGlossaryInactive" class="articleNavOn hdn"><b>Q</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="QGlossaryActive"><a id="Q" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/Q">Q</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="RGlossaryInactive" class="articleNavOn hdn"><b>R</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="RGlossaryActive"><a id="R" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/R">R</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="SGlossaryInactive" class="articleNavOn hdn"><b>S</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="SGlossaryActive"><a id="S" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/S">S</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="TGlossaryInactive" class="articleNavOn hdn"><b>T</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="TGlossaryActive"><a id="T" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/T">T</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="UGlossaryInactive" class="articleNavOn hdn"><b>U</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="UGlossaryActive"><a id="U" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/U">U</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="VGlossaryInactive" class="articleNavOn hdn"><b>V</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="VGlossaryActive"><a id="V" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/V">V</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="WGlossaryInactive" class="articleNavOn hdn"><b>W</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="WGlossaryActive"><a id="W" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/W">W</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="XGlossaryInactive" class="articleNavOn hdn"><b>X</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="XGlossaryActive"><a id="X" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/X">X</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="YGlossaryInactive" class="articleNavOn hdn"><b>Y</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="YGlossaryActive"><a id="Y" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/Y">Y</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="ZGlossaryInactive" class="articleNavOn hdn"><b>Z</b></span>                                                                               
+                <span id="ZGlossaryActive"><a id="Z" class="articleNavOff glossaryPost" href="{{baseUrl}}/glossary/Z">Z</a></span>
+                <br>&nbsp;
+            </div>
+        </div>
+        {{else}}
+            <!-- contact support -->                                                                    
+    <div class="clearEverything">&nbsp;</div>           
+    <div class="row-fluid">                                                                      
+    <div class="span12">                                                                                   
+    <div class="contactSupport allRound">                                                                                                                                                                                                                   
+    <div class="csText floatL">                                                                                                                                                              
+    <span>Need help?                                                                                                                          
+    </span>
+    </div> 
+    <button id="supportLCBtn" type="submit" onclick="javascript:window.location = 'mailto:support@flexscore.com';return false;" class="lsPillBtnGreen btn btn-success">&nbsp;Contact Support&nbsp;</button>             
+    </div>                                                                       
+    </div>                                                           
+    </div>                  
+    </div>
+        {{/compare}}
+	    <div class="vSpace visible-phone">&nbsp;</div>
+    </div>
+</script>

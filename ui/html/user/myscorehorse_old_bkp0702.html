@@ -1,0 +1,46 @@
+<script id="usermyscorehorse-template" type="text/x-handlebars-template">
+    <div class="lightGray roundTop bevelBottom">			        		
+        <div class="sectionHeader">			                      
+            <div class="financialScore">
+                <div class="financialDiv"><h3>My&nbsp;Score</h3>
+                </div>
+            </div>		        		
+        </div>			        	
+    </div>			        	
+    <div class="mediumGray bevelBoth chartWrapper">						    
+        <img id="totalScoreHorseshoe" style="margin-left: 33px; margin-top: 3px" alt="myScoreChart" src="./ui/images/horseshoes/variations/myscore/{{image}}.png">
+        <div class="floatedScore">
+        	{{#if showScoreLinks}}
+				<a id="totalScoreValue" href="#" onclick="javascript:LoadScoreDialog();return false;">{{totalscore}}</a>
+			{{else}}			
+				<span id="totalScoreValue">{{totalscore}}</span>
+        	{{/if}}
+        </div>		        			
+        <div class="clearOnly">&nbsp;
+        </div>			 
+    </div>			        	           
+    <div class="darkGray bevelBoth myScoreTopicDiv">			        		
+        <div class="myScoreTopic">7 day change
+        </div>			        		
+        <div class="myScoreNumber">+18 pts
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>			        	
+    <div class="darkGray bevelBoth myScoreTopicDiv">			        		
+        <div class="myScoreTopic">1 month change
+        </div>			        		
+        <div class="myScoreNumber">+40 pts
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>			        	
+    <div class="darkGray roundBottom bevelTop myScoreTopicDiv">			        		
+        <div class="myScoreTopic">6 month change
+        </div>			        		
+        <div class="myScoreNumber">+157 pts
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>	       	
+</script>

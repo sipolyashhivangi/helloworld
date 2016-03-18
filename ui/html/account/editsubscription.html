@@ -1,0 +1,99 @@
+<script id="subscription-template" type="text/x-handlebars-template">
+
+<form class="comparisonBox row-fluid" id="formCreateSubscription" method="POST" id="payment-form">
+    <div>
+        <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+            <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+            </div>
+            <div class="floatL">
+                <span class="accTitle">Activate Your Account</span>
+            </div>
+            <div class="clearOnly">
+            </div>
+        </div>
+
+        <div style="color:#666" class="subscriptionFormContent">
+            <p style="padding:5px 20px 10px">
+                Welcome to FlexScore Pro Beta - the most innovative financial planning software for advisors.
+                With Pro, you get a client dashboard that allows you to monitor and manage all of your clients
+                using the FlexScore technology. Plus, you’ll be able to receive client referrals through the
+                thousands of FlexScore users on our consumer site.<br><br>To reward you for being one of our Beta users,
+                you will get Early Bird pricing. This means you’ll be charged only 50% of our normal monthly
+                subscription rate of $150/month (just $75/month for Early Birds like you). And the subscription
+                charge will begin in August 2014. It’s free for you to use until then.
+            </p>
+            <p style="padding:5px 20px 10px">
+                Enter your credit card number and other information.  You may log out and come back to this page later.
+            </p>
+            <div class="clearOnly tenpx">&nbsp;</div>
+            <div class="control-group" style="padding:0px 20px 10px">
+
+                <div>
+                    <div class="floatR col560" style="margin-top: 5px">{{email}}</div>
+                    <div class="questionLabelBlack">Email</div>
+                    <div class="clearOnly tenpx">&nbsp;</div>
+                </div>
+                <div id="ccNumdiv" class="controls">
+                    <div class="floatR col560"><input type="text" size="20" id="ccNum" class="ccamount" tabindex="1" maxlength="19"></input></div>
+                    <div class="questionLabelBlack">Card Number</div>
+                    <!-- error tooltip -->
+                    <div id="ccNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="ccNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="cvcNumdiv" class="controls">
+                    <div class="floatR col560"><input type="text" size="4" id="cvcNum" class="ccamount" tabindex="2" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">CVC</div>
+                    <!-- error tooltip -->
+                    <div id="cvcNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="cvcNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="expMonthdiv" class="controls">
+                    <div class="floatR col560">
+                        <input type="text" size="2" id="expMonth" class="ccamount" tabindex="3" maxlength="2" style="width:20px"></input>&nbsp;/&nbsp;<input type="text" size="4" id="expYear" class="ccamount" tabindex="4" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">Expiration (MM/YYYY)</div>
+                    <!-- error tooltip -->
+                    <div id="expMonthbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="expMontherror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="zipCodediv" class="controls">
+                    <div class="floatR col560"><input class="cczip" id="zipCode" type="text" size="10" tabindex="5"></input> </div>
+                    <div class="questionLabelBlack">Zip Code</div>
+                    <div class="clearOnly"></div>
+                </div>
+            </div>
+
+        </div>
+        <div id="subscriptionMessage" style="padding: 10px 20px 10px 20px; text-align: center">&nbsp;{{message}}&nbsp;</div>
+
+        <div class="profileBottomRow roundBottom">
+            <div class="clearEverything">&nbsp;
+            </div>
+            <div style="padding-right: 25px;margin-top:3px" class="floatR">
+                <button class="lsPillBtnGreen btn btn-success hdn" id="subscribeButton" type="submit"  tabindex="6">&nbsp;Submit Payment&nbsp;</button>
+            </div>
+            <div style="padding-left: 20px;">
+                <button class="lsPillBtnGray btn btn-success hdn cancelSubscribe" type="button" style="width: 230px;"  tabindex="5">&nbsp;No thanks, I'll subscribe later&nbsp;</button>
+            <div class="floatR" style="padding-right: 10px;">
+                <button class="lsPillBtnGray btn btn-success hdn closeSubscriptionButton" type="button" style="width: 120px;">&nbsp;Close&nbsp;</button>
+            </div>
+            <div class="clearEverything">&nbsp;</div>
+        </div>
+    </div>
+</form>
+
+</script>

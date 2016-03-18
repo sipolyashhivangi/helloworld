@@ -1,0 +1,122 @@
+<script id="profile-template" type="text/x-handlebars-template">
+    <a class="floatR accX accTopX cancelAdvisorPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble">
+        <div class="floatL accDataboxIcon accDataboxIcon3 titleIconMargin">
+        </div>
+        <div class="floatL">
+          <span class="accTitle">My Advisors
+          </span>
+          <!--<a href="./searchadvisor" alt="">Search Advisor</a>-->
+        </div>
+        <div class="clearOnly">
+        </div>
+    </div>
+  
+	<div class="noadv deleteadvmsg" id="deleteadvmsg" style="display:none; color: #3E3E3E;font-weight: bold;">
+	</div>
+  <form action="#" class="formMyAdvisors">
+    <div class="myAdvisorContent accordion" id="myAdvAccordion" style="margin-bottom:0px">
+        <div class="noadv" id="noadv" style="display:none;">You have no advisor(s) connected to your FlexScore account.</div>
+      <!-- ADVISOR TWO -->
+	  {{#each .}}
+		<div class="advisorBox" id="advisorBox{{advisor_id}}">
+			<div class="myAdvisorCol1">
+				{{#if profilepic}}
+  	  			    <img src="{{profilepic}}" style="height:103px; width:103px;" alt="{{firstname}} {{lastname}}">
+				{{else}}
+				    <img src="./ui/images/advisor_default.png" style="height:103px; width:103px;" alt="{{firstname}} {{lastname}}">
+				{{/if}}
+			  <div class="clearOnly">
+			  </div>
+			</div>
+			<div class="myAdvisorCol2">
+			  <span class="advisorName">
+				<span class="myAdvi"><a href="./advisorprofile?view={{advhash}}">{{#unless firstname}}{{#unless lastname}}Advisor {{currentindex}}{{/unless}}{{/unless}}{{firstname}} {{lastname}}</a></span>
+			  </span>
+			  <br>
+			  <span class="advisorPaleText">
+				{{#each credentials}}
+					  <span class="advisorPaleText">{{designation_name}}<sup>&reg;</sup></span>
+				{{/each}}
+			  </span>
+				<div>
+					<div class="floatL advisorStatusTxt"><strong>Status:</strong> 
+							<span class="advisorPaleText">
+								{{#ifeq status "1"}} Connected {{/ifeq}}
+								{{#ifeq status "0"}} You have requested a connection to advisor {{firstname}}  {{lastname}} {{/ifeq}}
+							</span>
+							<span id="updationMsg" class="drkGrey updationMsg{{advisor_id}}" style="font-weight: bold;">
+							</span>
+					</div>
+					<a href="javascript:void(0);" deleteAdv="{{advisor_id}}" userId="{{user_id}}" class="floatR accX deleteadvisorbyuser deleteadvisorcross{{advisor_id}}">&nbsp;</a>
+				</div>
+			  <div class="clearOnly twentypx">                       
+			  </div>
+			<div class="row-fluid allRound accordion-group allRound{{advisor_id}}">
+				<div data-target="#collapse{{advisor_id}}" advisor="{{advisor_id}}"  data-toggle="collapse" class="accordion-heading collapsed" id="toshowpermission{{advisor_id}}" style="padding: 10px;">
+					<a href="javascript:void(0);" class="accordion-toggle displayInline" style="display: inline !important;" advisor="{{advisor_id}}">
+						<div class="floatL faqArrow" advisor="{{advisor_id}}"></div>
+						<strong class="drkGrey" advisor="{{advisor_id}}">Set Advisor Permissions:</strong>
+					</a>
+					<span class="font-ad-size_blue apStatMsg advper{{advisor_id}}" advisor="{{advisor_id}}" style="color: #5FA439;"></span> 
+				</div>
+				<div style="height:0px" class="permission{{advisor_id}} accordion-body mediumGray roundBottom collapse" id="collapse{{advisor_id}}">
+					<div class="accordion-inner roundBottom" id="advpermission{{advisor_id}}">
+						<input type="radio" id="a2radio1" value="RO" class="rouser advisorPermission{{advisor_id}}" name="advisorPermission{{advisor_id}}" advisorId={{advisor_id}} {{#ifeq permission "RO"}} checked="checked" {{/ifeq}} />&nbsp;
+						<label class="displayInline" advisorId={{advisor_id}}><strong>View Only:</strong> This advisor can view but cannot edit my profile and financial information.                                    
+						</label>					
+						<div class="clearOnly fivepx">                       
+						</div>						                                    
+						<input type="radio" id="a2radio2" value="RW" class="rouser advisorPermission{{advisor_id}}" name="advisorPermission{{advisor_id}}" advisorId={{advisor_id}}  {{#ifeq permission "RW"}} checked="checked" {{/ifeq}} />&nbsp;                                    
+						<label class="displayInline" advisorId={{advisor_id}}><strong>View + Edit:</strong> This advisor can view and edit my profile and financial information.                                    
+						</label>					
+						<div class="clearOnly fivepx">                       
+						</div>						                                    
+						<input type="radio" id="a2radio3" value="N" class="rouser advisorPermission{{advisor_id}}" name="advisorPermission{{advisor_id}}" advisorId={{advisor_id}} {{#ifeq permission "N"}} checked="checked" {{/ifeq}} />&nbsp;                                    
+						<label class="displayInline" advisorId={{advisor_id}}><strong>None:</strong> This advisor cannot view or edit my profile and financial information.                                    
+						</label>
+						<div class="clearOnly tenpx">
+						</div>
+					</div>
+				</div>
+			</div>
+			  <!--delete advisor -->
+				<div id="showConfirmationBox{{advisor_id}}" style="display:none;" class="warning">
+					<span class="padd-all">Are you sure you really want to delete this advisor?</span>
+					<div>
+						<button type="button" class="lsPillBtnGray btn btn-success cancel canceladvdelete{{advisor_id}}" aria-hidden="true" id="canceladvdelete" deleteAdv="{{advisor_id}}" userId="{{user_id}}" >No</button>
+						<button type="button" class="simpleGreenCTAButton cancel deleteusradvisor{{advisor_id}}" aria-hidden="true" id="deleteusradv" value="{{advisor_id}}"  advisorId={{advisor_id}} >Yes</button>
+					</div>
+				</div>
+				<!--delete advisor -->
+				<!--warning message-->
+				<div id="warning{{advisor_id}}" style="display:none;" class="warning">
+					<span class="drkGrey padd-all{{advisor_id}}" style="font-weight: bold;"></span>
+					<div>
+						<button type="button" class="lsPillBtnGray btn btn-success cancelleadupdation{{advisor_id}}" aria-hidden="true" id="cancelleadupdation{{advisor_id}}" advisorId="{{advisor_id}}" userId="{{user_id}}" >No</button>	
+							
+						<button type="button" class="simpleGreenCTAButton cancel myadvisors savepermission leadAdvisor{{advisor_id}}" aria-hidden="true" id="leadAdvisor" value="{{advisor_id}}"  advisorId={{advisor_id}} >Yes</button>
+					</div>
+				</div>
+				<!--warning message-->
+			</div>				                    
+			<div class="clearOnly tenpx">                   
+			</div>			                
+		</div>
+       {{/each}}
+    </div>
+  </form>
+	
+    <div class="profileBottomRow roundBottom">		         
+    	<div class="clearEverything">&nbsp;         
+        </div>		         
+       	<div style="padding-right: 25px;margin-top:3px" class="floatR">    
+          <button class="lsPillBtnGreen btn btn-success nextProfilePopupBox" onclick="window.location='./searchadvisor';" type="button">&nbsp;Search Advisor&nbsp;</button>
+        </div>		         
+        <div class="floatR" style="padding-right: 10px;">						
+        	<button class="lsPillBtnGray btn btn-success cancelAdvisorPopup" type="button" style="width: 130px; margin-top: 3px">&nbsp;I'm Done&nbsp;</button>                 
+        </div>
+        <div class="clearEverything"> &nbsp; </div>
+    </div>
+
+    </script>

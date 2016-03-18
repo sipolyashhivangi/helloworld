@@ -1,0 +1,211 @@
+<script id="goalsretirementgoal-template" type="text/x-handlebars-template">
+<!-- Retirement Goals -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}retirementProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable goalDraggable{{/if}}">
+    <div id="{{id}}retirementAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}retirementCollapseBox">
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}retirementFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}RetirementNameSummary">{{#if id}}{{goalnamesummary}}{{else}}Add Retirement Goal{{/if}}
+                </span>
+                <span id="{{id}}retirementLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>
+            </a>
+        </div>
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}"><span id="{{id}}goalDragretirement" class="goalDrag">&nbsp;</span></div>
+        {{/unless}}
+        <div class="clearOnly"></div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}retirementCollapseBox" style="height: 0px;">
+        <div class="profileDataboxPadding profileDatabox2">
+            <div class="floatL" style="width: 70%;">
+                <p>
+                    <span class="profileEmph">Name for this Goal
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}RetirementInputNameSpan">{{goalnamesummary}}</span>
+                        <input type="hidden" value="{{goalname}}" id="{{id}}RetirementInputName">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName goalName" placeholder="Enter a name" value="{{goalname}}" id="{{id}}RetirementInputName">
+                    {{/unless}}
+                </p>
+                <div class="floatL" style="padding-top:10px;">
+                    <span class="profileEmph">Age at Retirement
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue numberamount" id="{{id}}RetirementAgeSpan">{{retage}}</span>
+                        <input type="hidden" value="{{retage}}" id="{{id}}RetirementAge">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter age" value="{{retage}}" id="{{id}}RetirementAge" class="numberamount">
+                    {{/unless}}
+                </div>
+                <div class="floatL" style="padding-top:10px;padding-left:155px">
+                    <span class="profileEmph">Desired monthly income
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$</span>
+                    {{#if permission}}
+                        <span class="readOnlyValue dollaramount" id="{{id}}RetirementIncomeSpan">{{monthlyincome}}</span>
+                        <input type="hidden" value="{{monthlyincome}}" id="{{id}}RetirementIncome">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{monthlyincome}}" id="{{id}}RetirementIncome" class="dollaramount">
+                    {{/unless}}
+                </div>
+                <div class="clearOnly">
+                </div>
+                <div class="floatL" style="padding-top:25px">
+                    <span class="profileEmph">How much have you saved so far?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}RetirementSavedSpan">{{saved}}</span>
+                        <input type="hidden" id="{{id}}RetirementSaved" value="{{saved}}" />
+                    </div>
+                </div>
+                <div class="floatL" style="padding-top:25px;padding-left:10px">
+                    <span class="profileEmph">How much do you and employer contribute?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets and Income sections and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}RetirementContributionSpan">{{contributions}}</span>
+                        <span class="">per month</span>
+                        <input type="hidden" id="{{id}}RetirementContribution" value="{{contributions}}" />
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+                <br>
+              <div id="{{id}}myRetirementAccordion" class="myAdvisorContent accordion goalAccordion" style="width:50%">
+                <div class="row-fluid allRound accordion-group">
+                    <div data-target="#{{id}}myRetirementCollapse" data-toggle="collapse" class="accordion-heading collapsed" style="padding: 10px;">
+                        <a href="javascript:void(0);" class="accordion-toggle">
+                        <div class="floatL faqArrow">
+                        </div>
+                        <div class="floatL" style="padding-top:2px">
+                        <strong class="drkGrey">Assumptions</strong></a>
+                        </div>
+                    </div>
+                    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}myRetirementCollapse" style="height:0px;">
+                        <div class="accordion-inner roundBottom" style="padding-left:35px">
+                            <label>Inflation Rate
+                            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{#if permission}}
+                            <span class="profileEmph" id="{{id}}RetirementCostIncreaseSpan" style="width:30px;text-align:center;padding-right:2px">{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}</span><span class="profileEmph">%</span>
+                            <input type="hidden" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}RetirementCostIncrease">
+                            {{/if}}
+                            {{#unless permission}}
+                            <span class="profileEmph">
+                               <input type="text" class="profileAccPercent assumptionsPercent" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}RetirementCostIncrease" style="width:40px;text-align:center;padding-right:2px">&nbsp;%
+                            </span>
+                            {{/unless}}
+
+                            <div class="clearOnly tenpx">
+                            </div>
+                            <label>Life Expectancy
+                            </label>&nbsp;&nbsp;&nbsp;
+                            <span class="profileEmph">
+                                {{#if permission}}
+                                    <span class="readOnlyValue dollaramount" id="{{id}}RetirementLifeExpectancySpan">{{#if goalassumptions_2}}{{goalassumptions_2}}{{else}}{{lifeEC}}{{/if}}</span>
+                                    <input type="hidden" value="{{#if goalassumptions_2}}{{goalassumptions_2}}{{else}}{{lifeEC}}{{/if}}" id="{{id}}RetirementLifeExpectancy">
+                                {{/if}}
+                                {{#unless permission}}
+                                   <input type="text" class="numberamount assumptionsNumber" value="{{#if goalassumptions_2}}{{goalassumptions_2}}{{else}}{{lifeEC}}{{/if}}" id="{{id}}RetirementLifeExpectancy" style="width:30px;text-align:center;padding-right:5px">
+                                {{/unless}}
+                            </span>
+
+                            <div class="clearOnly tenpx">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+          </div>
+            <br>
+            <div class="floatR profileCompleteRight" style="width:25%;height:250px;margin-top:20px">
+                <br>
+                <div id="{{id}}RetirementMonthlyNeedsDiv" style="display:none">
+                    <div class="profileEmph" style="padding-bottom:5px">Amount you'll need to save</div>
+                    &nbsp;&nbsp;$<span id="{{id}}RetirementMonthlyTotal">0</span> per month
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Current savings</div>
+                    &nbsp;&nbsp;$<span id="{{id}}RetirementMonthlyCurrent">0</span> per month
+
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Additional savings needed</div>
+                    &nbsp;&nbsp;<span id="{{id}}colorChange" style="color:#33CC00">$<span id="{{id}}RetirementMonthlyNeeds">0</span> per month</span>
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <br>
+            {{#unless permission}}
+            <hr>
+            {{/unless}}
+            <input type="hidden" id="{{id}}retirementSaveNeeded" class="saveNeeded" value="false" />
+            <button id="{{id}}RetirementCalculateButton" style="display:none" type="button" class="lsPillBtnGreen btn btn-success calculateRetirementButton calculateGoalButton">&nbsp;Update Goal&nbsp;</button>
+            {{#unless permission}}
+            {{#if id}}
+            <div class="floatL">
+                <button id="{{id}}UpdateRetirementButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateRetirementButton">&nbsp;Update Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelRetirementButton" class="cancelRetirementButton"href="#">Cancel</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createRetirementButton">&nbsp;Add Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="retirementRemoveNewGoalButton" class="removeNewGoalButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}retirementProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

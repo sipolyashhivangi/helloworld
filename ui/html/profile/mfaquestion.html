@@ -1,0 +1,33 @@
+<script id="mfaquestion-template" type="text/x-handlebars-template">
+<form class="formProfileAssets">
+    {{#mfadetails}}
+    <div class="control-group">
+        <div style="padding-top:5px">
+            <div style="padding-bottom:5px">
+         	<label style="color:#666;font-size:1em;">Please answer the security question below for your financial institution.</label><br/>
+            </div>
+            <label class="profileEmph" style="font-size:1.1em;">{{{cryptVal}}</label>
+        </div>
+        <div>
+            <input type="password" class="profileAccName mfafields" name="{{paramName}}" id="{{id}}{{paramName}}">
+            <input type="hidden" name="cryptType{{paramName}}" id="{{id}}cryptType{{paramName}}" value="{{cryptType}}"/>
+        </div>
+    </div>
+    {{/mfadetails}}
+    <input type="hidden" id="{{id}}parameters" name="parameters" value="{{parameters}}"/>
+    <input type="hidden" id="{{id}}flag" name="flag" value="{{flag}}"/>
+    <br>
+    {{msg}}<div id="mesg"></div>
+    <hr>
+    <div>
+        {{#compare refresh "1" operator="!="}}
+        <button class="lsPillBtnGreen btn btn-success btnAddItemToMFA" id="{{id}}btnAddItemToMFA" type="button">Connect</button>        
+        {{/compare}}
+        {{#compare refresh "1" operator="=="}}   
+        <button class="lsPillBtnGreen btn btn-success btnRefreshMFA" id="{{id}}btnRefreshMFA" type="button">Connect</button>        
+        {{/compare}}
+        <button id="{{id}}DeleteMFA" class="lsPillBtnGreenSec btn btn-success deleteMFA" type="button" style="width: 80px; margin-top:0px">&nbsp;Remove&nbsp;</button>&nbsp;&nbsp;
+        <input type="hidden" name="cid" id="{{id}}cid" value="{{cid}}"/>
+    </div>
+</form>
+</script>

@@ -1,0 +1,65 @@
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+    $url_array = explode('/', $url);
+
+    if (count($url_array) > 3) {
+?>{"status": "ERROR", "message": "Page Not Found"}<?php 
+    } else { 
+?>
+<!DOCTYPE html>
+<html lang="en">  
+    <head>                   
+        <meta charset="utf-8">                   
+        <title>FlexScore - 404 Page Not Found             
+        </title>                   
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->                 
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />                  
+        <meta name="description" content="404 Page Not Found">
+        <meta name="author" content="FlexScore">
+        <meta content="u3kX0jqV2_YEhCCIzKks2-P3Ws45R2ESrSsLQkRCiaQ" name="google-site-verification">
+        <meta content="xZIdeyYAE_R97c0H6OGvkHeVWEI" name="alexaVerifyID">
+        <meta name="msvalidate.01" content="1967933DCC3E8DF336994671EAAE77FD" />                 
+	        
+        <script type="text/javascript" src="https://www.flexscore.com/uiconf.js"></script>
+        <!-- Le styles -->                      
+        <link href="https://www.flexscore.com/ui/css/bootstrap/bootstrap.css" rel="stylesheet">                   
+        <style type="text/css"> body {padding-top: 60px;padding-bottom: 40px;}                    
+        </style>                   
+        <link href="https://www.flexscore.com/ui/css/bootstrap/bootstrap-responsive.css" rel="stylesheet">                   
+        <link rel="stylesheet" href="https://www.flexscore.com/ui/css/bootstrap/flexscore.css?v=1" type="text/css" media="screen">   
+        <link type="text/css" href="https://www.flexscore.com/ui/css/bootstrap/bootstrap-buttons-ls.css" rel="stylesheet">                
+        <link rel="stylesheet" href="https://www.flexscore.com/ui/css/tabCss.css?v=2" type="text/css" media="screen">           
+        
+        <link rel="shortcut icon" href="https://www.flexscore.com/ui/images/favicon.png">           
+    </head>             
+    <body id="body" >  
+        <div class="textureBackgroundWrap">                  
+            <div class="container">	
+                <div style="padding:0px 0px 5px 5px;width:160px;font-size:0.9em">
+                        <a href="https://www.flexscore.com/"><img width="160" style="width:160px" src="https://www.flexscore.com/ui/images/logo-color-trans.png" alt="FlexScore Logo"></a>
+				    <div class="clearOnly"></div>
+			   	    <br>
+                </div>
+                <div id="homeBg" style="background:none">
+                </div>		                           
+                <div class="row">			                                            
+                    <div class="span12 round lightGray smallGlow floatR">                                      
+                        <!-- right column -->  				                                       
+                        <div class="articleContent">
+                            <div style="font-weight:bold;font-size:150%;color:#333;line-height:1.5em">
+                                404 Page Not Found
+                            </div>
+                            <br>
+                            <p>The page you requested doesn't exist or has been removed from our servers.</p>
+                            <p>Make sure you typed the url correctly or <a href="https://www.flexscore.com/">click here to go back home</a>.</p>
+                        </div>
+                        <div class="clearOnly visible-phone twentypx">&nbsp;                               
+                     </div>					                           
+                    </div>	                     
+                </div>	          
+            <div class="vSpace">&nbsp;                     
+            </div>	                     
+        </div>               
+    </body>
+</html>
+<?php } ?>

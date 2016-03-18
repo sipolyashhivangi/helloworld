@@ -1,0 +1,236 @@
+<script id="accountsmortgage-template" type="text/x-handlebars-template">
+<!-- Mortgage -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}mortgageProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox  {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}mortgageAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}mortgageCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragmortgage" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglemortgage" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}mortgageAmountSummary">${{#if amountSummary}}{{amountSummary}}{{else}}0{{/if}}</span>
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelmortgage" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelmortgage" class="toggleOffLabel hdn">OFF
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{/unless}}
+        </div>
+        {{else}}
+        {{#unless permission}}
+        <div id="{{id}}mortgageConnectAccount" class="financialDetails floatR">
+            <div style="width: 186px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/unless}}
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}mortgageFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}MortgageNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Mortgage{{/if}}
+                </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}mortgageManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}mortgageManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                    <span id="{{id}}mortgageManual">Manual Entry</span>
+            {{/if}}
+<!--                <span id="{{id}}mortgageLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>  -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}mortgageCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonmortgage" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Mortgage
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}MortgageInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}MortgageInputName">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">What is the interest rate? (APR)
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue percent" id="{{id}}MortgageInputAPR">{{apr}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="percent" placeholder="Enter percent" id="{{id}}MortgageInputAPR" value="{{apr}}">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>
+                </p>
+                <p>
+                    <span class="profileEmph">How many years are remaining?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue numberamount" id="{{id}}MortgageInputYears">{{yearsremaining}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="numberamount" placeholder="Enter number" id="{{id}}MortgageInputYears" value="{{yearsremaining}}">
+                    {{/unless}}
+                    <span class="profileEmph">years
+                    </span>
+                </p>
+                 <p>
+                    <span class="profileEmph">Mortgage Type
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccType" id="{{id}}MortgageAccType">
+                        {{#compare mortgagetype "33" operator="=="}}
+                            30 Year Fixed
+                        {{else}}
+                            {{#compare mortgagetype "34" operator="=="}}
+                                15 Year Fixed
+                            {{else}}
+                                {{#compare mortgagetype "35" operator="=="}}
+                                    5/1 Adjustable Rate
+                                {{else}}
+                                    {{#compare mortgagetype "63" operator="=="}}
+                                        Other
+                                    {{else}}
+                                            30 Year Fixed
+                                    {{/compare}}
+                                {{/compare}}
+                            {{/compare}}
+                        {{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="{{id}}MortgageAccType" value="{{mortgagetype}}" class="profileAccType">
+                        <option value="33" {{#compare mortgagetype 33 operator="=="}}selected{{/compare}}>30 Year Fixed
+                        </option>
+                        <option value="34"  {{#compare mortgagetype 34 operator="=="}}selected{{/compare}}>15 Year Fixed
+                        </option>
+                        <option value="35" {{#compare mortgagetype 35 operator="=="}}selected{{/compare}}>5/1 Adjustable Rate
+                        </option>
+                        <option value="63" {{#compare mortgagetype 63 operator="=="}}selected{{/compare}}>Other
+                        </option>
+                    </select>
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Do you currently live at this location?
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare livehere 1 operator="=="}} Yes {{/compare}} {{#compare livehere "0" operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare livehere 1 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}MortgageHome" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare livehere "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}MortgageHome" value="0" >&nbsp;No
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Balance Owed?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}MortgageInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a balance" value="{{amount}}" id="{{id}}MortgageInputBalance" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Is the interest deductible?
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare intdeductible 1 operator="=="}} Yes {{/compare}} {{#compare intdeductible "0" operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare intdeductible 1 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}MortgageDeductible" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare intdeductible "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}MortgageDeductible" value="0" >&nbsp;No
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">How much do you pay?
+                    </span>
+                    <br>                                                                                 
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}MortgageInputPayment">{{amtpermonth}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter amount" id="{{id}}MortgageInputPayment" value="{{amtpermonth}}" class="dollaramount">
+                    {{/unless}}
+                    <span class="profileEmph">per month
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+             {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}mortgageSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateMortgageButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateMortgageButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelMortgageButton" class="cancelMortgageButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonmortgage" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createMortgageButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="mortgageRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}mortgageProfileVSpace"class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

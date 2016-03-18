@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddMortgageCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddMortgageCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>cumulativeDebtsTotal_Mortgage</td>
+	<td>cumulativeDebtsTotal_Mortgage</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageInputName</td>
+	<td>mortgageInputName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageInputBalance</td>
+	<td>mortgageInputBalance</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageInputAPR</td>
+	<td>mortgageInputAPR</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageInputYears</td>
+	<td>mortgageInputYears</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageInputPayment</td>
+	<td>mortgageInputPayment</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>mortgageAccType</td>
+	<td>mortgageAccType</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=editDebts</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=editDebts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=mortgageAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=mortgageAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=MortgageInputName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MortgageInputName</td>
+	<td>${mortgageInputName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MortgageInputBalance</td>
+	<td>${mortgageInputBalance}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MortgageInputAPR</td>
+	<td>${mortgageInputAPR}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=MortgageDeductible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MortgageInputYears</td>
+	<td>${mortgageInputYears}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MortgageInputPayment</td>
+	<td>${mortgageInputPayment}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=MortgageAccType</td>
+	<td>${mortgageAccType}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=MortgageHome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cumulativeDebtsTotal</td>
+	<td>5000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=cumulativeDebtsTotal</td>
+	<td>${cumulativeDebtsTotal_Mortgage}</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

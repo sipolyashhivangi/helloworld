@@ -1,0 +1,8 @@
+{
+    "require": {
+        "urbanairship/urbanairship": "0.1.3",
+        "mailchimp/mailchimp": "dev-master",
+        "mandrill/mandrill": "1.0.53",
+        "mustache/mustache": "2.6.1"
+    }
+}

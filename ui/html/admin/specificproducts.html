@@ -1,0 +1,112 @@
+<script id="advisorhome-template" type="text/x-handlebars-template">   
+
+<div style="">
+    <div id="allUsers" class="round mediumGray smallGlow">
+        <div class="lightGray roundTop bevelBottom ">
+            <!--<h3>
+                <span class="pagination"></span>
+            </h3>-->
+            <div class="sortDD btn-group floatR">
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Action</a>
+                    </li>
+                    <li>
+                        <a href="#">Another action</a>
+                    </li>
+                    <li>
+                        <a href="#">Something else here</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">Separated link</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sectionHeader1">
+            <div align="left">
+                <h3 style="margin-left:10px;">
+                     <div class="floatL msActionSteps" style="margin-top: 2px;"></div>
+                     <div class="floatL" style="padding-top:7px;">
+            <span class="accTitle">Specific AS Products for Users</span>
+            </div>
+            <div align="right" style="padding-right:10px;"><button class="btn" type="button" style="width:120px;" onclick="addadminProductForAS()">Assign&nbsp;Products</button></div>
+        </div>
+                    
+                  
+                    
+                </h3>
+           
+            </div>
+        </div>
+        <div class="myAdvisorCol12">
+         <div id="customProducts">
+            {{#if userslist}}
+            <ul class="list">
+                <li class="advisordash">
+                    <ul class="innerlist advisorBox_100 list-heading">
+                        <li class="width20Per_ag sorting" id="nameSorting" sorttype="name" style="cursor:pointer;width:40% !important">User Email Address</li>
+                        <li class="width20Per_ag" id="scoreSorting" sorttype="score" style="cursor:pointer;width:40% !important">Action Steps</li>
+                        <li style="width:5% !important"> &nbsp; </li>
+                        <li class="width20">Product Details</li>
+                    </ul>
+                </li>
+                 {{#each userslist}}
+                <li class="user{{actionid}}">
+                    <div class="advisorBox advisorBox_100">
+						<div class="floatL" style="width:85%">
+                        <ul style="width:100% !important;" class="innerlist">                            
+                            <li class="width20Per_ag advisorName" style="width:40% !important">
+                                <span style="display:block;" class="name list-heading clearEverything" id="firstnme"> 
+                                </span>
+                                <span class="contact advisorPaleText" id="{{id}}useremail">{{user_email}}</span>
+                            </li>
+                            <li class="width20Per_ag" style="width:40% !important">{{actionsteps}}</li>
+                                                       
+                            <li>
+                            <table width="100%">
+							 <tr>
+							<td width="150px" valign="middle"><a href="{{product_link}}" id="{{id}}productlink" class="popLinkCongrats masterTooltip" target="_blank" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control."><img id="{{id}}productimage" src="{{product_image}}" style="border-radius:5px;" width="100%"></a></td>
+							<td valign="middle">
+							<div style="background-color:#ffffff;border:1px solid #BCBCBC;border-radius:4px;padding:10px;margin-left:25px"><span id="{{id}}productdescription">{{product_description}}</span> <a href="{{product_link}}" target="_blank" " id="{{id}}" class="popLinkCongrats masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control.">Click Here</a> to begin.</div>
+							<input type="hidden" id="{{id}}productname" value = "{{product_name}}" />
+							</td>
+							</tr>
+							<tr>
+							<td colspan="2">&nbsp;</td>
+							</tr> 
+                            </table>
+                            </li>
+                                                    
+                             
+                            
+                        </ul>
+                        </div>
+                        <div class="floatL" style="padding-top:15px">
+                            <button class="btn editASProduct" type="button" style="width:120px;" id="{{id}}editASProduct">Edit</button>
+                            <br>
+                            <br>
+                            <button class="btn deleteASProduct" type="button" style="width:120px;" id="{{id}}deleteASProduct">Delete</button>
+                        </div>
+                        <div class="clearOnly"></div>
+                    </div>
+                </li>
+                {{/each}}
+              </ul>
+           {{/if}}
+            </div>
+           
+        </div>
+        <div class="clearOnly twentypx"></div>
+        <div class="clearOnly twentypx"></div>
+    </div>
+    <div class="clearOnly twentypx"></div>
+</div>
+<!-- left column -->
+<div class="lightGray round smallGlow" style="width: 240px; float:left">
+    <div class="clearOnly">
+    </div>
+</div>
+
+</script>

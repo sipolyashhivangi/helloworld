@@ -1,0 +1,124 @@
+<script id="profile-template" type="text/x-handlebars-template">
+    
+    <div id="advisorProfileHeader" class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+
+            <span class="accTitle">Advisor Profile            
+            </span>
+			<span style="margin-left:579px;" class="backList"><a href="javascript:void(0);" id='back-link' class="searchadvback"> Back to Search Results</a></span>
+        </div>
+        <div class="clearOnly">
+        </div>
+        
+    </div>
+    
+    <div class="clearOnly"></div>
+	<div class="control-group ">
+		<!-- white top/grey body div -->                                                                          
+				<div class="mediumGray">                                                                        
+					<div>			        	                                                                              
+						<div class="mediumGray roundTop bevelBottom apTop">
+							<div class="myAdvisorCol1 image">
+								<img src="{{profilepic}}" alt="advisor" height="160" width="160">
+								<div class="clearOnly">                                                                                                     
+								</div>			                 
+								<div id="editProfilePhoto" class="hdn" style="text-align:center"><a href="#" id="editAdvisorPhoto">Edit</a></div>                                                                         
+							</div>                                                                                                        
+							<div class="myAdvisorCol1 text"><h3>{{firstname}} {{lastname}}</h3>  
+								<p>{{designation}}</p>
+								<p>{{firmname}}</p>
+								{{#if embeddablelink}}<p id="embeddableLink"><a href="{{embeddablelink}}">Embeddable Link</a></p>{{/if}}
+								<div id="operation-btn">
+								<button style="width: 180px; margin-top: 10px" id='releasebtn' adv_id = '{{advisor_id}}' type="button" class=" release lsPillBtnGreen btn btn-success">&nbsp;Unassign </button>
+								
+								<button style="width: 180px; margin-top: 10px" id='assignbtn' adv_id = '{{advisor_id}}' type="button" class=" assignme lsPillBtnGreen btn btn-success">&nbsp;Assign </button>
+								
+								<button style="width: 180px; display:none; margin-top: 10px" id='connectbtn' adv_hash = '{{advhash}}' type="button" class=" connectadvbtn lsPillBtnGreen btn btn-success">&nbsp;Connect to Advisor </button>
+								<span id="status"></span>	
+								</div>
+								<div class="clearOnly">
+								</div>
+                            </div>
+							<div class="clearOnly">&nbsp;</div>
+                        </div>
+                        <div class="clearEverything"></div>							
+						<div class="baseballCardWrapper mediumGray roundBottom apBottom">
+							<div class="rightSide mediumGray">                                                                                  
+								<div class="ulCon"><h3>How Advisor is Licensed</h3>				        			         
+									<ul>
+                                        {{#compare advisortype "Both" operator="==" }}
+											<li>Dual Registration</li>
+										{{else}}
+											{{#compare advisortype "Broker" operator="==" }}
+												<li>Registered Representative </li>
+											{{else}}	
+												<li>{{advisortype}}</li>
+											{{/compare}}
+										{{/compare}}
+                                    </ul>				        						        		                     
+								</div>                                                                   
+								<div class="ulCon"><h3>Products and Services</h3>				   
+									<ul>
+                                    {{#each productservice}}
+											<li>{{name}}</li>
+										{{/each}}
+									</ul>
+								</div>
+								<div class="ulCon"><h3>Registered In</h3>				        			
+									<ul>
+										{{#each stateregistered}}
+											<li>{{name}}</li>
+										{{/each}}	
+									</ul>
+								</div>
+							</div>
+							<div class="leftSide mediumGray">
+								<div class="txtCon desc"><h3>About Advisor</h3>
+									<p class="">{{description}}
+									</p>				        						        		                      
+								</div>
+                                <div class="ulCon"><h3>How Advisor Charges</h3>				        			        
+										{{#each typeofcharge}}
+											{{#compare type "assets" operator="==" }}
+												<li style="font-size:14px">Percentage of Assets</li>
+											{{else}}
+												<li style="font-size:14px">{{type}}</li>
+											{{/compare}}									
+										{{/each}}
+								</div>
+                                <div class="txtCon"><h3>Advisor Account Average</h3>
+									<p >Minimum Asset Balance: $<span id="minimumAssest"></span></p>
+								</div>
+                                                                
+                                                                   <div class="txtCon" id="shareP" style="display:none"><h3>Share Your Public Profile</h3>
+                                                                        <div id="clientdiv" class="controls fl">
+                         <input type="text" placeholder="Email Address" class="custom-input" name="invite_emails" id="invite_emails" size="50">&nbsp;<button type="button" class="lsPillBtnGreen btn btn-success shareProfile">&nbsp;&nbsp;&nbsp;Share Profile&nbsp;&nbsp;&nbsp;</button><br/>(Valid email addresses separate with comma e.g (abc@gmail.com,xyz@yahoo.com) etc...<br/><br/>
+                         <!-- error tooltip -->
+                         <div id="clientbubble" class="errorBubble hdn">
+                                 <div class="inside">
+                                         <p id="clienterror">Invalid Email Address</p>
+                                         <div class="point">
+                                         </div>
+                                 </div>
+                         </div>
+                         <!-- end error tooltip -->
+                 </div>
+								</div>
+                                                                <div id="msg" style="display:none"><a style="text-decoration:none">An email will be sent to entered email addresses sharing your public profile.<strong></div>
+                                                                
+                 </div> 
+							</div>
+                                                        
+                                                          
+							<div class="clearEverything"></div>	
+						</div>
+					</div>
+				</div>
+                                
+        <!-- /white top/grey body div -->                                
+				<!-- /not sure about these -->				
+		<div class="clearEverything twentypx"></div>
+	</div>
+	</script>

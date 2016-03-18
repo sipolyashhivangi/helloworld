@@ -1,0 +1,10 @@
+h3 {
+	font-family: 'OpenSansBold';
+	font-size: 1.25em;
+	letter-spacing: -0.09em;
+	font-weight: bold;
+	margin: 0;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: #3E3E3E;
+}

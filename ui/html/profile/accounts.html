@@ -1,0 +1,206 @@
+<script id="financialaccounts-template" type="text/x-handlebars-template">
+<div id="accountProfileDetails">
+<br>
+<br>
+<form class="formProfileAssets">
+    <div id="riskHtml"></div>
+    {{#if assets}}
+        <h3 id="existingHeader">My Assets and Future Income</h3>
+        <input type="hidden" value="assets" id="fiType" />
+        <div class="msHeadingDivLine1">Please prioritize your assets by using the grid on right side of each asset box to drag them to the position you want - most important asset should be at the top.</div>
+        <div class="profileVSpace"> </div>
+        <div id="existingAccounts">
+        </div>
+		<div id="EndPriorityDiv" class="priorityIndex">
+			<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+				<div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+				</div>
+				<div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+				</div>
+			</div>
+		</div>
+        <div id="newAccounts"></div>
+        <div style="padding-top:10px;display:none" id="totalAccounts">
+            <div class="floatR" style="padding-right:{{#unless permission}}100px{{else}}25px{{/unless}}">
+                <div style="position:relative">
+                    <span class="profileEmphDollar" id="totalcalculatedvalue">${{#if totalcalculatedvalue}}{{totalcalculatedvalue}}{{else}}0{{/if}}</span>
+                </div>
+            </div>
+            <div class="floatR">
+                <div style="text-align:right;padding-right:10px">
+                    <span class="profileEmphDollar">Total:</span>
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+        </div>
+    {{else}}
+        {{#if debts}}
+            <h3 id="existingHeader">My Debts</h3>
+            <input type="hidden" value="debts" id="fiType" />
+            <div class="msHeadingDivLine1">Please prioritize your debts by using the grid on right side of each debt box to drag them to the position you want - most important debt should be at the top.</div>
+            <div class="profileVSpace"> </div>
+            <div id="existingAccounts">
+            </div>
+			<div id="EndPriorityDiv" class="priorityIndex">
+				<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+					<div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+					</div>
+					<div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+					</div>
+				</div>
+			</div>
+            <div id="newAccounts"></div>
+            <div style="padding-top:10px;display:none" id="totalAccounts">
+                <div class="floatR" style="padding-right:100px">
+                    <div style="position:relative">
+                        <span class="profileEmphDollar" id="totalcalculatedvalue">${{#if totalcalculatedvalue}}{{totalcalculatedvalue}}{{else}}0{{/if}}</span>
+                    </div>
+                </div>
+                <div class="floatR">
+                    <div style="text-align:right;padding-right:10px">
+                        <span class="profileEmphDollar">Total:</span>
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+            </div>
+        {{else}}
+            {{#if insurance}}
+                <h3 id="existingHeader">My Insurance</h3>
+                <input type="hidden" value="insurance" id="fiType" />
+                <div class="msHeadingDivLine1">Please prioritize your insurance by using the grid on right side of each insurance box to drag them to the position you want - most important insurance should be at the top.</div>
+                <div class="profileVSpace"> </div>
+                <div id="existingAccounts">
+                </div>
+				<div id="EndPriorityDiv" class="priorityIndex">
+					<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+						<div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+						</div>
+						<div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+						</div>
+					</div>
+				</div>
+                <div id="newAccounts"></div>
+                <div style="padding-top:10px;display:none" id="totalAccounts">
+                    <div class="floatR" style="padding-right:100px">
+                        <div style="position:relative">
+                            <span class="profileEmphDollar" id="totalcalculatedvalue">${{#if totalcalculatedvalue}}{{totalcalculatedvalue}}{{else}}0{{/if}}</span>
+                        </div>
+                    </div>
+                    <div class="floatR">
+                        <div style="text-align:right;padding-right:10px">
+                            <span class="profileEmphDollar">Total:</span>
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                </div>
+            {{else}}
+            	 {{#if miscellaneous}}
+	                <input type="hidden" value="miscellaneous" id="fiType" />
+	            {{/if}}
+                <div id="newAccounts"></div>
+            {{/if}}
+        {{/if}}
+    {{/if}}
+    <div class="clearEverything">&nbsp;</div>
+    <div id="accountLinks">
+
+        {{#if assets}}
+        {{#unless permission}}
+            <h3>Add Assets and Future Income</h3>
+            <div class="profileVSpace"> </div>
+            <div class="btn-group lsbtn" data-toggle="buttons-radio">
+                <button type="button" id="bankAddAccount" class="btn btn-inverse addAccountButton">Bank Account</button>
+                <button type="button" id="iraAddAccount" class="btn btn-inverse addAccountButton">IRA</button>
+                <button type="button" id="companyretirementplanAddAccount" class="btn btn-inverse addAccountButton"><div id="companyretirementplanAddAccountDiv1" style="padding-bottom:5px">Company</div><div id="companyretirementplanAddAccountDiv2">Retirement Plan</div></button>
+                <button type="button" id="brokerageAddAccount" class="btn btn-inverse addAccountButton">Brokerage</button>
+                <div style="height: 10px">&nbsp;</div>
+                <button type="button" id="educationalaccountAddAccount" class="btn btn-inverse addAccountButton"><div id="educationalaccountAddAccountDiv1" style="padding-bottom:5px">Educational</div><div id="educationalaccountAddAccountDiv2">Account</div></button>
+                <button type="button" id="propertyAddAccount" class="btn btn-inverse addAccountButton">Property</button>
+                <button type="button" id="vehicleAddAccount" class="btn btn-inverse addAccountButton">Vehicle</button>
+                <button type="button" id="pensionAddAccount" class="btn btn-inverse addAccountButton">Pension</button>
+                <div style="height: 10px">&nbsp;</div>
+                <button type="button" id="socialsecurityAddAccount" class="btn btn-inverse addAccountButton">Social Security</button>
+                <button type="button" id="businessAddAccount" class="btn btn-inverse addAccountButton">Business</button>
+                <button type="button" id="otherAddAccount" class="btn btn-inverse addAccountButton">Other</button>
+            </div>
+            {{/unless}}
+        {{else}}
+
+            {{#if debts}}
+            {{#unless permission}}
+            {{debtData}}
+
+            <div id="debtCheckTitle">
+            <div id="accountCheckbox" class="profileEmphDollar">
+            <input type="checkbox" name="debtsPreference" id="debtsPreference" value="1" {{#compare debtstatus "1" operator="=="}} checked ="checked" {{/compare}}>
+            I Don't Have Any Debt
+            </div>
+            <div class="clear">&nbsp;</div>
+            </div>
+
+            <div id="debtBox">
+               <h3>Add Debts</h3>
+                <div class="profileVSpace"> </div>
+        <div class="btn-group lsbtn" data-toggle="buttons-radio">
+                <button type="button" id="creditcardAddAccount" class="btn btn-inverse addAccountButton">Credit Cards</button>
+                <button type="button" id="mortgageAddAccount" class="btn btn-inverse addAccountButton">Mortgages</button>
+                <button type="button" id="loanAddAccount36" class="btn btn-inverse addAccountButton">Loans</button>
+                <button type="button" id="loanAddAccount37" class="btn btn-inverse addAccountButton">Auto Loan/Lease</button>
+                 <div style="height: 10px">&nbsp;</div>
+                <button type="button" id="loanAddAccount38" class="btn btn-inverse addAccountButton"><div id="loanAddAccountDiv138" style="padding-bottom:5px">Student</div><div id="loanAddAccountDiv238">Loan</div></button>
+                <button type="button" id="loanAddAccount39" class="btn btn-inverse addAccountButton"><div id="loanAddAccountDiv139" style="padding-bottom:5px">Business</div><div id="loanAddAccountDiv239">Loan</div></button>
+            </div>
+             </div>
+             {{/unless}}
+            {{else}}
+                {{#if insurance}}
+                 {{#unless permission}}
+                <div id="insCheckTitle">
+                <div id="accountCheckbox" class="profileEmphDollar">
+                <input type="checkbox" name="insurancePreference" id="insurancePreference" value="1" {{#compare insurancestatus "1" operator="=="}} checked ="checked" {{/compare}}>
+                I Don't Have Any Insurance
+                </div>
+                <div class="clear">&nbsp;</div>
+                </div>
+
+                <div id="insuranceBox">
+                <h3>Add Insurance</h3>
+                <div class="profileVSpace"> </div>
+                <div class="btn-group lsbtn" data-toggle="buttons-radio">
+                    <button type="button" id="lifeinsuranceAddAccount" class="btn btn-inverse addAccountButton">Life Insurance</button>
+                    <button type="button" id="disabilityinsuranceAddAccount" class="btn btn-inverse addAccountButton">Disability Insurance</button>
+                    <button type="button" id="longtermcareinsuranceAddAccount" class="btn btn-inverse addAccountButton"><div id="longtermcareinsuranceAddAccountDiv1" style="padding-bottom:5px">Long Term Care</div><div id="longtermcareinsuranceAddAccountDiv2">Insurance</div></button>
+                    <button type="button" id="homeinsuranceAddAccount" class="btn btn-inverse addAccountButton"><div id="homeinsuranceAddAccountDiv1" style="padding-bottom:3px">Home Owner's/</div><div id="homeinsuranceAddAccountDiv2" style="padding-bottom:3px">Renter's</div><div>Insurance</div></button>
+                    <div style="height: 10px">&nbsp;</div>
+                    <button type="button" id="vehicleinsuranceAddAccount" class="btn btn-inverse addAccountButton"><div id="vehicleinsuranceAddAccountDiv1" style="padding-bottom:5px">Vehicle</div><div id="vehicleinsuranceAddAccountDiv2" >Insurance</div></button>
+                    <button type="button" id="healthinsuranceAddAccount" class="btn btn-inverse addAccountButton"><div id="healthinsuranceAddAccountDiv1" style="padding-bottom:5px">Health</div><div id="healthinsuranceAddAccountDiv2" >Insurance</div></button>
+                    <button type="button" id="umbrellainsuranceAddAccount" class="btn btn-inverse addAccountButton"><div id="umbrellainsuranceAddAccountDiv1" style="padding-bottom:5px">Umbrella</div><div id="umbrellainsuranceAddAccountDiv2" >Insurance</div></button>
+                </div>
+                </div>
+                {{/unless}}
+                {{else}}
+
+                    {{#if miscellaneous}}
+
+                    <h3>Miscellaneous</h3>
+                    <div class="profileVSpace"> </div>
+                    <div class="btn-group lsbtn" data-toggle="buttons-radio">
+                        <button type="button" id="taxesAddAccount" class="btn btn-inverse addAccountButton">Taxes</button>
+                        <button type="button" id="estateplanningAddAccount" class="btn btn-inverse addAccountButton"><div id="estateplanningAddAccountDiv1" style="padding-bottom:5px">Estate</div><div id="estateplanningAddAccountDiv2">Planning</div></button>
+                        <button type="button" id="moreAddAccount" class="btn btn-inverse addAccountButton">More</button>
+                    </div>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+
+        <div style="height: 10px">&nbsp;</div>
+        <div class="clearOnly"></div>
+    </div>
+</form>
+<br>
+</div>
+</script>

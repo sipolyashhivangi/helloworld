@@ -1,0 +1,99 @@
+<script id="createnewclient-template" type="text/x-handlebars-template">
+
+    <a class="floatR accX accTopX cancelNewProfilePopupBox">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+            <span class="accTitle">Create&nbsp;New&nbsp;Client&nbsp;
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+        <div class="msHeadingDivLine2" style="position:relative;top:-6px;left:-4px">You can access our <a href="./privacy" target="_blank">privacy policy</a> here.                                       
+        </div>
+    </div>
+    <div class="clearOnly"></div>
+    <div id="comparisonContents">
+        <div class="mediumGray bevelBottom">
+            <div class="dialogtext hdn" id="msgOnSuccess" align="center" style="padding:30px 20px 30px 20px;" >
+                <a style="text-decoration:none">A new client profile has been created. A verification email will be sent to your new client at <strong><span id="newClientEmail">{{email}}</span></strong> asking him/her to create a FlexScore profile password.</a>
+            </div>
+            <div class="login-sign-up margin-top-left dialogtext" id="hideonSuccess">
+
+                <div class="dialogtext" style="padding:20px 13px 12px 13px;">Creating a new client will send an email to the client letting them know to add their information.</div>
+
+                <label class="signupFormLabel control-label fl margin-right" for="inputEmail" style="width: 22%;">
+                    <strong>Email Address</strong>
+                </label>
+                <div id="clientdiv" class="controls fl">
+                         <input type="text" placeholder="Email Address" class="custom-input" name="advemail" id="advcreateClient" size="45"><br/><br/>
+                         <!-- error tooltip -->
+                         <div id="clientbubble" class="errorBubble hdn">
+                                 <div class="inside">
+                                         <p id="clienterror">Invalid Email Address</p>
+                                         <div class="point">
+                                         </div>
+                                 </div>
+                         </div>
+                         <!-- end error tooltip -->
+                 </div>
+
+                <label class="signupFormLabel control-label fl margin-right" for="inputEmail2" style="clear:both; width: 22%;">
+                    <strong>Confirm Email Address</strong>
+                </label>
+                <div id="clientdiv2" class="controls fl">
+                         <input type="text" placeholder="Email Address" class="custom-input" name="advemail" id="advcreateClient2" size="45"><br/><br/>
+                         <!-- error tooltip -->
+                         <div id="clientbubble2" class="errorBubble hdn">
+                                 <div class="inside">
+                                         <p id="clienterror2">Invalid Email Address</p>
+                                         <div class="point">
+                                         </div>
+                                 </div>
+                         </div>
+                         <!-- end error tooltip -->
+                 </div>
+                <div class="clearEverything tenpx"></div>
+            </div>
+            <div class="control-group" id="accessTokenDiv" style="display:none">
+                <label class="signupFormLabel control-label" for="inputToken"><strong>Access Token</strong>
+                </label>
+                <input type="hidden" name="advisor_id" value="{{advisor_id}}" id="advisorClient" />
+                <div id="tokendiv" class="controls">
+                    {{#if token}}
+                            <div style="padding-top:5px;color:#666;">
+                                    <span id="tokenLabel">{{token}}</span>
+                                    <input id="token" type="hidden" value="{{token}}" >
+                            </div>
+                    {{else}}
+                            <input type="text" id="token" placeholder="Access Token" value="{{#if request}}{{request}}{{/if}}">
+                    {{/if}}
+                    <div id="tokenbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="tokenerror">Invalid access token used.</p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profileBottomRow darkGray roundBottom bevelTop" style="height: 50px; padding-top: 15px; margin-bottom: 0px">
+            <div align="right" style="padding-right: 25px">
+                <div id="CreateNewClient">
+                    <a style="line-height: 2.5em;" class="cancelNotificationPopup" href="#">Cancel</a>
+                    <button id="saveNewclient" aria-hidden="true" style="margin-left:10px" class="simpleGreenCTAButton" type="button">Create Account</button>
+                </div>
+                <div id="successNewClient" class="hdn">
+                    <div  class="floatR">
+                        <button id="viewfinances" title="Login in to client's account." aria-hidden="true" style="margin-left:10px;" class="simpleGreenCTAButton clientMyscoreNew" type="button">View Finances</button>
+                    </div>
+                    <div>
+                        <button class="lsPillBtnGray btn btn-success cancelNewProfilePopupBox" type="button" style="width:130px;">&nbsp;I'm Done&nbsp;</button>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

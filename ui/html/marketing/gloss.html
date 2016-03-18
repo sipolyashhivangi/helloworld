@@ -1,0 +1,133 @@
+<script id="lglossview-template" type="text/x-handlebars-template">
+    <div class="vSpace">&nbsp;</div>
+    <div class="container">
+        <div id="singlePostRead">
+            <div class="row">
+                <div class="span9 round lightGray smallGlow floatR"><!-- right column -->
+                    <div class="articleContent" id="idArticleContent">
+                        {{#article}}
+                        {{#terms}}
+                        <p>{{name}}</p>
+                        {{/terms}}
+                        <h1>{{post_title}}</h1>
+                        <div class="clearEverything">&nbsp;</div>
+                        <div class="floatR"></div>      
+                        <div class="clearEverything">&nbsp;</div>
+                        <div class="entry-content">
+                            {{{post_content}}}
+                        </div>
+                        <!-- <p class="regBold">Related Articles</p>
+                         <ul class="grnList">
+                             {{#relatedarticle}}
+                             <li><a href="#"></a></li>
+                             {{/relatedarticle}}
+                         </ul>-->
+                         {{/article}}
+                    </div>
+                    <div class="vSpace">&nbsp;</div>
+                </div>
+                <div class="clearOnly visible-phone twentypx">&nbsp;                    
+                </div>
+                <div class="span3 round lightGray smallGlow floatL"><!-- left column -->
+                    <div class="articleNavls">
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span2" id="search" type="text" placeholder="Search">
+                                    <span class="add-on searchBtnGloss" id="{{searchurl}}-link"><img alt="" src="./ui/images/icon_search.png" id="{{searchurl}}-image"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="articleNavHdr">Topics</span>
+                        <ul>
+                            {{#categories}}
+                            <li id="{{categoryId}}CategoryListActive" class="articleNavOn hdn">
+                                {{categoryName}}
+                            </li>
+                            <li id="{{categoryId}}CategoryListInActive"  class="articleNavOff">
+                                <a href="{{baseUrl}}/{{post_url}}/{{categorySlug}}" class="lcTopicsLink clickCatGloss" id="{{categoryId}}CategoryLink">{{categoryName}}</a>
+                            </li>
+                            {{/categories}}
+                        </ul>  
+                    </div>
+                    <div class="vSpace">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="vSpace">&nbsp;</div>
+        {{#compare searchurl "search" operator="=="}}       
+        <div class="row-fluid">		                                                           
+            <div class="span12 roundTop smallGlow whiteBg">		                                                                     
+                <div class="span12 roundTop smallGlow whiteBg">                                                                                           
+                    <div class="sectionHeaderls">                                                                                                                   
+                        <div class="lcGlossary">                                                                                                    
+                            <div class="financialDivls">
+                            <h3>Financial&nbsp;Glossary  </h3>                                                                                                    
+                            </div>                                                                                          
+                        </div>                                                                                          
+                    </div>	        	                                                             
+                </div>	                                                           
+            </div>
+            <div  id="glossaryIndex" class="span12 mediumGray bevelTop roundBottom smallGlow glossaryIndex" style="text-align: center; padding: 10px; padding-bottom: 0; padding-top: 0; margin-left: 0">                                                                                    
+                <br>      
+                <span id="numGlossaryInactive" class="articleNavOn hdn"><b>#</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="numGlossaryActive"><a id="#" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/0">#</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="AGlossaryInactive" class="articleNavOn hdn"><b>A</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="AGlossaryActive"><a id="A" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/A">A</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="BGlossaryInactive" class="articleNavOn hdn"><b>B</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="BGlossaryActive"><a id="B" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/B">B</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="CGlossaryInactive" class="articleNavOn hdn"><b>C</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="CGlossaryActive"><a id="C" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/C">C</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="DGlossaryInactive" class="articleNavOn hdn"><b>D</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="DGlossaryActive"><a id="D" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/D">D</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="EGlossaryInactive" class="articleNavOn hdn"><b>E</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="EGlossaryActive"><a id="E" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/E">E</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="FGlossaryInactive" class="articleNavOn hdn"><b>F</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="FGlossaryActive"><a id="F" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/F">F</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="GGlossaryInactive" class="articleNavOn hdn"><b>G</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="GGlossaryActive"><a id="G" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/G">G</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="HGlossaryInactive" class="articleNavOn hdn"><b>H</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="HGlossaryActive"><a id="H" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/H">H</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="IGlossaryInactive" class="articleNavOn hdn"><b>I</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="IGlossaryActive"><a id="I" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/I">I</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="JGlossaryInactive" class="articleNavOn hdn"><b>J</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="JGlossaryActive"><a id="J" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/J">J</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="KGlossaryInactive" class="articleNavOn hdn"><b>K</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="KGlossaryActive"><a id="K" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/K">K</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="LGlossaryInactive" class="articleNavOn hdn"><b>L</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="LGlossaryActive"><a id="L" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/L">L</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="MGlossaryInactive" class="articleNavOn hdn"><b>M</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="MGlossaryActive"><a id="M" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/M">M</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="NGlossaryInactive" class="articleNavOn hdn"><b>N</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="NGlossaryActive"><a id="N" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/N">N</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="OGlossaryInactive" class="articleNavOn hdn"><b>O</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="OGlossaryActive"><a id="O" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/O">O</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="PGlossaryInactive" class="articleNavOn hdn"><b>P</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="PGlossaryActive"><a id="P" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/P">P</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="QGlossaryInactive" class="articleNavOn hdn"><b>Q</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="QGlossaryActive"><a id="Q" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/Q">Q</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="RGlossaryInactive" class="articleNavOn hdn"><b>R</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="RGlossaryActive"><a id="R" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/R">R</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="SGlossaryInactive" class="articleNavOn hdn"><b>S</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="SGlossaryActive"><a id="S" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/S">S</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="TGlossaryInactive" class="articleNavOn hdn"><b>T</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="TGlossaryActive"><a id="T" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/T">T</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="UGlossaryInactive" class="articleNavOn hdn"><b>U</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="UGlossaryActive"><a id="U" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/U">U</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="VGlossaryInactive" class="articleNavOn hdn"><b>V</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="VGlossaryActive"><a id="V" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/V">V</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="WGlossaryInactive" class="articleNavOn hdn"><b>W</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="WGlossaryActive"><a id="W" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/W">W</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="XGlossaryInactive" class="articleNavOn hdn"><b>X</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="XGlossaryActive"><a id="X" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/X">X</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="YGlossaryInactive" class="articleNavOn hdn"><b>Y</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+                <span id="YGlossaryActive"><a id="Y" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/Y">Y</a>&nbsp;&nbsp;|&nbsp;</span>
+                <span id="ZGlossaryInactive" class="articleNavOn hdn"><b>Z</b></span>                                                                               
+                <span id="ZGlossaryActive"><a id="Z" class="articleNavOff glossaryGloss" href="{{baseUrl}}/glossary/Z">Z</a></span>
+                <br>&nbsp;
+            </div>
+        </div>
+        {{/compare}}
+	    <div class="vSpace visible-phone">&nbsp;</div>
+    </div>
+</script>

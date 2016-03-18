@@ -1,0 +1,56 @@
+<script id="login-template" type="text/x-handlebars-template">
+<form class="form-horizontal">
+    <!-- SIGN IN TAB -->
+    <div class="signupTitleArea">
+        <h1>Sign In</h1>
+        <div class="" style="margin:1em 0;font-size:14px" id="signininstructions">FlexScore is safe, free, and fun. We'll help you get your assets in gear and find the financial freedom you always wanted.</div>
+        <div id="browsercheck" style="display: none;">
+            <p style="margin:1em 0; color:#ff4444; font-weight:bold;" >To get the most out of FlexScore.com, we recommend that you use the latest version of your browser, otherwise some features might not work or display properly.</p> 
+        </div>
+    </div>
+    <div class="clearOnly">&nbsp;
+    </div>
+    <div id="passwordrestflag" style="padding-left: 100px;"></div>
+    <div class="login-sign-up">
+        <label class="signupFormLabel control-label" for="inputEmail"><strong>Email Address</strong>
+        </label>
+        <div id="usernamediv" class="controls">
+            <input type="text" id="username" placeholder="Email">
+            <!-- error tooltip -->
+            <div id="usernamebubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="usernameerror">Invalid Email Address</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+            <!-- end error tooltip -->
+        </div>
+    </div>
+    <div class="login-sign-up">
+        <label class="signupFormLabel control-label" for="inputPassword"><strong>Password</strong>
+        </label>
+        <div class="controls">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <label class="signupFormLabel control-label" for="inputPassword">
+        </label>
+        <div class="controls" style="padding-top:5px;font-size:14px">
+            <a href="forgotpassword.html" id="forgotButton">Forgot Password?</a>
+            <div id="forgotText" style="display:none">Reset instructions have been sent.</div>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="loginButton" type="submit" class="simpleGreenCTAButton">Sign In
+            </button>&nbsp;&nbsp;&nbsp;
+            <a class="cancelPopup" href="#"><strong>Cancel</strong></a>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            You can access our <a href="./privacy" target="_blank">privacy policy</a> here.
+        </div>
+    </div>
+</form>
+</script>

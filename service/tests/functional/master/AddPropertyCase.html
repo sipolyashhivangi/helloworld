@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - Financial Snapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputName</td>
+	<td>PropertyInputName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputBalance</td>
+	<td>PropertyInputBalance</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputAddress1</td>
+	<td>PropertyInputAddress1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputAddress2</td>
+	<td>PropertyInputAddress2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputIncome</td>
+	<td>PropertyInputIncome</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyHome</td>
+	<td>PropertyHome</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputCity</td>
+	<td>PropertyInputCity</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyLoan</td>
+	<td>PropertyLoan</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputState</td>
+	<td>PropertyInputState</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PropertyInputZip</td>
+	<td>PropertyInputZip</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addOther</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addOther</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=propertyAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=propertyAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=PropertyInputName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputName</td>
+	<td>${PropertyInputName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputBalance</td>
+	<td>${PropertyInputBalance}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputAddress1</td>
+	<td>${PropertyInputAddress1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputIncome</td>
+	<td>${PropertyInputIncome}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputAddress2</td>
+	<td>${PropertyInputAddress2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=PropertyHome</td>
+	<td>${PropertyHome}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputCity</td>
+	<td>${PropertyInputCity}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=PropertyLoan</td>
+	<td>${PropertyLoan}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=PropertyInputState</td>
+	<td>label=${PropertyInputState}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PropertyInputZip</td>
+	<td>${PropertyInputZip}</td>
+</tr>
+<tr>
+	<td>waitForAllButtons</td>
+	<td></td>
+	<td>500</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>cumulativeAssetsTotalPPT</td>
+	<td>cumulativeAssetsTotalPPT</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cumulativeAssetsTotal</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=cumulativeAssetsTotal</td>
+	<td>${cumulativeAssetsTotalPPT}</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

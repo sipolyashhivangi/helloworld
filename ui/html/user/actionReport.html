@@ -1,0 +1,46 @@
+<script id="useractionoverlay-template" type="text/x-handlebars-template">
+    <div id="comparisonContents">			             
+    <a class="floatR accX accTopX" href="javascript:window.parent.removeLayover()">&nbsp;</a>			             
+    <div id="navSpacerShort">&nbsp;             
+    </div>			             
+    <div class="vSpace">&nbsp;
+    </div>
+    <div class="clearOnly twentypx">&nbsp;
+    </div>  
+    <table width="85%" cellspacing="0" cellpadding="0" border="0" style="text-align:left;" class="center">				                   
+    <tbody><tr>					                         
+    <td align="left" rowspan="2"><h1>Congratulations!</h1><h1>						                                           
+    </h1><h1 style="color: #898989">You've earned up to:</h1>						                                           
+    <div>&nbsp;                                           
+    </div>						                                           
+    {{#compare p "0" operator="!="}}
+        <div class="congratsScore">        					                                                 
+            <span class="numOfPoints" id="numOfPointsid">{{p}}<sup>pts</sup></span>        					                                          				                                           
+        </div> 
+    {{/compare}}
+    {{#all}}
+    <div style="width:406px">&nbsp;{{actionsteps}} = {{points}}</div>		
+    {{/all}}
+    <div class="drkGrey">                                               
+    <span class="regBold3"></span>                                         
+    </div>						 						                                           
+    <div class="clearOnly tenpx">&nbsp;                                           
+    </div>	           			                                           
+    <div>		
+    <button class="lsPillBtnGreen btn btn-success" onclick="window.parent.removeLayover();" type="button" style="width: 140px; margin-top: 3px">&nbsp;Close&nbsp;</button>											                                           
+    </div></td><td>						              						                               
+    <div class="aoHorseshoe">							                                     
+        <img id="reportHorseshoe" class="greatphoto" style="margin-left:33px;margin-top:3px;" alt="myScoreChart" src="./ui/images/horseshoes/variations/myscore/{{image}}.png">
+        <div id="reportScore" class="floatedScore">{{totalscore}}</div>		   
+    </div>
+    </td>	           	                   
+    </tr>	                           
+    </tbody></table>    
+    <div class="vSpace">&nbsp;
+    </div>			        
+    <div class="vSpace">&nbsp;
+    </div>              
+    <div class="vSpace">&nbsp;
+    </div>	       
+    </div>
+</script>

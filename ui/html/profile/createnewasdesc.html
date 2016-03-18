@@ -1,0 +1,105 @@
+<script id="createnewclient-template" type="text/x-handlebars-template">
+
+    <a class="floatR accX accTopX cancelNotificationPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL msActionSteps">
+        </div>
+        <div class="floatL" style="padding-top:7px;">
+            <span class="accTitle">{{actionname}}
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+
+    </div>
+    <div class="clearOnly">
+    </div>
+
+    <div class="clearOnly">
+    </div>
+    <div class="control-group margin-top-left">
+        <div style="padding:12px;"><strong>FlexScore Description:</strong>
+            <div style="padding:12px;" id="newdesc{{actionid}}">{{#flexasdesc}}{{this}}<br>{{/flexasdesc}}</div>
+        </div>
+
+        <label for="productname" style="padding-top:5px; width:150px" class="signupFormLabel control-label fl margin-right"><strong>Product Name</strong></label>
+        <div class="controls" id="productnamediv">
+            <input type="text" id="advisorProductName" value="{{product_name}}" class="profileAccSpecial" style="width:430px;">
+            <div class="errorBubble hdn" id="productnamebubble" style="white-space:nowrap">
+                <div class="inside">
+                <p id="productnameerror"></p>
+                <div class="point"></div>
+                </div>
+            </div>
+        </div>
+
+        <label for="productimage" style="padding-top:15px; width:150px" class="signupFormLabel control-label fl margin-right"><strong>Product Image URL</strong></label>
+        <div class="controls" id="productimagediv" style="padding-top:10px">
+            <input type="text" id="advisorProductImageUrl" value="{{product_image}}" class="profileAccSpecial" style="width:430px;">
+            <div class="errorBubble hdn" id="productimagebubble" style="white-space:nowrap">
+                <div class="inside">
+                <p id="productimageerror"></p>
+                <div class="point"></div>
+                </div>
+            </div>
+        </div>
+
+        <label for="productlink" style="padding-top:15px; width:150px" class="signupFormLabel control-label fl margin-right"><strong>Product Link URL</strong></label>
+        <div class="controls" id="productlinkdiv" style="padding-top:10px">
+            <input type="text" id="advisorProductLinkUrl" value="{{product_link}}" class="profileAccSpecial" style="width:430px;">
+            <div class="errorBubble hdn" id="productlinkbubble" style="white-space:nowrap">
+                <div class="inside">
+                <p id="productlinkerror"></p>
+                <div class="point"></div>
+                </div>
+            </div>
+        </div>
+
+        <label style="padding-top:15px; padding-right:35px; width:150px"  class="signupFormLabel control-label fl">
+            <strong>Your Recommendation</strong>
+        </label>
+        <textarea placeholder="Description" id="advisorASDesc"  value="" style="margin-top:10px; width:500px; height:150px;">{{actiondesc}}</textarea>
+        <!-- error tooltip -->
+        <div id="clientbubble" class="errorBubble hdn">
+            <div class="inside">
+                <p id="clienterror">Please enter your recommendation</p>
+                <div class="point">
+                </div>
+            </div>
+        </div>
+        <!-- end error tooltip -->
+        <div class="clearEverything twentypx"></div>
+        <div class="clearEverything twentypx"></div>
+    </div>
+    <div class="control-group" id="accessTokenDiv" style="display:none">
+        <label class="signupFormLabel control-label" for="inputToken"><strong>Access Token</strong>
+        </label>
+
+        <div id="tokendiv" class="controls">
+            {{#if token}}
+            <div style="padding-top:5px;color:#666;">
+                <span id="tokenLabel">{{token}}</span>
+                <input id="token" type="hidden" value="{{token}}" >
+            </div>
+            {{else}}
+            <input type="text" id="token" placeholder="Access Token" value="{{#if request}}{{request}}{{/if}}">
+            {{/if}}
+            <div id="tokenbubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="tokenerror">Invalid access token used.</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profileBottomRow roundBottom">
+        <div class="clearEverything">&nbsp;
+        </div>
+        <input type="hidden" value="{{actionId}}" id="advisorAS" />
+       	<div style="padding-right: 10px;">
+            <button type="button" class="simpleGreenCTAButton floatR" style="margin-right:30px;width:200px;" aria-hidden="true" id="saveASRecommendation" >Update Recommendation</button>
+        </div>
+        <div class="clearEverything">&nbsp;
+        </div>
+    </script>

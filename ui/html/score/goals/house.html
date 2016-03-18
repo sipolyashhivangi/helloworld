@@ -1,0 +1,322 @@
+<script id="goalshousegoal-template" type="text/x-handlebars-template">
+<!-- House Goals -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+    {{#if id}}
+    <div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+        <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+        </div>
+        <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+        </div>
+    </div>
+    {{/if}}
+{{/unless}}
+    <div id="{{id}}houseProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable goalDraggable{{/if}}">
+        <div id="{{id}}houseAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}houseCollapseBox">
+            <div class="floatL" style="margin-top: 5px;">
+                <a href="javascript:void(0);" class="accordion-toggle">
+                    <div id="{{id}}houseFAQArrow" class="floatL faqArrow">
+                    </div>
+                    <span class="profileEmph" id="{{id}}HouseNameSummary">{{#if id}}{{goalnamesummary}}{{else}}Add Buy a House Goal{{/if}}
+                    </span>
+                    <span id="{{id}}houseLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>
+                </a>
+            </div>
+            {{#unless permission}}
+            <div class="floatR {{#unless id}}hdn{{/unless}}"><span id="{{id}}goalDraghouse" class="goalDrag">&nbsp;</span></div>
+            {{/unless}}
+            <div class="clearOnly"></div>
+        </div>
+        <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}houseCollapseBox" style="height: 0px;">
+            <div class="profileDataboxPadding profileDatabox2">
+                <div class="floatL" style="width: 65%;">
+                    <p>
+                        <span class="profileEmph">Name for this Goal
+                        </span>
+                        <br>
+                        {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}HouseInputNameSpan">{{goalnamesummary}}</span>
+                        <input type="hidden" value="{{goalname}}" id="{{id}}HouseInputName">
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" class="profileAccName goalName" placeholder="Enter a name" value="{{goalname}}" id="{{id}}HouseInputName">
+                        {{/unless}}
+                    </p>
+                    <span class="profileEmph">How would you like to accomplish this goal?
+                    </span>
+                    <br>
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#unless permonth}}checked{{else}}{{#compare permonth "0.00" operator="=="}}checked{{/compare}}{{/unless}} name="{{id}}HouseAchieve" id="{{id}}HouseDateGoal" class="houseAccomplishGoal" value="1">&nbsp;Set a date for completion
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if permonth}}{{#compare permonth "0.00" operator="!="}}checked{{/compare}}{{/if}} name="{{id}}HouseAchieve" id="{{id}}HouseContributionGoal" class="houseAccomplishGoal" value="0">&nbsp;Set a monthly contribution
+                    <br>
+                    {{/unless}}
+                <div class="floatL accomplishGoalDiv ddmmyy" style="{{#unless permission}}padding-top:10px;{{/unless}}{{#if permonth}}{{#compare permonth "0.00" operator="!="}}display:none{{/compare}}{{/if}}" id="{{id}}HouseDateDiv">
+                    {{#if permission}}
+
+                        {{#unless permonth}}
+                            <input type="hidden" checked name="{{id}}HouseAchieve" id="{{id}}HouseDateGoal" value="1">
+                            Set a date for completion
+                        {{else}}
+                            <input type="hidden" {{#compare permonth "0.00" operator="=="}}checked{{/compare}} name="{{id}}HouseAchieve" id="{{id}}HouseDateGoal" value="1">
+                            {{#compare permonth "0.00" operator="=="}}Set a date for completion:{{/compare}}
+                        {{/unless}}
+                    {{/if}}
+                        {{#if permission}}
+                        <span id="{{id}}HouseMonthSpan">
+                         {{#months}}
+                            {{#if housemonth}}
+                                {{value}} /
+                            {{/if}}
+                        {{/months}}
+                       </span>
+                        <input type="hidden" value="{{#months}}{{#if housemonth}}{{value}}{{/if}}{{/months}}" id="{{id}}HouseMonth">
+                        {{/if}}
+
+                    {{#unless permission}}
+                        <select id="{{id}}HouseMonth" class="aboutSelectType houseSelectType">{{#months}}                                                                                            
+                        <option value="{{value}}" {{#if housemonth}}selected{{/if}}>{{month}}
+                         </option>
+                        {{/months}}
+                        </select>
+                    {{/unless}}
+                     {{#if permission}}
+                        <span id="HouseDaySpan" class="houseSelectType">
+                        {{#days}}
+                            {{#if houseday}}
+                                {{day}} /
+                            {{/if}}
+                        {{/days}}
+                       </span>
+                        <input type="hidden" value="{{#days}}{{#if houseday}}{{day}}{{/if}}{{/days}}" id="{{id}}HouseDay">
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="{{id}}HouseDay" class="houseSelectType">
+                        {{#days}}
+                        <option value="{{day}}" {{#if houseday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                        <span id="{{id}}HouseYearSpan" class="houseSelectType">
+                            {{#years}}
+                                {{#if houseyear}}
+                                    {{year}}
+                                {{/if}}
+                            {{/years}}
+                        </span>
+                        <input type="hidden" value="{{#years}}{{#if houseyear}}{{year}}{{/if}}{{/years}}" id="{{id}}HouseYear">
+                     {{/if}}
+                    {{#unless permission}}
+                    <select id="{{id}}HouseYear" class="houseSelectType">
+                    {{#years}}
+                        <option value="{{year}}" {{#if houseyear}}selected{{/if}}>
+                        {{year}}
+                        </option>
+                    {{/years}}
+                    </select>
+                    {{/unless}}
+
+                </div>
+                    <div class="floatL accomplishGoalDiv" style="{{#unless permission}}padding-top:10px;padding-left:250px;{{/unless}}{{#unless permonth}}display:none{{else}}{{#compare permonth "0.00" operator="=="}}display:none{{/compare}}{{/unless}} " id="{{id}}HouseContributionDiv">
+                    {{#if permission}}
+                        {{#if permonth}}
+                            <input type="hidden" {{#compare permonth "0.00" operator="!="}}checked{{/compare}} name="{{id}}HouseAchieve" id="{{id}}HouseContributionGoal" value="0">
+                            {{#compare permonth "0.00" operator="!="}}Set a monthly contribution:{{/compare}}
+                        {{/if}}
+
+                    {{/if}}
+                        <span class="profileEmphDollar">$</span>
+                        {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}HouseContributionSpan">{{permonth}}</span>
+                        <input type="hidden" value="{{permonth}}" id="{{id}}HouseContribution">
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" placeholder="Enter an amount" value="{{permonth}}" id="{{id}}HouseContribution" class="dollaramount">
+                        {{/unless}}
+
+
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <div class="floatL" style="padding-top:25px">
+                        <span class="profileEmph">Price of House
+                        </span>
+                        <br>
+                        <span class="profileEmphDollar">$</span>
+                        {{#if permission}}
+                         <span class="readOnlyValue dollaramount" id="{{id}}HousePriceSpan">{{goalincome}}</span>
+                        <input type="hidden" value="{{goalincome}}" id="{{id}}HousePrice" >
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" placeholder="Enter price" value="{{goalincome}}" id="{{id}}HousePrice" class="dollaramount">
+                        {{/unless}}
+
+
+                    </div>
+                    <div class="floatL" style="padding-top:25px;padding-left:100px">
+                        <span class="profileEmph">How much do you want to put down?
+                        </span>
+                        <br>
+                        {{#if permission}}
+                        <span class="readOnlyValue" id="{{id}}HouseDownpaymentSpan">{{downpayment}}
+                        </span>%
+                        <input type="hidden" value="{{downpayment}}" id="{{id}}HouseDownpayment">
+                        {{/if}}
+                        {{#unless permission}}
+                            <select id="{{id}}HouseDownpayment" class="houseSelectType">
+                                <option value="10" {{#compare downpayment "10" operator="=="}}selected{{/compare}}>10%
+                                </option>
+                                <option value="20" {{#compare downpayment "20" operator="=="}}selected{{/compare}}>20%
+                                </option>
+                                <option value="30" {{#compare downpayment "30" operator="=="}}selected{{/compare}}>30%
+                                </option>
+                                <option value="40" {{#compare downpayment "40" operator="=="}}selected{{/compare}}>40%
+                                </option>
+                                <option value="50" {{#compare downpayment "50" operator="=="}}selected{{/compare}}>50%
+                                </option>
+                            </select>
+                        {{/unless}}
+
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <div class="floatL" style="padding-top:25px">
+                        <span class="profileEmph">How much have you saved so far?
+                        </span>
+                        <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                            <!-- info bubble -->
+                            <div style="top:-75px;left:-130px" class="infoBubble">
+                                <div class="inside">
+                                    <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                    <div class="point"></div>
+                                </div>
+                            </div>
+                            <!-- /info bubble -->
+                        </div>
+                        <div style="color:#777;top:-10px;position:relative">
+                            <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}HouseSavedSpan">{{saved}}</span>
+                            <input type="hidden" id="{{id}}HouseSaved" value="{{saved}}" />
+                        </div>
+                   </div>
+                   <div class="floatL" style="padding-top:25px;padding-left:25px">
+                        <span class="profileEmph">How much do you contribute?
+                        </span>
+                        <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                            <!-- info bubble -->
+                            <div style="top:-75px;left:-130px" class="infoBubble">
+                                <div class="inside">
+                                    <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                    <div class="point"></div>
+                                </div>
+                            </div>
+                            <!-- /info bubble -->
+                        </div>
+                        <div style="color:#777;top:-10px;position:relative">
+                            <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}HouseContriSpan">{{contributions}}</span>
+                            <span class="">per month</span>
+                            <input type="hidden" id="{{id}}HouseContri" value="{{contributions}}" />
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <br>
+                    <div id="{{id}}myHouseAccordion" class="myAdvisorContent accordion goalAccordion" style="width:50%">
+                        <div class="row-fluid allRound accordion-group">
+                            <div data-target="#{{id}}myHouseCollapse" data-toggle="collapse" class="accordion-heading collapsed" style="padding: 10px;">
+                                <a href="javascript:void(0);" class="accordion-toggle">
+                                    <div class="floatL faqArrow"></div>
+                                    <div class="floatL" style="padding-top:2px">
+                                        <strong class="drkGrey">Assumptions</strong>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}myHouseCollapse" style="height:0px;">
+                                <div class="accordion-inner roundBottom" style="padding-left:35px">
+                                    <label>Annual Cost Increase
+                                    </label>&nbsp;&nbsp;&nbsp;
+                                <span class="profileEmph">
+
+                                {{#if permission}}
+                                    <span class="profileEmph" id="{{id}}HouseCostInc" style="width:30px;text-align:center;padding-right:2px">{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}</span>%
+                                    <input type="hidden" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}HouseCostIncrease" >
+                                {{/if}}
+                                {{#unless permission}}
+                                    <span class="profileEmph">
+                                    <input type="text" class="profileAccPercent assumptionsPercent" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}HouseCostIncrease" style="width:40px;text-align:center;padding-right:2px">&nbsp;%
+                                   </span>
+                                {{/unless}}
+
+                                    </span>
+
+                                    <div class="clearOnly tenpx">
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floatR profileCompleteRight" style="width:30%;height:350px;margin-top:20px">
+                    <br>
+                    <div id="{{id}}HouseCompletionDiv" style="display:none">
+                        <div class="profileEmph" style="padding-bottom:5px">Time until completion</div>
+                        <div id="{{id}}HouseCompletionNever" style="display:none">Never
+                        </div>
+                        <div id="{{id}}HouseCompletion" style="display:none">
+                            <span id="{{id}}HouseCompletionYears">0</span> years,&nbsp;<span id="{{id}}HouseCompletionMonths">0</span> months
+                        </div>
+                        <br>
+                    </div>
+                    <div id="{{id}}HouseMonthlyNeedsDiv">
+                        <div class="profileEmph" style="padding-bottom:5px">Amount you'll need to save</div>
+                        $<span id="{{id}}HouseMonthlyNeeds">0</span> per month
+                        <br>
+                        <br>
+                        <div class="profileEmph" style="padding-bottom:5px">Current savings</div>
+                        $<span id="{{id}}HouseMonthlyCurrent">0</span> per month
+                        <br>
+                        <br>
+                        <div class="profileEmph" style="padding-bottom:5px">Additional savings needed</div>
+                        <span id="{{id}}colorChange" style="color:#33CC00">$<span id="{{id}}HouseMonthlyLeft">0</span> per month</span>
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+                <br>
+               {{#unless permission}}
+                <hr>
+                {{/unless}}
+                <input type="hidden" id="{{id}}houseSaveNeeded" class="saveNeeded" value="false" />
+                <button id="{{id}}HouseCalculateButton" style="display:none" type="button" class="lsPillBtnGreen btn btn-success calculateHouseButton calculateGoalButton">&nbsp;Update Goal&nbsp;</button>
+               {{#unless permission}}
+                {{#if id}}
+                <div class="floatL">
+                    <button id="{{id}}UpdateHouseButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateHouseButton">&nbsp;Update Goal&nbsp;</button>
+                </div>
+                <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="{{id}}CancelHouseButton" class="cancelHouseButton"href="#">Cancel</a>
+                </div>
+                <div class="floatR profileFootLinks">
+                    <a id="{{id}}DeleteGoalButtonhouse" class="deleteGoalButton" href="#">Delete Goal</a>
+                </div>
+                {{else}}
+                <div class="floatL">
+                    <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createHouseButton">&nbsp;Add Goal&nbsp;</button>
+                </div>
+                <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="houseRemoveNewGoalButton" class="removeNewGoalButton" href="#">Cancel</a>
+                </div>
+                {{/if}}
+               {{/unless}}
+                <div class="clearOnly">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="{{id}}houseProfileVSpace" class="profileVSpace">
+    </div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

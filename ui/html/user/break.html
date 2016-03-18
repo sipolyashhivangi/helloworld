@@ -1,0 +1,166 @@
+<script id="userbreak-template" type="text/x-handlebars-template">
+<div class="simOffWrapper hdn">                                 
+    <table style="{{#compare goalscount 3 operator="=="}}margin-top:13px;{{else}}{{#compare goalscount 4 operator=">="}}margin-top:0px;{{/compare}}{{/compare}}">
+        <tr>
+            <td>                                                    
+                <div class="compareImage" id="bdUL"></div>                                                  
+                <div class="compareCopy" style="{{#compare goalscount 3 operator="=="}}max-height:123px;overflow:hidden{{else}}{{#compare goalscount 4 operator=">="}}max-height:125px;overflow:hidden{{/compare}}{{/compare}}"><h4>Goals</h4>                                                      
+                    {{#goals}}
+                        {{#compare goalcount 4 operator="<="}}
+                            {{#compare goalcount 1 operator=">="}}
+                            <span>
+                                {{#if goalname}}
+                                    {{goalname}}
+                                {{else}}
+                                    {{#compare goaltype "RETIREMENT" operator="=="}}
+                                        Retirement
+                                    {{else}}
+                                        {{#compare goaltype "HOUSE" operator="=="}}
+                                            Buy a House
+                                        {{else}}
+                                            {{#compare goaltype "COLLEGE" operator="=="}}
+                                                Save for College
+                                            {{else}}
+                                                {{#compare goaltype "DEBT" operator="=="}}
+                                                    Pay Off Debt
+                                                {{else}}
+                                                    Custom
+                                                {{/compare}}
+                                            {{/compare}}
+                                        {{/compare}}
+                                    {{/compare}}
+                                {{/if}}
+                            </span><br />
+                            {{/compare}}
+                        {{/compare}}
+                    {{/goals}}  
+                </div>
+            </td>
+            <td>                                                    
+                <div class="compareImage" id="bdUR"></div>                                                  
+                <div class="compareCopy"><h4>Assets</h4><span>{{assetsTotalForShow}}</span></div>
+            </td>                                           
+        </tr>                                                           
+        <tr>
+            <td>                                                    
+                <div class="compareImage" id="bdML"></div>                                                  
+                <div class="compareCopy"><h4>Age</h4>                                                       
+                    <span>{{age}}</span>                                                    
+                </div>
+            </td>
+            <td>                                                    
+                <div class="compareImage" id="bdMR"></div>                                                  
+                <div class="compareCopy"><h4>Debts</h4>                                                     
+                    <span>{{debtsTotalForShow}}</span>                                                  
+                </div>
+            </td>                                           
+        </tr>                                                                           
+        <tr>
+            <td>                                                    
+                <div class="compareImage" id="bdLL"></div>                                                  
+                <div class="compareCopy"><h4>Current Monthly Savings</h4>                                                       
+                    <span>{{savingsTotalForShow}}</span>                                                    
+                </div>
+            </td>
+            <td>                                                    
+                <div class="compareImage" id="bdLR"></div>                                                  
+                <div class="compareCopy"><h4>Current Cost of Living</h4>                                                        
+                    <span>{{livingCostsForShow}}</span>                                                 
+                </div>
+            </td>                                           
+        </tr>                                       
+    </table>                                    
+</div>
+<div>
+
+    <div class="tabSliderWrapper">
+    <div class="sliderGroup">                                           
+        <div class="sliderAge" id="retAgeSlider"></div>                                         
+        <div class="sliderLabel">Retirement Age</div>                                           
+        <div class="sliderValue"><span id="retAgeSliderValue"></span></div>                                         
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="sliderGroup">                                           
+        <div class="sliderGoal" id="retGoalSlider"></div>                                           
+        <div class="sliderLabel">Retirement Goal</div>                                          
+        <div class="sliderValue">$<span id="retGoalSliderValue"></span>/mo</div>                                            
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="sliderGroup">                                           
+        <div class="sliderSavings" id="savingsSlider"></div>                                            
+        <div class="sliderLabel">Current Monthly Savings</div>                                          
+        <div class="sliderValue">$<span id="savingsSliderValue"></span>/mo</div>                                            
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="sliderGroup">                                           
+        <div class="sliderAssets" id="assetsSlider"></div>                                          
+        <div class="sliderLabel">Assets</div>                                           
+        <div class="sliderValue">$<span id="assetsSliderValue"></span></div>                                            
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="sliderGroup">                                           
+        <div class="sliderDebts" id="debtsSlider"></div>                                            
+        <div class="sliderLabel">Debts</div>                                            
+        <div class="sliderValue">-$<span id="debtsSliderValue"></span></div>                                            
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="sliderGroup">                                           
+        <div class="sliderCliving" id="colSlider"></div>                                            
+        <div class="sliderLabel">Current Cost of Living</div>                                           
+        <div class="sliderValue">$<span id="colSliderValue"></span>/mo</div>                                            
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                  
+</div>
+<div class="tabBreakDownScore">                                     
+    <div class="rightF">                                            
+        <div class="simulationToggle">         
+            <div class="simLabel">Simulation</div>                                              
+            <div class="simToggleSlider"></div>                                             
+            <div class="toggleOnLabel breakToggleOnLabel">ON</div>                                              
+            <div class="toggleOffLabel hdn">OFF</div>                                               
+            <div class="clearOnly">&nbsp;</div>
+        </div>                                          
+        <div class="clearOnly">&nbsp;</div>                                     
+    </div>                                      
+    <div class="clearOnly">&nbsp;</div>                                     
+    <div>&nbsp;</div>                                   
+    <img id="breakdownHorseshoe" style="margin-left:33px;margin-top:3px;" alt="myScoreChart" src="./ui/images/horseshoes/variations/myscore/MyScoreHorseShoe2.png">
+    <div id="breakdownScore" class="floatedScoreBreakdown">55</div>                                 
+    <div class="clearOnly tenpx">&nbsp;</div>
+    <div>
+    <div id="resetBreakButton" class="center resetBreakButton">
+     <div id="clientdiv" class="controls fl" style="white-space: nowrap">
+                <div id="simDD" class="floatL" style="display:none;margin-left:10px">
+                    <select name="simulateDataDropDown" id="simulateDataDropDown" style="font-size:12px; padding:0px; font-weight:normal;width:168px; height: 29px;">
+                        <option value="">Pick One</option>
+                        <option value="" id="defaultSim">Default</option>
+                        {{#each breakdowndata}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <input type="textbox" name="breakName" id="breakName" value="" style="display:none;width:120px;">
+                <!-- error tooltip -->
+                         <div id="clientbubble" class="errorBubble hdn">
+                                 <div class="inside">
+                                         <p id="clienterror">Invalid Email Address</p>
+                                         <div class="point">
+                                         </div>
+                                 </div>
+                         </div>
+                         <!-- end error tooltip -->
+                <button type="button" class="btn resetBreakButton" id="resetBreakBtn" onclick="resetBreakSliders();">Reset</button>
+                <button type="button" class="btn loadTextBox" style="display:none">Load</button>
+                {{#unless permission}}
+                    <button type="button" class="btn openTextBox">Save</button>
+                    <button type="button" class="btn updateTextBox" style="display:none">Update</button>
+                    <button type="button" class="btn deleteTextBox" style="display:none">Delete</button>
+                {{/unless}}
+                <button type="button" class="btn saveBreakButton" style="display:none;">Save As</button>
+                <button type="button" class="btn cancelSave" style="display:none;">Cancel</button>
+                </div>
+                
+
+    </div>
+</div>
+</script>

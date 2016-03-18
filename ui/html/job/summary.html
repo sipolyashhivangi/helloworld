@@ -1,0 +1,47 @@
+<script id="lsummaryview-template" type="text/x-handlebars-template">
+    <!-- this template is using for Job Page -->
+    <div style=""height:10px;>&nbsp;</div>
+   <div class="container"> 
+                <div id="homeBg" style="background:none">
+                </div>                                 
+                <div class="row">                                                       
+                    <div class="span12 round lightGray smallGlow floatR">                                      
+                        <!-- right column -->                                                      
+                        <div class="articleContent">
+                        <h1>We're Hiring</h1>                                                                                                                    
+                            <br>
+                            <p>
+                                FlexScore is a revolutionary tool that gives every person financial clarity. It is an entirely new service empowering people to take more control over their financial lives. Your FlexScore is a number that encompasses everything you own, everything you owe and everything you’re doing with your money—all based on the goals you set for yourself.
+                            </p>
+                            <p>
+                                FlexScore was created by financial advisors Jeff Burrow, CFP® and Jason Gordo, CRPS® through their 27 years of combined experience helping to improve the financial lives of average Americans. Their private financial planning and asset management company Valley Wealth, Inc., has served thousands of individuals, and it is this experience that was the foundation of FlexScore.  They know the questions (and answers) people need to focus on in order to improve their financial situation. That is why they co-founded FlexScore, based in San Francisco, CA, to bring something the industry has not yet seen:  unbiased, Wall Street lingo-free financial advice that is engaging, and dare we say it, fun.
+                            </p>
+                            
+                            <hr/>
+                                 
+                            <h3 class="h3">Open Positions</h3>
+                            <ul id="current-positions-list" class="jobs">
+{{#if getLatestArticles}}
+    {{#getLatestArticles}}  
+			<li class="job-details">
+           		 <h3 class="title"><a title="{{post_title}}" href="{{baseUrl}}/{{post_url}}/{{post_name}}">{{post_title}}</a></h3>
+			</li>
+
+ {{/getLatestArticles}}
+ {{else}}
+ <li class="job-details">There are currently no open positions.</li>
+ {{/if}}
+ 
+			
+    
+
+        
+		</ul>
+                        </div>
+                    </div>                       
+                </div>            
+            </div>
+            <div class="vSpace">&nbsp;                     
+            </div>                       
+      <!-- End of Blog Template -->
+</script>

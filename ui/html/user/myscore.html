@@ -1,0 +1,192 @@
+<script id="usermyscore-template" type="text/x-handlebars-template">
+    <input type="hidden" id="currentPage" value="myscore" />
+    <div class="topSection" id="topSection">                    
+        <!-- MY SCORE SECTION -->            
+        <div class="col300 round smallGlow vPad darkGray myscoreHorseshoe" style="width:275px !important;float: left;"></div>                     <!-- TABBED CONTENT -->                 
+        <div class="col635" style="float: left; margin-left: 13px">                     
+            <div class="tabBox">                            
+                <!-- tabs -->                           
+                <ul class="tabs">
+                    <li class="selected" id="tab-1">
+                        <a href="#"><div></div><p>My Goals</p></a>
+                    </li>   
+                    
+                    <li id="tab-2" style="z-index:1 !important;">
+                        <a href="#"><div></div><p>Milestones</p></a>
+                    </li>                               
+                    <!--
+                    <li id="tab-2">
+                        <a href="#"><div></div><p>Projection</p></a>
+                    </li>
+                    --> 
+                    <li id="tab-3">
+                        <a href="#"><div></div><p>Compare</p></a>
+                    </li>                               
+                    {{#compare breakDown "1" operator="=="}}
+                    <li id="tab-4">
+                        <a href="#"><div></div><p>Breakdown</p></a>
+                    </li>
+                    {{/compare}}
+
+                </ul>                           
+                <div class="content" style="width:610px">   
+                    <div class="tab-content" id="tab-content-1" style="width:610px">
+                     <!-- GOALS -->  
+                    
+
+                    <div id="goalsBox" class="round vPad" style="margin:0">                      
+                    </div>    
+                    </div>
+                    <!-- MILESTONES TAB -->                             
+                    <div class="tab-content notReallyDroppable hdn" id="tab-content-2">
+                    <div class="sortDD" style="z-index:1;" align="right">                                                                                                     
+                            <button data-toggle="dropdown" class="recButton" id="milesButton" style="width:105px"><span id="milesButtonSpan">7 Days</span>
+                                <span class="caret" style="float:right;margin-left:25px">                                                                                              
+                                </span>                                                                                    
+                            </button>                                                                                                     
+                            <ul class="dropdown-menu" style="min-width:105px">                                                                                                                 
+                                <li>                                                                                              
+                                    <a id="01DateRange" class="milesDateRange" href="#">7 Days</a> 
+                                </li>
+                                <li>
+                                    <a id="02DateRange" class="milesDateRange" href="#">1 Month</a>
+                                </li>
+                                <li>
+                                    <a id="03DateRange" class="milesDateRange" href="#">3 Months</a>
+                                </li>
+                                <li>
+                                    <a id="04DateRange" class="milesDateRange" href="#">6 Months</a>
+                                </li>
+                              </ul>
+                        </div>
+                    <div class="blank_div" style="left:152px;"></div>
+                        
+                        <div id="tab-content-1-chart">
+                        </div>
+                        <div id="tab-content-1-chart-img" style="display:none;position:absolute;">
+                        </div>
+                        <div id="popupArea" class="milegraphpopupArea quickScore" style="display:none;"><span>It requires minimum seven days data to plot the graph.</span></div>
+                    </div>                              
+                    <!-- PROJECTION TAB -->                             
+                    <!--
+                    <div class="tab-content hdn" id="tab-content-2">                                       
+                        <div class="btn-dropdown-holder">                      
+                            <div class="sortDD floatR">                                                                                                     
+                                <button data-toggle="dropdown" class="recButton">Relevancy                                                                                                
+                                    <span class="caret">                                                                                              
+                                    </span>                                                                                    
+                                </button>                                                                                                     
+                                <ul class="dropdown-menu">                                                                                                                 
+                                    <li>                                                                                              
+                                        <a href="#">Action</a>                                                                                              
+                                    </li>                                                                                                                 
+                                    <li>                                                                                              
+                                        <a href="#">Another action</a>                                                                                              
+                                    </li>                                                                                                                 
+                                    <li>                                                                                              
+                                        <a href="#">Something else here</a>                                                                                              
+                                    </li>                                                                                                                 
+                                    <li class="divider">                                                                                              
+                                    </li>                                                                                                                 
+                                    <li>                                                                                              
+                                        <a href="#">Separated link</a>                                                                                              
+                                    </li>                                                                                                     
+                                </ul>                                                                                         
+                            </div>                
+                            <button type="button" onclick="$('.dropHint').show();drawProjectionChart(false);" class="btn btn-heading-adjust floatL">Reset Score</button>                      
+                        </div>                      
+                        <div>                                   
+                            <div class="projChartWrapper droppable">                                        
+                                <div id="tab-content-2-chart">
+                                </div>                                  
+                            </div>                                  
+                            <div class="chartPopup">                                        
+                                <div class="pointerBubble pbPurple">                                            
+                                    <span class="pbPlus">+
+                                    </span>
+                                    <span class="pbNumber">25
+                                    </span>
+                                    <span class="pbPts">pts
+                                    </span><br />                                           
+                                    <span class="pbInfo">Credit card paid off
+                                    </span>
+                                    <br/>                                           
+                                    <span class="pbDate">May 5th, 2012
+                                    </span>                                         
+                                    <div class="pbPointerBottom">&nbsp;
+                                    </div>                                      
+                                </div>                                  
+                            </div>                                  
+                            <div class="mediumGray round dropHint">                                     
+                                <img alt="drop hint" id="dropHint" src="./ui/images/dropHint.png">                                      
+                                <br>                                        
+                                <span>Drag Leaps here to see how they affect your score.
+                                </span>                                 
+                            </div>                                  
+                            <div class="projDividerScore">650
+                            </div>                                  
+                            <div class="projDivider">&nbsp;                                     
+                            </div>                      
+                        </div>                              
+                    </div>  
+                    -->
+                    <!-- COMPARE TAB -->                                
+                    <div id="tab-content-3" class="tab-content notReallyDroppable ui-droppable hdn PeerRankContent"></div>                              
+                    <!-- BREAKDOWN TAB -->                              
+                    <div class="tab-content hdn notReallyDroppable BreakdownContent" id="tab-content-4"></div>
+                    <!-- BREAKDOWN TAB -->  
+                </div>                      
+            </div>                  
+        </div>                  
+        <div class="clearEverything">
+        </div>              
+    </div>              
+    <div class="clearEverything">&nbsp;</div>               
+    <!-- ACTION STEPS -->               
+    <div class="topSection2">                   
+        <div class="col300 round smallGlow vPad" style="width:275px !important;float: left">
+            <div class="lightGray roundTop bevelBottom">
+                <div class="sectionHeader">
+                    <h3>
+                        <div class="financialPerson">
+                            <div class="financialDiv">Profile
+                            </div>
+                        </div>
+                        <button class="btn btn-heading-adjust floatR financialDetails" id="manageProfile" type="button">Manage Profile
+                        </button>
+                    </h3>
+                </div>
+            </div>
+            <div class="mediumGray bevelBoth chartWrapper">
+                <div>
+                    {{#compare image null operator="=="}}
+                    <img class="profileUser" alt="advisor" src="./ui/images/genericAvatar.png" style="border-radius: 70px; height: 90px; width: 90px; margin-left: -6px; margin-top: -10px; z-index: 100;">
+                    {{else}}
+                        {{#unless image}} 
+                            <img class="profileUser" alt="advisor" src="./ui/images/genericAvatar.png" style="border-radius: 70px; height: 90px; width: 90px; margin-left: -6px; margin-top: -10px; z-index: 100;">
+                        {{else}}
+                            <img class="profileUser" alt="advisor" src="{{image}}" style="border-radius: 70px; height: 90px; width: 90px; margin-left: -6px; margin-top: -10px; z-index: 100;">
+                        {{/unless}}
+                    {{/compare}}
+                </div>
+                <div style="margin: 15px;">
+                    <img style="z-index:200;position:relative;{{#unless impersonation}}cursor:pointer{{/unless}}" {{#unless impersonation}} id="profileAvatar"{{/unless}} class="floatedProfileCompleteImage {{#unless impersonation}}settings{{/unless}}"  alt="myScoreChart" width="165" src="./ui/images/horseshoes/variations/profile/ProfileHorseShoe0.png">
+                </div>
+                <div class="clearOnly">&nbsp;
+                </div>
+                <div class="floatedProfileComplete">
+                </div>
+            </div>
+            <div class="darkGray roundBottom bevelTop myScoreTopicDivFull">
+                <div class="myScoreTopicFull">Earn additional points by completing your 
+                    <a class="financialDetails" href="#">profile</a>.
+                </div>
+            </div>
+        </div>
+                     
+    <div id="ActionStepContent" class="floatL"></div>  
+    <div class="clearEverything">&nbsp;</div>               
+ </div> 
+ <div id="dialog" title="Print Dialog" style="display:none"></div>  
+
+</script>

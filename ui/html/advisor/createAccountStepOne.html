@@ -1,0 +1,251 @@
+<script id="userstepone-template" type="text/x-handlebars-template">
+<div class="roundTop" id="comparisonContents">
+   <a href="javascript:window.parent.removeLayover()" style="cursor:pointer;" class="floatR accX accTopX stepOneHeader takedashboard">&nbsp;</a>
+
+    <div style="padding-bottom: 0" class="lightGray roundTop bevelBottom sectionHeader stepOneHeader">
+        <h3>
+            <div class="msActionSteps">
+                <div style="width: 300px" class="msHeadingDiv">Create&nbsp;Your&nbsp;Profile
+                </div>
+                <div class="msHeadingDivLine2">
+					 You can access our <a href="./privacy" target="_blank">privacy policy</a> here.
+                </div>
+            </div>
+            <div class="clearOnly">&nbsp;
+            </div>
+        </h3>
+    </div>
+
+         	<div style="height: 10px">  </div>
+
+		<div class="mediumGray bevelBottom">
+
+			<form id="advisor-modal-form" action="" class="stepsForm" method="post" enctype="multipart/form-data">
+				<div style="padding:0 20px">
+				<div class="stepOneHeader" style="text-align: center">
+					<h1>You've got an account.</h1>
+					<!--It's time to create your profile. Remember, the more details you give us, the better the advice we give you. -->
+				</div>
+				<div style="height: 15px">  </div>
+				<h3 class="padBottom">Your Advisor Profile Details</h3>
+
+				<div>
+					<div class="floatR col535">
+						<input class="stepsinput advisorinput advisorProfile" type="text" id="firstname" size="45" value="{{firstname}}"/>
+					</div>
+					<div class="questionLabelBlack">
+						First Name
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<input class="stepsinput advisorinput advisorProfile" type="text" id="lastname" size="45" value="{{lastname}}" />
+					</div>
+					<div class="questionLabelBlack">
+							Last Name
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+				<div>
+					<div class="floatR col535">
+						<select  class="multiselect ddPlainBtn ddPlainBtn_bdrNone stepsinput advisorinput" multiple="multiple" name="stateregistered[]" id="stateOption">
+								{{#each states}}
+									<option value="{{id}}" {{#ifeq status "1"}} selected='selected' {{/ifeq}} class="optionremove" title="{{name}}"> {{name}}</option>
+								{{/each}}
+						</select>
+					</div>
+					<div class="questionLabelBlack">
+						States Where Registered to do Business
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<input type="radio" id="as1" value="Broker" name='advisortype' class="advisorTypeUpdate stepsinput advisorinput" {{#ifeq advisortype "Broker"}} checked="checked" {{/ifeq}}/><label for="as1">Registered Representative</label>
+						<input type="radio" value="Advisor" name='advisortype' class="advisorTypeUpdate stepsinput advisorinput" {{#ifeq advisortype "Advisor"}} checked="checked" {{/ifeq}}/><label for="as1">Advisor</label>
+						<input type="radio"value="Both" name='advisortype'id="advTypeOption" class="advisorTypeUpdate stepsinput advisorinput" {{#ifeq advisortype "Both"}} checked="checked" {{/ifeq}}/><label for="as1">Both</label>
+					</div>
+					<div class="questionLabelBlack">
+							Advisor Type
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<input class="stepsinput advisorinput advisorProfile" type="text" id="firmname" size="45" value="{{firmname}}">
+					</div>
+					<div class="questionLabelBlack">
+							Firm Name
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<textarea name='description' class="stepsinput advisorinput advisorProfile" id='description' maxlength="650">{{description}}</textarea>
+					</div>
+					<div class="questionLabelBlack">
+							Tell us about yourself in<br/> the form of a <br/>short biography.
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+
+				<div class="clearOnly">&nbsp;
+				</div>
+				<div>
+					<div class="floatR col535">
+						<select class="multiselect ddPlainBtn stepsinput advisorinput" multiple="multiple" name="designation[]" id="designationOption">
+							{{#each designation}}
+								{{#if status}}
+									<option value="{{designation_name}}" selected='selected' title="{{designation_name}}" class="optionremove">
+									{{designation_name}}</option>
+
+								{{else}}
+									{{#if others}}
+									<option value="{{designation_name}}" selected='selected' title="{{designation_name}}" class="optionremove">
+										{{designation_name}}</option>
+									{{else}}
+										<option value="{{designation_name}}" title="{{designation_name}}" class="optionremove"> {{designation_name}}</option>
+									{{/if}}
+								{{/if}}
+							{{/each}}
+							</select>
+							<label class="others" id = 'otherDesignations' style="display:none;">Others</label>
+							<input type="text" name="extradesig" id="extradesig" style="display:none;margin-left:10px;" class="input-wis_100 stepsinput advisorinput" value="" />
+					</div>
+					<div class="questionLabelBlack">
+							Designation
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535" id="productAndServiceOption">
+						<select class="multiselect ddPlainBtn stepsinput advisorinput" multiple="multiple" name="product[]" id="productAndServiceOption">
+								{{#each productservice}}
+									{{#if status}}
+										<option value="{{name}}" selected='selected' title="{{name}}" class="optionremove"> {{name}}</option>
+									{{else}}
+										{{#if others}}
+											<option value="{{name}}" selected='selected' title="{{name}}" class="optionremove"> {{name}}</option>
+										{{else}}
+											<option value="{{name}}" title="{{name}}" class="optionremove"> {{name}}</option>
+										{{/if}}
+									{{/if}}
+								{{/each}}
+							</select>
+							<label class="others" id = 'otherPNS' style="display:none;">Others</label>
+							<input type="text" name="extraprod" id="extraprod" style="display:none;margin-left:10px;" class="input-wis_100 stepsinput advisorinput" value="" />
+					</div>
+					<div class="questionLabelBlack">
+							Product and Services
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<span class="add-on">$</span>
+						<input type="text" name="avg_bal" class="dollaramount stepsinput advisorinput" id="avg_bal" value="{{avgacntbalanceperclnt}}"/>
+					</div>
+					<div class="questionLabelBlack">
+							Average account balance / client
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<span class="add-on">$</span>
+						<input type="text" class="dollaramount income stepsinput advisorinput" id="min_assist" name="min_assist" value="{{minasstsforpersclient}}"/>
+					</div>
+					<div class="questionLabelBlack">
+							Minimum assets of prospective client
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535">
+						<input type="checkbox" name='chargetype[]' id="Hourly" value='Hourly' class="hourly stepsinput advisorinput">
+						<label>Hourly</label>
+						<input type="checkbox" name='chargetype[]' value='Commission' class="hourly stepsinput advisorinput" >
+						<label>Commission</label>
+						<input type="checkbox" name='chargetype[]' value='assets' class="hourly stepsinput advisorinput">
+						<label>Percentage of Assets</label>
+					</div>
+					<div class="questionLabelBlack">
+							How do you charge?
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+				<div class="clearOnly">&nbsp;
+				</div>
+
+				<div>
+					<div class="floatR col535" style="padding-top:10px">
+						{{#compare verified "0" operator="==="}}
+						<input type="text" id="crd" class="stepsinput advisorinput advisorProfile" name='crd' value="{{individualcrd}}"/>
+						{{else}}
+						<input type="hidden" id="crd" name='crd' value="{{individualcrd}}" />
+						<label>{{individualcrd}}</label>
+						{{/compare}}
+					</div>
+					<div class="questionLabelBlack">
+							<strong>
+								Individual
+							</strong>
+							<a href="http://brokercheck.finra.org/Search/Search.aspx" target="_blank">CRD #</a></br>
+							(click link for help)
+					</div>
+					<div class="clearOnly twentypx">&nbsp;</div>
+				</div>
+
+				<div class="clearOnly twentypx">&nbsp;</div>
+			</div>
+
+			</form>
+
+		</div>
+
+		<div style="height: 50px; padding-top: 15px; margin-bottom: 0px" class="darkGray roundBottom bevelTop stepOneHeader">
+			<div class="floatR" style="width: 180px; margin-right: 0px">
+              <button class="lsPillBtnGreen btn btn-success" id="stepOnessCompleteButton" type="button" onclick="javascript:SubmitFirstForm();">&nbsp;Save and Continue&nbsp;</button>
+			</div>
+
+			<div style="width: 300px; margin-left: 20px">
+				<button class="lsPillBtnGray btn btn-success takedashboard" type="button">&nbsp;No thanks, take me to my dashboard&nbsp;</button>
+			</div>
+			<div class="clearOnly">
+			</div>
+		</div>
+
+	</div>
+</script>
+<!-- FB conversion pixel Script -->
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6011427784785&amp;value=0&amp;currency=USD" /></noscript>

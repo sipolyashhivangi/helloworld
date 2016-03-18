@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddAssetsSuccessCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddAssetsSuccessCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/dev/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinPopupButton</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinPopupButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>manjussl@yahoo.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>flexscore</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=gnav_finSnap</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#gnav_finSnap &gt; a &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - Financial Snapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addOther</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addOther</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=iraAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=iraAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=IRAInputName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=IRAInputName</td>
+	<td>Manju Sheshadri Account</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=IRAInputBalance</td>
+	<td>20000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=IRAInputContribution</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=IRARothOrRegular</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=IRATickerPrice0</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=iraFAQArrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[18]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - Financial Advice For The Rest Of Us</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

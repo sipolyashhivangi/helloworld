@@ -1,0 +1,105 @@
+<script id="baseheaderloggedout-template" type="text/x-handlebars-template">
+        <div class="navbar navbar-fixed-top">           
+            <div id="globalNavLoggedOut" class="navbar-inner">      
+                <div class="hidden-desktop hidden-tablet mobileLogo">
+                    <a href="./"><img width="140" alt="FlexScore Logo" src="./ui/images/fs_logo.png" style="width:140px"/></a>
+                    <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse" style="">            
+                        <span class="icon-bar">
+                        </span>            
+                        <span class="icon-bar">
+                        </span>            
+                        <span class="icon-bar">
+                        </span></a>        
+                </div>        
+                <div class="clearOnly">&nbsp;
+                </div>        
+                <div class="container">                  
+                    <div class="nav-collapse collapse">            
+                        <ul class="nav nav_22">  
+                            <!-- visible desktop -->              
+                            <li class="hidden-phone" id="gnav_home">
+                  	            <a href="./">
+            	                    <img width="175" alt="FlexScore Logo" src="./ui/images/fs_logo.png" style="width:175px"/>&nbsp;</a>
+								<div class="clearOnly"></div>
+                            </li>                
+                            <li id="gnav_about" class="gnavButton hidden-phone">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_about'), 'aboutFlexScoreLand');{{else}}./#aboutFlexScoreLand{{/if}}">
+                                    <div>
+                                    </div>
+                                    <p class="gNavCopy">About FlexScore
+                                    </p></a>
+                            </li>                               
+                            <li id="gnav_howItWorks" class="gnavButton hidden-phone">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_howItWorks'), 'howItWorksLand');{{else}}./#howItWorksLand{{/if}}">
+                                    <div>
+                                    </div>
+                                    <p class="gNavCopy">How It Works
+                                    </p></a>
+                            </li>                 
+                            <li id="gnav_security" class="gnavButton hidden-phone">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_security'), 'securityLand');{{else}}./#securityLand{{/if}}">
+                                    <div>
+                                    </div>
+                                    <p class="gNavCopy">Security
+                                    </p></a>
+                            </li>
+                            <li id="gnav_lc" class="hidden-phone">
+                                <a class="learningcenter" href="./learningcenter" style="height:25px">Learning Center</a>
+                            </li> 
+                            <li id="gnav_blog" class="hidden-phone">
+                                <a class="bloglink" href="./blog" style="height:25px">Blog</a>
+                            </li> 
+                            <li id="gnav_join" class="hidden-phone">
+                                <button type="button" class="lsPillBtnGray btn btn-success signupPopup" id="joinPopupButton">Sign&nbsp;Up</button>
+                            </li>
+                            <li id="gnav_signin" class="hidden-phone">
+                                <button type="button" class="lsPillBtnGray btn btn-success signupPopup" id="signinPopupButton">Sign&nbsp;In</button>&nbsp;
+                            </li>
+                            <!-- visible phone -->
+                            <li id="gnav_about_mobile" class="visible-phone gnavButtonMobile">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_about'), 'aboutFlexScoreLandMobile');{{else}}./#aboutFlexScoreLandMobile{{/if}}">
+                                    <span class="icon"></span>
+                                    About FlexScore
+                                </a>
+                            </li>
+                            <li id="gnav_howItWorks_mobile" class="visible-phone gnavButtonMobile">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_howItWorks'), 'howItWorksLandMobile');{{else}}./#howItWorksLandMobile{{/if}}">
+                                    <span class="icon"></span>
+                                    How It Works
+                                </a>
+                            </li>
+                            <li id="gnav_security_mobile" class="visible-phone gnavButtonMobile">
+                                <a href="{{#if ishomepage}}javascript: bsGnavFunction( $('#gnav_security'), 'securityLandMobile');{{else}}./#securityLandMobile{{/if}}">
+                                    <span class="icon"></span>
+                                    Security
+                                </a>
+                            </li> 
+                            <li class="visible-phone" id="gnav_lc_mobile">
+                                <a class="learningcenter"  href="./learningcenter"><span class="icon"></span>Learning Center</a>
+                            </li>
+                            <li class="visible-phone" id="gnav_blog_mobile">
+                                <a class="bloglink"  href="./blog"><span class="icon"></span>Blog</a>
+                            </li>
+                            <li class="visible-phone borderBreak"> 
+                                <div>&nbsp;</div>
+                            </li>
+                            <li id="gnav_signin_mobile" class="visible-phone">
+                                <a href="./signup">
+                                    <span class="icon"></span>
+                                    Sign&nbsp;Up
+                                </a>
+                            </li>            
+                            <li id="gnav_signin_mobile" class="visible-phone">
+                                <a href="./login">
+                                    <span class="icon"></span>
+                                    Sign&nbsp;In
+                                </a>
+                            </li>            
+                        </ul>          
+                    </div>
+                    <!--/.nav-collapse -->        
+                </div>      
+            </div>    
+        </div>    
+
+</script>

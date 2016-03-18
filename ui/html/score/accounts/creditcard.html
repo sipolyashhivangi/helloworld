@@ -1,0 +1,175 @@
+<script id="accountscreditcard-template" type="text/x-handlebars-template">
+<!-- Credit Card -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}creditcardProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox  {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}creditcardAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}creditcardCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragcreditcard" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglecreditcard" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}creditcardAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelcreditcard" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelcreditcard" class="toggleOffLabel hdn">OFF
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{/unless}}
+        </div>
+        {{else}}
+        {{#unless permission}}
+        <div id="{{id}}creditcardConnectAccount" class="floatR financialDetails">
+            <div style="width: 186px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/unless}}
+        {{/if}}
+
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}creditcardFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}CreditCardNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Credit Card{{/if}}
+                </span>
+                {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}creditcardManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}creditcardManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                    <span id="{{id}}creditcardManual">Manual Entry</span>
+            {{/if}}
+<!--	            <span id="{{id}}creditcardLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span> -->
+        	</a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}creditcardCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtoncreditcard" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Credit Card
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}CreditCardInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                     <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}CreditCardInputName">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">What is the Interest Rate? (APR)
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue percent" id="{{id}}CreditCardInputInterestYield">{{apr}}</span>
+                     {{/if}}
+                     {{#unless permission}}
+                    <input type="text" class="percent" placeholder="Enter percent" value="{{apr}}" id="{{id}}CreditCardInputInterestYield">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Balance Owed?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}CreditCardInputBalance">{{amount}}</span>
+                     {{/if}}
+                     {{#unless permission}}
+                    <input type="text" placeholder="Enter a balance" value="{{amount}}" id="{{id}}CreditCardInputBalance" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">How much do you pay?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                   {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}CreditCardInputPayment">{{amtpermonth}}</span>
+                     <span class="profileEmph">per month</span>
+                   {{/if}}
+                   {{#unless permission}}
+                     <input type="text" placeholder="Enter amount" value="{{amtpermonth}}" id="{{id}}CreditCardInputPayment" class="dollaramount">
+                     <span class="profileEmph">per month</span>
+                   {{/unless}}
+                </p>
+                <p>
+                     {{#if permission}}
+		                 <input type="checkbox" style="display:none" name="{{id}}payoff_monthly_balances" id="{{id}}payoff_monthly_balances" value="1"  {{#compare monthly_payoff_balances "1" operator="=="}} checked ="checked" {{/compare}}>
+		                 <span class="profileEmph">Payoff balances each month?</span>
+		                 <br>
+		                 <span class="readOnlyValue">{{#compare monthly_payoff_balances "1" operator="=="}}Yes{{else}}No{{/compare}}</span>		                 
+                     {{/if}}
+                     {{#unless permission}}
+		                 <input type="checkbox" name="{{id}}payoff_monthly_balances" id="{{id}}payoff_monthly_balances" value="1"  {{#compare monthly_payoff_balances "1" operator="=="}} checked ="checked" {{/compare}}>
+		                 <span class="profileEmph">Payoff balances each month?</span>
+                     {{/unless}}
+		        </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+
+            {{#unless permission}}
+             <hr>
+            <input type="hidden" id="{{id}}creditcardSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}}
+            <div class="floatL">
+                <button id="{{id}}UpdateCreditCardButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateCreditCardButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelCreditCardButton" class="cancelCreditCardButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+               <a id="{{id}}DeleteAccountButtoncreditcard" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button id = "createCreditCardButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createCreditCardButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="creditcardRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}creditcardProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

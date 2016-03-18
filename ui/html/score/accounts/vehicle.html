@@ -1,0 +1,136 @@
+<script id="accountsvehicle-template" type="text/x-handlebars-template">
+<!-- Vehicle -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}vehicleProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}vehicleAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}vehicleCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragvehicle" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglevehicle" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">                
+                <span id="{{id}}vehicleAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelvehicle" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelvehicle" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}vehicleFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}VehicleNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Vehicle{{/if}}
+                </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}vehicleManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}vehicleManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                <span id="{{id}}vehicleManual">Manual Entry</span>
+            {{/if}}
+<!--	            <span id="{{id}}vehicleLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span> -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}vehicleCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonvehicle" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Vehicle
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}VehicleInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" id="{{id}}VehicleInputName" value="{{name}}">
+                    {{/unless}}
+                </p>
+             	<p>
+                    <span class="profileEmph">Do you have a loan on this vehicle?
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare loan 1 operator="=="}} Yes {{/compare}} {{#compare loan "0" operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare loan 1 operator="=="}}checked{{/compare}}{{/if}}  name="{{id}}VehicleLoan" value="1">&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare loan "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}VehicleLoan" value="0">&nbsp;No
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Estimated Value
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}VehicleInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a value" id="{{id}}VehicleInputBalance" value="{{amount}}" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <hr>
+            <input type="hidden" id="{{id}}vehicleSaveNeeded" class="saveNeeded" value="true" />
+            {{#unless permission}}
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateVehicleButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateVehicleButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelVehicleButton" class="cancelVehicleButton" href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonvehicle" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createVehicleButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="vehicleRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}vehicleProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

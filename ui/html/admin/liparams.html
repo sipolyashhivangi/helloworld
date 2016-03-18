@@ -1,0 +1,40 @@
+<script id="liparams-template" type="text/x-handlebars-template">
+
+<div class="signupTitleArea">
+    <h2 style="font-family: helvetica,arial;">Life Insurance Needed Calculations</h2>
+    <div class="analyticsMenu">
+        <i id="printReport" title="Print"></i>
+        <i id="pdfReport" title="PDF"></i>
+        <i id="refreshReport" title="Refresh"></i>
+        <i id="closeReport" title="Close"></i>
+    </div>
+    <br>
+
+</div>
+<hr style="; background: #d5d5d5; width: 100%; height: 3px;">
+
+<div class="clearOnly" style="margin-left: 20px">&nbsp;</div>
+    <table width="700">
+        <tr>
+            <td colspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="3">
+                <h3 style="font-family: helvetica,arial;">Summary</h3>
+                {{#each summary}}
+                    {{this}}<br>
+                {{/each}}
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="1">&nbsp;</td>
+            <td colspan="3">
+                <h3 style="font-family: helvetica,arial;">Payment Streams</h3>
+                {{#each payments}}
+                    {{this}}<br>
+                {{/each}}
+            </td>
+        </tr>
+    </table>
+</script>

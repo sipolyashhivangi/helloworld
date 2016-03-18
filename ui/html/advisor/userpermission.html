@@ -1,0 +1,89 @@
+<script id="profile-template" type="text/x-handlebars-template">
+    <div class="roundTop" id="myAdvisorContents">
+    <div style="padding-bottom: 0" class="lightGray roundTop bevelBottom sectionHeader stepOneHeader">
+        <h3>
+            <div class="msConnectionSteps">
+                <div class="msHeadingDiv" style="width: 400px; font-size: 20px; margin-top: 5px;">Advisor&nbsp;Connection&nbsp;Request</div>
+            </div>
+            <div class="clearOnly">&nbsp;</div>
+        </h3>
+        <a class="floatR accX accTopX" style="margin-top: -35px;" id="closeUserPermissions">&nbsp;</a>
+    </div>
+    <div>
+        <div class="li-boeder-bottom fl bmargin17 width97">
+            <div style="height:120px; width: 100%;">
+                <div style="width: 15%; float:left;">
+                    <img width="100" height="100" src="{{data.advisor_profilepic}}">
+                </div>
+                <div style="width: 90%; font-size: 12px;">
+                    <p><strong><span style="font-size: 14px; color: #5fa439;">{{data.advisor_firstname}} {{data.advisor_lastname}}</span></strong><br>{{data.advisor_designations}}</p>
+                    <p style="margin-top: 10px; color: #3e3e3e;">
+                        <strong>Advisor {{#if data.advisor_firstname}}{{data.advisor_firstname}} {{/if}}{{#if data.advisor_lastname}}{{data.advisor_lastname}} {{/if}}created your account. Please set your advisor permissions setting and accept/decline the connection.</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row-fluid allRound" style="background: none repeat scroll 0 0 #fff; border: 1px solid #a9a9a9; border-radius: 5px; width: 90%;">
+                <div advisor="{{data.advisor_id}}" style="padding: 10px;">
+                    <div class="floatL faqArrow" advisor="{{data.advisor_id}}"></div>
+                    <strong class="drkGrey" advisor="{{data.advisor_id}}">Set Advisor Permissions:</strong>
+                    <span class="font-ad-size_blue apStatMsg usrtoadvper{{data.advisor_id}}" advisor="{{data.advisor_id}}" style="color: #5FA439;"></span>
+                </div>
+                <div class="permission{{data.advisor_id}}" id="collapse{{data.advisor_id}}" style="margin-left: 10px;">
+                    <div class="" id="advpermission{{data.advisor_id}}">
+                        <input type="radio" value="RO" name="permission" checked="checked" class="changePermission" advisorId="{{data.advisor_id}}" />&nbsp;
+                        <label for="a2radio1" class="fl"><strong>View Only:</strong> This advisor can view but cannot edit my profile and financial information. </label>                                                                               
+                        <div class="clearOnly fivepx"></div>
+
+                        <input type="radio" value="RW" name="permission" class="changePermission" advisorId="{{data.advisor_id}}" />&nbsp;
+                        <label for="a2radio2" class="fl"><strong>View + Edit:</strong> This advisor can view and edit my profile and financial information. </label>                       
+                        <div class="clearOnly fivepx"></div>
+
+                        <input type="radio" value="N" name="permission" class="changePermission" advisorId="{{data.advisor_id}}" />&nbsp;
+                        <label for="a2radio3" class="fl"><strong>None:</strong> This advisor cannot view or edit my profile and financial information. </label>
+                        <div class="clearOnly tenpx"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearOnly"></div>
+            <div class="permitIndem">
+                <div>
+                    <div class="scroll_div_head drkGrey"><strong> THE BELOW PARAGRAPH NEEDS TO BE AGREED TO / CHECKED OFF BEFORE YOU CAN CONNECT WITH AN ADVISOR.</strong></div>
+                    <div class="scrolling-divs">
+                        By connecting to an advisor, FlexScore does not necessarily guarantee,
+                        approve, or endorse the information or products the advisor makes available to
+                        you.  The advisor is NOT an employee of FlexScore and you SHOULD NOT consider
+                        your ability to connect with an advisor as FlexScore’s warranty of the
+                        advisor.  We do our best to provide a selection of advisors who will fulfill
+                        your needs and objectives. But, these advisors are all separate entities from
+                        FlexScore and, therefore, are outside of our control.  Your connection to the
+                        advisor is contingent upon you accepting the customer agreement of the
+                        respective advisor, which is a separate agreement from FlexScore’s.
+                    </div>
+                    <div id="termtextdivs" class="controls">
+                        <input type="checkbox"  id="termscond" advisor={{data.advisor_id}} />
+                        <div id="termBubbless" class="errorBubble hdn" style="top:-40px;left:-168px">
+                            <div class="inside">
+                                <p id="termErrors">You must agree to FlexScore indemnification statement.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <span style="padding-left:5px;">I understand and agree to the above FlexScore indemnification statement.</span>
+                    </div>
+                    <!--<input type="checkbox" id="termscond" advisor={{data.advisor_id}} />
+                    <span style="padding-left: 8px; font-size: 1.1em; font-weight: bold;">I have read and agree all the FlexScore Indemnification</span>-->
+                </div>
+            </div>
+        </div>
+        <div style="height: 50px; padding-top: 15px; margin-bottom: 0px;" class="darkGray roundBottom bevelTop stepOneHeader" >
+            <div class="floatR" style="width: 125px;">
+                <button class="lsPillBtnGreen btn btn-success savepermissionforadv" type="button" advisorId = {{data.advisor_id}}>&nbsp;Accept&nbsp;</button>
+            </div>
+            <div class="floatR" style="width: 85px;">
+              <button class="lsPillBtnGray btn btn-success deleteadvisorconnection" deleteAdv="{{data.advisor_id}}" userId="{{data.user_id}}" type="button">&nbsp;Decline&nbsp;</button>
+            </div>
+            <div class="clearOnly"></div>
+        </div>
+    </div>
+      <div class="clearOnly"></div>
+  </div>
+</script>

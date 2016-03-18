@@ -1,0 +1,53 @@
+<script id="profile-template" type="text/x-handlebars-template">
+    <a class="floatR accX accTopX cancelProfilePopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+            <span class="accTitle">Profile
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+        <div class="msHeadingDivLine2" style="position:relative;top:-6px;left:-4px">You can access our <a href="./privacy" target="_blank">privacy policy</a> here.                                       
+        </div>                                                    
+    </div>
+    <div class="clearOnly">
+    </div>
+    <ul id="accOverlayTabs">
+        <li>
+            <a class="tabAbout" href="#">
+                <div class="aboutIconOff">
+                </div>&nbsp;About You
+            </a>
+        </li>
+        <li>
+            <a class="tabFinancial" href="#">
+                <div class="financialIconOff">
+                </div>&nbsp;Financial Accounts &amp; Details
+            </a>
+        </li>
+        <li>
+            <a class="tabGoals" href="#">
+                <div class="goalsIconOff">
+                </div>&nbsp;Goals
+            </a>
+        </li>
+    </ul>
+    <div class="clearOnly">
+    </div>
+    <div id="profileDetails">
+    </div>
+    <div class="profileBottomRow roundBottom">		         
+    	<div class="clearEverything">&nbsp;         
+        </div>		         
+       	<div style="padding-right: 25px;margin-top:3px" class="floatR">    
+          <button class="lsPillBtnGreen btn btn-success nextProfilePopupBox" type="button">&nbsp;Next Section&nbsp;</button>
+        </div>
+        {{#unless permission}}
+        <div class="floatR" style="padding-right: 10px;">						
+        	<button class="lsPillBtnGray btn btn-success cancelProfilePopupBox" type="button" style="width: 130px; margin-top: 3px">&nbsp;I'm Done&nbsp;</button>                 
+        </div>{{/unless}}					                                                                                                            
+        <div class="clearEverything">&nbsp;         
+    </div>	   
+    </script>

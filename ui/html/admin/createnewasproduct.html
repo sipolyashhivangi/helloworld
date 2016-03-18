@@ -1,0 +1,123 @@
+<script id="createnewasproduct-template" type="text/x-handlebars-template">
+    <style>
+    .adv_dropdown-menu > li {
+    padding: 0;
+}
+</style>
+    <form class="form-horizontal formProfileAssets">
+
+    <a class="floatR accX accTopX cancelNotificationPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+    <div class="floatL msActionSteps">
+    </div>
+    <div class="floatL" style="padding-top:7px;">
+    <span class="accTitle" id="productTitle">Add Product</span>
+    </div>
+    <div class="clearOnly"></div>
+
+    </div>
+    <div class="clearOnly"></div>
+
+    <div class="clearOnly"></div>
+    <div class="control-group margin-top-left">
+    <div class="signupTitleArea">
+        <div id="useridDiv" style="margin-bottom:0px" class="control-group">
+            <label for="userid" class="signupFormLabel control-label"><strong>User's Email</strong></label>
+            <div class="controls" id="useriddiv" align="left">
+                <input type="text" id="userid" placeholder="" class="profileAccSpecial" name="userid" style="width:430px;">
+                <div class="errorBubble hdn" id="useridbubble" style="white-space:nowrap">
+                    <div class="inside">
+                        <p id="useriderror"></p>
+                        <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="actioidDiv" style="margin-bottom:0px" class="control-group">
+            <label for="userid" class="signupFormLabel control-label"><strong>Action Steps</strong></label>
+            <div class="controls" id="actioniddiv" align="left">
+                <select name="actionid[]" id="actionOption" class="multiselect ddPlainBtn" multiple="multiple">
+                {{#each asdata}}
+                <option value="{{actionid}}">{{actionname}}</option>
+                {{/each}}
+                </select>
+                <div class="errorBubble hdn" id="actionidbubble" style="white-space:nowrap">
+                    <div class="inside">
+                        <p id="actioniderror"></p>
+                        <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="productnameDiv" style="margin-bottom:0px" class="control-group">
+            <label for="productname" class="signupFormLabel control-label"><strong>Product Name</strong></label>
+            <div class="controls" id="productnamediv" align="left">
+                <input type="text" id="productname" placeholder="" class="profileAccSpecial" name="productname" style="width:430px;">
+                <div class="errorBubble hdn" id="productnamebubble" style="white-space:nowrap">
+                    <div class="inside">
+                    <p id="productnameerror"></p>
+                    <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="productimageDiv" style="margin-bottom:0px" class="control-group">
+            <label for="productimage" class="signupFormLabel control-label"><strong>Product Image URL</strong></label>
+            <div class="controls" id="productimagediv" align="left">
+                <input type="text" id="productimage" placeholder="" class="profileAccSpecial" name="productimage" style="width:430px;">
+                <div class="errorBubble hdn" id="productimagebubble" style="white-space:nowrap">
+                    <div class="inside">
+                    <p id="productimageerror"></p>
+                    <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="productlinkDiv" style="margin-bottom:0px" class="control-group">
+            <label for="productlink" class="signupFormLabel control-label"><strong>Product Link URL</strong></label>
+            <div class="controls" id="productlinkdiv" align="left">
+                <input type="text" id="productlink" placeholder="" class="profileAccSpecial" name="productlink" style="width:430px;">
+                <div class="errorBubble hdn" id="productlinkbubble" style="white-space:nowrap">
+                    <div class="inside">
+                    <p id="productlinkerror"></p>
+                    <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="productdescriptionDiv" style="margin-bottom:0px" class="control-group">
+            <label for="productdesciption" class="signupFormLabel control-label"><strong>Product Description</strong></label>
+            <div class="controls" id="productdescriptiondiv" align="left">
+                <textarea placeholder="" class="custom-input" name="productdescription" id="productdescription"  value="" style="width:500px;height:150px;">{{actiondesc}}</textarea>
+                <div class="errorBubble hdn" id="productdescriptionbubble" style="white-space:nowrap">
+                    <div class="inside">
+                    <p id="productdescriptionerror"></p>
+                    <div class="point"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+<input type="hidden" value="" id="currentASProduct" />
+
+    <div class="clearEverything"></div>
+    </div>
+
+    <div class="profileBottomRow roundBottom">
+    <div class="clearEverything">&nbsp;
+    </div>
+    <input type="hidden" name="actionid" value="{{actionId}}" id="actionid" />
+    <div class="floatR" style="padding-right: 10px;">
+    <button type="button" class="simpleGreenCTAButton" style="margin-left:30px;width:150px;" aria-hidden="true" id="saveNewASProduct" >Add Product</button>
+    </div>
+    <div class="clearEverything">&nbsp;
+    </div>
+    </form>
+</script>

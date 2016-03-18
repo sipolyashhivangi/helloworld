@@ -1,0 +1,113 @@
+<script id="subscription-template" type="text/x-handlebars-template">
+<form class="comparisonBox row-fluid" id="formCreateSubscription" method="POST" id="payment-form">
+    <div class="mediumGray bevelBottom">
+        <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+            <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+            </div>
+            <div class="floatL">
+                <span class="accTitle">Activate&nbsp;Your&nbsp;Account&nbsp;
+                </span>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <div class="msHeadingDivLine2" style="position:relative;top:-6px;left:-4px">You can access our <a href="./privacy" target="_blank">privacy policy</a> here.
+            </div>
+        </div>
+        <div id="subscriptionFormContent">
+            <input type="hidden" id="trialEndDate" value="" />
+            <div style="padding:5px 30px 5px">
+                <p id="2014text" class="hdn">
+                    Welcome to FlexScore Pro Beta - the industry’s most innovative financial planning software for
+                    advisors. With Pro, you get a client dashboard that allows you to monitor and manage all of
+                    your clients using the FlexScore technology. Plus, you’ll be able to receive client referrals
+                    through the thousands of FlexScore users on our consumer site.
+                    <br><br>
+                    To reward you for being one of our Beta users, you will receive Early Bird pricing. This means
+                    you’ll be charged only 50% of our normal monthly subscription rate of $150/month (just $75/month
+                    for Early Birds like you). <span id="2014trialText" class="hdn">As an additional bonus, if you
+                    sign up before December 31, 2014, you will be given a free trial period until {{trialend}}.</span>
+                    If you have any suggestions on features you would like, please email support@flexscore.com with
+                    FlexScore Pro Advisor in the Subject Line.
+                    <br><br>
+                    Enter your credit card and other information.  You may log out and come back to this page later.
+                </p>
+                <p id="2015text" class="hdn">
+                    Welcome to FlexScore Pro Beta - the industry’s most innovative financial planning software for
+                    advisors. With Pro, you get a client dashboard that allows you to monitor and manage all of
+                    your clients using the FlexScore technology. Plus, you’ll be able to receive client referrals
+                    through the thousands of FlexScore users on our consumer site.
+                    <br><br>
+                    The subscription price for FlexScore Pro is $150 per month<span id="2015trialText" class="hdn">,
+                    and you will been given a free trial period until {{trialend}}</span>.
+                    <br><br>
+                    Enter your credit card and other information.  You may log out and come back to this page later.
+                </p>
+                <div class="clearOnly tenpx">&nbsp;</div>
+            </div>
+            <div class="control-group" style="padding:0px 20px 10px 75px">
+                <div>
+                    <div class="floatR col500" style="margin-top: 5px">{{email}}</div>
+                    <div class="questionLabelBlack">Email</div>
+                    <div class="clearOnly tenpx">&nbsp;</div>
+                </div>
+                <div id="ccNumdiv" class="controls">
+                    <div class="floatR col500"><input type="text" size="20" id="ccNum" class="ccamount" tabindex="1" maxlength="19"></input></div>
+                    <div class="questionLabelBlack">Card Number</div>
+                    <!-- error tooltip -->
+                    <div id="ccNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="ccNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="cvcNumdiv" class="controls">
+                    <div class="floatR col500"><input type="text" size="4" id="cvcNum" class="ccamount" tabindex="2" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">CVC</div>
+                    <!-- error tooltip -->
+                    <div id="cvcNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="cvcNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="expMonthdiv" class="controls">
+                    <div class="floatR col500">
+                        <input type="text" size="2" id="expMonth" class="ccamount" tabindex="3" maxlength="2" style="width:20px"></input>&nbsp;/&nbsp;<input type="text" size="4" id="expYear" class="ccamount" tabindex="4" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">Expiration (MM/YYYY)</div>
+                    <!-- error tooltip -->
+                    <div id="expMonthbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="expMontherror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="zipCodediv" class="controls">
+                    <div class="floatR col500"><input class="cczip" id="zipCode" type="text" size="10" tabindex="5"></input> </div>
+                    <div class="questionLabelBlack">Zip Code</div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div class="clearOnly twentypx"></div>
+            </div>
+        </div>
+        <div id="subscriptionMessage" class="hdn" style="padding: 60px 40px 60px 40px; text-align: center">&nbsp;{{message}}&nbsp;</div>
+    </div>
+    <div style="height: 50px; padding-top: 15px; margin-bottom: 0px" class="profileBottomRow darkGray roundBottom bevelTop">
+        <div class="floatR" style="width: 165px; margin-right: 0px">
+            <button class="lsPillBtnGreen btn btn-success hdn" id="subscribeButton" type="submit" tabindex="6">&nbsp;Submit Payment&nbsp;</button>
+        </div>
+        <div style="padding-left: 20px;">
+            <button class="lsPillBtnGray btn btn-success hdn" id="cancelSubscribe" type="button" style="width: 230px;" tabindex="5">&nbsp;No thanks, I'll subscribe later&nbsp;</button>
+        <div class="floatR" style="padding-right: 10px;">
+            <button class="lsPillBtnGray btn btn-success hdn" id="closeSubscriptionButton" type="button" style="width: 120px;">&nbsp;Close&nbsp;</button>
+        </div>
+        <div class="clearEverything">&nbsp;</div>
+    </div>
+
+</form>
+</script>

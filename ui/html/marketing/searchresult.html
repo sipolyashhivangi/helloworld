@@ -1,0 +1,172 @@
+<script id="lsearchview-template" type="text/x-handlebars-template">
+<div class="lcArticles">			                                                   
+    {{#unless getLatestArticles}}
+    <div class="row-fluid">                                                                     
+        <div class="span12 roundTop smallGlow whiteBg">                                                                                       
+            <div class="sectionHeader">       
+            {{#if name}}
+                <div style="text-align:center;width:90%;padding:15px">
+                    <div class="round" style="height: 75px; width:75px; background: {{background}};margin:0 auto">                                                                                                                                              
+                        <img src="{{source}}" style="{{style}}" alt="FlexScore - {{name}}">                                                                                          
+                    </div>
+                    <div style="padding-top:5px">
+                        <h1>{{name}}</h1>
+                    </div>
+                    <div class="actionName" style="padding-top:10px; width:85%;margin:0 auto">
+                        {{description}}
+                    </div>
+                </div>
+            {{else}}
+                <div class="floatL" style="padding-top:10px">
+                    <span class="add-on"><img src="./ui/images/icon_search.png" alt="FlexScore - Search Icon"></span>
+                </div>
+                <div class="floatL" style="padding-left:5px;">
+                    <h3 style="padding-top:0px">Search&nbsp;Results</h3>                                                                                                     
+                </div>            
+                <div class="clearEverything"></div>                                                                         
+            {{/if}}
+            </div>      	                                                             
+        </div>                                                         
+    </div>
+    {{/unless}}
+
+    {{#if articles}}
+
+    <!-- row one -->
+    <div class="row-fluid bevelTop roundBottom mediumGray smallGlow" style="">    		                                                             
+        {{#articles}}
+        <div class="span4 tinyGlow learningCenterCard readMoreSearch" id="{{post_id}}RecommendedHead" style="margin-left:18px;">  
+            <div class="actionStepHeader"> 
+                {{#if images.link}}
+                <div class="cardImage search"> 
+                    <img alt="FlexScore - {{post_title}}" src="{{images.link}}">   
+                </div>	
+                {{else}}
+                    {{#if videos.link}}
+                    <div class="cardImage search">
+                        <video poster={{videos.link}} width="100%" height="100%" controls>
+                        <source src="{{videos.link}}" type="video/{{videos.ext}}">
+                        Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    {{else}}
+                        {{#if youtube.link}}
+                        <div class="cardImage search">
+                            <img alt="FlexScore - {{post_title}}" src="https://img.youtube.com/vi/{{youtube.link}}/0.jpg">
+                            <div class="playButton search">
+                                <img alt="FlexScore - Play Icon" src="./ui/images/purplePlay.svg" width="40" style="width:40px !important;">
+                            </div>
+                        </div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                <div class="articleCopy {{#unless images.link}}{{#unless videos.link}}{{#unless youtube.link}}full{{else}}search{{/unless}}{{else}}search{{/unless}}{{else}}search{{/unless}}">                                                                        
+                    <div class="actionName">{{category}}</div>
+                    <h3>{{post_title}}</h3>
+                </div>
+                <div class="clearOnly">&nbsp;</div>
+                <div class="articleSummary">   
+                    <div class="actionName {{#if images.link}}search{{else}}{{#if videos.link}}search{{else}}{{#if youtube.link}}search{{/if}}{{/if}}{{/if}}">{{post_excerpt}}</div>
+                    <div class="actionStepCTA"><a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}RecommendedLink" class="readMoreSearch">Read more</a></div>
+                </div>     		                                                                                               
+            </div>
+        </div>
+        {{/articles}}
+
+        {{#if articlesmore}}
+        <div id="row2" class="hdn">	        		                                                                                       
+            {{#articlesmore}}
+            <div class="span4 tinyGlow learningCenterCard readMoreSearch" id="{{post_id}}RecommendedHead" style="margin-left: 18px">    
+                <div class="actionStepHeader"> 
+                    {{#if images.link}}
+                    <div class="cardImage search">
+                        <img alt="FlexScore - {{post_title}}" src="{{images.link}}">   
+                    </div>	
+                    {{else}}
+                        {{#if videos.link}}
+                        <div class="cardImage search">
+                            <video poster={{videos.link}} width="100%" height="100%" controls>
+                            <source src="{{videos.link}}" type="video/{{videos.ext}}">
+                            Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        {{else}}
+                            {{#if youtube.link}}
+                            <div class="cardImage search">
+                                <img alt="FlexScore - {{post_title}}" src="https://img.youtube.com/vi/{{youtube.link}}/0.jpg">
+                                <div class="playButton search">
+                                    <img alt="FlexScore - Play Icon" src="./ui/images/purplePlay.svg" width="40" style="width:40px !important;">
+                                </div>
+                            </div>
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                    <div class="articleCopy {{#unless images.link}}{{#unless videos.link}}{{#unless youtube.link}}full{{else}}search{{/unless}}{{else}}search{{/unless}}{{else}}search{{/unless}}">                                                                        
+                        <div class="actionName">{{category}}</div>
+                        <h3>{{post_title}}</h3>
+                    </div>
+                    <div class="clearOnly">&nbsp;</div>
+                    <div class="articleSummary">   
+                        <div class="actionName">{{post_excerpt}}</div>
+                        <div class="actionStepCTA"><a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}RecommendedLink" class="readMoreSearch">Read more</a></div>
+                    </div>     		                                                                                               
+                </div>
+            </div>
+            {{/articlesmore}}
+            <div style="text-align: center">	        				       
+                <div class="clearEverything">&nbsp;</div>
+                <button class="btn" type="button" onclick="$('#row2').hide(); $('#showBttn').show();">See Fewer Articles</button>	        		                                                                       
+            </div>		                                                                     
+        </div>
+        <div id="showBttn" style="text-align: center">
+            <div class="clearEverything">&nbsp;</div>
+            <button class="btn" type="button" onclick="$('#row2').show(); $('#showBttn').hide();">See More Articles</button>
+        </div>                                  
+        {{/if}}                                       
+        <div class="clearEverything">&nbsp;</div>           
+    </div>
+    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    {{else}}
+    {{#if getLatestArticles}}
+	    {{#getLatestArticles}}
+			{{#compare @index "0" operator=">"}}<br>{{/compare}}
+    	<div id="{{post_id}}FeaturedVidHead" class="span9 round lightGray smallGlow readMoreSearch" style="margin-left:0px;margin-right:25px">
+        <div class="articleContent" id="{{post_id}}ArticleContent">
+			<p>
+	        	{{#categories}}{{#compare @index "0" operator=">"}}, {{/compare}}<a href="{{baseUrl}}/blogcategory/{{categoryslug}}" id="{{post_id}}FeaturedVidLink" class="readMoreSearch categoryLink" name="FeaturedVidLink">{{categoryname}}</a>{{/categories}}
+			</p>
+			<h1 class="smallerHeader">{{post_title}}</h1>
+			<div class="clearEverything">&nbsp;</div>
+				{{#if images.link}}
+					<div>
+						<img alt="" src="{{images.link}}" style="width:100%">
+					</div>
+					<br>
+				{{/if}}
+				{{#if youtube.link}}
+					<div class="videoContainer">
+						<iframe {{#if showSandbox}}sandbox="allow-scripts allow-same-origin"{{/if}} width="560" height="315" src="https://www.youtube.com/embed/{{youtube.link}}?autoplay=0&amp;rel=0&amp;autohide=1&amp;wmode=transparent&amp;showinfo=0{{#if showSandbox}}&amp;html5=1{{/if}}" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<br>
+				{{/if}}
+		
+			<div class="floatL" style="padding-top:15px;">{{posted_date}} / By {{display_name}} </div>
+                        <div class="floatR" id="{{post_id}}shareDiv"></div>
+			<div class="clearEverything">&nbsp;</div>
+			<div class="entry-content">
+				{{{post_excerpt}}}
+			</div>
+            <div class="actionStepCTA">
+                <a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}RecommendedLink" class="readMoreSearch" name="FeaturedVidLink">Read more</a>
+        	</div>
+        </div>
+    </div>
+    <div class="clearOnly"></div>
+	    {{/getLatestArticles}}    
+	{{else}}
+        <div class="articleContent mediumGray smallGlow round" style="color:#767676">No posts found</div>
+	{{/if}}
+    {{/if}}
+</div>
+<div class="clearOnly">&nbsp;</div>
+</script>

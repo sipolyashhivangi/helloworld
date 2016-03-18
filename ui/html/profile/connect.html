@@ -1,0 +1,114 @@
+<script id="search-template" type="text/x-handlebars-template">
+    <br>
+    <input type="hidden" name="connectAccountstatus" id="connectAccountstatus" value="">
+    <div id="connectAccBox">
+        <div class="floatL" style="width:65%" id="connectAccountsDiv">
+            <div id="connectSearchDiv">
+            </div>
+            <div id="existingConnectAccounts" style="display:none;">
+                <h3 id="existingHeader" style="display: block;">Pending Accounts</h3>
+		<input type="hidden" value="0" id="existingConnectCount" />
+                <div id="existingConnectDiv" style="padding-top:5px"></div>
+            </div>
+            <div id="existingRefreshAccounts" style="display:none;">
+                <h3 id="existingRHeader" style="display: block;">Refresh Accounts</h3>
+		<input type="hidden" value="0" id="existingRefreshCount" />
+                <div id="existingRefreshDiv" style="padding-top:5px"></div>
+            </div>       
+        </div>
+        
+        <div class="floatL" style="margin-left:35px;width:185px;">
+            <br />
+            <div class="advisorName" style="color:#333;">Connected Accounts: </div>
+            <br/>
+            <div style="padding-bottom:10px">
+                <div class="profileEmph" id="connectedDebtsHeader">Debts</div>
+                <div id="connectedDebts">
+                    {{#debts}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addDebts" class="addDebts" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/debts}}
+                </div>
+            </div>
+            <div style="padding-bottom:10px">
+                <div class="profileEmph" id="connectedAssetsHeader">Assets</div>
+                <div id="connectedAssets">
+                    {{#cash}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addAssetsCash" class="addAssets" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/cash}}
+                    {{#investment}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addAssetsInvestment" class="addAssets" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/investment}}
+                    {{#other}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addAssetsOther" class="addAssets" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/other}}
+                    {{#silent}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addAssetsSilent" class="addAssets" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/silent}}
+                </div>
+            </div>
+            <div style="height:30%">
+                <div  class="profileEmph" id="connectedInsuranceHeader">Insurance</div>
+                <div id="connectedInsurance">
+                    {{#insurance}}
+                    {{#compare status 1 operator="!="}}
+                    {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <div style="width:90%;padding-top:5px">
+                        <a id="{{id}}addInsurance" class="addInsurance" href="#">{{name}}</a>
+                    </div> 
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/insurance}}
+                </div>
+            </div>
+        </div>
+        <div class="clearOnly"></div>
+       </div>
+
+        <div class="profileEmphDollar" id="connectAccountPreferenceDiv" style="display:none;">
+            <input type="checkbox" name="connectAccountPreference" id="connectAccountPreference" value="">
+            I prefer not to connect my account(s). {{connectAccountstatus}}
+        </div>
+    <br>
+</script>

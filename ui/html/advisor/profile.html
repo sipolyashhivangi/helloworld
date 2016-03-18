@@ -1,0 +1,122 @@
+<script id="profile-template" type="text/x-handlebars-template">
+    <a class="floatR accX accTopX cancelProfilePopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+
+            <span class="accTitle">Advisor Profile            
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+        
+    </div>
+    
+    <div class="clearOnly"></div>
+	<div class="control-group ">
+		<div class="mainBdyWrap">        	                                                 
+			<div id="mainBody" class="">                                  
+        <!-- white top/grey body div -->                                                                          
+				<div class="">                                                                        
+					<div>			        	                                                                              
+						<div class="lightGray roundTop bevelBottom apTop">
+							<div class="myAdvisorCol1 image">
+							{{#if profilepic}}
+								<img src="{{profilepic}}" alt="advisor" height="160" width="160">
+							{{/if}}
+							{{#ifeq profilepic ""}}
+								<img src="./ui/images/advisor_default.png" style="height:103px; width:103px;" alt="{{firstname}} {{lastname}}">
+							{{/ifeq}}
+								<div class="clearOnly"></div>								
+							</div>
+							<div class="myAdvisorCol1 text"><h3>{{firstname}} {{lastname}}</h3>  
+								<p>{{designation}}</p>
+								<p>{{firmname}}</p>
+								<div id="operation-btn">
+                                                                {{#compare unassign "1" operator="==" }}
+								<button style="width: 180px; margin-top: 10px" id='releasebtn' adv_id = '{{advisor_id}}' type="button" class=" release lsPillBtnGreen btn btn-success">&nbsp;Unassign </button>{{/compare}}
+								
+								<button style="width: 180px; margin-top: 10px" id='assignbtn' adv_id = '{{advisor_id}}' type="button" class=" assignme lsPillBtnGreen btn btn-success">&nbsp;Assign </button>
+								
+								<button style="width: 180px; display:none; margin-top: 10px" id='connectbtn' adv_id = '{{advisor_id}}' type="button" class=" assignme lsPillBtnGreen btn btn-success">&nbsp;Connect to Advisor </button>
+								
+								</div>
+								<div class="clearOnly">
+								</div>			                                                                                          
+							</div>
+							<div class="clearOnly">&nbsp;                                                                                          
+							</div>		        		                                                                              
+						</div>			        	                                                                              
+						<div class="baseballCardWrapper mediumGray roundBottom apBottom">
+							<div class="rightSide">                                                                                  
+								<div class="ulCon"><h3>How Advisor is Licensed</h3>				        			         
+									<ul>    
+										{{#compare advisortype "Both" operator="==" }}
+											<li>Dual Registration</li>
+										{{else}}
+											{{#compare advisortype "Broker" operator="==" }}
+												<li>Registered Representative </li>
+											{{else}}	
+												<li>{{advisortype}}</li>
+											{{/compare}}
+										{{/compare}}	
+									</ul>				        						        		                     
+								</div>                                                                   
+								<div class="ulCon"><h3>Products and Services</h3>				   
+									<ul>                                                                                                        
+										{{#each productservice}}
+											<li>{{name}}</li>
+										{{/each}}
+									</ul>
+								</div>                                                                   
+								<div class="ulCon"><h3>Registered In</h3>				        			
+									<ul>
+										{{#each stateregistered}}
+											<li>{{name}}</li>
+										{{/each}}	
+									</ul>
+								</div>
+							</div>
+							<div class="leftSide">
+								<div class="txtCon desc"><h3>About Advisor</h3>
+									<p class="">{{description}}
+									</p>				        						        		                      
+								</div>                                                                                                     
+								<div class="txtCon"><h3>CRD Number</h3>				        			        
+									<p class="">{{individualcrd}}</p>
+								</div>	
+								<div class="ulCon"><h3>How Advisor Charges</h3>				        			        
+									
+										{{#each typeofcharge}}
+											{{#compare type "assets" operator="==" }}
+												<li>Percentage of Assets</li>
+											{{else}}
+												<li>{{type}}</li>
+											{{/compare}}									
+										{{/each}}
+									
+								</div>
+								
+								<div class="txtCon"><h3>Advisor Account Average</h3>
+									<p >Minimum Asset Balance: $<span id="minimumAssest"></span></p>
+								</div>
+							</div>
+              <div class="clearEverything"></div>	
+						</div>			                                                                          
+					</div>                                                         
+				</div>                                                                      
+        <!-- /white top/grey body div -->                                
+				<!-- /not sure about these -->       	     				 		                                                     
+			</div>    	                                   
+		</div>
+		<div class="clearEverything"></div>	   
+	</div>
+	
+    <div class="profileBottomRow roundBottom">		         
+    	<div class="clearEverything">&nbsp;         
+        </div>		                	
+        <div class="clearEverything">&nbsp;</div>
+    </div>
+
+    </script>

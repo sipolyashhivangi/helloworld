@@ -1,0 +1,151 @@
+<script id="useractionoverlay-template" type="text/x-handlebars-template">
+    {{#actionstepdetail}}
+    <div id="comparisonContents">
+        <div class="">
+            <a class="floatR accX accTopX" href="javascript:window.parent.removeLayover()">&nbsp;</a>
+            <div class="floatL">
+                <div class="pad20 noPadBot">{{category}}</div>
+            </div>
+            <div class="clearOnly">&nbsp;</div>
+        </div>
+        <div class="pad20 noPadTop">
+            <input type="hidden" value="true" id="isActionStep" />
+            {{#compare linktype "video" operator="!="}}
+                <h3>{{actionname}}</h3>
+                {{#if image}}
+                    <div class="floatR" style="padding-left:10px;padding-top:10px">
+                        <img style="height:200px;position:relative" src="{{image}}" />
+                    </div>
+                {{/if}}
+                <div style="margin:1em 0 0">{{{description}}}</div>
+                <div class="clearOnly twentypx"></div>
+                <!--Advisor Recommendation Starts Here-->
+                {{#compare externallink "" operator="!="}}
+
+                 <table width="100%">
+                {{#if advisorrecommendations}}
+                    {{#each advisorrecommendations}}
+                        <tr>
+                            <td width="100px" valign="middle" style="text-align:center;padding-right:15px">
+                                {{#if product_link}}
+                                    <a href="{{product_link}}" class="masterTooltip" target="_blank" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control.">
+                                {{/if}}
+                                {{#if product_image}}
+                                    <img src="{{product_image}}" style="border-radius:5px;" width="100%" />
+                                {{else}}
+                                     {{#if profilepic}}
+                                         <img src="{{profilepic}}" style="width:75px;height:75px;border-radius:5px;" />
+                                     {{else}}
+                                        <img src="./ui/images/genericAvatar.png" style="width:75px;height:75px;border-radius:5px;">
+                                    {{/if}}
+                                {{/if}}
+                                {{#if product_link}}
+                                    </a>
+                                {{/if}}
+                            </td>
+                            <td valign="middle">
+                                <div style="background-color:#ffffff;border:1px solid #BCBCBC;border-radius:4px;padding:10px;"><span id="advproductdescription{{actionid}}">{{{recommendation}}}</span>
+                                {{#if product_link}}
+                                    <a href="{{product_link}}" target="_blank" class="masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control.">Click Here</a> to begin.</div>
+                                {{/if}}
+                            </td>
+                        </tr>
+                         <tr>
+                           <td colspan="2">&nbsp;</td>
+                       </tr>
+                    {{/each}}
+                {{else}}
+                {{#if admincommendations}}
+                {{#each admincommendations}}
+                    <tr>
+                   <td width="150px" valign="middle"><a href="{{product_link}}" id="{{../id}}" target="_blank" class="masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control."><img id="{{id}}" src="{{product_image}}" style="border-radius:5px;" width="100%"></a></td>
+                   <td valign="middle">
+                   <div style="background-color:#ffffff;border:1px solid #BCBCBC;border-radius:4px;padding:10px;margin-left:25px">{{html_description}} <a href="{{product_link}}" id="{{../id}}" target="_blank" class="masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control." >Click Here</a> to begin.</div>
+                   </td>
+                   </tr>
+                   <tr>
+                   <td colspan="2">&nbsp;</td>
+                   </tr>
+                {{/each}}
+                {{else}}
+                <tr>
+                <td width="150px" valign="middle"><a href="{{externallink}}" id="{{id}}" class="popLinkCongrats masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control."><img id="{{id}}" src="{{external_institution_logo}}" style="border-radius:5px;{{#compare externallinkname 'EverBank' operator='=='}}background-color:black;padding:5px{{/compare}}" width="100%"></a></td>
+                <td valign="middle">
+                <div style="background-color:#ffffff;border:1px solid #BCBCBC;border-radius:4px;padding:10px;margin-left:25px">{{externallinkdescription}} <a href="{{externallink}}" id="{{id}}" class="popLinkCongrats masterTooltip" title="By providing links to other sites, FlexScore does not necessarily guarantee, approve, or endorse the information or products available on these sites. We do our best to provide convenient ways to fulfill action steps through outside providers. But, these are all separate entities from FlexScore and, therefore, are outside of our control.">Click Here</a> to begin.</div>
+                </td>
+                </tr>
+                <tr>
+                <td colspan="2">&nbsp;</td>
+                </tr>
+                {{/if}}
+                {{/if}}
+                 </table>
+                {{/compare}}
+
+                <!--Advisor Recommendation End Here-->
+
+
+            {{/compare}}
+            {{#compare linktype "video" operator="=="}}
+                <h3>{{vtitle}}</h3>
+            {{/compare}}
+            <div class="clearOnly tenpx">&nbsp;</div>
+            {{#compare linktype "video" operator="=="}}
+                <p><iframe {{#if showSandbox}}sandbox="allow-scripts allow-same-origin"{{/if}} width="560" height="315" src="{{protocol}}://www.youtube.com/embed/{{link}}?autoplay=1&amp;rel=0&amp;autohide=1&amp;showinfo=0{{#if showSandbox}}&amp;html5=1{{/if}}" frameborder="0" allowfullscreen></iframe></p>
+            {{/compare}}
+            {{#compare linktype "image" operator="=="}}
+                <p><img src="{{link}}"></p>
+            {{/compare}}
+
+            <div class="floatR" style="padding-right:20px">
+                <div class="floatR">
+                <a onclick="window.parent.removeLayover();" class="boldText" style="cursor:pointer;">Skip this for now</a>
+                </div>
+
+
+            </div>
+
+            <div class="floatL">
+                {{#compare points "0" operator="!="}}
+                    <div class="baseCallCardDetailsRight actionOverlay">
+                        <span class="plusHigh">+</span><span class="numOfPoints">{{points}}</span><span class="small">pts</span>
+                    </div>
+                {{/compare}}
+                {{#compare linktype "action" operator="=="}}
+                    {{#compare link "learnmore" operator="!="}}
+                        {{#compare info "info" operator="!="}}
+                        <button style="white-space:nowrap;width:130px;" type="button" id="{{link}}" name="{{id}}" title="{{flexi2}}" value="{{flexi3}}" class="lsPillBtnGreen btn btn-success popLayerButton">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                        {{/compare}}
+                    {{/compare}}
+                {{/compare}}
+                {{#compare linktype "link" operator="=="}}
+                <button style="white-space:nowrap;width:130px;" type="button" id="{{link}}" name="{{id}}" class="lsPillBtnGreen btn btn-success popLayerButton">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                {{/compare}}
+                {{#unless permission}}
+                    {{#compare linktype "video" operator="=="}}
+                    <button style="white-space:nowrap;width:130px;" type="button" id="{{id}}" class="lsPillBtnGreen btn btn-success popCongrats">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                    {{/compare}}
+                {{/unless}}
+                {{#unless permission}}
+                    {{#compare linktype "image" operator="=="}}
+                    <button style="white-space:nowrap;width:130px;" type="button" id="{{id}}" class="lsPillBtnGreen btn btn-success popCongrats">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                    {{/compare}}
+                {{/unless}}
+                {{#unless permission}}
+                    {{#compare linktype "other" operator="=="}}
+                    <button style="white-space:nowrap;width:130px;" type="button" id="{{id}}" class="lsPillBtnGreen btn btn-success popCongrats">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                    {{/compare}}
+                    {{#compare linktype "action" operator="=="}}
+                        {{#compare info "info" operator="=="}}
+                            <button style="white-space:nowrap;width:130px;" type="button" id="{{link}}" name="{{id}}" title="{{flexi2}}" value="{{flexi3}}" class="lsPillBtnGreen btn btn-success popCongratsSpecial">&nbsp;{{buttonlink}}&nbsp;</button>&nbsp;&nbsp;
+                        {{/compare}}
+                    {{/compare}}
+                {{/unless}}
+
+
+            </div>
+            <div class="clearOnly twentypx">&nbsp;</div>
+        </div>
+    </div>
+    {{/actionstepdetail}}
+</script>

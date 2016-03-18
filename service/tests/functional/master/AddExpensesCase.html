@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddExpensesCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddExpensesCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>FlexScore - Financial Snapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cashSummarySpan</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cashSummarySpan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addAssetsCashAmount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addAssetsCashAmount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=expensesLink</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=expensesLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=rentExpenses</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rentExpenses</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=groceryExpenses</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=utilityExpenses</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gasExpenses</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=entertainmentExpenses</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=householdExpenses</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=healthExpenses</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loanExpenses</td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=taxExpenses</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=travelExpenses</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=otherExpenses</td>
+	<td>3240</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=totalexpensescalculated</td>
+	<td>$12,240</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[5]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

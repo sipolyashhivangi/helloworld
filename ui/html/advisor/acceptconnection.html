@@ -1,0 +1,53 @@
+<script id="createnewclient-template" type="text/x-handlebars-template">
+	
+    <a class="floatR accX accTopX cancelNotificationPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+            <span class="accTitle">Accept Client Request
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+                                                            
+    </div>
+    <div class="clearOnly">
+    </div>
+    
+    <div class="clearOnly">
+    </div>
+    <div class="control-group margin-top-left">
+		<label class="signupFormLabel control-label fl margin-right" for="inputEmail">
+        <span>Re: {{#compare data.topic "" operator="=="}} N/A {{else}}{{data.topic}}{{/compare}}</span>
+            <p>{{data.message}}</p>
+			Accept the connection request of: 
+                        <strong>
+                        <div style="padding:5px;">
+                        {{#compare data.firstname "" operator="!="}}
+                        <div class="advisorName">{{data.firstname}} {{data.lastname}}</div> 
+                        {{/compare}}
+                        <div class="contact advisorPaleText">{{clientEmail}}</div>
+                        {{#compare data.phone "" operator="!="}}
+                        <div class="contact advisorPaleText">{{data.phone}}</div>
+                         {{/compare}}
+                         </div>
+                        </strong>
+		</label>
+		
+		<div class="clearEverything"></div>	   
+	</div>
+	
+    <div class="profileBottomRow roundBottom">		         
+    	<div class="clearEverything">&nbsp;         
+        </div>		         
+       	<div class="floatR" style="padding-right: 10px;">
+			
+        	<button type="button" class="simpleGreenCTAButton cancelNotificationPopup accepted" aria-hidden="true" id="accepted" advisorId={{data.advisor_id}} clientId={{data.user_id}} clientEmail={{clientEmail}} >Accept</button>
+			
+			<button type="button" deleteId={{data.user_id}} advisorId={{data.advisor_id}} status = {{data.status}} clientEmail={{clientEmail}} class="lsPillBtnGray btn btn-success declined cancelNotificationPopup" aria-hidden="true" id="cancel" >Decline</button>
+					
+        </div>       
+        <div class="clearEverything">&nbsp;         
+    </div>	      
+</script>

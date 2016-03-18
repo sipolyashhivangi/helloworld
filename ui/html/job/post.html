@@ -1,0 +1,41 @@
+<script id="lpostview-template" type="text/x-handlebars-template">
+    <div style=""height:10px;>&nbsp;</div>
+   <div class="container"> 
+                <div id="homeBg" style="background:none">
+                </div>                                 
+                <div class="row">                                                       
+                    <div class="span12 round lightGray smallGlow floatR">                                      
+                        <!-- right column -->    
+                        {{#article}}
+                         <div class="articleContent"><h1>Job Title: {{post_title}}</h1>                                                                                                                    
+                          
+                            
+                            <hr/>
+                                 
+                          <div class="span7">
+
+				{{{post_content}}}
+                            <p><strong>&nbsp;</strong></p>
+                            <p><a href="jobs">Back to Job Page</a></p>
+					
+
+			</div>
+                            
+                            <div class="span3 offset1 other_jobs">
+					<h4>Other Open Positions:</h4>
+					
+					<ul>
+						
+                                        {{#relatedarticle}}
+                                         <li><a href="{{post_url}}/{{post_name}}">{{post_title}}</a></li>
+                                         {{/relatedarticle}}
+					
+					</ul>
+				
+				</div>
+                            
+                        </div>
+                       {{/article}}
+            <div class="vSpace">&nbsp;                     
+            </div>      
+</script>

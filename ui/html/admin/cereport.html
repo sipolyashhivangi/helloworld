@@ -1,0 +1,70 @@
+<script id="lpostview-template" type="text/x-handlebars-template">
+    <div class="navSpacer">&nbsp;</div>
+    <div class="container">
+        <div id="singlePostRead">
+            <div class="row">
+                <div class="span9 round lightGray smallGlow floatR">
+                    <!-- right column -->
+
+                    <div class="articleContent" id="idArticleContent" style="padding:0px">
+                    </div>
+                </div>
+                <div class="clearOnly visible-phone twentypx">&nbsp;
+                </div>
+                <div class="span3 round lightGray smallGlow floatL"><!-- left column -->
+                    <div class="articleNavls">
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span2" id="searchreport" type="text" placeholder="Search">
+                                    <span class="add-on searchBtnPost" id="cesearch"><img alt="" src="./ui/images/icon_search.png" id="cesearchimage"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="articleNavHdr">Filter by Status</span>
+                        <ul>
+                            <li id="status"  class="articleNavOff">
+                                <div class="floatL">
+                                    <input class="filterStatus" name="Status" type="checkbox" style="width:15px;height:15px" value="Pending">
+                                </div>
+                                <div class="floatL" style="padding-top:3px;padding-left:5px">Pending</div>
+                                <div class="clearOnly"></div>
+                            </li>
+                            <li id="status"  class="articleNavOff">
+                                <div class="floatL">
+                                    <input class="filterStatus" name="Status" type="checkbox" style="width:15px;height:15px" value="MFA Needed">
+                                </div>
+                                <div class="floatL" style="padding-top:3px;padding-left:5px">MFA Needed</div>
+                                <div class="clearOnly"></div>
+                            </li>
+                            <li id="status"  class="articleNavOff">
+                                <div class="floatL">
+                                    <input class="filterStatus" name="Status" type="checkbox" style="width:15px;height:15px" value="Needs Classification">
+                                </div>
+                                <div class="floatL" style="padding-top:3px;padding-left:5px">Needs Classification</div>
+                                <div class="clearOnly"></div>
+                            </li>
+                            <li id="status"  class="articleNavOff">
+                                <div class="floatL">
+                                    <input class="filterStatus" name="Status" type="checkbox" style="width:15px;height:15px" value="Bad Credentials">
+                                </div>
+                                <div class="floatL" style="padding-top:3px;padding-left:5px">Bad Credentials</div>
+                                <div class="clearOnly"></div>
+                            </li>
+                            <li id="status"  class="articleNavOff">
+                                <div class="floatL">
+                                    <input class="filterStatus" name="Status" type="checkbox" style="width:15px;height:15px" value="Error">
+                                </div>
+                                <div class="floatL" style="padding-top:3px;padding-left:5px">Error</div>
+                                <div class="clearOnly"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="vSpace">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="vSpace">&nbsp;</div>
+    </div>
+    <div class="vSpace visible-phone">&nbsp;</div>
+</script>

@@ -1,0 +1,320 @@
+<script id="accountsproperty-template" type="text/x-handlebars-template">
+<!-- Property -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}propertyProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}propertyAccordionBox" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}propertyCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragproperty" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionToggleproperty" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">    
+                <span id="{{id}}propertyAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelproperty"  class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelproperty"  class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}propertyFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}PropertyNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Property{{/if}}
+                </span>
+               {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}propertyManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}propertyManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                <span id="{{id}}propertyManual">Manual Entry</span>
+            {{/if}}
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}propertyCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonproperty" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Property
+                    </span>
+                    <br>
+                        {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}PropertyInputName">{{name}}</span>
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}PropertyInputName">
+                        {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Address
+                    </span>
+                    <br>
+                    {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}PropertyInputAddress1">{{propadd}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter an address" value="{{propadd}}" id="{{id}}PropertyInputAddress1">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Address 2
+                    </span>
+                    <br>
+                     {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}PropertyInputAddress2">{{propadd2}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter an address" id="{{id}}PropertyInputAddress2" value="{{propadd2}}">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">City
+                    </span>
+                    <br>
+                    {{#if permission}}
+                         <span class="readOnlyValue profileAccName" id="{{id}}PropertyInputCity">{{propcity}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a city" id="{{id}}PropertyInputCity" value="{{propcity}}">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">State
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                        {{#compare propstate "AL" operator="=="}}AL{{/compare}}
+                        {{#compare propstate "AK" operator="=="}}AK{{/compare}}
+                        {{#compare propstate "AZ" operator="=="}}AZ{{/compare}}
+                        {{#compare propstate "AR" operator="=="}}AR{{/compare}}
+                        {{#compare propstate "CA" operator="=="}}CA{{/compare}}
+                        {{#compare propstate "CO" operator="=="}}CO{{/compare}}
+                        {{#compare propstate "CT" operator="=="}}CT{{/compare}}
+                        {{#compare propstate "DE" operator="=="}}DE{{/compare}}
+                        {{#compare propstate "DC" operator="=="}}DC{{/compare}}
+                        {{#compare propstate "FL" operator="=="}}FL{{/compare}}
+                        {{#compare propstate "GA" operator="=="}}GA{{/compare}}
+                        {{#compare propstate "HI" operator="=="}}HI{{/compare}}
+                        {{#compare propstate "ID" operator="=="}}ID{{/compare}}
+                        {{#compare propstate "IL" operator="=="}}IL{{/compare}}
+                        {{#compare propstate "IN" operator="=="}}IN{{/compare}}
+                        {{#compare propstate "IA" operator="=="}}IA{{/compare}}
+                        {{#compare propstate "KS" operator="=="}}KS{{/compare}}
+                        {{#compare propstate "KY" operator="=="}}KY{{/compare}}
+                        {{#compare propstate "LA" operator="=="}}LA{{/compare}}
+                        {{#compare propstate "ME" operator="=="}}ME{{/compare}}
+                        {{#compare propstate "MD" operator="=="}}MD{{/compare}}
+                        {{#compare propstate "MA" operator="=="}}MA{{/compare}}
+                        {{#compare propstate "MI" operator="=="}}MI{{/compare}}
+                        {{#compare propstate "MN" operator="=="}}MN{{/compare}}
+                        {{#compare propstate "MS" operator="=="}}MS{{/compare}}
+                        {{#compare propstate "MO" operator="=="}}MO{{/compare}}
+                        {{#compare propstate "MT" operator="=="}}MT{{/compare}}
+                        {{#compare propstate "NE" operator="=="}}NE{{/compare}}
+                        {{#compare propstate "NV" operator="=="}}NV{{/compare}}
+                        {{#compare propstate "NH" operator="=="}}NH{{/compare}}
+                        {{#compare propstate "NJ" operator="=="}}NJ{{/compare}}
+                        {{#compare propstate "NM" operator="=="}}NM{{/compare}}
+                        {{#compare propstate "NY" operator="=="}}NY{{/compare}}
+                        {{#compare propstate "NC" operator="=="}}NC{{/compare}}
+                        {{#compare propstate "ND" operator="=="}}ND{{/compare}}
+                        {{#compare propstate "OH" operator="=="}}OH{{/compare}}
+                        {{#compare propstate "OK" operator="=="}}OK{{/compare}}
+                        {{#compare propstate "OR" operator="=="}}OR{{/compare}}
+                        {{#compare propstate "PA" operator="=="}}PA{{/compare}}
+                        {{#compare propstate "RI" operator="=="}}RI{{/compare}}
+                        {{#compare propstate "SC" operator="=="}}SC{{/compare}}
+                        {{#compare propstate "SD" operator="=="}}SD{{/compare}}
+                        {{#compare propstate "TN" operator="=="}}TN{{/compare}}
+                        {{#compare propstate "TX" operator="=="}}TX{{/compare}}
+                        {{#compare propstate "UT" operator="=="}}UT{{/compare}}
+                        {{#compare propstate "VT" operator="=="}}VT{{/compare}}
+                        {{#compare propstate "VA" operator="=="}}VA{{/compare}}
+                        {{#compare propstate "WA" operator="=="}}WA{{/compare}}
+                        {{#compare propstate "WV" operator="=="}}WV{{/compare}}
+                        {{#compare propstate "WI" operator="=="}}WI{{/compare}}
+                        {{#compare propstate "WY" operator="=="}}WY{{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select class="profileAccName" id="{{id}}PropertyInputState">
+                        <option value="AL" {{#compare propstate "AL" operator="=="}}selected{{/compare}}>AL</option>
+                        <option value="AK" {{#compare propstate "AK" operator="=="}}selected{{/compare}}>AK</option>
+                        <option value="AZ" {{#compare propstate "AZ" operator="=="}}selected{{/compare}}>AZ</option>
+                        <option value="AR" {{#compare propstate "AR" operator="=="}}selected{{/compare}}>AR</option>
+                        <option value="CA" {{#compare propstate "CA" operator="=="}}selected{{/compare}}>CA</option>
+                        <option value="CO" {{#compare propstate "CO" operator="=="}}selected{{/compare}}>CO</option>
+                        <option value="CT" {{#compare propstate "CT" operator="=="}}selected{{/compare}}>CT</option>
+                        <option value="DE" {{#compare propstate "DE" operator="=="}}selected{{/compare}}>DE</option>
+                        <option value="DC" {{#compare propstate "DC" operator="=="}}selected{{/compare}}>DC</option>
+                        <option value="FL" {{#compare propstate "FL" operator="=="}}selected{{/compare}}>FL</option>
+                        <option value="GA" {{#compare propstate "GA" operator="=="}}selected{{/compare}}>GA</option>
+                        <option value="HI" {{#compare propstate "HI" operator="=="}}selected{{/compare}}>HI</option>
+                        <option value="ID" {{#compare propstate "ID" operator="=="}}selected{{/compare}}>ID</option>
+	                    <option value="IL" {{#compare propstate "IL" operator="=="}}selected{{/compare}}>IL</option>
+	                    <option value="IN" {{#compare propstate "IN" operator="=="}}selected{{/compare}}>IN</option>
+	                    <option value="IA" {{#compare propstate "IA" operator="=="}}selected{{/compare}}>IA</option>
+	                    <option value="KS" {{#compare propstate "KS" operator="=="}}selected{{/compare}}>KS</option>
+	                    <option value="KY" {{#compare propstate "KY" operator="=="}}selected{{/compare}}>KY</option>
+	                    <option value="LA" {{#compare propstate "LA" operator="=="}}selected{{/compare}}>LA</option>
+	                    <option value="ME" {{#compare propstate "ME" operator="=="}}selected{{/compare}}>ME</option>
+	                    <option value="MD" {{#compare propstate "MD" operator="=="}}selected{{/compare}}>MD</option>
+	                    <option value="MA" {{#compare propstate "MA" operator="=="}}selected{{/compare}}>MA</option>
+                    	<option value="MI" {{#compare propstate "MI" operator="=="}}selected{{/compare}}>MI</option>
+	                    <option value="MN" {{#compare propstate "MN" operator="=="}}selected{{/compare}}>MN</option>
+	                    <option value="MS" {{#compare propstate "MS" operator="=="}}selected{{/compare}}>MS</option>
+	                    <option value="MO" {{#compare propstate "MO" operator="=="}}selected{{/compare}}>MO</option>
+                    	<option value="MT" {{#compare propstate "MT" operator="=="}}selected{{/compare}}>MT</option>
+                    	<option value="NE" {{#compare propstate "NE" operator="=="}}selected{{/compare}}>NE</option>
+                    	<option value="NV" {{#compare propstate "NV" operator="=="}}selected{{/compare}}>NV</option>
+                    	<option value="NH" {{#compare propstate "NH" operator="=="}}selected{{/compare}}>NH</option>
+                    	<option value="NJ" {{#compare propstate "NJ" operator="=="}}selected{{/compare}}>NJ</option>
+                    	<option value="NM" {{#compare propstate "NM" operator="=="}}selected{{/compare}}>NM</option>
+                    	<option value="NY" {{#compare propstate "NY" operator="=="}}selected{{/compare}}>NY</option>
+                    	<option value="NC" {{#compare propstate "NC" operator="=="}}selected{{/compare}}>NC</option>
+                    	<option value="ND" {{#compare propstate "ND" operator="=="}}selected{{/compare}}>ND</option>
+                    	<option value="OH" {{#compare propstate "OH" operator="=="}}selected{{/compare}}>OH</option>
+                    	<option value="OK" {{#compare propstate "OK" operator="=="}}selected{{/compare}}>OK</option>
+                    	<option value="OR" {{#compare propstate "OR" operator="=="}}selected{{/compare}}>OR</option>
+                    	<option value="PA" {{#compare propstate "PA" operator="=="}}selected{{/compare}}>PA</option>
+                    	<option value="RI" {{#compare propstate "RI" operator="=="}}selected{{/compare}}>RI</option>
+                    	<option value="SC" {{#compare propstate "SC" operator="=="}}selected{{/compare}}>SC</option>
+                    	<option value="SD" {{#compare propstate "SD" operator="=="}}selected{{/compare}}>SD</option>
+                    	<option value="TN" {{#compare propstate "TN" operator="=="}}selected{{/compare}}>TN</option>
+                    	<option value="TX" {{#compare propstate "TX" operator="=="}}selected{{/compare}}>TX</option>
+                    	<option value="UT" {{#compare propstate "UT" operator="=="}}selected{{/compare}}>UT</option>
+                    	<option value="VT" {{#compare propstate "VT" operator="=="}}selected{{/compare}}>VT</option>
+                    	<option value="VA" {{#compare propstate "VA" operator="=="}}selected{{/compare}}>VA</option>
+                    	<option value="WA" {{#compare propstate "WA" operator="=="}}selected{{/compare}}>WA</option>
+                    	<option value="WV" {{#compare propstate "WV" operator="=="}}selected{{/compare}}>WV</option>
+                    	<option value="WI" {{#compare propstate "WI" operator="=="}}selected{{/compare}}>WI</option>
+                    	<option value="WY" {{#compare propstate "WY" operator="=="}}selected{{/compare}}>WY</option>
+                    </select>
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Zip Code
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}PropertyInputZip">{{zipcode}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" value="{{zipcode}}" placeholder="Enter a Zip Code" id="{{id}}PropertyInputZip">
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Estimated Value
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}PropertyInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a value" id="{{id}}PropertyInputBalance" value="{{amount}}" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Net Monthly Income, if any
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}PropertyInputIncome">{{netincome}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an income" id="{{id}}PropertyInputIncome" value="{{netincome}}" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Do you currently live at this location?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare livehere 1 operator="=="}} Yes {{/compare}} {{#compare livehere "0" operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare livehere 1 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PropertyHome" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare livehere "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PropertyHome" value="0" >&nbsp;No
+                    {{/unless}}
+                </p>                
+                <p>
+                    <span class="profileEmph">Do you have a loan on this property?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare loan 1 operator="=="}} Yes {{/compare}} {{#compare loan "0" operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare loan 1 operator="=="}}checked{{/compare}}{{/if}}  name="{{id}}PropertyLoan" value="1">&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare loan "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PropertyLoan" value="0">&nbsp;No
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}propertySaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdatePropertyButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updatePropertyButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelPropertyButton" class="cancelPropertyButton" href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonproperty" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createPropertyButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="propertyRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}propertyProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

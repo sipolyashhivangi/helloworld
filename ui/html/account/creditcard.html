@@ -1,0 +1,100 @@
+<script id="creditcard-template" type="text/x-handlebars-template">
+
+    <div class="clearEverything twentypx">&nbsp;</div>
+    <div id="creditcardMessage" style="padding: 0px 5px 0px 5px; text-align: center" class="hdn">
+        {{message}}
+        <span id="showCardSubscriptionLink" class="hdn">
+            To activate your account, please <a href="#" id="openSubscriptionDialog">complete a new subscription</a>.
+        </span>
+    </div>
+    <div id="creditcardContent" class="hdn">
+        <div style="margin-left: 30px">
+            <div>
+                <div class="floatR col500 pad5">{{creditcard.email}}</div>
+                <div class="questionLabelBlack">Email:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">{{creditcard.type}}</div>
+                <div class="questionLabelBlack">Credit Card Type:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">xxxx-{{creditcard.last4}}</div>
+                <div class="questionLabelBlack">Number:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">{{creditcard.expiration_date}} {{#if creditcard.expirystatus}} <span style="color:#FF0000">({{creditcard.expirystatus}})</span>{{/if}}</div>
+                <div class="questionLabelBlack">Expiration Date:</div>
+            </div>
+            <div class="clearEverything"></div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <a href="#" id="openUpdateCreditCardPage" style="padding: 5px 0px 10px 0px" class="hdn floatR col150">Update Credit Card</a>
+        </div>
+    </div>
+    <form class="comparisonBox row-fluid hdn" id="formUpdateCreditCard" method="POST">
+        <p style="padding:0px 0px 5px 0px; text-align: center">
+            To update your credit card, please enter your credit card number and other information.
+        </p>
+        <div style="color:#666; padding:0px 0px 0px 40px" class="updateCreditCard">
+            <div class="control-group" style="padding:0px 0px 0px 30px">
+                <div>
+                    <div class="floatR col450" style="margin-top: 10px">{{creditcard.email}}</div>
+                    <div class="questionLabelBlack">Email:</div>
+                    <div class="clearOnly tenpx">&nbsp;</div>
+                </div>
+                <div id="ccNumdiv" class="controls">
+                    <div class="floatR col450"><input type="text" size="20" id="ccNum" class="ccamount" tabindex="1" maxlength="19"></input></div>
+                    <div class="questionLabelBlack">Card Number:</div>
+                    <!-- error tooltip -->
+                    <div id="ccNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="ccNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="cvcNumdiv" class="controls">
+                    <div class="floatR col450"><input type="text" size="4" id="cvcNum" class="ccamount" tabindex="2" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">CVC:</div>
+                    <!-- error tooltip -->
+                    <div id="cvcNumbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="cvcNumerror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="expMonthdiv" class="controls">
+                    <div class="floatR col450">
+                        <input type="text" size="2" id="expMonth" class="ccamount" tabindex="3" maxlength="2" style="width:20px"></input>&nbsp;/&nbsp;<input type="text" size="4" id="expYear" class="ccamount" tabindex="4" maxlength="4" style="width:40px"></input></div>
+                    <div class="questionLabelBlack">Expiration (MM/YYYY):</div>
+                    <!-- error tooltip -->
+                    <div id="expMonthbubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="expMontherror"></p>
+                            <div class="point"></div>
+                        </div>
+                    </div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div id="zipCodediv" class="controls">
+                    <div class="floatR col450"><input class="cczip" id="zipCode" type="text" size="10" tabindex="5"></input> </div>
+                    <div class="questionLabelBlack">Zip Code:</div>
+                    <div class="clearOnly"></div>
+                </div>
+                <div class="clearOnly twentypx">&nbsp;</div>
+            </div>
+            <div id="updateCreditCardButtons" class="center">
+                <button class="lsPillBtnGreen btn btn-success center" id="updateCreditCardButton" type="button">&nbsp;Confirm&nbsp;</button>
+                <span id="backToUpdateCreditCard">&nbsp;&nbsp;&nbsp;<a href="#">Cancel</a></span>
+                <div class="clearOnly tenpx">&nbsp;</div>
+            </div>
+        </div>
+    </form>
+    <div class="clearOnly twentypx">&nbsp;</div>
+
+</script>

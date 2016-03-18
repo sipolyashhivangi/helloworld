@@ -1,0 +1,57 @@
+<script id="billingsummary-template" type="text/x-handlebars-template">
+
+    <div class="clearEverything twentypx">&nbsp;</div>
+    <div id="summaryMessage" style="padding: 0px 15px 0px 15px; text-align: center" class="hdn">
+        {{message}}
+        <span id="showSummarySubscriptionLink" style="text-align: center" class="hdn">
+            To activate your account, please <a href="#" id="openSubscriptionDialog">complete a new subscription</a>.
+        </span>
+        <div class="clearOnly">&nbsp;</div>
+    </div>
+    <div class="clearEverything"></div>
+    <div id="summaryContent" class="hdn">
+        <div style="margin-left: 30px">
+            <div>
+                <div class="floatR col500 pad5">{{subscription.name}}</div>
+                <div class="questionLabelBlack">Plan:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5 {{#compare subscription.status 'past_due' operator='=='}}redtext{{/compare}}">{{subscription.status}}</div>
+                <div class="questionLabelBlack">Status:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">{{subscription.start}} - {{subscription.end}}</div>
+                <div class="questionLabelBlack">Current Pay Period:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">{{subscription.end}}</div>
+                <div class="questionLabelBlack">Next Payment:</div>
+            </div>
+            <div>
+                <div class="floatR col500 pad5">{{subscription.created}}</div>
+                <div class="questionLabelBlack">Activated:</div>
+            </div>
+
+            <div class="clearOnly tenpx">&nbsp;</div>
+            <div class="clearEverything"></div>
+        </div>
+    </div>
+    <div id="openCancelSubscriptionBlock" class="hdn">
+        <a href="#" id="openCancelSubscription" class="floatR col150">Cancel Subscription</a>
+    </div>
+
+    <div id="openCancelSubscriptionPage" class="hdn">
+        <a href="#" class="floatR col150">Cancel Subscription</a>
+    </div>
+    <div id="cancelSubscriptionPage" style="padding: 10px 5px 10px 5px; text-align: center" class="hdn">
+        <div style="padding: 0px 10px 20px 10px; text-align: center">You are about to cancel your FlexScore Advisor subscription.
+            Once canceled, a new subscription at the current subscription rate will be required to renew access to your clients;
+            however, you will have access until the end of the current pay period.  Your credit card will also be removed from
+            the payment processor's records.
+        </div>
+        <button class="lsPillBtnGreen btn btn-success center" id="cancelSubscription" type="button">&nbsp;Confirm&nbsp;</button>
+        <span id="backToSummary" class="hdn center">&nbsp;&nbsp;&nbsp;<a href="#">Cancel</a></span>
+    </div>
+    <div class="clearOnly twentypx">&nbsp;</div>
+
+</script>

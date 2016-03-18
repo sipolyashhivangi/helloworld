@@ -1,0 +1,4 @@
+This script to be run on every hour basis now
+CRON JOB CONFIG
+0 * * * * /bin/bash  /home/ubuntu/SCRIPTS/nodecheck.sh  > /dev/null 2>&1
+

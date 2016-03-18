@@ -1,0 +1,75 @@
+<script id="useractionstep-template" type="text/x-handlebars-template">
+{{#if actstepfew}}
+<div class="round smallGlow" style="width:620px;margin-left:20px;margin-top:5px;">			        
+    <div class="mediumGray round">						
+        <div class="lightGray roundTop bevelBottom sectionHeader">		                      
+            <div class="msActionSteps" style="margin-bottom:0px">
+                <div class="msHeadingDiv" style="width: 300px;padding-top:10px"><h3>Action&nbsp;Steps</h3></div>		                      	
+            </div>            
+            <div style="padding-right:25px; padding-top:17px; float:right;">
+                <select name="categorySearch" id="categorySearch" style="font-size:12px; padding:0px; font-weight:normal;width:168px; height: 29px;">
+                    <option value="">All Action Steps</option>
+                    {{#each ascategories}}
+                        <option value="{{categoryname}}" {{catselected}} class="optionremove" title="{{categoryname}}">{{categoryname}}</option>
+                    {{/each}}
+                </select>
+            </div>            
+            <div class="btn-group btn-heading-adjust floatR" data-toggle="buttons-radio" style="margin-top:16px; margin-right:15px;">		                        
+                <button id="recommend" type="button" class="btn {{#compare type "recommend" operator="=="}}active{{/compare}} actionStepOrderDiv" style="opacity:0;visibility:hidden;">Recommended Order</button>		                        
+                <button id="custom" type="button" class="btn {{#compare type "custom" operator="=="}}active{{/compare}} actionStepOrderDiv" style="opacity:0;visibility:hidden;">Custom Order</button>
+            </div>
+            <div class="clearOnly">&nbsp;</div>	                
+        </div>		
+        <div class="baseballCardWrapper mediumGray roundBottom" id="{{#compare type "custom" operator="=="}}sortable{{/compare}}" style="height:180px">	
+        {{#actstepfew}}   
+        <div name="{{{id}}}" id="{{{id}}}" style="width:255px;height:160px;margin-left:10px;margin-right:5px;box-shadow:none;cursor:default;transform:scale(1)" class="tinyGlow baseballCard">			        			
+                <div>				        			
+                    <div class="actionName">{{category}}</div>
+                    <h3 style="font-size:12pt;height:4.2em ;overflow:hidden;">{{{actionname}}}</h3>
+                </div>
+                <div class="detailsWrapper">			        				
+                    <div class="baseCallCardDetailsLeft">
+                        <div class="small">
+                            {{#compare type "short" operator="=="}}
+                                <div class="shortTerm"></div><br />Short Term
+                            {{/compare}}
+                            {{#compare type "instant" operator="=="}}
+                                <div class="instantTerm"></div><br />Instant
+                            {{/compare}}
+                            {{#compare type "mid" operator="=="}}
+                                <div class="midTerm"></div><br />Mid Term     
+                            {{/compare}}
+                            <div class="infoBubble">            
+                                <div class="inside">       
+                                    {{#compare type "short" operator="=="}}
+                                        <p>This item might take up to an hour to complete.</p>
+                                    {{/compare}}
+                                    {{#compare type "instant" operator="=="}}
+                                        <p>This item typically takes less than 5-10 minutes to complete.</p>
+                                    {{/compare}}
+                                    {{#compare type "mid" operator="=="}}
+                                        <p>This item will probably take several hours, in total, to complete.</p>     
+                                    {{/compare}}
+                                </div>           
+                            </div>
+                        </div>	
+                    </div>		
+                    
+                        {{#compare points "0" operator="!="}}
+                    <div class="baseCallCardDetailsRight">
+                        <span class="small">up&nbsp;to</span><span class="numOfPoints" {{#compare points 100 operator=">="}}style="font-size:3em"{{/compare}}>{{points}}</span>
+                        <div class="small" style="margin-right:-6px; margin-top:3px;">Points</div>
+                    </div>
+                    {{/compare}}
+                    
+                    <div class="clearOnly">&nbsp;</div>			                         
+                </div>
+		        			       		
+            </div>
+            
+           {{/actstepfew}}
+            	        
+        </div>			    
+    </div>	
+{{/if}}                
+</script>

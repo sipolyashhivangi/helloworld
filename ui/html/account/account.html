@@ -1,0 +1,33 @@
+<script id="account-template" type="text/x-handlebars-template">
+<div id="accountContents">
+    <a class="floatR accX accTopX cancelAccountPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin"></div>
+        <div class="floatL">
+            <span class="accTitle">Account</span>
+        </div>
+        <div class="clearOnly"></div>
+    </div>
+
+    <div class="clearOnly"></div>
+
+    <ul id="accOverlayTabs">
+        <li id="tabNotifications" class="accOverlayTabOn"><a class="tabNotifications" href="#"><div id="tabNotificationsDiv" class="notificationsIconOn"></div>&nbsp;Notifications</a></li>
+    {{#unless impersonationMode}}
+        <li id="tabSettings"><a class="tabSettings" href="#"><div id="tabSettingsDiv" class="settingsIconOff"></div>&nbsp;Settings</a></li>
+        {{#if advisor}}
+            <li id="tabSubscription"><a class="tabSubscription" href="#"><div id="tabSubscriptionDiv" class="subscriptionIconOff"></div>&nbsp;Subscription</a></li>
+        {{/if}}
+    {{/unless}}
+	</ul>
+
+    <div class="clearOnly"></div>
+
+    <div id="accountDetails">
+    </div>
+</div>
+<div class="profileBottomRow roundBottom">               
+    <div class="clearEverything">&nbsp;</div>                
+    <div class="clearEverything">&nbsp;</div>      
+</div>
+</script>

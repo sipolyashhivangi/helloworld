@@ -1,0 +1,21 @@
+<script id="usershare-template" type="text/x-handlebars-template">
+	<a href="#" onclick="javascript:window.open('https://www.facebook.com/sharer.php?u={{encodedurl}}', '_blank', 'width=600,height=300');return false;" class="facebookPage shareLink">
+		<img width="32" alt="Share FlexScore on Facebook" src="./ui/images/facebook.png" style="width:32px;" class="shareLink">
+	</a>
+	&nbsp;
+	<a href="#" onclick="javascript:window.open('https://twitter.com/share?url={{encodedurl}}&text={{twitter_title}}', '_blank', 'width=600,height=300');return false;" class="twitterPage shareLink">
+		<img width="50" alt="Share FlexScore on Twitter" src="./ui/images/twitter.png" style="width:50px;" class="shareLink">
+	</a>
+	&nbsp;
+	<a href="https://plus.google.com/share?url={{encodedurl}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;" class="googleplusPage shareLink">
+		<img width="32" alt="Share FlexScore on Google+" src="./ui/images/googleplus.jpg" style="width:32px;" class="shareLink">
+	</a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="javascript:window.open('http://pinterest.com/pin/create/button/?url={{encodedurl}}&media={{media}}&description={{pin_desc}}', '_blank', 'width=600,height=400');return false;" class="pinterestPage shareLink">
+		<img width="35" alt="Share FlexScore on Pinterest" src="./ui/images/pinterest.png" style="width:35px;"  class="shareLink">
+	</a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&url={{encodedurl}}', '_blank', 'width=500,height=400');return false;" class="linkedinPage shareLink">
+		<img width="35" alt="Share FlexScore on LinkedIn" src="./ui/images/linkedin.png" style="width:35px;" class="shareLink">
+	</a>
+</script>

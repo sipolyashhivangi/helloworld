@@ -1,0 +1,42 @@
+<script id="createnewclient-template" type="text/x-handlebars-template">
+
+    <a class="floatR accX accTopX cancelNotificationPopup">&nbsp;</a>
+    <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+        <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+        </div>
+        <div class="floatL">
+            <span class="accTitle">Delete Client
+            </span>
+        </div>
+        <div class="clearOnly">
+        </div>
+
+    </div>
+    <div class="clearOnly"></div>
+    <div id="comparisonContents">
+        <div class="mediumGray bevelBottom">
+
+            <div class="clearOnly"></div>
+            <div style="padding:20px 13px 20px 13px;" class="control-group dialogtext">
+                <label class="signupFormLabel control-label fl" for="inputEmail">
+                    <strong>Are you sure you really want to delete this client?</strong>
+                </label>
+                <div class="clearEverything"></div>
+                <div style="padding:10px 13px 20px 13px;" class="dialogtext">
+                    You are terminating the connection between you and the user.  However, you are not deleting the FlexScore user’s account.
+                    The user must delete their own account.  In order to work with the user again, the user must initiate the connection from their account.
+                </div>
+                <div class="clearEverything"></div>
+            </div>
+        </div>
+
+        <div class="profileBottomRow darkGray roundBottom bevelTop" style="height: 50px; padding-top: 15px; margin-bottom: 0px">
+            <div align="right" style="padding-right: 25px">
+                <a class="cancelNotificationPopup" href="#">Cancel</a>
+                <button type="button" class="simpleGreenCTAButton cancelNotificationPopup" aria-hidden="true" style="margin-left:30px;" id="delete"
+                    deleteId={{data.user_id}} advisorId={{data.advisor_id}} status={{connectionStatus}} clientEmail={{clientEmail}}>Confirm</button>
+            </div>
+        </div>
+    </div>
+
+</script>

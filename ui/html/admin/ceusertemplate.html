@@ -1,0 +1,45 @@
+<script id="ceuserreport-template" type="text/x-handlebars-template">
+<a class="floatR accX accTopX cancelReportPopup" onclick="javascript:window.parent.removeLayover()">&nbsp;</a>
+<div class="articleCopy" style="padding:15px">
+    <div class="actionName"><strong>Email:</strong>&nbsp;{{flexEmail}}</div>
+    <div class="actionName"><strong>CE User Email:</strong>&nbsp;{{ceEmail}}</div>
+    <div class="actionName"><strong>CE User ID:</strong>&nbsp;{{ceUserId}}</div>
+    {{#statusCount}}
+        <div class="actionName"><strong>{{type}}:</strong>&nbsp;{{count}}</div>
+    {{/statusCount}}
+    <div class="actionName"><strong>Last Modified:</strong>&nbsp;{{modified}}</div>
+</div>
+<div style="padding:14px">
+    <table width="98%" border="1" cellpadding="5" cellspacing="5">
+        {{#if records}}
+        <tr>
+            <td width="10%"><strong>FI ID<strong></td>
+            <td width="20%"><strong>FI Name</td>
+            <td width="10%" style="text-align:center"><strong>FILoginAcctId</strong></td>
+            <td width="15%"  style="text-align:center"><strong>Status</strong></td>
+            <td width="15%"><strong>TimeStamp</strong></td>
+            <td width="10%"><strong>Response Status</strong></td>
+            <td width="10%"><strong>Message</strong></td>
+            <td width="10%"><strong>Error</strong></td>
+        </tr>
+        {{/if}}
+        {{#records}}
+            <tr>
+                <td width="10%">{{fiid}}</td>
+                <td width="20%">{{fiName}}</td>
+                <td width="10%" style="text-align:center">{{#compare fiLoginAcctId 15000 operator=">"}}{{fiLoginAcctId}}{{else}}0{{/compare}}</td>
+                <td width="15%" style="text-align:center">{{status}}</td>
+                <td width="15%">{{modified}}</td>
+                {{#accountDetails}}
+                    <td width="10%">{{status}}</td>
+                    <td width="10%">{{msg}}</td>
+                    <td width="10%">{{code}}</td>
+                {{/accountDetails}}
+                </td>
+            </tr>
+        {{/records}}
+    </table>
+</div>
+
+</script>
+

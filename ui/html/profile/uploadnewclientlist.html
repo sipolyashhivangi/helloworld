@@ -1,0 +1,122 @@
+<script id="uploadnewclientlist-template" type="text/x-handlebars-template">
+
+    <div id="comparisonContents">
+        <a class="floatR accX accTopX cancelUploadProfilePopupBox">&nbsp;</a>
+        <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+            <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+            </div>
+            <div class="floatL">
+                <span class="accTitle">Upload&nbsp;Clients&nbsp;
+                </span>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <div class="msHeadingDivLine2" style="position:relative;top:-6px;left:-4px">You can access our <a href="./privacy" target="_blank">privacy policy</a> here.                                       
+            </div>
+        </div>
+        <div class="clearOnly"></div>
+        <div class="mediumGray bevelBottom">
+            <div style="padding:10px 20px 10px 20px;" id="uploadHideOnSuccess" class="hdn control-group margin-top-left">
+                <form name="uploadcsv-form" id="uploadcsv-form" method="post">
+                    <div class="control-group margin-top-left" style="padding:10px 20px 20px 0px;">
+                        <div>
+                            New clients included in the upload CSV file will receive an email letting them know to add their information.
+                            The CSV file should be in proper format and order as per the sample file.
+                            Each line of the CSV file should contain one client record (email,firstname,lastname) with no spaces after the commas.
+                        </div>
+                    </div>
+
+                    <div align="left" style="padding:0px 10px 0px 10px; font-size: 11pt"><a href="./ui/content/sample_clients.csv"
+                        target="_blank" class="ab-item">Download Sample</a></div>
+                    <br/>
+                    <label class="signupFormLabel control-label fl margin-right" for="inputEmail" style="padding-left:120px; font-size: 11pt">
+                        <strong>Select File</strong>
+                    </label>
+                    <div id="uploaddiv" class="controls fl">
+                        <input type="file" name="file" id="file"><br/><br/>
+                        <!-- error tooltip -->
+                        <div id="uploadbubble" class="errorBubble hdn">
+                             <div class="inside">
+                                 <p id="uploaderror">Please upload the valid CSV file</p>
+                                 <div class="point"></div>
+                             </div>
+                        </div>
+                        <!-- end error tooltip -->
+                    </div>
+                    <div class="clearEverything"></div>
+
+                    <div class="control-group" id="accessTokenDiv" style="display:none">
+                        <label class="signupFormLabel control-label" for="inputToken"><strong>Access Token</strong>
+                        </label>
+
+                        <div id="tokendiv" class="controls">
+                            {{#if token}}
+                            <div style="padding-top:5px;color:#666;">
+                                <span id="tokenLabel">{{token}}</span>
+                                <input id="token" type="hidden" value="{{token}}" >
+                            </div>
+                            {{else}}
+                            <input type="text" id="token" placeholder="Access Token" value="{{#if request}}{{request}}{{/if}}">
+                            {{/if}}
+                            <div id="tokenbubble" class="errorBubble hdn">
+                                <div class="inside">
+                                    <p id="tokenerror">Invalid access token used.</p>
+                                    <div class="point">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="uploadSummary" style="padding:10px;" class="hdn">
+                <div class="mtabBox">
+                    <div align="left" class="content" style= "border-radius:4px">
+                        <div class="twentypx">&nbsp;</div>
+                        <div style="margin-left: 30px">
+                            <strong>Client Upload Summary</strong>
+                        </div>
+                        <div class="tenpx">&nbsp;</div>
+                        <div style="margin-left: 60px">
+                            <div>
+                                <div class="floatR col400 pad5">{{summary.totalCount}}</div>
+                                <div class="questionLabelBlack">Total Client Records:</div>
+                            </div>
+                            <div>
+                                <div class="floatR col400 pad5">{{summary.successCount}}</div>
+                                <div class="questionLabelBlack">Uploaded Successfully:</div>
+                            </div>
+                            <div>
+                                <div class="floatR col400 pad5">{{summary.errorCount}}</div>
+                                <div class="questionLabelBlack">Errors:</div>
+                            </div>
+                            <div class="clearOnly twentypx">&nbsp;</div>
+                        </div>
+                        <div style="margin: 0px 20px 0px 30px">
+                            <div>
+                                Your client list has been uploaded successfully. All new clients successfully uploaded will receive an email at their provided email addresses, asking them to create a FlexScore profile password. 
+                            </div>
+                            <div>&nbsp;</div>
+                            <div>
+                                Please click <strong><a href={{pdflink}} target="_blank">here</a></strong> to view a PDF file with detailed results from the upload. If you wish to save the PDF file, simply right-click the link and choose Save Link As.                             
+                            </div>
+                        </div>
+                        <div class="twentypx">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profileBottomRow darkGray roundBottom bevelTop" style="height: 50px; padding-top: 15px; margin-bottom: 0px">
+            <div align="right" style="padding-right: 25px">
+                <div id="createUploadClients" class="hdn">
+                    <a class="cancelNotificationPopup" href="#">Cancel</a>
+                    <button id="uploadClientCSV" aria-hidden="true" style="margin-left:30px;" class="simpleGreenCTAButton" type="button">Upload CSV</button>
+                </div>
+                <div id="successUploadClients" class="hdn">
+                    <button class="lsPillBtnGray btn btn-success cancelUploadProfilePopupBox" type="button" style="width:130px;">&nbsp;I'm Done&nbsp;</button>
+                    <button class="simpleGreenCTAButton" type="button" style="width:130px;" id="btnUploadMoreClient" roleId="999" >&nbsp;Upload More&nbsp;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

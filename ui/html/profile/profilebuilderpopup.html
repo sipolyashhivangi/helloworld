@@ -1,0 +1,112 @@
+<script id="profilebuilderpopup-template" type="text/x-handlebars-template">        
+    <!-- dialog for profile builder -->
+    <form id="pb-modal-form">
+        <div class="floatR" style="width: 35px; padding: 10px"><a href="javascript:window.parent.removeLayover()"><img src="./ui/images/closeWhiteBckd.png"/></a></div>
+        <div>
+            <div class="lightGray roundTop bevelBottom sectionHeader line2" >
+                <div class="floatL" style="width: 30px; float: left; padding-top: 10px; padding-bottom: 10px; padding-left: 10px">
+                    <img  style="vertical-align: middle; padding: 8px" alt="My Score" src="./ui/images/actionSteps.png"/>
+                </div>
+                <div class="floatL" style="width: 600px; float: left; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px">
+                    <h3 style="line-height: .9em">
+                        Create Your Profile <span class="purple"> 1 of 2</span><br/>
+                        <span class="h2normal"><span style="color: black">Note:</span> Please verify your email within <span style="font-weight: bold">3 days</span></span>
+                    </h3>
+                </div>
+                <div class="clearOnly">&nbsp;</div>
+            </div>
+            <div class="vSpace">&nbsp;</div>
+            <div class="mediumGray bevelBoth">
+                <div style="padding-left: 20px">
+                    <div style="text-align: center">
+                        <h1>Account Created Successfully!</h1>
+                        Sed eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat
+                    </div>
+                    <div class="vSpace">&nbsp;</div>
+                    <h3 class="padBottom">Your Profile Details</h3>
+                    <div>
+                        <div class="floatR col600"><input type="text" size="45" id="firstname"></input></div>
+                        <div class="questionLabelBlack">First Name</div>
+                        <div class="clearOnly"></div>
+                    </div>
+                    <div>
+                        <div class="floatR col600"><input type="text" size="45" id="lastname"></input></div>
+                        <div class="questionLabelBlack">Last Name</div>
+                        <div class="clearOnly"></div>
+                    </div>
+                    <div>
+                        <div class="floatR col600">
+                            <select id="age">
+                                <option>21</option>
+                                <option>22</option>
+                            </select>
+                        </div>
+                        <div class="questionLabelBlack">Age</div>
+                        <div class="clearOnly"></div>
+                    </div>    
+                    <div>
+                        <div class="floatR col600"><input type="text" size="24" id="zipcode"></input></div>
+                        <div class="questionLabelBlack">Zip Code</div>
+                        <div class="clearOnly"></div>
+                    </div>
+                    <div>
+                        <div class="floatR col600">
+                            <div class="col450">
+                                <div class="recButtonDarkLarge msdwnLarge floatR" style="width: 100px; margin-left: 12px; margin-bottom: 12px">
+                                    Divorced
+                                </div>
+                                <div class="recButtonDarkLarge msdwnLarge floatR" style="width: 100px">
+                                    Married
+                                </div>
+                                <div class="recButtonDarkLarge msdwnLarge " style="width: 100px">
+                                    Single
+                                </div>
+                                <div class="clearOnly"></div>
+                            </div>
+                            <div class="col300">
+                                <div class="recButtonDarkLarge msdwnLarge floatR" style="width: 100px; margin-bottom: 12px; margin-right: 4px">
+                                    Widowed
+                                </div>
+                                <div class="recButtonDarkLarge2Line msdwnLarge2Line" style="width: 100px;">
+                                    Domestic Partner
+                                </div>
+                                <div class="clearOnly"></div>
+                            </div>
+                        </div>
+                        <div class="questionLabelBlack">Marital Status</div>
+                        <div class="clearOnly"></div>
+                    </div>
+                    <div>
+                        <div class="floatR col600">
+                            <select id="noofchildren">
+                                <option>1</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                        <div class="questionLabelBlack">Number of Children</div>
+                        <div class="clearOnly"></div>
+                    </div> 
+                    <div>
+                        <div class="floatR col600">
+                            <input class="radio" type="radio" name="retired" value="Yes"/> Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" class="radio" name="retired" value="No" checked/> No</div>
+                        <div class="questionLabelBlack">Retired?</div>
+                        <div class="clearOnly"></div>
+                    </div> 
+                </div>       			    			
+            </div>
+            <div class="darkGray roundBottom bevelTop" style="height: 50px; padding-top: 15px; margin-bottom: 0px">
+                <div style="width: 200px" class="floatR">
+                    <div class="simpleGreenCTAButton" id="saveAnd2ndStep">Save and Continue</div>
+                </div>
+                <div style="width: 100px" class="floatR">
+                    <a href="javascript:window.parent.removeLayover()" style="line-height: 2.5em">Cancel</a>
+                </div>
+                <div style="width: 300px">
+                    <div class="simpleGrayCTAButtonLong"><a href="javascript:window.parent.removeLayover()">No thanks, take me to your leader</a></div>
+                </div>
+                <div class="clearOnly"></div>
+            </div>
+        </div>
+    </form>
+</script>

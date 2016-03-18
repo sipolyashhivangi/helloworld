@@ -1,0 +1,236 @@
+<script id="accountshomeinsurance-template" type="text/x-handlebars-template">
+<!-- HomeInsurance -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}<div id="{{id}}homeinsuranceProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox  {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}homeinsuranceAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}homeinsuranceCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDraghomeinsurance" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglehomeinsurance" class="floatR simulationToggle advisorPermissionToggle">
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelhomeinsurance" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelhomeinsurance" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{else}}
+        <div id="{{id}}homeinsuranceConnectAccount" class="floatR financialDetails">
+            <div style="width: 186px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}homeinsuranceFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}HomeInsuranceNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Home Owner's / Renter Insurance{{/if}}
+                    </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}homeinsuranceManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}homeinsuranceManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                    <span id="{{id}}homeinsuranceManual">Manual Entry</span>
+            {{/if}}
+<!--	            <span id="{{id}}homeinsuranceLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span> -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}homeinsuranceCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonhomeinsurance" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name of Property
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}HomeInsuranceInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}HomeInsuranceInputName">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Deductible
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}HomeInsuranceInputDeductible">{{deductible}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" value="{{deductible}}" placeholder="Enter deductible" id="{{id}}HomeInsuranceInputDeductible" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Annual Premium Payment
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}HomeInsuranceInputPremiumPayment">{{annualpremium}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" value="{{annualpremium}}" placeholder="Enter amount" id="{{id}}HomeInsuranceInputPremiumPayment" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">When was it last reviewed?
+                    </span>
+                    <br>
+                    <select id="{{id}}HomeInsuranceReviewMonth" style="width:115px;display:none">
+                        <option value ="">Month
+                        </option>
+                        <option value="January">January
+                        </option>
+                        <option value="February">February
+                        </option>
+                        <option value="March">March
+                        </option>
+                        <option value="April">April
+                        </option>
+                        <option value="May">May
+                        </option>
+                        <option value="June">June
+                        </option>
+                        <option value="July">July
+                        </option>
+                        <option value="August">August
+                        </option>
+                        <option value="September">September
+                        </option>
+                        <option value="October">October
+                        </option>
+                        <option value="November">November
+                        </option>
+                        <option value="December">December
+                        </option>
+                    </select>
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                        
+                            {{#compare reviewyear "Year" operator="=="}}Year {{/compare}}
+                            {{#compare reviewyear "2015" operator="=="}}2015{{/compare}}
+                            {{#compare reviewyear "2014" operator="=="}}2014{{/compare}}
+                            {{#compare reviewyear "2013" operator="=="}}2013{{/compare}}
+                            {{#compare reviewyear "2012" operator="=="}}2012{{/compare}}
+                            {{#compare reviewyear "2011" operator="=="}}2011{{/compare}}
+                            {{#compare reviewyear "2010" operator="=="}}2010{{/compare}}
+                            {{#compare reviewyear "2009" operator="=="}}2009{{/compare}}
+                            {{#compare reviewyear "2008" operator="=="}}2008{{/compare}}
+                            {{#compare reviewyear "2007" operator="=="}}2007{{/compare}}
+                            {{#compare reviewyear "2006" operator="=="}}2006{{/compare}}
+                            {{#compare reviewyear "2005" operator="=="}}2005{{/compare}}
+                            {{#compare reviewyear "2004" operator="=="}}2004{{/compare}}
+                            {{#compare reviewyear "2003" operator="=="}}2003{{/compare}}
+                            {{#compare reviewyear "2002" operator="=="}}2002{{/compare}}
+                            {{#compare reviewyear "2001" operator="=="}}2001{{/compare}}
+                            {{#compare reviewyear "2000" operator="=="}}2000{{/compare}}
+                            {{#compare reviewyear "1999" operator="=="}}Before 2000{{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="{{id}}HomeInsuranceReviewYear" value="{{reviewyear}}" style="width:115px">
+                        <option value="Year" {{#compare reviewyear "Year" operator="=="}}selected{{/compare}}>Year
+                        </option>
+                        <option value="2015" {{#compare reviewyear "2015" operator="=="}}selected{{/compare}} >2015
+                        </option>
+                        <option value="2014" {{#compare reviewyear "2014" operator="=="}}selected{{/compare}} >2014
+                        </option>
+                        <option value="2013" {{#compare reviewyear "2013" operator="=="}}selected{{/compare}} >2013
+                        </option>
+                        <option value="2012" {{#compare reviewyear "2012" operator="=="}}selected{{/compare}}>2012
+                        </option>
+                        <option value="2011" {{#compare reviewyear "2011" operator="=="}}selected{{/compare}}>2011
+                        </option>
+                        <option value="2010" {{#compare reviewyear "2010" operator="=="}}selected{{/compare}}>2010
+                        </option>
+                        <option value="2009" {{#compare reviewyear "2009" operator="=="}}selected{{/compare}}>2009
+                        </option>
+                        <option value="2008" {{#compare reviewyear "2008" operator="=="}}selected{{/compare}}>2008
+                        </option>
+                        <option value="2007" {{#compare reviewyear "2007" operator="=="}}selected{{/compare}}>2007
+                        </option>
+                        <option value="2006" {{#compare reviewyear "2006" operator="=="}}selected{{/compare}}>2006
+                        </option>
+                        <option value="2005" {{#compare reviewyear "2005" operator="=="}}selected{{/compare}}>2005
+                        </option>
+                        <option value="2004" {{#compare reviewyear "2004" operator="=="}}selected{{/compare}}>2004
+                        </option>
+                        <option value="2003" {{#compare reviewyear "2003" operator="=="}}selected{{/compare}}>2003
+                        </option>
+                        <option value="2002" {{#compare reviewyear "2002" operator="=="}}selected{{/compare}}>2002
+                        </option>
+                        <option value="2001" {{#compare reviewyear "2001" operator="=="}}selected{{/compare}}>2001
+                        </option>
+                        <option value="2000" {{#compare reviewyear "2000" operator="=="}}selected{{/compare}}>2000
+                        </option>
+                        <option value="1999" {{#compare reviewyear "1999" operator="=="}}selected{{/compare}}>Before 2000
+                        </option>
+                    </select>
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}homeinsuranceSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateHomeInsuranceButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateHomeInsuranceButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelHomeInsuranceButton" class="cancelHomeInsuranceButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonhomeinsurance" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button id="homeinsuranceAddAccountButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createHomeInsuranceButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="homeinsuranceRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}homeinsuranceProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

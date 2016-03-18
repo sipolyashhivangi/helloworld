@@ -1,0 +1,198 @@
+<script id="lpostview-template" type="text/x-handlebars-template">
+    <div class="navSpacer">&nbsp;</div>
+    <div class="container">
+        <div id="singlePostRead">
+            <div class="row">
+                <div class="round lightGray smallGlow">
+                    <!-- right column -->
+                    
+                    <div style="padding:0px" id="idArticleContent" class="articleContent">
+                    <div class="lcArticles">			                                                   
+                        <div class="row-fluid">                                                                     
+                            <div class="span12 roundTop smallGlow whiteBg">                                                                                       
+                                <div class="sectionHeader">       
+                                    <div style="padding-top:10px" class="floatL">
+                                        <span class="reports"></span>
+                                    </div>
+                                    <div style="padding-left:5px;" class="floatL">
+                                        <h3 style="padding-top:0px">Basic Analytics Report</h3>                                                                                                     
+                                    </div>   
+                                    <div class="floatR" style="padding:10px;"><a href="./reports"><< Back To Report Page</a>
+                                    <div class="clearEverything"></div>                                                                         
+                                </div>      	                                                             
+                            </div>                                                         
+                        </div>
+
+    
+                    <!-- row one -->
+                    <div style="" class="row-fluid bevelTop roundBottom mediumGray smallGlow">    		                                                             
+                    {{#result}}
+<div class="signupTitleArea">
+    <h1>Basic Analytics</h1>
+    <div class="analyticsMenu">
+        <i id="printReport" title="Print"></i>
+        <i id="pdfReport" title="PDF"></i>
+        <i id="refreshReport" title="Refresh"></i>
+        <i id="closeReport" title="Close"></i>
+    </div>
+</div>
+<div class="clearOnly">&nbsp;</div>
+    <table align="center" width="95%">
+        <tr>
+            <td width="60%"><strong>Section<strong></td>
+            <td width="20%"><strong>Total Added<strong></td>
+            <td width="20%" align="right"><strong>Average Amount<strong></td>
+        </tr>
+        <tr>
+            <td>Assets</td><td>{{AssetsCount}}</td><td align="right">${{AssetsAverage}}</td>
+        </tr>
+        <tr>
+            <td>Debts</td><td>{{DebtsCount}}</td><td align="right">${{DebtsAverage}}</td>
+        </tr>
+        <tr>
+            <td>Insurance</td><td>{{InsuranceCount}}</td><td align="right">${{InsuranceAverage}}</td>
+        </tr>
+        <tr><td colspan="3"><hr></td></tr>
+    </table>
+    <table align="center" width="95%">
+        <tr>
+            <td width="60%"><strong>Section<strong></td>
+            <td width="20%"><strong>Total Added<strong></td>
+            <td width="20%" align="right"><strong>Percentage Added<strong></td>
+        </tr>
+        <tr>
+            <td>Miscellaneous</td><td>{{MiscellaneousCount}}</td><td align="right">{{MiscellaneousPercent}}</td>
+        </tr>
+        <tr>
+            <td>Income</td><td>{{IncomeCount}}</td><td align="right">{{IncomePercent}}</td>
+        </tr>
+        <tr>
+            <td>Expense</td><td>{{ExpenseCount}}</td><td align="right">{{ExpensePercent}}</td>
+        </tr>
+        <tr>
+            <td>Estimation</td><td>{{EstimationCount}}</td><td align="right">{{EstimationPercent}}</td>
+        </tr>
+        <tr>
+            <td>About Us</td><td>{{AboutCount}}</td><td align="right">{{AboutPercent}}</td>
+        </tr>    
+        <tr><td colspan="3"><hr></td></tr>
+    </table>
+    <table align="center" width="95%">
+        <tr>
+            <td><strong>Total Users</strong></td><td align="right">{{TotalUser}}</td>
+        </tr>
+        <tr>
+            <td>Requested</td><td align="right">{{RequestedUsers}}</td>
+        </tr>
+        <tr>
+            <td>Logged In</td><td align="right">{{LoggedInUsers}}</td>
+        </tr>
+        <tr>
+            <td>Deleted</td><td align="right">{{DeletedUsers}}</td>
+        </tr>
+        <tr><td colspan="3"><br></td></tr>  
+        <tr>
+            <td><strong>Total Active Users</strong> (last week)</td><td align="right">{{TotalActiveUser}}</td>
+        </tr>
+    </table>
+    <table align="center" width="95%">
+        <tr><td colspan="3"><hr style="border-color:#000000;" size="1"></td></tr>
+        <tr>
+            <td><strong>Action Step Name</strong></td><td><strong>Most/Less<strong></td><td align="right"><strong>Number<strong></td>
+        </tr>
+        <tr>
+            <td>{{maxAcs}}</td><td>Most</td><td align="right">{{maxAcsCount}}</td>
+        </tr>
+        <tr>
+            <td>{{lessAcs}}</td><td>Less</td><td align="right">{{lessAcsCount}}</td>
+        </tr>
+        <tr><td colspan="3"><hr></td></tr>
+        <tr>
+            <td><strong>Popular Action Steps</strong></td><td><strong>Type<strong></td><td align="right"><strong>Points<strong></td>
+        </tr>
+        {{#popularActions}}
+        <tr>
+            <td>{{name}}</td><td>{{type}}</td><td align="right">{{points}}</td>
+        </tr>
+        {{/popularActions}}
+        <tr><td colspan="3"><hr style="border-color:#000000;" size="1"></td></tr>
+    </table>
+
+    <table align="center" width="95%">
+        {{#if scoreResult}}
+        {{#scoreResult}}
+            <tr><td colspan="3"><strong>Average Score by Region</strong></td></tr>
+            <tr>
+                <td><strong>Region</strong></td>
+                <td align="right"><strong>Score</strong></td>
+                <td align="right"><strong>Users</strong></td>
+            </tr>
+
+            {{#region}}
+            <tr>            
+                <td>
+                    {{#compare name "1" operator="=="}}Northeast{{/compare}}
+                    {{#compare name "2" operator="=="}}Midwest{{/compare}}
+                    {{#compare name "3" operator="=="}}South{{/compare}}
+                    {{#compare name "4" operator="=="}}West{{/compare}}
+                    {{#compare name "5" operator="=="}}Unknown{{/compare}}
+                </td>
+                <td align="right">{{average}}</td>      
+                <td align="right">{{total}}</td>
+            </tr>        
+            {{/region}}
+        {{/scoreResult}}
+        {{/if}}
+
+        <tr><td colspan="3"><br></td></tr>
+
+        {{#if ageResult}}
+        {{#ageResult}}
+            <tr><td colspan="3"><strong>Average Age by Region</strong></td></tr>
+            <tr>
+                <td><strong>Region</strong></td>
+                <td align="right"><strong>Age</strong></td>
+                <td align="right"><strong>Users</strong></td>
+            </tr>
+
+            {{#region}}
+            <tr>
+                <td>
+                    {{#compare name "1" operator="=="}}Northeast{{/compare}}
+                    {{#compare name "2" operator="=="}}Midwest{{/compare}}
+                    {{#compare name "3" operator="=="}}South{{/compare}}
+                    {{#compare name "4" operator="=="}}West{{/compare}}
+                    {{#compare name "5" operator="=="}}Unknown{{/compare}}
+                </td>
+                <td align="right">{{averageAge}}</td>
+                <td align="right">{{total}}</td>
+            </tr>
+            {{/region}}
+        {{/ageResult}}
+        {{/if}}
+        <tr><td colspan="3"><hr size="1" style="border-color:#000000;"></td></tr> 
+        
+       <tr><td colspan="3">Basic Analytics of users in FlexScore as on {{todate}}<br></td></tr>
+    </table>   
+{{/result}}
+                        
+        
+        
+       
+                        
+                    <div class="clearEverything">&nbsp;</div>           
+                    </div>
+                    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    
+                </div>
+                <div class="clearOnly">&nbsp;</div>
+                </div>
+                </div>
+                <div class="clearOnly visible-phone twentypx">&nbsp;                    
+                </div>                     
+           </div>
+        </div>
+        <div class="vSpace">&nbsp;</div>
+    </div>
+    <div class="vSpace visible-phone">&nbsp;</div>
+</script>

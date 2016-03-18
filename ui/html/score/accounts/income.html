@@ -1,0 +1,257 @@
+<script id="accountsincome-template" type="text/x-handlebars-template">
+<!-- income -->
+<div id="incomeProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">
+    <div id="incomeAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper">
+        <span class="profileEmph" id="incomeNameSummary"><h3>Income</h3>
+        </span>
+    </div>
+    <div class="accordion-body mediumGray roundBottom" id="incomeCollapseBox" style="height: auto;">
+        <div id="PermissionToggleButtonincome" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 100%;">
+                {{#if estincome}}
+                {{#compare estincome "0.00" operator="!="}}                 
+                <p>
+                    You stated that your <span class="profileEmph">Estimated Household Income</span> was:
+                </p>
+                <div>
+                    <span class="profileEmphDollar">${{estincome}}</span>&nbsp;&nbsp;per month
+                </div>
+                <br>    
+                {{/compare}}
+                {{/if}}
+                <p>
+                    <span class="profileEmph">Let us get more specific:</span>
+                </p>
+                <div class="floatL" style="width:50%">
+                    <div>
+                        Use the Income Calculator or just input your actual income.
+                    </div>
+                    <div style="padding-top:10px">
+                        <span class="profileEmph">Actual Household Income
+                        </span>
+                        <div style="padding-top:7px">
+                            <span id="householdIncomeSpan" class="profileEmphDollar">{{#if totaluserincomesummary}}{{totaluserincomesummaryforShow}}{{else}}$0{{/if}}</span>
+                            <input type="hidden" placeholder="Enter income" class="dollaramount income" id="householdIncome" value="{{totaluserincome}}">
+                            &nbsp;per month
+                        </div>
+                    </div>
+                </div>
+                <div class="floatL" style="padding-left:25px;width:45%">
+                    <br>
+                    <div class="floatL" style="width:60%">
+                        <div style="position:relative;top:10px">
+                            <span class="profileEmph">Income Calculator</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:40%">
+                        <div style="top: 10px; position: relative; text-align:center;">
+                            <span class="profileEmph">Per Month</span>
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <hr>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Your Gross Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{gross_income}}</span>
+                             </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="grossIncome" value="{{gross_income}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Spouse Gross Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{spouse_income}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="spouseIncome" value="{{spouse_income}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Investment Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                           
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                             <span>$</span>
+                             <span class="readOnlyValue income">{{investment_income}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                             <span>$</span>
+                            <input type="text"  style="width:75px" class="dollaramount income" id="investmentIncome" value="{{investment_income}}">
+                             {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Retirement Plan Distribution</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{retirement_plan}}</span>
+                             </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="retirementIncome" value="{{retirement_plan}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Pension Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                             <span class="readOnlyValue income">{{pension_income}}</span>
+                             </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="pensionIncome" value="{{pension_income}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Social Security Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{social_security}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text"  style="width:75px" class="dollaramount income" id="ssIncome" value="{{social_security}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Disability Benefit Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{disability_benefit}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="benefitIncome" value="{{disability_benefit}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Veteran's Income</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        <div style="position:relative">
+                            
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue income">{{veteran_income}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount income" id="veteranIncome" value="{{veteran_income}}">
+                            {{/unless}}
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <hr>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:70%">
+                        <div style="text-align:right;">
+                            <span class="profileEmph">Total:&nbsp;</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:30%">
+                        <div style="position:relative">
+                            <span class="profileEmph" id="totalcalculatedincome">{{#if totaluserincomesummary}}{{totaluserincomesummaryforShow}}{{else}}0{{/if}}</span>
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+<div id="incomeProfileVSpace" class="profileVSpace">
+</div>
+</script>

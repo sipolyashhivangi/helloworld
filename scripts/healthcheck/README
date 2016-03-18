@@ -1,0 +1,14 @@
+CRONTAB
+
+*/3 * * * * /bin/bash /home/ubuntu/SCRIPTS/healthcheck.sh > /dev/null 2>&1
+
+Copy the Scripts to /home/ubuntu/SCRIPTS folder. If folder not available please create it.
+
+Run the below command
+sudo chmod a+rw /home/ubuntu/SCRIPTS -R
+
+This scripts will create logs as follows:
+health.log=> Every 3 minutes healthcheckup will be done and updates this log 
+act.log=> Every 3 seconds this will get updated
+
+Note:Both the script in this folder should be run from /home/ubuntu/SCRIPTS folder in all servers

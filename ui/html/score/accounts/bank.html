@@ -1,0 +1,183 @@
+<script id="accountsbankaccount-template" type="text/x-handlebars-template">
+<!-- Bank Accounts -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}bankProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}bankAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}bankCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragbank" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglebank" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}bankAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+            </div>
+
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelbank" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelbank" class="toggleOffLabel hdn">OFF
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{/unless}}
+        </div>        
+        {{else}}
+        {{#unless permission}}
+        <div id="bankConnectAccount" class="financialDetails floatR">
+            <div style="width: 186px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/unless}}
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}bankFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}BankNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Bank Account{{/if}}
+                </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}bankManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}bankManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                <span id="{{id}}bankManual">Manual Entry</span>
+            {{/if}}
+<!--	            <span id="{{id}}bankLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>            -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}bankCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonbank" class="permissionToggleButton" style="display:none"></div>
+    <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Account
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}BankInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}BankInputName">
+                    {{/unless}}
+                </p>
+                <p style="{{#if retired}}{{#compare retired '1' operator='=='}}display:none{{/compare}}{{/if}}">
+                    <span class="profileEmph">How much do you contribute?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                        <span class="readOnlyValue dollaramount" id="{{id}}BankInputContribution">{{contribution}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{contribution}}" id="{{id}}BankInputContribution" class="dollaramount">
+                    {{/unless}}
+					<span class="profileEmph">monthly
+	                </span>
+                </p>
+				<p style="{{#unless retired}}display:none{{else}}{{#compare retired '0' operator='=='}}display:none{{/compare}}{{/unless}}">
+					<span class="profileEmph">How much do you take out each month?
+					</span>
+					<br>
+					<span class="profileEmphDollar">$
+					</span>
+					 {{#if permission}}
+					 <span class="readOnlyValue dollaramount" id="{{id}}BankInputWithdrawal">{{withdrawal}}</span>
+					{{/if}}
+					{{#unless permission}}
+					<input type="text" placeholder="Enter an amount" value="{{withdrawal}}" id="{{id}}BankInputWithdrawal" class="dollaramount">
+					{{/unless}}
+					<span class="profileEmph">monthly
+					</span>
+					<select style="display:none">
+						<option>monthly
+						</option>
+						<option>annually
+						</option>
+					</select>
+				</p>
+                <div class="clearOnly">
+                </div>
+          </div>
+          <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Balance
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}BankInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a balance" value="{{amount}}" id="{{id}}BankInputBalance" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Interest Yield
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccPercent" id="{{id}}BankInputInterestYield">{{growthrate}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccPercent" placeholder="Enter percent" value="{{growthrate}}" id="{{id}}BankInputInterestYield">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>                                                         
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}bankSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateBankButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateBankButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelBankButton" class="cancelBankButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonbank" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createBankButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="bankRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}bankProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

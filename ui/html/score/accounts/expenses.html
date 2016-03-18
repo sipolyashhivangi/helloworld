@@ -1,0 +1,327 @@
+<script id="accountsexpenses-template" type="text/x-handlebars-template">
+<!-- expenses -->
+<div id="expensesProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">
+    <div id="expensesAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper">
+        <span class="profileEmph" id="expensesNameSummary"><h3>Expenses</h3>
+        </span>
+    </div>
+    <div class="accordion-body mediumGray roundBottom" id="expensesCollapseBox" style="height: auto;">
+        <div id="PermissionToggleButtonexpenses" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 100%;">
+                {{#if estexpense}}
+                {{#compare estexpense "0.00" operator="!="}}                 
+                <p>
+                    You stated that your <span class="profileEmph">Estimated Household Expenses</span> was:
+                </p>
+                <div>
+                    <span class="profileEmphDollar">${{estexpense}}</span>&nbsp;&nbsp;per month
+                </div>
+                <br>   
+                {{/compare}} 
+                {{/if}}
+                <p>
+                    <span class="profileEmph">Let us get more specific:</span>
+                </p>
+                <div class="floatL" style="width:50%">
+                    <div>
+                        Use the Expense Calculator or just input your actual expenses.
+                    </div>
+                    <div style="padding-top:10px">
+                        <span class="profileEmph">Actual Household Expenses
+                        </span>
+                        <div style="padding-top:7px">
+                            <span id="householdExpensestotalSpan" class="profileEmphDollar">{{#if actualexpensesummary}}{{actualexpensesummaryforShow}}{{else}}$0{{/if}}</span>
+                            <input type="hidden" placeholder="Enter expenses" class="dollaramount expenses" id="householdExpensestotal" value="{{actualexpense}}">
+                            &nbsp;per month
+                        </div>
+                    </div>
+                </div>
+                <div class="floatL" style="padding-left:25px;width:45%">
+                    <br>
+                    <div class="floatL" style="width:60%">
+                        <div style="position:relative;top:10px">
+                            <span class="profileEmph">Expenses Calculator</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:40%">
+                        <div style="top: 10px; position: relative; text-align:center;">
+                            <span class="profileEmph">Per Month</span>
+                        </div>
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <hr>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Rent / Mortgage</span>
+                        </div>  
+                    </div>
+                    
+                    
+                    <div class="floatL" style="width:35%">
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{rentmortgage}}</span>
+                            </span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <div style="position:relative">
+                                <span>$</span>
+                                <input type="text" style="width:75px" class="dollaramount expenses" id="rentExpenses" value="{{rentmortgage}}">
+                            </div>
+                            {{/unless}}
+                    </div>
+                    
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Groceries</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{groceries}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <div style="position:relative">
+                                <span>$</span>
+                                <input type="text" style="width:75px" class="dollaramount expenses" id="groceryExpenses" value="{{groceries}}">
+                            </div>
+                            {{/unless}}
+                        
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Utilities</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{utilities}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                            <div style="position:relative">
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount expenses" id="utilityExpenses" value="{{utilities}}">
+                            </div>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Gas / Transportation</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                            {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{gastransportation}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <div style="position:relative">
+                                <span>$</span>
+                                <input type="text" style="width:75px" class="dollaramount expenses" id="gasExpenses" value="{{gastransportation}}">
+                            </div>
+                            {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Entertainment</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{entertainment}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                            <div style="position:relative">
+                                <span>$</span>
+                                <input type="text" style="width:75px" class="dollaramount expenses" id="entertainmentExpenses" value="{{entertainment}}">
+                            </div>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Household</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        {{#if permission}}
+                              <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{household}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                        <div style="position:relative">
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount expenses" id="householdExpenses" value="{{household}}">
+                        </div>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Health</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{health}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                        <div style="position:relative">
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount expenses" id="healthExpenses" value="{{health}}">
+                        </div>
+                        {{/unless}}
+                        
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Credit Card / Loan Payments</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{cardloadpmnts}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                            <div style="position:relative">
+                            <span>$</span>
+                            <input type="text"  style="width:75px" class="dollaramount expenses" id="loanExpenses" value="{{cardloadpmnts}}">
+                            </div>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Taxes</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                         {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{taxes}}</span>
+                            </div>
+                        {{/if}}
+                        {{#unless permission}}
+                            <div style="position:relative">
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount expenses" id="taxExpenses" value="{{taxes}}">
+                            </div>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Travel</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        
+                            
+                             {{#if permission}}
+                             <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{travel}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <div style="position:relative">
+                            <span>$</span>
+                            <input type="text" style="width:75px" class="dollaramount expenses" id="travelExpenses" value="{{travel}}">
+                            </div>
+                            {{/unless}}
+                        
+                    </div>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    <div class="floatL" style="width:65%">
+                        <div style="position:relative;top:5px">
+                            <span>Other</span>
+                        </div>  
+                    </div>
+                    <div class="floatL" style="width:35%">
+                        
+                           
+                             {{#if permission}}
+                            <div style="position:relative;text-align:right;"> 
+                                <span>$</span>
+                                <span class="readOnlyValue expenses">{{other}}</span>
+                            </div>
+                            {{/if}}
+                            {{#unless permission}}
+                            <div style="position:relative">
+                                <span>$</span>
+                                <input type="text" style="width:75px" class="dollaramount expenses" id="otherExpenses" value="{{other}}">
+                            </div>
+                        {{/unless}}
+                        
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <hr>
+                    <div class="clearOnly" style="padding-top:5px">
+                    </div>
+                    
+                    
+                    <div class="floatL" style="width:70%">
+                        <div style="text-align:right;">
+                            <span class="profileEmph">Total:&nbsp;</span>
+                        </div>
+                    </div>                    
+                    <div class="floatL" style="width:30%">
+                        <div style="position:relative">
+                            <span class="profileEmph" id="totalexpensescalculated">{{#if actualexpensesummary}}{{actualexpensesummaryforShow}}{{else}}0{{/if}}</span>
+                        </div>
+                    </div>
+                   
+                    <div class="clearOnly">
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+<div id="expensesProfileVSpace" class="profileVSpace">
+</div>
+</script>

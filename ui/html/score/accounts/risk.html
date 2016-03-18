@@ -1,0 +1,71 @@
+<script id="accountsrisk-template" type="text/x-handlebars-template">
+<!-- risk -->
+<div id="riskProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">
+    <div id="riskAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper">
+        <span class="profileEmph" id="riskNameSummary"><h3>Risk Tolerance</h3>
+        </span>
+    </div>
+    <div class="accordion-body mediumGray roundBottom" id="riskCollapseBox" style="height: auto;">
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 100%;">
+                <p>Have you ever been on a roller coaster because other people forced you to go, and the whole time you felt like you were on the edge of dying? Or maybe you know that hopeless feeling you sometimes get when no matter how hard you try, sometimes you just can't get something to go your way? Well, both of these feelings are common for people who don't understand their own financial risk tolerance and invest in a way that doesn't fit their personality.
+                </p>
+                <p>
+                    This slider is here to help you understand the correct level of investment risk you are most comfortable taking. This information is critical for us to best help you achieve your goals. Please select the maximum level of risk you can tolerate.
+                </p>
+                <div style="padding:10px">
+                    <div>
+                        <div class="floatL"><h3 style="width:50px">Risk</h3></div>
+                        <div class="floatL">
+                         {{#if permission}}
+                         <span class="readOnlyValue riskSliderValue" id="riskSliderValue"><p style="margin: 3px 0;font-size: 18px;">{{#if risk}}{{risk}}{{else}}5{{/if}}</p></span>
+                        {{/if}}
+                        {{#unless permission}}
+                            <input type="text" id="riskSliderValue" class="riskSliderValue" value="{{#if risk}}{{risk}}{{else}}5{{/if}}" size="5" style="text-align:center;width:30px;padding-right:5px">
+                            {{/unless}}
+                        </div>
+                        <div class="clearOnly">
+                        </div>                        
+                    </div>
+                    <br>
+                    {{#unless permission}}
+                    <div style="padding-left:5px">
+                        <div class="floatL profileEmph" style="padding-top:23px">1</div>
+                        <div style="padding:2px 15px 0px; width: 90%" class="col400 sliderGroup floatL">  
+                            <div class="floatR questionLabelBlack">Aggressive
+                            </div>                                                                
+                            <div class="floatR questionLabelBlack" style="padding-right:158px">Moderate
+                            </div>                                                                
+                            <div class="questionLabelBlack">Conservative                                    
+                            </div>
+                            <div id="riskSlider" class="riskSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">                                   
+                                <a href="#" class="ui-slider-handle ui-state-default ui-corner-all" id="risk_slider_pointer"></a>
+                            </div>  
+                            <div class="tooltip pbRainforest"></div>
+                            <div class='pbPointerTop'></div>
+                        </div>
+                        <div class="floatL profileEmph" style="padding-top:23px">10</div>
+                        <div class="clearOnly">
+                        </div>
+                        </div>
+                        {{/unless}}
+                    <button type="button" class="btn" id="riskSliderButton" style="display:none">Add</button
+           </div>
+           {{#unless permission}}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {{/unless}}
+            {{#if permission}}
+                <span style="font-weight:bold;color:#777">Disclaimer:&nbsp;</span>These risk and nominal return metrics aren't guarantees nor predictions.  Optimizer data derived from the use of New Frontier Advisors, LLC Analytic Software © New Frontier Advisors, LLC 2013 and the capital market assumptions outlined <a href ='./ui/content/CapitalMarketInputs.pdf' target='_blank'> <strong>here</strong></a>. Annual inflation assumption is 3.4%.
+            {{/if}}
+            {{#unless permission}}
+            <div class="disclaimer"><span style="font-weight:bold;color:#777">Disclaimer:&nbsp;</span>These risk and nominal return metrics aren't guarantees nor predictions.  Optimizer data derived from the use of New Frontier Advisors, LLC Analytic Software © New Frontier Advisors, LLC 2013 and the capital market assumptions outlined <a href ='./ui/content/CapitalMarketInputs.pdf' target='_blank'> <strong>here</strong></a>. Annual inflation assumption is 3.4%.</div>
+            {{/unless}}            
+        </div>
+    </div>
+</div>
+</script>
+              

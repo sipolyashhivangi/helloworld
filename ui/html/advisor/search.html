@@ -1,0 +1,229 @@
+<script id="template" type="text/x-handlebars-template">   
+    <div class="mainBdyWrap">        	         	                                                               
+		<div class="mainBdy" id="mainBody">                                     
+			<h1 class="infoH1"><!--Connect With an Advisor--></h1> 
+			<!-- right column -->
+			<div id="profile-contents" class="" style="display:none"></div>
+			<div id="search-contents">
+				<div style="float: right;width:73%;">                                                                              
+			<div class="round mediumGray smallGlow" id="allAdvisors">
+				<div class="lightGray roundTop bevelBottom ">
+					<div class="sectionHeader1" style="padding-top:5px;padding-bottom:0px !important;">
+						<h3>
+							<span class="financialPeople"></span>Matching Advisors
+							<span style="color: #666">(<span id='total'></span>)</span>
+						</h3>
+					</div>			
+				</div>    
+            <!-- advisor -->
+				<div id='search-result' class="search-margin"> <div class="NOTfound"></div></div>			
+			</div>			
+		</div>
+			<!-- left column --> 
+				<div style="width: 240px; float:left" class="lightGray round smallGlow">
+			<div style="font-size: .85em" class="articleNav searchCSS">
+				<div class="control-group">
+					<div class="controls">
+						<div class="input-append">
+							<div style='position:relative'>
+								<div id="searchMagnify" class="magniFY" >&nbsp;</div>
+								<input type="text" class="span2 leftNavSrc searchbox" id="searchbox" placeholder="Search" />
+								
+							</div>
+						</div>
+						<a id="reset" href="javascript:void(0);"><b>Reset</b></a><br>
+					</div>
+				</div>
+				<div class="filterBoxes">
+					<span class="articleNavHdr">By Products and Services</span>
+					<ul>
+                                            <li><input type="checkbox" value="401(K)" class="filter" >
+                                                    <label for="chk01">401(K)</label>                   
+                                            </li>
+                                            <li><input type="checkbox" value="Insurance Planning" class="filter">
+                                                    <label for="chk02">Insurance Planning</label>                  
+                                            </li>
+                                            <li><input type="checkbox" value="Debt Management" class="filter">
+                                                    <label for="chk02">Debt Management</label>                  
+                                            </li>
+                                            <li><input type="checkbox" value="Annuities" class="filter">
+                                                    <label for="chk02">Annuities</label>                  
+                                            </li>
+                                            <li><input type="checkbox" value="Long Term Care" class="filter">
+                                                    <label for="chk03">Long Term Care</label>                
+                                            </li>
+                                            <li><input type="checkbox" value="College Cost Planning" class="filter">
+                                                    <label for="chk04">College Cost Planning</label>                
+                                            </li>
+											<li><input type="checkbox" value="Tax Planning" class="filter">
+                                                    <label for="chk02">Tax Planning</label>                  
+                                            </li>
+											<li><input type="checkbox" value="Investment Management" class="filter">
+                                                    <label for="chk02">Investment Management</label>                  
+                                            </li>
+											<li><input type="checkbox" value="Retirement Planning" class="filter" id="chk07">
+                                                    <label for="chk02">Retirement Planning</label>                  
+                                            </li>
+											<li><input type="checkbox" value="Estate Planning" class="filter" id="chk08">
+                                                    <label for="chk02">Estate Planning</label>                  
+                                            </li>
+                                        </ul>	                                                                                                                                       
+              <br>						 						                                                                                                                                       
+              <span class="articleNavHdr">By Designations                                                                                                                                       
+              </span> 
+			  <div id="myAccordion" class="accordion searchCSS">
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseOne" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed"><div class="floatL faqArrows"></div>
+							Comprehensive
+							
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseOne">
+						<div class="searchDesig">
+							<ul>
+								<li>
+									<input type="checkbox" value="CFP" class="filter" id="chk09">
+									<label for="chk09">CFP, Certified Financial Planner</label>
+								</li>
+								<li>
+									<input type="checkbox" value="ChFC" class="filter" id="chk10">                             
+									<label for="chk10">ChFC, Chartered Financial Consultant</label>
+								</li>
+								 <li>
+									<input type="checkbox" value="PFS" class="filter" id="chk16">                             
+									<label for="chk16">PFS, Personal Financial Specialist</label>
+								</li>
+								<li>				
+									<input type="checkbox" value="AWMA" class="filter" id="chk19">
+									<label for="chk19">AWMA, Accredited Wealth Management Advisor</label>
+								</li>
+								<li>
+									<input type="checkbox" value="RFC" class="filter" id="chk20">
+									<label for="chk20">RFC, Registered Financial Consultant</label>
+								</li>
+							</ul>	
+						</div>
+					</div>
+				</div>    
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseTwo" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed">Estate Planning
+							<div class="floatL faqArrows"></div>
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseTwo">
+						<div class="searchDesig">
+							<ul>
+								<li>
+									<input type="checkbox" value="CEP" class="filter" id="chk17">                             
+									<label for="chk17">CEP, Certified Estate Planner/</label>
+								</li>
+                                <li>
+									<input type="checkbox" value="MCEP" class="filter" id="chk">                             
+									<label for="chk">MCEP, Master Certified Estate Planner</label>
+								</li>
+								<li>						
+									<input type="checkbox" value="AEP" class="filter" id="chk18">                             
+									<label for="chk18">AEP, Accredited Estate Planner</label>
+								</li>				
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseThree" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed"><div class="floatL faqArrows"></div>Insurance Planning
+							
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseThree">
+						<div class="searchDesig">
+							<ul>
+								<li>
+									<input type="checkbox" value="CLU" class="filter" id="chk11">
+									<label for="chk11">CLU, Chartered Life Underwriter</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseFour" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed"><div class="floatL faqArrows"></div>Investment Management
+							
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseFour">
+						<div class="searchDesig">
+							<ul>
+								<li>
+									<input type="checkbox" value="CIMA" class="filter" id="chk12">
+									<label for="chk12">CIMA, Certified Investment Management Analyst</label>
+								</li>
+								<li>
+									<input type="checkbox" value="AAMS" class="filter" id="chk15">                             
+									<label for="chk15">AAMS, Accredited Asset Management Specialist</label>
+								</li>
+								<li>
+									<input type="checkbox" value="AIF" class="filter" id="chk15">                             
+									<label for="chk15">AIF, Accredited Investment Fiduciary</label>
+								</li>
+							</ul>	
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseFive" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed"><div class="floatL faqArrows"></div>Retirement Planning
+							
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseFive">
+						<div class="searchDesig">
+							<ul>
+								<li>
+									<input type="checkbox" value="CRPS" class="filter" id="chk13">
+									<label for="chk13">CRPS, Chartered Retirement Plans Specialist</label>
+								</li>
+								<li>
+									<input type="checkbox" value="CRPC" class="filter" id="chk14">
+									<label for="chk14">CRPC, Chartered Retirement Planning Counselor</label>
+								</li> 
+							</ul>	
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading collapsed searchDesignat">
+						<a href="#collapseSix" data-parent="#myAccordion" data-toggle="collapse" class="accordion-toggle collapsed"><div class="floatL faqArrows"></div>Tax Planning
+							
+						</a>
+					</div>
+					<div class="accordion-body collapse" id="collapseSix">
+						<div class="searchDesig">
+							<ul>
+								<li>					
+									<input type="checkbox" value="CPA" class="filter" id="chk14">
+									<label for="chk14">CPA, Certified Public Accountant</label>
+								</li>
+							</ul>	
+						</div>
+					</div>
+				</div>
+				
+			</div
+			  
+			  <div class="clearOnly tenpx">                                                                                                  
+          </div>	 					                                                                                                                     
+            </div>					                                                                                                   
+          </div>					                                                                                                   
+          <div class="clearOnly">                                                                                                  
+          </div>			                                                                                 
+        </div>	                                                                   
+			</div>
+		</div>
+      <div style="clear: both"></div> 
+      <br/><br/>
+	</div>             
+</script>

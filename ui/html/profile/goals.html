@@ -1,0 +1,46 @@
+<script id="profilegoals-template" type="text/x-handlebars-template">
+<div id="goalProfileDetails" style="padding:40px;padding-top:0px">
+<form class="formProfileAssets">
+    <div class="infoTip hoverGoals" style="background-size:1025%;background-position:-190px -128px;margin:0;top:33px;left:75px">
+        <!-- info bubble -->
+        <div style="top:-145px;left:-130px" class="infoBubble hoverGoalsBubble">
+            <div class="inside">
+                <p>Our FlexScore Goal Logic℠ technology automatically allocates your liquid assets toward your list of prioritized goals.  We use the laws and logic of financial planning to determine where your money would best be used and then automatically calculate that value toward your goals to give you the most benefit.</p>
+                <div class="point"></div>
+            </div>
+        </div>
+        <!-- /info bubble -->
+    </div>
+    <h3 id="existingHeader">My Goals
+    </h3>
+    <div class="msHeadingDivLine1">Please prioritize your goals by using the grid on right side of each goal box to drag them to the position you want - most important goal should be at the top.</div>
+    <div class="profileVSpace"> </div>
+    <div id="existingGoals">
+    </div>
+    <div id="EndPriorityDiv" class="priorityIndex">
+        <div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+            <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+            </div>
+            <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+            </div>
+        </div>
+    </div>
+    <div id="newGoals"></div>
+    <div class="clearEverything">&nbsp;</div>
+    <div id="goalsLinks">
+    {{#unless permission}}
+        <h3>Add Goals</h3>
+        <div class="profileVSpace"> </div>
+        <div class="btn-group lsbtn" data-toggle="buttons-radio">
+            <button type="button" id="houseAddGoal" class="btn btn-inverse addGoalButton">Buy a House</button>
+            <button type="button" id="collegeAddGoal" class="btn btn-inverse addGoalButton"><div id="collegeAddGoalDiv1" style="padding-bottom:5px">Save for</div><div id="collegeAddGoalDiv2">College</div></button>
+            <button type="button" id="debtAddGoal" class="btn btn-inverse addGoalButton" style="display:none">Pay Off Debt</button>
+            <button type="button" id="customAddGoal" class="btn btn-inverse addGoalButton">Custom</button>
+        </div>
+    {{/unless}}
+        <div style="height: 10px">&nbsp;</div>  
+        <div class="clearOnly"></div>
+    </div>
+</form>
+</div>
+</script>

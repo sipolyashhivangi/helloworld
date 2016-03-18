@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddLoansCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddLoansCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>cumulativeDebtsTotal_Studentloan</td>
+	<td>cumulativeDebtsTotal_Studentloan</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>studentLoanInputName</td>
+	<td>studentLoanInputName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>studentLoanInputBalance</td>
+	<td>studentLoanInputBalance</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>studentLoanInputAPR</td>
+	<td>studentLoanInputAPR</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>studentLoanInputYears</td>
+	<td>studentLoanInputYears</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>studentLoanInputPayment</td>
+	<td>studentLoanInputPayment</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=editDebts</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=editDebts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loanAddAccount38</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loanAddAccount38</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LoanInputName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LoanInputName</td>
+	<td>${studentLoanInputName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LoanInputBalance</td>
+	<td>${studentLoanInputBalance}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LoanInputAPR</td>
+	<td>${studentLoanInputAPR}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=LoanDeductible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LoanInputYears</td>
+	<td>${studentLoanInputYears}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=LoanInputPayment</td>
+	<td>${studentLoanInputPayment}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[16]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td></td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cumulativeDebtsTotal</td>
+	<td>5000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=cumulativeDebtsTotal</td>
+	<td>${cumulativeDebtsTotal_Studentloan}</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

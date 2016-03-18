@@ -1,0 +1,136 @@
+<script id="accountsother-template" type="text/x-handlebars-template">
+<!-- Other -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}otherProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}otherAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}otherCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragother" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionToggleother" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}otherAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelother" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelother" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}otherFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}OtherNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Other{{/if}}
+                </span>
+                 {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}otherManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}otherManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                <span id="{{id}}otherManual">Manual Entry</span>
+            {{/if}}
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}otherCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonother" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name of Asset
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}OtherInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" id="{{id}}OtherInputName" value="{{name}}">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">What is the growth rate?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccPercent" id="{{id}}OtherInputGrowthRate">{{growthrate}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccPercent" value="{{growthrate}}" placeholder="Enter percent" id="{{id}}OtherInputGrowthRate">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">How much is it worth
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}OtherInputWorth">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" id="{{id}}OtherInputWorth" value="{{amount}}" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}otherSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateOtherButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateOtherButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelOtherButton" class="cancelOtherButton" href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonother" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createOtherButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="otherRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}otherProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

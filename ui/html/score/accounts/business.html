@@ -1,0 +1,134 @@
+<script id="accountsbusiness-template" type="text/x-handlebars-template">
+<!-- Business -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}businessProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}businessAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}businessCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragbusiness" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        <div id="{{id}}PermissionTogglebusiness" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">                
+                <span id="{{id}}businessAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}</span>
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelbusiness" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelbusiness" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}businessFAQArrow" class="floatL faqArrow">
+                </div>
+                 <span class="profileEmph" id="{{id}}BusinessNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Business{{/if}}
+                </span>
+            	{{#if refId}}
+        	        {{#compare refId 0 operator="!="}}
+    	                <span id="{{id}}businessManual" class="fdIcon1b">&nbsp; </span>
+	                {{else}}
+                        <span id="{{id}}businessManual">Manual Entry</span>
+            	    {{/compare}}
+        	    {{else}}
+                    <span id="{{id}}businessManual">Manual Entry</span>
+	            {{/if}}
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}businessCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonbusiness" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name of Business
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}BusinessInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" value="{{name}}" id="{{id}}BusinessInputName">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">What is the growth rate?
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue profileAccPercent" id="{{id}}BusinessInputGrowthRate">{{growthrate}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccPercent" value="{{growthrate}}" placeholder="Enter percent" id="{{id}}BusinessInputGrowthRate">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">How much is it worth
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}BusinessInputWorth">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{amount}}" id="{{id}}BusinessInputWorth" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}businessSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateBusinessButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateBusinessButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div  class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelBusinessButton" class="cancelBusinessButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonbusiness" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createBusinessButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="businessRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}businessProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

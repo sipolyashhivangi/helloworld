@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>AddLTInsuranceCase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddLTInsuranceCase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>financialsnapshot</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>horInsuranceInputName</td>
+	<td>horInsuranceInputName</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>horInsuranceInputDeductible</td>
+	<td>horInsuranceInputDeductible</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>horInsuranceInputPremiumPayment</td>
+	<td>horInsuranceInputPremiumPayment</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>horInsuranceReviewYear</td>
+	<td>horInsuranceReviewYear</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=insuranceSummarySpan</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=insuranceSummarySpan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addInsuranceAmount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addInsuranceAmount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homeinsuranceAddAccount</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=homeinsuranceAddAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=HomeInsuranceInputName</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=HomeInsuranceInputName</td>
+	<td>${horInsuranceInputName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=HomeInsuranceInputDeductible</td>
+	<td>${horInsuranceInputDeductible}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=HomeInsuranceInputPremiumPayment</td>
+	<td>${horInsuranceInputPremiumPayment}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=HomeInsuranceReviewYear</td>
+	<td>${horInsuranceReviewYear}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=homeinsuranceAddAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[14]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[16]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>javascript{&quot;Exceptions : &quot; +&nbsp;&nbsp;this.browserbot.getUserWindow().error_msg}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

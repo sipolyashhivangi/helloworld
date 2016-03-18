@@ -1,0 +1,153 @@
+<script id="baseheader-template" type="text/x-handlebars-template">
+    <div id="navWrap">
+        <nav style="width:970px">
+            <ul>
+                <li id="gnav_home">
+                    {{#compare urole "999" operator="=="}}
+                        <a href="./dashboard">
+                    {{else}}
+                        <a href="./myscore">
+                    {{/compare}}
+                        <img style="margin-top: 10px; margin-left: 5px;width:155px" width="155" alt="FlexScore Logo" src="./ui/images/flexscore_logo.png"/>&nbsp;
+                    </a>
+                    <br>
+                    {{#if impersonationMode}}
+                        <span style="top:-5px;left:60px;position:relative;color:white">Pro Beta</span>
+                    {{else}}
+                        {{#compare urole "999" operator="=="}}
+                            <span style="top:-5px;left:60px;position:relative;color:white">Pro Beta</span>
+                        {{/compare}}
+                    {{/if}}
+                </li>
+                {{#compare urole "999" operator="=="}}
+                 <li id="gnav_finadv" class="gnavButton">
+                    <a class="todashboards" href="./dashboard" style="cursor:pointer;">
+                        <div>
+                        </div>Dashboard
+                    </a>
+                </li>
+                {{else}}
+                    {{#if impersonationMode}}
+                         <li id="gnav_finadv" class="gnavButton">
+                            <a class="todashboards" href="./dashboard" style="cursor:pointer;">
+                                <div>
+                                </div>Dashboard
+                            </a>
+                        </li>
+                    {{/if}}
+                    <li class="gnavButton" id="gnav_myScore" {{#if impersonationMode}}style="margin-left:0px"{{/if}}>
+                        <a href="./myscore">
+                            <div>
+                            </div>My Score
+                        </a>
+                    </li>
+                    <li id="gnav_finSnap" class="gnavButton">
+                        <a href="./financialsnapshot">
+                            <div>
+                            </div>Financial Snapshot
+                        </a>
+                    </li>
+                {{/compare}}
+                {{#unless impersonationMode}}
+                <li id="gnav_learning" class="gnavButton userheaderItem">
+                    <a class="userheaderItem" href="./learningcenter" >
+                        <div>
+                        </div>Learning Center
+                    </a>
+                </li>
+                {{/unless}}
+                <li id="gnav_help" class="gnavButton">
+                    <a class="userheaderItem" href="./faqs">
+                        <div>
+                        </div>Help
+                    </a>
+                </li>
+                {{#compare urole "999" operator="=="}}
+                <li style="width: 100px;">&nbsp</li>
+                {{/compare}}
+                <li id="gnav_user">
+                    <div class="gnavTextW floatR">
+                        <a class="floatR" data-toggle="dropdown" href="#">
+                            <div class="gnavNotifications" id="headNotifyTags">{{notification}}</div>
+                            <div class="gnavName">
+                                {{#unless firstname}}
+                                    {{#unless lastname}}
+                                        {{emailshort}}
+                                    {{else}}
+                                        {{lastname}}
+                                    {{/unless}}
+                                {{else}}
+                                    {{#unless lastname}}
+                                        {{firstname}}
+                                    {{else}}
+                                        {{firstname}}&nbsp;{{lastname}}
+                                    {{/unless}}
+                                {{/unless}}
+                            </div>
+                        </a>
+                        <span class="caret">
+                        </span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div id="menuNotifyTags" class="gnavNotifications">{{notification}}</div>
+                                <a id="notifications" href="#" name="{{id}}"><span></span>Notification </a>
+                            </li>
+                            {{#unless impersonationMode}}
+                            <li>
+                                <a id="settings" class="settings" href="#"><span></span>Settings</a>
+                            </li>
+                            {{/unless}}
+                            {{#compare urole "999" operator="=="}}
+                            <li>
+                                <a id="aboutyouadvisor" class="aboutHeaderadvisor" href="#"><span></span>About You</a>
+                            </li>
+                            <li>
+                                <a href="./customproducts" id="advisorcustomproducts"><span></span>Custom Products</a>
+                            </li>
+                            {{else}}
+                            {{#compare verified "1" operator="=="}}
+                            <li>
+                                <a id="aboutyou" class="aboutHeader" href="#"><span></span>About You</a>
+                            </li>
+                            <li>
+                                <a id="financialdetails" class="financialDetailsHeader" href="#"><span></span>Financial Accounts &amp; Details</a>
+                            </li>
+                            <li>
+                                <a id="goals" class="goalsHeader" href="#"><span></span>Goals</a>
+                            </li>
+                            {{#unless impersonationMode}}
+                            <li>
+                                <a id="myadvisors" class="myadvisors" href="#"><span></span>My Advisors</a>
+                            </li>
+                            {{/unless}}
+                            <li>
+                                <a id="refresh" class="" href="#"><span></span>Refresh Accounts</a>
+                            </li>
+                           {{#unless impersonationMode}}
+                            <li id="reports">
+                                <a href="./reports"><span></span>Reports</a>
+                            </li>
+                            <li id="advisorlists" style="display:none;">
+                                <div class="gnavNotifications" id="unassignedNotifyTags"  style="top:280px"></div>
+                                <a href="./advisorlist" ><span></span>Advisor List</a>
+                            </li>
+                            <li id="specificproducts">
+                                <a href="./specificproducts" id="advisorcustomproducts"><span></span>Assign Products</a>
+                            </li>
+                            {{/unless}}
+                            {{/compare}}
+                            {{/compare}}
+                        </ul>
+                    </div>
+                </li>
+                <li id="gnav_logout">
+                    <div class="gnavText">
+                        <a href="javascript:void(0);"><div style="width: 80px" id="logout">Sign Out</div></a>
+                    </div>
+                </li>
+                <br class="clearBoth" />
+            </ul>
+        </nav>
+        <input type="hidden" id="ProfileTracker" value="about" />
+    </div>
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Flexcore">
+
+    <test name="Advisor Login">
+        <classes>
+            <class name="advisorLogin" ></class>  
+        </classes>
+    </test>
+
+    <test name="Admin Login">
+        <classes>
+            <class name="AdminLogin.java" ></class>  
+        </classes>
+    </test>
+
+    <test name="Advisor Forgot Password">
+        <classes>
+            <class name="AdvisorForgotPassword.java" ></class>  
+        </classes>
+    </test>
+
+    <test name="Advisor List">
+        <classes>
+            <class name="AdvisorList.java" ></class>  
+        </classes>
+    </test>
+
+    <test name="My Advisor Search">
+        <classes>
+            <class name="MyAdvisorSearch.java" ></class>  
+        </classes>
+    </test>
+    
+
+</suite>

@@ -1,0 +1,267 @@
+<script id="accountsloan-template" type="text/x-handlebars-template">
+<!-- Loan -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}loanProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}loanAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}loanCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragloan" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionToggleloan" class="floatR simulationToggle advisorPermissionToggle">
+            <div class="simLabel simLabelPermission" style="width:{{#unless permission}}60%{{else}}100%{{/unless}};text-align:right">
+                <span id="{{id}}loanAmountSummary">{{#if amountSummary}}{{amountSummaryForShow}}{{else}}$0{{/if}}
+            </div>
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelloan" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelloan" class="toggleOffLabel hdn">OFF
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{/unless}}
+        </div>
+        {{else}}
+        {{#unless permission}}
+        <div id="{{id}}loanConnectAccount" class="floatR financialDetails">
+            <div style="width: 186px" class="msdwn imgLeft recButton">
+                <span class="link"></span>
+                Connect&nbsp;Account&nbsp;Instead
+            </div>
+        </div>
+        {{/unless}}
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}loanFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}LoanNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Loan{{/if}}
+                </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}loanManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}loanManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                    <span id="{{id}}loanManual">Manual Entry</span>
+            {{/if}}            
+<!--                <span id="{{id}}loanLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>  -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}loanCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonloan" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Loan
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}LoanInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" id="{{id}}LoanInputName" value="{{name}}">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">What is the interest rate? (APR)
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue percent" id="{{id}}LoanInputAPR">{{apr}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="percent" placeholder="Enter percent" id="{{id}}LoanInputAPR" value="{{apr}}">
+                    {{/unless}}
+                    <span class="profileEmph">% annually
+                    </span>
+                </p>
+                <p>
+                    <span class="profileEmph">How many years are remaining?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue numberamount" id="{{id}}LoanInputYears">{{yearsremaining}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="numberamount" placeholder="Enter years" id="{{id}}LoanInputYears" value="{{yearsremaining}}">
+                    {{/unless}}
+                    <span class="profileEmph">years
+                    </span>
+                </p>
+                <p>
+                    <span class="profileEmph">Loan Type
+                    </span>
+                    <br>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <select id="{{id}}LoanType" value="{{mortgagetype}}"  class="profileAccType">
+                        <option value="36" {{#compare mortgagetype 36 operator="=="}}selected{{/compare}}>Personal
+                        </option>
+                        <option value="37" {{#compare mortgagetype 37 operator="=="}}selected{{/compare}}>Auto
+                        </option>
+                        <option value="38" {{#compare mortgagetype 38 operator="=="}}selected{{/compare}}>Student
+                        </option>
+                        <option value="39" {{#compare mortgagetype 39 operator="=="}}selected{{/compare}}>Business
+                        </option>
+                    </select>
+                {{else}}
+                    <span class="profileEmphDollar">
+                        {{#compare mortgagetype "36" operator="=="}}
+                            Personal
+                            <input type="hidden"  id="{{id}}LoanType" value="36" >
+                        {{else}}
+                            {{#compare mortgagetype "37" operator="=="}}
+                                Auto
+                                <input type="hidden"  id="{{id}}LoanType" value="37" >
+                            {{else}}
+                                {{#compare mortgagetype "38" operator="=="}}
+                                    Student
+                                    <input type="hidden"  id="{{id}}LoanType" value="38" >
+                                {{else}}
+                                    {{#compare mortgagetype "39" operator="=="}}
+                                        Business
+                                        <input type="hidden"  id="{{id}}LoanType" value="39" >
+                                    {{else}}
+                                            Personal
+                                            <input type="hidden"  id="{{id}}LoanType" value="36" >
+                                    {{/compare}}
+                                {{/compare}}
+                            {{/compare}}
+                        {{/compare}}
+                    </span>
+                {{/compare}}
+            {{else}}
+                <span class="profileEmphDollar">
+                    {{#compare mortgagetype "36" operator="=="}}
+                        Personal
+                        <input type="hidden" id="{{id}}LoanType" value="36" >
+                    {{else}}
+                        {{#compare mortgagetype "37" operator="=="}}
+                            Auto
+                            <input type="hidden" id="{{id}}LoanType" value="37" >
+                        {{else}}
+                            {{#compare mortgagetype "38" operator="=="}}
+                                Student
+                                <input type="hidden"  id="{{id}}LoanType" value="38" >
+                            {{else}}
+                                {{#compare mortgagetype "39" operator="=="}}
+                                    Business
+                                    <input type="hidden"  id="{{id}}LoanType" value="39" >
+                                {{else}}
+                                        Personal
+                                        <input type="hidden"  id="{{id}}LoanType" value="36" >
+                                {{/compare}}
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+                </span>
+            {{/if}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Balance Owed?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                     {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}LoanInputBalance">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter a balance" value="{{amount}}" id="{{id}}LoanInputBalance" class="dollaramount">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Is the interest deductible?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare intdeductible 1 operator="=="}} Yes {{/compare}} {{#compare intdeductible 0 operator="=="}} No {{/compare}} {{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare intdeductible 1 operator="=="}}checked{{/compare}}{{/if}}  name="{{id}}LoanDeductible" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare intdeductible "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}LoanDeductible" value="0" >&nbsp;No
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">How much do you pay?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}LoanInputPayment">{{amtpermonth}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter amount" value="{{amtpermonth}}" id="{{id}}LoanInputPayment" class="dollaramount">
+                    {{/unless}}
+                    <span class="profileEmph">per month
+                    </span>
+                </p>
+                <p>
+                     {{#if permission}}
+		                 <input type="checkbox" style="display:none" name="{{id}}payoff_monthly_balances" id="{{id}}payoff_monthly_balances" value="1"  {{#compare monthly_payoff_balances "1" operator="=="}} checked ="checked" {{/compare}}>
+		                 <span class="profileEmph">Payoff balances each month?</span>
+		                 <br>
+		                 <span class="readOnlyValue">{{#compare monthly_payoff_balances "1" operator="=="}}Yes{{else}}No{{/compare}}</span>		                 
+                     {{/if}}
+                     {{#unless permission}}
+		                 <input type="checkbox" name="{{id}}payoff_monthly_balances" id="{{id}}payoff_monthly_balances" value="1"  {{#compare monthly_payoff_balances "1" operator="=="}} checked ="checked" {{/compare}}>
+		                 <span class="profileEmph">Payoff balances each month?</span>
+                     {{/unless}}
+		        </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}loanSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdateLoanButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateLoanButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelLoanButton" class="cancelLoanButton" href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonloan" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createLoanButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="loanRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}loanProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

@@ -1,0 +1,41 @@
+<script id="reports-template" type="text/x-handlebars-template">
+
+    <div class="signupTitleArea">
+    <h2 style="font-family: arial, helvetica"}>User Finances Report</h2>
+        <div class="analyticsMenu">
+            <i id="printReport" title="Print"></i>
+            <i id="pdfReport" title="PDF"></i>
+            <i id="refreshReport" title="Refresh"></i>
+            <i id="closeReport" title="Close"></i>
+        </div>
+    </div>
+    <div class="twentypx">&nbsp;</div>
+    Number of users with valid zip codes:  {{consumerDebtToIncomeCount}}
+    <div class="twentypx">&nbsp;</div>
+    <div class="clearOnly">&nbsp;</div>
+    Zips Codes with Highest Average Consumer Debt To Income Ratio (minimum 10 users in zip code)
+    <div>
+        <table width="80%" class="financesReportStriped">
+                <tr>
+                    <th width="4%"><strong><strong></th>
+                    <th width="12%"><strong>Zip Code<strong></th>
+                    <th width="10%"><strong>Number of Users<strong></th>
+                    <th width="15%"><strong>Debt to Income Average Score<strong></th>
+                    <th width="15%"><strong>City<strong></th>
+                    <th width="10%"><strong>State<strong></th>
+                </tr>
+                {{#consumerDebtToIncomeZips}}
+                <tr>
+                    <td width="4%">{{count}}.</td>
+                    <td width="12%">{{0.zip}}</td>
+                    <td width="10%">{{0.0.zipcount}}</td>
+                    <td width="15%">{{0.zipaverage}}</td>
+                    <td width="15%">{{0.0.city}}</td>
+                    <td width="10%">{{0.0.state}}</td>
+                </tr>
+               {{/consumerDebtToIncomeZips}}   
+            </table>
+    </div>
+    <div class="twentypx">&nbsp;</div>
+    <div class="clearOnly">&nbsp;</div>
+</script>

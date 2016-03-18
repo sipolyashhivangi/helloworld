@@ -1,0 +1,40 @@
+body {
+  background:none repeat scroll 0 0 #F8F9ED;
+}
+#container {
+  width: 1020px;
+  margin: auto;
+  min-height: 500px;
+  background: #fff;
+}
+#menu {
+  background: #3A332F;
+  height: 30px; color: #fff; text-align: right;
+}
+#menu ul {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+#menu ul li {
+  float: left;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#menu ul li a {
+  color: #fff;
+  line-height: 30px;
+  text-decoration: none;
+}
+#menu ul li a:hover {
+  color: #ccc;
+}
+#container {
+
+}
+#logo {
+   padding: 20px;
+   height:40px;
+}
+.heading-main{font-size:115%;color:#6FA900;font-weight:bold;padding-bottom:10px}
+.head-description{padding-bottom:15px;color:#666}

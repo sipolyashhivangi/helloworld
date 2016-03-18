@@ -1,0 +1,269 @@
+<script id="liparams-template" type="text/x-handlebars-template">
+    <div class="mcReportBox">
+        <div class="signupTitleArea">
+            <h2 style="font-family: arial, helvetica"}>Monte Carlo Simulated Retirement Plan for {{name}}</h2>
+            <div class="analyticsMenu">
+                <i id="printReport" title="Print"></i>
+                <i id="pdfReport" title="PDF"></i>
+                <i id="refreshReport" title="Refresh"></i>
+                <i id="closeReport" title="Close"></i>
+            </div>
+        </div>
+        <br>
+        <hr style="background:#d5d5d5; width:100%; height:3px;">
+
+        <h3 style="font-family: helvetica, arial">Simulation Summary</h3>
+
+        <table width="100%" class="mcReport">
+                <tr sectionHeaderDouble>
+                    <td width="16%"><strong>Probability of Success: </strong></td>
+                    <td width="5%" class="mcAlignRight"><strong>{{probability}}%</strong></td>
+                    <td width="12%">&nbsp;</td>
+                    <td width="23%">Number of Simulations</td>
+                    <td width="5%" class="mcAlignRight">{{numiterations}}</td>
+                    <td width="12%">&nbsp;</td>
+                    <td width="20%">User Selected Risk Level:</td>
+                    <td width="8%" class="mcAlignRight">{{mcparams.userRisk}}</td>
+                </tr>
+                <tr id="mcReportShortRow">
+                    <td id="mcReportShortRow">&nbsp;</td>
+                </tr>
+        </table>
+        {{#if medianData}}
+            <table width="100%" class="mcReport">
+                {{#mcparams}}
+                    <tr>
+                        <td width="16%">Current Age: </td>
+                        <td width="5%" class="mcAlignRight">{{currentAge}}</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="23%">Starting Taxable Balance: </td>
+                        <td width="5%" class="mcAlignRight">{{startingTaxableBalance}}</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="20%">User Risk Return: </td>
+                        <td width="8%" class="mcAlignRight">{{riskReturn}}%</td>
+                    </tr>
+                    <tr>
+                        <td>Retirement Age:
+                        <td class="mcAlignRight">{{retirementAge}}</td>
+                        <td>&nbsp;</td>
+                        <td>Starting Tax Deferred Balance: </td>
+                        <td class="mcAlignRight">{{startingTaxDeferredBalance}}</td>
+                        <td>&nbsp;</td>
+                        <td>User Standard Deviation: </td>
+                        <td class="mcAlignRight">{{riskStdDev}}%</td>
+                    </tr>
+                    <tr>
+                        <td>Life Expectancy:
+                        <td class="mcAlignRight">{{lifeExpectancy}}</td>
+                        <td>&nbsp;</td>
+                        <td>Starting Tax Free Balance: </td>
+                        <td class="mcAlignRight">{{startingTaxFreeBalance}}</td>
+                        <td>&nbsp;</td>
+                        <td>Spending Policy:</td>
+                        <td class="mcAlignRight">{{spendingPolicy}}</td>
+                    </tr>
+                    <tr>
+                        <td>Years In Plan: </td>
+                        <td class="mcAlignRight">{{yearsInPlan}}</td>
+                        <td>&nbsp;</td>
+                        <td>Min IRA / 401(k) Withdrawal Age:</td>
+                        <td class="mcAlignRight">{{minIraWithdrawalAge}}</td>
+                        <td>&nbsp;</td>
+                        <td>Annual Retirement Spending: </td>
+                        <td class="mcAlignRight">{{baseAnnualWithdrawal}}</td>
+                    </tr>
+                    <tr id="mcReportShortRow">
+                        <td id="mcReportShortRow">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Inflation:
+                        <td class="mcAlignRight">{{inflation}}%</td>
+                        <td>&nbsp;</td>
+                        <td>Taxable Annual Savings:</td>
+                        <td class="mcAlignRight">{{taxableAnnualSavings}}</td>
+                        <td>&nbsp;</td>
+                        <td width="60px" style="border-bottom: 1pt solid #d5d5d5">Annual Retirement Income: Age at Start</td>
+                        <td width="20px" style="border-bottom: 1pt solid #d5d5d5" class="mcAlignRight">Amount</td>
+                    </tr>
+                    <tr>
+                        <td>Investment Tax Rate:
+                        <td class="mcAlignRight">{{investmentTaxRate}}%</td>
+                        <td>&nbsp;</td>
+                        <td>Tax Deferred Annual Savings:</td>
+                        <td class="mcAlignRight">{{taxDeferredAnnualSavings}}</td>
+                        <td>&nbsp;</td>
+                        <td>Social Security: {{socialSecurityStartYear}}</td>
+                        <td class="mcAlignRight">{{extraTaxFreeIncomeSocialSecurity}}</td>
+                    </tr>
+                    <tr>
+                        <td>Income Tax Rate:
+                        <td class="mcAlignRight">{{taxBracket}}%</td>
+                        <td>&nbsp;</td>
+                        <td>Tax Free Annual Savings:</td>
+                        <td class="mcAlignRight">{{taxFreeAnnualSavings}}</td>
+                        <td>&nbsp;</td>
+                        {{#extraTaxFreeIncomePension}}
+                            {{#compare @index "0" operator="=="}}
+                                <td>Pension: {{startYear}}</td>
+                                <td class="mcAlignRight">{{amountPerYear}}</td>
+                            {{/compare}}
+                        {{/extraTaxFreeIncomePension}}
+                    </tr>
+                    {{#extraTaxFreeIncomePension}}
+                        {{#compare @index "0" operator="!="}}
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>Pension: {{startYear}}</td>
+                                <td class="mcAlignRight">{{amountPerYear}}</td>
+                            </tr>
+                        {{/compare}}
+                    {{/extraTaxFreeIncomePension}}
+                {{/mcparams}}
+            </table>
+
+            <br>
+            <hr style="background:#d5d5d5; width:100%; height:3px;">
+            <br>
+            <h3 style="font-family: helvetica, arial; padding-left:2px;">Output Yearly Summary</h3>
+            <table width="100%" class="mcReportStriped">
+                    <tr vertical-align="bottom">
+                        <th width="3%" align="left" style="padding:0 0 0 1em";>Year</td>
+                        <th width="2%" align="left" style="padding:0 1em 0 0";>Age</td>
+
+                        <th width="5%">Median Portfolio Value</td>
+                        <th width="5%">Taxable Portfolio Value</td>
+                        <th width="5%">Tax Deferred Portfolio Value</td>
+                        <th width="5%">Tax Free Portfolio Value</td>
+
+                        <th width="5%">New Investment</td>
+                        <th width="5%">New Taxable Investment</td>
+                        <th width="5%">New Tax Deferred Investment</td>
+                        <th width="5%">New Tax Free Investment</td>
+
+                        <th width="5%">Median RMD</td>
+                        <th width="5%">Taxes on RMD</td>
+                        <th width="5%">RMD Available for Expenses</td>
+                        <th width="5%">Planned Expenses</td>
+                        <th width="5%">% Expenses to Fund</td>
+                        <th width="5%">Expenses to Fund</td>
+                        <th width="5%">RMD Used for Expenses</td>
+
+                        <th width="5%">After Tax Income</td>
+                        <th width="5%">Additional Withdrawal</td>
+                        <th width="5%">Taxes on Withdrawal</td>
+                        <th width="5%">Additional Withdrawal with Taxes</td>
+                        <th width="5%">Average Return</td>
+                    </tr>
+                {{#medianData}}
+                    {{#data}}
+                    <tr>
+                        <td align="left" style="padding:0 1em 0 1em";>{{year}}</td>
+                        <td align="left style="padding:0 3em 0 1em";">{{age}}</td>
+
+                        <td align="right">{{medianTotalBalance}}</td>
+                        <td align="right">{{medianTaxableBalance}}</td>
+                        <td align="right">{{medianTaxDeferredBalance}}</td>
+                        <td align="right">{{medianTaxFreeBalance}}</td>
+
+                        <td align="right">{{newTotalInvestment}}</td>
+                        <td align="right">{{newTaxableInvestment}}</td>
+                        <td align="right">{{newTaxDeferredInvestment}}</td>
+                        <td align="right">{{newTaxFreeInvestment}}</td>
+
+                        <td align="right">{{medianRMD}}</td>
+                        <td align="right">{{medianRMDTaxes}}</td>
+                        <td align="right">{{medianRMDAvailableforExpenses}}</td>
+                        <td align="right">{{medianSpendingRequested}}</td>
+                        <td align="right">{{medianPercentPPMaintained}}%</td>
+                        <td align="right">{{medianExpensesToFund}}</td>
+                        <td align="right">{{medianRMDUsedForExpenses}}</td>
+
+                        <td align="right">{{medianTaxFreeIncome}}</td>
+                        <td align="right">{{medianNetWithdrawalNeeded}}</td>
+                        <td align="right">{{medianWithdrawalTaxes}}</td>
+                        <td align="right">{{medianWithdrawalWithTaxes}}</td>
+                        <td align="right">{{avgReturn}}%</td>
+                    </tr>
+                    {{/data}}
+                {{/medianData}}
+            </table>
+        {{/if}}
+        <br>
+        <br>
+        <br>
+        {{#if detailData}}
+            <h3 style="font-family: helvetica, arial; padding-left:5px;">Output Simulation Details</h3>
+            <table class="mcReportStriped">
+                    <tr>
+                        <th width="1%">Sim</td>
+                        <th width="2%">Year</td>
+                        <th width="1%">Age</td>
+
+                        <th width="5%">Total Portfolio Value</td>
+                        <th width="5%">Taxable Portfolio Value</td>
+                        <th width="5%">Tax Deferred Portfolio Value</td>
+                        <th width="5%">Median Tax Portfolio Value</td>
+
+                        <th width="5%">New Investment</td>
+                        <th width="5%">New Taxable Investment</td>
+                        <th width="5%">New Tax Deferred Investment</td>
+                        <th width="5%">New Tax Free Investment</td>
+
+                        <th width="5%">RMD</td>
+                        <th width="5%">Taxes on RMD</td>
+                        <th width="5%">RMD Available for Expenses</td>
+                        <th width="5%">Planned Expenses</td>
+                        <th width="5%">% Expenses to Fund</td>
+                        <th width="5%">Expenses to Fund</td>
+                        <th width="5%">RMD Used for Expenses</td>
+
+                        <th width="5%">After Tax Income</td>
+                        <th width="5%">Additional Withdrawal</td>
+                        <th width="5%">Taxes on Withdrawal</td>
+                        <th width="5%">Additional Withdrawal with Taxes</td>
+                        <th width="5%">Portfolio Return Rate</td>
+                    </tr>
+
+                {{#detailData}}
+                    {{#years}}
+                    <tr>
+                        <td align="left" style="padding:0 0 0 1em";>{{iteration}}</td>
+                        <td align="left" style="padding:0 0 0 1em";>{{year}}</td>
+                        <td align="left" style="padding:0 0 0 1em";>{{age}}</td>
+
+                        <td align="right">{{yearlyTotalBalance}}</td>
+                        <td align="right">{{yearlyTaxableBalance}}</td>
+                        <td align="right">{{yearlyTaxDeferredBalance}}</td>
+                        <td align="right">{{yearlyTaxFreeBalance}}</td>
+
+                        <td align="right">{{newTotalInvestment}}</td>
+                        <td align="right">{{newTaxableInvestment}}</td>
+                        <td align="right">{{newTaxDeferredInvestment}}</td>
+                        <td align="right">{{newTaxFreeInvestment}}</td>
+
+                        <td align="right">{{grossRMD}}</td>
+                        <td align="right">{{RMDTaxes}}</td>
+                        <td align="right">{{RMDAvailableForExpenses}}</td>
+                        <td align="right">{{spendingRequested}}</td>
+                        <td align="right">{{percentOfExpensesFunded}}%</td>
+                        <td align="right">{{expensesToFund}}</td>
+                        <td align="right">{{RMDWithdrawalUsedForExpenses}}</td>
+
+                        <td align="right">{{extraTaxFreeIncome}}</td>
+                        <td align="right">{{netWithdrawalNeeded}}</td>
+                        <td align="right">{{taxesOnGrossWithdrawal}}</td>
+                        <td align="right">{{withdrawalWithTaxes}}</td>
+                        <td align="right">{{portfolioReturn}}%</td>
+                    </tr>
+                    {{/years}}
+                {{/detailData}}
+            </table>
+        {{/if}}
+    </div>
+</script>
+

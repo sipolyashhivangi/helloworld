@@ -1,0 +1,165 @@
+.tabBox .tabs, .mtabBox .tabs {
+    margin: 0;
+    padding-left: .4em;
+    padding-top: .4em;
+    overflow: hidden;
+    margin-bottom: -1px;
+    height: 2.9em;
+}
+
+.tabBox .tabs li, .mtabBox .tabs li {
+    float: left;
+    list-style: none;
+    margin-right: .2em;
+    height: 3em;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #FFF;
+    -webkit-box-shadow: #CCC 0 0 .4em;
+    -moz-box-shadow: #CCC 0 0 .4em;
+    box-shadow: #CCC 0 0 .4em;
+    width: 9.25em;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+}
+
+.tabBox .tabs li.selected, .mtabBox .tabs li.selected {
+    z-index: 5;
+}
+
+.tabBox .tabs a, .tabBox .tabs a:visited, .mtabBox .tabs a, .mtabBox .tabs a:visited{
+    float: left;
+    height: 3.4em;
+    line-height: 3.4em;
+    font-size: 14px;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    background: #EEE;
+    border: 1px solid #CCC;
+    border-bottom: 0;
+    padding: 0 10px;
+    text-decoration: none;
+    width: 86%;
+    behavior: url(js/PIE.htc);
+    color: #898989;
+    font-family: helvetica;
+}
+
+.tabBox .tabs a div, .tabBox .tabs li.selected a div, .mtabBox .tabs a div, .mtabBox .tabs li.selected a div {
+    height: 35px;
+    width: 40px;
+    display: inline-block;  
+    float: left;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+
+.tabBox .tabs a p, .mtabBox .tabs a p  {
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+    float: left;
+}
+
+.tabBox .tabs a span, .mtabBox .tabs a span {
+    height: 10px;
+    margin-top: -20px;
+}
+
+#tab-1 a div {
+    background: url('../images/sprites/sprites.png') no-repeat -160px -40px;
+}
+
+#tab-1.selected a div {
+    background: url('../images/sprites/sprites.png') no-repeat -200px -40px;
+}
+
+#tab-2 a div {
+    background: url('../images/sprites/sprites.png') no-repeat -240px -40px;
+}
+
+#tab-2.selected a div {
+    background: url('../images/sprites/sprites.png') no-repeat -280px -40px;
+}
+
+#tab-3 a div {
+    background: url('../images/sprites/sprites.png') no-repeat -320px -40px;
+}
+
+#tab-3.selected a div {
+    background: url('../images/sprites/sprites.png') no-repeat 0 -80px;
+}
+
+#tab-4 a div {
+    background: url('../images/sprites/sprites.png') no-repeat -40px -80px;
+}
+
+#tab-4.selected a div {
+    background: url('../images/sprites/sprites.png') no-repeat -79px -80px;
+}
+
+
+
+.tabBox .tabs .selected a, .mtabBox .tabs .selected a {
+    background: #FFF;
+    -webkit-box-shadow: #CCC 0 0 .4em;
+    -moz-box-shadow: #CCC 0 0 .4em;
+    box-shadow: #CCC 0 0 .4em;
+    color: #3E3E3E;
+}
+
+.tabBox .content, .mtabBox .content {
+    clear: left;
+    position: relative;
+    z-index: 2;
+    padding: 1em 1em;
+    border: 1px solid #CCC;
+    background: #FFF;
+	-webkit-border-radius: 4px;
+	-webkit-border-top-left-radius: 0;
+	-moz-border-radius: 4px;
+	-moz-border-radius-topleft: 0;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+    -webkit-box-shadow: #CCC 0 0 .4em;
+    -moz-box-shadow: #CCC 0 0 .4em;
+    box-shadow: #CCC 0 0 .4em;
+    margin-left: .4em; 
+    margin-right: .35em;
+    height: 322px;
+    width: 589px;
+    behavior: url(js/PIE.htc);
+}
+
+.tabBox .tabSignup, .mtabBox .tabSignup {
+    height: 420px;
+    width: 700px;
+}
+
+.tabBox .content .tab-content, .mtabBox .content .tab-content {
+    height: 322px;
+    width: 589px;
+}
+
+.tabBox .content .tabSignup-content, .mtabBox .content .tabSignup-content {
+    height: 420px;
+    width: 700px;
+}
+
+/* modal tab overrides */
+.mtabBox {margin:10px 20px;}
+.mtabBox .content, .mtabBox .content .tabSignup-content, .mtabBox .tabs li, .mtabBox .tabSignup {width:auto;height:auto;}
+.simpleGreenCTAButton {font-family: Arial,Helvetica,sans-serif;font-size: 10pt;font-weight: bold;line-height: 2.3em;}
+.signupTitleArea {}
+.cropPhoto .simpleGreenCTAButton {width:85px;display:inline-block;margin-right:5px;}
+.uploadPhoto .img, .cropPhoto .img, .uploadPhoto .img img, .cropPhoto .img img {display:block;margin:2px auto;}
+.accTopX {padding: 15px 20px 0 0;}
+.line2 {line-height: 2.4em;}
+.mtabBox .tabs a, .mtabBox .tabs a:visited {font-family: arial;font-size: 1em;font-weight: bold;height: 3em;line-height: 3em;padding: 0 20px;width:auto;}
+
+

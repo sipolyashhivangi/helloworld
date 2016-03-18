@@ -1,0 +1,50 @@
+<script id="usermyscorehorse-template" type="text/x-handlebars-template">
+    <div class="lightGray roundTop bevelBottom">			        		
+        <div class="sectionHeader">			                      
+            <div class="financialScore">
+                <div class="financialDiv"><h3>My&nbsp;Score</h3></div>
+            </div>
+            {{#compare printMode "1" operator="=="}}
+                <div style="float:right;margin:5px;">
+                <button type="button" class="btn" id="PrintinPopup">Print</button>
+                <button type="button" class="btn" id="DownloadinPopup" style="display:none">PDF</button>
+                </div>
+            {{/compare}}
+        </div>			        	
+    </div>			        	
+    <div class="mediumGray bevelBoth chartWrapper">						    
+        <img id="totalScoreHorseshoe" style="margin-left: 23px; margin-top: 3px" alt="myScoreChart" src="./ui/images/horseshoes/variations/myscore/{{image}}.png">
+        <div class="floatedScore" style="left:90px">
+        	{{#if showScoreLinks}}
+				<a id="totalScoreValue" href="#" onclick="javascript:LoadScoreDialog();return false;">{{totalscore}}</a>
+			{{else}}			
+				<span id="totalScoreValue">{{totalscore}}</span>
+        	{{/if}}
+        </div>		        			
+       <div style="position: absolute; top: 187px; left: 168px;font-size:90%">1000</div>   
+    </div>			        	           
+    <div class="darkGray bevelBoth myScoreTopicDiv">			        		
+        <div class="myScoreTopic" style="width:140px">7 days change
+        </div>			        		
+        <div class="myScoreNumber" id="sevenday">{{sevenDC}}
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>			        	
+    <div class="darkGray bevelBoth myScoreTopicDiv">			        		
+        <div class="myScoreTopic" style="width:140px">15 days change
+        </div>			        		
+        <div class="myScoreNumber"  id="fifteenday">{{fifteenDC}}
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>			        	
+    <div class="darkGray roundBottom bevelTop myScoreTopicDiv">			        		
+        <div class="myScoreTopic" style="width:140px">1 month change
+        </div>			        		
+        <div class="myScoreNumber" id="onemonth">{{oneMC}}
+        </div>			        		
+        <div class="clearOnly">&nbsp;
+        </div>			        	
+    </div>	
+</script>

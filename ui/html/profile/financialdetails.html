@@ -1,0 +1,151 @@
+<script id="profilefinancialdetails-template" type="text/x-handlebars-template">
+<div id="profileColWrap">			               
+    <div id="profileCol1">
+        <h3>Financial Details</h3>				                     
+        <div class="profileVSpace">                    
+        </div>				                     
+        <div id="profileNav" class="round lightGray smallGlow">
+            <ul>
+            {{#unless permission}}
+                <li id="connectSection" class="{{hdn}} posRel profileNavOn">                                      
+                    <div id="connectSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon1a">&nbsp;                                       
+                        </span>Connect Accounts
+                    </div>
+                    <div id="connectUnselected">
+                        <a id="connectLink" class="{{hdn}} profileNavInactive" href="#">   
+                            <span id="connectLink2" class="fdIcon1">&nbsp;                                       
+                            </span>Connect Accounts
+                        </a> 
+                    </div>
+                </li>
+                {{/unless}}
+                <li id="incomeSection">
+                    <div id="incomeSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon2a">&nbsp;                                       
+                        </span>Income
+                    </div>
+                    <div id="incomeUnselected">
+                        <a id="incomeLink" class="profileNavInactive" href="#">                                      
+                            <span id="incomeLink2" class="fdIcon2">&nbsp;                                       
+                            </span>Income
+                        </a> 
+                    </div>
+                </li>						                                 
+                <li id="expensesSection">
+                    <div id="expensesSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon3a">&nbsp;                                       
+                        </span>Expenses
+                    </div>
+                    <div id="expensesUnselected">
+                        <a id="expensesLink" class="profileNavInactive" href="#">                                      
+                            <span id="expensesLink2" class="fdIcon3">&nbsp;                                       
+                            </span>Expenses
+                        </a> 
+                    </div>
+                </li>	
+                <li id="debtsSection">
+                    <div id="debtsSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon4a">&nbsp;                                       
+                        </span>Debts
+                        <span class="profileNavNumOn round2">                                     
+                        </span>
+                    </div>
+                    <div id="debtsUnselected">
+                        <a id="debtsLink" class="profileNavInactive" href="#">                                      
+                            <span id="debtsLink2" class="fdIcon4">&nbsp;                                       
+                            </span>Debts
+                            <span class="profileNavNumOff round2">                                     
+                            </span>
+                        </a> 
+                    </div>
+                </li>	
+                <li id="assetsSection">
+                    <div id="assetsSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon5a">&nbsp;                                       
+                        </span>Assets
+                        <span class="profileNavNumOn round2">                                     
+                        </span>
+                    </div>
+                    <div id="assetsUnselected">
+                        <a id="assetsLink" class="profileNavInactive" href="#">                                      
+                            <span id="assetsLink2" class="fdIcon5">&nbsp;                                       
+                            </span>Assets
+                            <span class="profileNavNumOff round2">
+                            </span>
+                        </a> 
+                    </div>
+                </li>						                                 
+                <li id="insuranceSection">
+                    <div id="insuranceSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon7a">&nbsp;                                       
+                        </span>Insurance
+                        <span class="profileNavNumOn round2">                                     
+                        </span>
+                    </div>
+                    <div id="insuranceUnselected">
+                        <a id="insuranceLink" class="profileNavInactive" href="#">                                      
+                            <span id="insuranceLink2" class="fdIcon7">&nbsp;                                       
+                            </span>Insurance
+                            <span class="profileNavNumOff round2">                                     
+                            </span>
+                        </a> 
+                    </div>
+                </li>							                                 
+                <li id="riskSection">
+                    <div id="riskSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon6a">&nbsp;                                       
+                        </span>Risk Tolerance
+                    </div>
+                    <div id="riskUnselected">
+                        <a id="riskLink" class="profileNavInactive" href="#">                                      
+                            <span id="riskLink2" class="fdIcon6">&nbsp;                                       
+                            </span>Risk Tolerance
+                        </a> 
+                    </div>
+                </li>						                                 
+                <li id="miscellaneousSection">
+                    <div id="miscellaneousSelected" class="hdn">
+                        <div class="profileNavActiveBack">                                            
+                            <img alt="" src="./ui/images/profile_nav_active_back.png">                                      
+                        </div>                                      
+                        <span class="fdIcon8a">&nbsp;                                       
+                        </span>Miscellaneous
+                    </div>
+                    <div id="miscellaneousUnselected">
+                        <a id="miscellaneousLink" class="profileNavInactive" href="#">                                      
+                            <span id="miscellaneousLink2" class="fdIcon8">&nbsp;                                       
+                            </span>Miscellaneous
+                        </a> 
+                    </div>
+                </li>
+            </ul>                 
+        </div>				 			               
+    </div>
+    <div id="profileCol2"> 
+    </div>	  
+    <div class="clearOnly"></div> 
+</div>			               
+<div class="clearOnly"></div> 
+</script>

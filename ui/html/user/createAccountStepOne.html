@@ -1,0 +1,821 @@
+<script id="userstepone-template" type="text/x-handlebars-template">
+<div class="roundTop" id="comparisonContents">
+    <div style="padding-bottom: 0" class="lightGray roundTop bevelBottom sectionHeader stepOneHeader">
+        <h3>
+            <div class="msActionSteps">
+                <div style="width: 300px" class="msHeadingDiv">Create&nbsp;Your&nbsp;Profile&nbsp;
+                </div>
+                <div class="msHeadingDivLine2">
+                     <span style="font-weight:bold">Note:</span> Please verify your email in 3 days. You can access our <a href="./privacy" target="_blank">privacy policy</a> here.
+                </div>
+            </div>
+            <div class="clearOnly">&nbsp;
+            </div>
+        </h3>
+    </div>
+    <div style="height: 10px">&nbsp;
+    </div>
+    <div class="mediumGray bevelBottom">
+        <form action="#" class="stepsForm">
+            <div style="padding:0 20px">
+                <div class="stepOneHeader" style="text-align: center">
+                    <h1>Shazam! You've got an account.</h1>It's time to create your profile. Remember, the more details you give us, the better the advice we give you.
+            </div>
+            <div style="height: 15px">&nbsp;
+            </div>
+            <h3 class="padBottom">Your Profile Details</h3>
+            <div>
+                <div class="floatR col535">
+                    {{#if permission}}
+                     <span class="readOnlyValue stepsinput" id="FirstName" size="45">{{firstname}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input class="stepsinput" type="text" id="FirstName" size="45" value="{{firstname}}">
+                    {{/unless}}
+                </div>
+                <div class="questionLabelBlack">First Name
+                </div>
+                <div class="clearOnly twentypx">&nbsp;
+                </div>
+            </div>
+            <div>
+                <div class="floatR col535">                                                                                                                    {{#if permission}}
+                     <span class="readOnlyValue stepsinput" id="LastName" size="45">{{lastname}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input class="stepsinput" type="text" id="LastName" size="45" value="{{lastname}}">
+                    {{/unless}}
+                </div>
+                <div class="questionLabelBlack">Last Name
+                </div>
+                <div class="clearOnly twentypx">&nbsp;
+                </div>
+            </div>
+            <div>
+                <div class="floatR col535 ddmmyy">                                                                                                                                                                                                                                                                                                                                              {{#if permission}}
+                     <span class="readOnlyValue">
+                        {{#months}}
+                            {{#if dobmonth}}
+                                {{month}}
+                            {{/if}}
+                        {{/months}}
+                    </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="DOBMonth" value="{{dobmonth}}" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                        {{#days}}
+                            {{#if dobday}}
+                                {{day}}
+                            {{/if}}
+                        {{/days}}
+                    </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                        {{#years}}
+                            {{#if dobyear}}
+                                {{year}}
+                            {{/if}}
+                        {{/years}}
+                    </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <select id="DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#years}}
+                        <option value="{{year}}" {{#if dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/years}}
+                    </select>  {{/unless}}
+                </div>
+                <div class="questionLabelBlack">Date of Birth
+                </div>
+                    <div class="clearOnly tenpx">&nbsp;
+                    </div>
+                </div>
+                <div>
+                    <div class="floatR col535">                                                                                                           {{#if permission}}
+                     <span class="readOnlyValue stepsinput" size="15" id="ZipCode">{{zipcode}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                        <input class="stepsinput" id="ZipCode" type="text" size="15" value="{{zipcode}}">{{/unless}}
+                    </div>
+                    <div class="questionLabelBlack">Zip Code
+                    </div>
+            <div class="clearEverything">&nbsp;
+            </div>
+          </div>
+          <div>
+            <div class="floatR col535">
+            {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#ifeq maritalstatus "Single"}}
+                        Single
+                    {{/ifeq}}
+                    {{#ifeq maritalstatus "Married"}}
+                        Married
+                    {{/ifeq}}
+                    {{#ifeq maritalstatus "Divorced"}}
+                        Divorced
+
+                    {{/ifeq}}
+                    {{#ifeq maritalstatus "Domestic Union"}}
+                        Domestic<br>Partner
+                    {{/ifeq}}
+                    {{#ifeq maritalstatus "Widowed"}}
+                        Widowed
+                    {{/ifeq}}
+                    </span>
+                {{/if}}
+                <div class="btn-group lsbtn">
+
+                {{#unless permission}}
+                  <button class="btn btn-inverse maritalStatus {{#compare maritalstatus 'Single' operator='=='}}active{{/compare}}" type="button">Single</button>
+                  <button class="btn btn-inverse maritalStatus spouse {{#compare maritalstatus 'Married' operator='=='}}active{{/compare}}" type="button">Married</button>
+                  <button class="btn btn-inverse maritalStatus {{#compare maritalstatus 'Divorced' operator='=='}}active{{/compare}}" type="button">Divorced</button>
+                  <div style="height: 15px">&nbsp;</div>
+                  <button class="btn btn-inverse maritalStatus spouse {{#compare maritalstatus 'Domestic Union' operator='=='}}active{{/compare}}" type="button">Domestic<br>Partner</button>
+                  <button class="btn btn-inverse maritalStatus {{#compare maritalstatus 'Widowed' operator='=='}}active{{/compare}}" type="button">Widowed</button>
+                  {{/unless}}
+                </div>
+                <div style="height: 10px">&nbsp;</div>
+            </div>
+            <div class="questionLabelBlack">Marital Status
+            </div>
+            <div class="clearOnly tenpx">
+            </div>
+          </div>
+          <div id="spouseInfo" class="{{#compare maritalstatus 'Married' operator='!='}}{{#compare maritalstatus 'Domestic Union' operator='!='}}hdn{{/compare}}{{/compare}}">
+            <div class="floatR col535 ddmmyy">
+                 {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if spousedobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="SpouseDOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if spousedobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if spousedobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="SpouseDOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if spousedobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#years}}
+                        {{#if spousedobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/years}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="SpouseDOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#years}}
+                        <option value="{{year}}" {{#if spousedobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/years}}
+                    </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack"><span id="spousespan">{{#compare maritalstatus 'Married' operator='=='}}Spouse{{else}}{{#compare maritalstatus 'Domestic Union' operator='=='}}Partner{{/compare}}{{/compare}}</span> Date of Birth
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div>
+            <div class="floatR col535">                                                                                                                                                                                                                                        {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#compare noofchildren "0" operator="=="}}0{{/compare}}
+                    {{#compare noofchildren "1" operator="=="}}1{{/compare}}
+                    {{#compare noofchildren "2" operator="=="}}2{{/compare}}
+                    {{#compare noofchildren "3" operator="=="}}3{{/compare}}
+                    {{#compare noofchildren "4" operator="=="}}4{{/compare}}
+                    {{#compare noofchildren "5" operator="=="}}5{{/compare}}
+                    {{#compare noofchildren "6" operator="=="}}6{{/compare}}
+                    {{#compare noofchildren "7" operator="=="}}7{{/compare}}
+                    {{#compare noofchildren "8" operator="=="}}8{{/compare}}
+
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+              <select id="NumChildren" class="stepsinput">
+                <option value="0" {{#compare noofchildren "0" operator="=="}}selected{{/compare}}>0</option>
+                <option value="1" {{#compare noofchildren "1" operator="=="}}selected{{/compare}}>1</option>
+                <option value="2" {{#compare noofchildren "2" operator="=="}}selected{{/compare}}>2</option>
+                <option value="3" {{#compare noofchildren "3" operator="=="}}selected{{/compare}}>3</option>
+                <option value="4" {{#compare noofchildren "4" operator="=="}}selected{{/compare}}>4</option>
+                <option value="5" {{#compare noofchildren "5" operator="=="}}selected{{/compare}}>5</option>
+                <option value="6" {{#compare noofchildren "6" operator="=="}}selected{{/compare}}>6</option>
+                <option value="7" {{#compare noofchildren "7" operator="=="}}selected{{/compare}}>7</option>
+                <option value="8" {{#compare noofchildren "8" operator="=="}}selected{{/compare}}>8</option>
+              </select>  {{/unless}}
+            </div>
+            <div class="questionLabelBlack">Number of Children
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '1' operator='<'}}hdn{{/compare}}{{/unless}}" id="child1AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child1dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child1DOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if child1dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child1dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child1DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if child1dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child1dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child1DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#childyears}}
+                        <option value="{{year}}" {{#if child1dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/childyears}}
+                    </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your first child?
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '2' operator='<'}}hdn{{/compare}}{{/unless}}" id="child2AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child2dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child2DOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if child2dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child2dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child2DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if child2dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child2dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child2DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#childyears}}
+                        <option value="{{year}}" {{#if child2dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/childyears}}
+                    </select>   {{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your second child?
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '3' operator='<'}}hdn{{/compare}}{{/unless}}" id="child3AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                               {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child3dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child3DOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if child3dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child3dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child3DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if child3dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child3dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child3DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#childyears}}
+                        <option value="{{year}}" {{#if child3dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/childyears}}
+                    </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your third child?
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '4' operator='<'}}hdn{{/compare}}{{/unless}}" id="child4AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                               {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child4dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child4DOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if child4dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                     {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child4dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child4DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if child4dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child4dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child4DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#childyears}}
+                        <option value="{{year}}" {{#if child4dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/childyears}}
+                    </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your fourth child?
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '5' operator='<'}}hdn{{/compare}}{{/unless}}" id="child5AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                          {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child5dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child5DOBMonth" class="aboutSelectType stepsinput">
+                        <option value="00">Month
+                        </option>
+                        {{#months}}
+                        <option value="{{value}}" {{#if child5dobmonth}}selected{{/if}}>{{month}}
+                        </option>
+                        {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child5dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child5DOBDay" class="stepsinput">
+                        <option value="00">Day
+                        </option>
+                        {{#days}}
+                        <option value="{{day}}" {{#if child5dobday}}selected{{/if}}>{{day}}
+                        </option>
+                        {{/days}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child5dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                    <select id="Child5DOBYear" class="stepsinput">
+                        <option value="0000">Year
+                        </option>
+                        {{#childyears}}
+                        <option value="{{year}}" {{#if child5dobyear}}selected{{/if}}>{{year}}
+                        </option>
+                        {{/childyears}}
+                    </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your fifth child?
+            </div>
+            <div class="clearOnly tenpx">&nbsp;
+            </div>
+          </div>
+
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '6' operator='<'}}hdn{{/compare}}{{/unless}}" id="child6AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                     {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child6dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child6DOBMonth" class="aboutSelectType stepsinput">
+                    <option value="00">Month</option>
+                    {{#months}}<option value="{{value}}" {{#if child6dobmonth}}selected{{/if}}>{{month}}</option>{{/months}}
+                </select>
+                {{/unless}}
+                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child6dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child6DOBDay" class="stepsinput">
+                    <option value="00">Day</option>
+                    {{#days}}<option value="{{day}}" {{#if child6dobday}}selected{{/if}}>{{day}}</option>{{/days}}
+                </select>
+                {{/unless}}
+                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child6dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child6DOBYear" class="stepsinput">
+                    <option value="0000">Year</option>
+                    {{#childyears}}<option value="{{year}}" {{#if child6dobyear}}selected{{/if}}>{{year}}</option>{{/childyears}}
+                </select>   {{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your sixth child?</div>
+            <div class="clearOnly tenpx">&nbsp;</div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '7' operator='<'}}hdn{{/compare}}{{/unless}}" id="child7AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                      {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child7dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child7DOBMonth" class="aboutSelectType stepsinput">
+                    <option value="00">Month</option>
+                    {{#months}}<option value="{{value}}" {{#if child7dobmonth}}selected{{/if}}>{{month}}</option>{{/months}}
+                </select>
+                {{/unless}}
+                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child7dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child7DOBDay" class="stepsinput">
+                    <option value="00">Day</option>
+                    {{#days}}<option value="{{day}}" {{#if child7dobday}}selected{{/if}}>{{day}}</option>{{/days}}
+                </select>
+                {{/unless}}
+                 {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child7dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child7DOBYear" class="stepsinput">
+                    <option value="0000">Year</option>
+                    {{#childyears}}<option value="{{year}}" {{#if child7dobyear}}selected{{/if}}>{{year}}</option>{{/childyears}}
+                </select>{{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your seventh child?</div>
+            <div class="clearOnly tenpx">&nbsp;</div>
+          </div>
+          <div class="{{#unless noofchildren}}hdn{{else}}{{#compare noofchildren '8' operator='<'}}hdn{{/compare}}{{/unless}}" id="child8AgeQuestion">
+            <div class="floatR col535 ddmmyy">                                                                                                                         {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#months}}
+                        {{#if child8dobmonth}}
+                            {{month}}
+                        {{/if}}
+                    {{/months}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child8DOBMonth" class="aboutSelectType stepsinput">
+                    <option value="00">Month</option>
+                    {{#months}}<option value="{{value}}" {{#if child8dobmonth}}selected{{/if}}>{{month}}</option>{{/months}}
+                </select>
+                {{/unless}}
+                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#days}}
+                        {{#if child8dobday}}
+                            {{day}}
+                        {{/if}}
+                    {{/days}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child8DOBDay" class="stepsinput">
+                    <option value="00">Day</option>
+                    {{#days}}<option value="{{day}}" {{#if child8dobday}}selected{{/if}}>{{day}}</option>{{/days}}
+                </select>
+                {{/unless}}
+                {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#childyears}}
+                        {{#if child8dobyear}}
+                            {{year}}
+                        {{/if}}
+                    {{/childyears}}
+                    </span>
+                {{/if}}
+                {{#unless permission}}
+                <select id="Child8DOBYear" class="stepsinput">
+                    <option value="0000">Year</option>
+                    {{#childyears}}<option value="{{year}}" {{#if child8dobyear}}selected{{/if}}>{{year}}</option>{{/childyears}}
+                </select>  {{/unless}}
+            </div>
+            <div class="questionLabelBlack">How old is your eighth child?</div>
+            <div class="clearOnly tenpx">&nbsp;</div>
+          </div>
+
+          <div>
+            <div class="floatR col535" style="position: relative;">
+                <table cellspacing="0" cellpadding="0" border="0">
+                    <tbody><tr>
+                    {{#if permission}}
+                     <span class="readOnlyValue">
+                    {{#compare retirementstatus 1 operator="=="}}Yes{{/compare}}
+                    {{#compare retirementstatus 1 operator="!="}}No{{/compare}}
+                    </span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <td>
+                    <input class="stepsinput" type="radio" style="border:0 none;background-color:transparent;vertical-align:baseline;" {{#compare retirementstatus 1 operator="=="}}checked{{/compare}} value="1" name="retired" class="radio" id="retYes">
+                    </td><td>&nbsp;
+                        <label for="retYes">Yes
+                        </label>
+                    </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="stepsinput" type="radio" style="border:0 none;vertical-align:baseline;" {{#compare retirementstatus 1 operator="!="}}checked{{/compare}} value="0" name="retired" class="radio" id="retNo"></td><td>&nbsp;
+                        <label for="retNo">No
+                        </label>
+                    </td>                                                                                                                                                                                                                    {{/unless}}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="" class="questionLabelBlack">Retired?
+            </div>
+            <div class="clearOnly twentypx">
+            </div>
+            <!-- rolldown security questions -->
+            <div class="accordion stepsinput" id="acAccordion" {{#if impersonationMode}}style="display:none"{{/if}}>
+              <div class="row-fluid allRound smallGlow accordion-group">
+                <div data-target="#securityCollapse" data-toggle="collapse" class="accordion-heading collapsed">
+                  <div class="floatR purple">
+                    <span id="configuredQuestions">{{configuredQuestions}}</span><span> of 3 configured
+                    </span>
+                  </div>
+                  <a class="accordion-toggle collapsed" href="javascript:void(0);">
+                    <div class="floatL faqArrow">
+                    </div>
+                    <strong class="drkGrey">Create Additional Security Questions and Answers</strong>
+                    <span class="medGrey">Optional
+                    </span></a>
+                  </div>
+                  <div id="securityCollapse" class="accordion-body collapse mediumGray roundBottom">
+                    <div class="accordion-inner roundBottom">
+
+                    {{#securityresponse}}
+                        <div class="secureQuestion">
+                            <label for="question_id_{{@index}}" class="drkGrey">
+                                Your
+                                {{#compare @index 0 operator="=="}}First{{/compare}}
+                                {{#compare @index 1 operator="=="}}Second{{/compare}}
+                                {{#compare @index 2 operator="=="}}Third{{/compare}}
+                                Question
+                            </label>
+                            <select id="question_id_{{@index}}" class="securityQuestion" name="question_id[]">
+                                <option value="0">Please select a security question</option>
+                                {{#../securityquestion}}
+                                    <option value="{{id}}" {{#compare id ../question_id operator="=="}} selected='selected'{{/compare}}>{{question}}</option>
+                                {{/../securityquestion}}
+                            </select>
+                            <label for="response_text_{{@index}}" class="drkGrey">Answer</label>
+                            <input type="text" id="response_text_{{@index}}" name="response_text[]" class="securityResponse" value='{{response_text}}' style="display:none"/>
+                            <input type="password" id="response_text_{{@index}}_secure" class="securityResponseSecure" value='{{response_text}}'/>
+                            &nbsp;&nbsp;<span id="response_text_{{@index}}_span" style="color:{{#if active}}#5fa439{{else}}#ca2c36{{/if}};">{{#if active}}Active{{else}}Not Active{{/if}}</span>
+                        </div>
+                    {{/securityresponse}}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearOnly twentypx"></div>
+            </div>
+            <div class="clearEverything twentypx">&nbsp;
+            </div>
+          </div>
+        </form>
+      </div>
+      <div style="height: 50px; padding-top: 15px; margin-bottom: 0px" class="darkGray roundBottom bevelTop stepOneHeader">
+        <div class="floatR" style="width: 180px; margin-right: 0px">
+          <button class="lsPillBtnGreen btn btn-success" id="stepOneCompleteButton" type="button">&nbsp;Save and Continue&nbsp;</button>
+        </div>
+        <div class="clearOnly">
+        </div>
+      </div>
+    </div>
+</script>
+<!-- FB conversion pixel Script -->
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6011427784785&amp;value=0&amp;currency=USD" /></noscript>

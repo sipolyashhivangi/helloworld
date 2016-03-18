@@ -1,0 +1,42 @@
+.multiselect-container{
+    *border-left: 1px solid #6D68AB;
+    *border-right: 1px solid #6D68AB;
+    border-top: 0 none;
+    list-style-type: none;
+    margin-top: 4px;
+    padding: 5px;
+    position: absolute;
+    width: 208px;	
+    box-shadow : none !important;
+    border-radius: 0 0 3px 3px !important;
+}
+.multiselect-container .input-group{margin:5px}
+.multiselect-container>li{padding:0}
+.multiselect-container>li>a.multiselect-all label{font-weight:bold;}
+.multiselect-container>li>a:hover{color:#000 !important;}
+.multiselect-container>li>a{ padding:0px !important;}
+.multiselect-container>li>label.multiselect-group{margin:0;padding:3px 20px 3px 20px;height:100%;font-weight:bold}
+.multiselect-container>li>a>label{/*margin:0;*/height:100%;cursor:pointer;font-weight:normal}
+.multiselect-container>li>a>label.radio,.multiselect-container>li>a>label.checkbox{/*margin:0*/}
+.multiselect-container>li>a>label>input[type="checkbox"]{margin-bottom:5px}
+.btn-group>.btn-group:nth-child(2)>.multiselect.btn{border-top-left-radius:4px;border-bottom-left-radius:4px}
+.multiselect-container > li > a > label > input[type="checkbox"] {
+    /*height: 19px !important;*/
+    margin-left: 5px !important;
+    /*margin-right: 5px !important;*/
+    margin-top: 2 !important;
+}
+.checkbox{
+    min-height: 20px;
+    padding-left:5px;
+}
+
+.adv_dropdown-menu > li {
+          float: left;
+          padding: 0;
+          width: 140px;
+}
+
+#productAndServiceOption ul.multiselect-container li{
+float:none;
+}

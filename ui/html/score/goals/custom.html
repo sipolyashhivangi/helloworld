@@ -1,0 +1,283 @@
+<script id="goalscustomgoal-template" type="text/x-handlebars-template">
+<!-- Custom Goals -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}customProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable goalDraggable{{/if}} ">
+    <div id="{{id}}customAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper specialCollapseBox collapsed" data-toggle="collapse" data-target="#{{id}}customCollapseBox">
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}customFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}CustomNameSummary">{{#if id}}{{goalnamesummary}}{{else}}Add Custom Goal{{/if}}
+                </span>
+                <span id="{{id}}customLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>
+            </a>
+        </div>
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}"><span id="{{id}}goalDragcustom" class="goalDrag">&nbsp;</span></div>
+        <div class="clearOnly"></div>
+        {{/unless}}
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}customCollapseBox" style="height: 0px;">
+        <div class="profileDataboxPadding profileDatabox2">
+            <div class="floatL" style="width: 65%;">
+                <p>
+                    <span class="profileEmph">Name for this Goal
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}CustomInputNameSpan">{{goalnamesummary}}</span>
+                        <input type="hidden" value="{{goalname}}" id="{{id}}CustomInputName">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName goalName" placeholder="Enter a name" value="{{goalname}}" id="{{id}}CustomInputName">
+                    {{/unless}}
+                </p>
+                <span class="profileEmph">How would you like to achieve this goal?
+                </span>
+                <br>
+                 {{#unless permission}}
+                <input type="radio" style="border:0 none;" {{#unless permonth}}checked{{else}}{{#compare permonth "0.00" operator="=="}}checked{{/compare}}{{/unless}} name="{{id}}CustomAchieve" class="customAccomplishGoal" id="{{id}}CustomDateGoal" value="1">&nbsp;Set a date for completion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="border:0 none;" {{#if permonth}}{{#compare permonth "0.00" operator="!="}}checked{{/compare}}{{/if}} name="{{id}}CustomAchieve" class="customAccomplishGoal" id="{{id}}CustomContributionGoal" value="0">&nbsp;Set a monthly contribution
+                <br>
+                {{/unless}}
+                <div class="floatL accomplishGoalDiv ddmmyy" id="{{id}}CustomDateDiv" style="{{#unless permission}}padding-top:10px;{{/unless}}{{#if permonth}}{{#compare permonth "0.00" operator="!="}}display:none{{/compare}}{{/if}}">
+                {{#if permission}}
+                     {{#unless permonth}}
+                        <input type="hidden" checked name="{{id}}CustomAchieve" id="{{id}}CustomDateGoal" value="1">
+                        Set a date for completion:
+                        {{else}}
+                        <input type="hidden" {{#compare permonth "0.00" operator="=="}}checked{{/compare}} name="{{id}}CustomAchieve" id="{{id}}CustomDateGoal" value="1">
+                        {{#compare permonth "0.00" operator="=="}}Set a date for completion:{{/compare}}
+                     {{/unless}}
+                {{/if}}
+
+                     {{#if permission}}
+                        <span id="{{id}}CustomMonthSpan" >
+                        {{#months}}
+                            {{#if custommonth}}
+                                {{value}} /
+                            {{/if}}
+                        {{/months}}
+                        </span>
+                        <input type="hidden" value="{{#months}}{{#if custommonth}}{{value}}{{/if}}{{/months}}" id="{{id}}CustomMonth">
+                    {{/if}}
+                  {{#unless permission}}
+                    <select id="{{id}}CustomMonth" class="aboutSelectType customSelectType">{{#months}}
+                        <option value="{{value}}" {{#if custommonth}}selected{{/if}}>{{month}}
+                        </option>{{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                         <span id="{{id}}CustomDaySpan">
+                         {{#days}}
+                            {{#if customday}}
+                                {{day}} /
+                            {{/if}}
+                        {{/days}}
+                        </span>
+                        <input type="hidden" value="{{#days}}{{#if customday}}{{day}}{{/if}}{{/days}}" id="{{id}}CustomDay">
+                    {{/if}}
+                  {{#unless permission}}
+                    <select id="{{id}}CustomDay" class="customSelectType">{{#days}}                                                                                                      
+                    <option value="{{day}}" {{#if customday}}selected{{/if}}>{{day}}                                                                                                        
+                    </option>{{/days}}                                                                                                  
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                         <span id="{{id}}CustomYr">
+                         {{#years}}
+                           {{#if customyear}}
+                                {{year}}
+                            {{/if}}
+                        {{/years}}
+                        </span>
+                        <input type="hidden" value="{{#years}}{{#if customyear}}{{year}}{{/if}}{{/years}}" id="{{id}}CustomYear">
+                    {{/if}}
+                      {{#unless permission}}
+                    <select id="{{id}}CustomYear" class="customSelectType">{{#years}}                                                                                                     
+                    <option value="{{year}}" {{#if customyear}}selected{{/if}}>{{year}}                                                                                                       
+                    </option>
+                    {{/years}}
+                    </select>
+                    {{/unless}}
+                </div>
+                <div class="floatL accomplishGoalDiv" style="{{#unless permission}}padding-top:10px;padding-left:250px;{{/unless}}{{#unless permonth}}display:none{{else}}{{#compare permonth "0.00" operator="=="}}display:none{{/compare}}{{/unless}}" id="{{id}}CustomContributionDiv">
+                {{#if permission}}
+                     {{#if permonth}}
+                        <input type="hidden" {{#compare permonth "0.00" operator="!="}}checked{{/compare}} name="{{id}}CustomAchieve" id="{{id}}CustomContributionGoal" value="0">
+                        {{#compare permonth "0.00" operator="!="}}Set a monthly contribution:{{/compare}}
+                    {{/if}}
+                {{/if}}
+                
+                   <span class="profileEmphDollar">$</span>
+                    {{#if permission}}
+                     <span class="readOnlyValue" id="{{id}}CustomContributionSpan">{{permonth}}</span>
+                    <input type="hidden" value="{{permonth}}" id="{{id}}CustomContribution">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{permonth}}" id="{{id}}CustomContribution" class="dollaramount">
+                    {{/unless}}
+
+
+                </div>
+                <div class="clearOnly">
+                </div>
+                <div class="floatL" style="padding-top:25px">
+                    <span class="profileEmph">How much do you need to save?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$</span>
+                    {{#if permission}}
+                        <span class="" id="{{id}}CustomNeededSpan">{{goalamount}}</span>
+                        <input type="hidden" value="{{goalamount}}" id="{{id}}CustomNeeded">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" value="{{goalamount}}" id="{{id}}CustomNeeded" class="dollaramount">
+                    {{/unless}}
+
+                </div>
+                <div class="clearOnly">
+                </div>
+                <div class="floatL" style="padding-top:25px;">
+                    <span class="profileEmph">How much have you saved so far?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}CustomSavedSpan">{{saved}}</span>
+                        <input type="hidden" id="{{id}}CustomSaved" value="{{saved}}" />
+                    </div>
+                </div>
+                <div class="floatL" style="padding-top:25px;padding-left:25px">
+                    <span class="profileEmph">How much do you contribute?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}CustomContriSpan">{{contributions}}</span>
+                        <span class="">per month</span>
+                        <input type="hidden" id="{{id}}CustomContri" value="{{contributions}}" />
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+                <br>
+                <div id="{{id}}myCustomAccordion" class="myAdvisorContent accordion goalAccordion" style="width:50%">
+                    <div class="row-fluid allRound accordion-group">
+                        <div data-target="#{{id}}myCustomCollapse" data-toggle="collapse" class="accordion-heading collapsed" style="padding: 10px;">
+                            <a href="javascript:void(0);" class="accordion-toggle">
+                            <div class="floatL faqArrow">
+                            </div>
+                            <div class="floatL" style="padding-top:2px">
+                            <strong class="drkGrey">Assumptions</strong></a>
+                            </div>
+                        </div>
+                        <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}myCustomCollapse" style="height:0px;">
+                            <div class="accordion-inner roundBottom" style="padding-left:35px">
+                                <label>Annual Cost Increase
+                                </label>&nbsp;&nbsp;&nbsp;
+                                {{#if permission}}
+                                    <span class="profileEmph" id="{{id}}CustomCostInc" style="width:30px;text-align:center;padding-right:2px">{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}</span><span class="profileEmph">%</span>
+                                   <input type="hidden" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}CustomCostIncrease">
+                                {{/if}}
+                                {{#unless permission}}
+                                <span class="profileEmph">
+                                   <input type="text" class="profileAccPercent assumptionsPercent" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}3.4{{/if}}" id="{{id}}CustomCostIncrease" style="width:40px;text-align:center;padding-right:2px">&nbsp;%
+                                </span>
+                                {{/unless}}
+                                <div class="clearOnly tenpx">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floatR profileCompleteRight" style="width:30%;height:250px;margin-top:20px">
+                <br>
+                <div id="{{id}}CustomCompletionDiv" style="display:none">
+                    <div class="profileEmph" style="padding-bottom:5px">Time until completion</div>
+                    <div id="{{id}}CustomCompletionNever" style="display:none">Never
+                    </div>
+                    <div id="{{id}}CustomCompletion" style="display:none">
+                        <span id="{{id}}CustomCompletionYears">0</span> years,&nbsp;<span id="{{id}}CustomCompletionMonths">0</span> months
+                    </div>
+                    <br>
+                </div>
+                <div id="{{id}}CustomMonthlyNeedsDiv">
+                    <div class="profileEmph" style="padding-bottom:5px">Amount you'll need to save</div>
+                    $<span id="{{id}}CustomMonthlyNeeds">0</span> per month
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Current savings</div>
+                    $<span id="{{id}}CustomMonthlyCurrent">0</span> per month
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Additional savings needed</div>
+                    <span id="{{id}}colorChange" style="color:#33CC00">$<span id="{{id}}CustomMonthlyLeft">0</span> per month</span>
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <br>
+            {{#unless permission}}
+            <hr>
+            {{/unless}}
+            <input type="hidden" id="{{id}}customSaveNeeded" class="saveNeeded" value="false" />
+            <button id="{{id}}CustomCalculateButton" style="display:none" type="button" class="lsPillBtnGreen btn btn-success calculateCustomButton calculateGoalButton">&nbsp;Update Goal&nbsp;</button>
+            {{#unless permission}}
+            {{#if id}}
+            <div class="floatL">
+                <button id="{{id}}UpdateCustomButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateCustomButton">&nbsp;Update Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelCustomButton" class="cancelCustomButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteGoalButtoncustom" class="deleteGoalButton" href="#">Delete Goal</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createCustomButton">&nbsp;Add Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="customRemoveNewGoalButton" class="removeNewGoalButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}customProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

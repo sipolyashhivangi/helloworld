@@ -1,0 +1,20 @@
+<script id="notify-template" type="text/x-handlebars-template">
+	<div class="clearEverything">&nbsp;</div>
+	<div class="signupTitleArea">		  	
+		<div class="alert alert-success alert-dismissable hdn">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<div id="msg" style="text-align:left;"></div>
+		</div>
+		<p><input type="checkbox" {{#ifeq notify 1}} checked ="checked" {{/ifeq}}id="notifyContact" value='1'  name="notifyContact" /> 
+			&nbsp; Notify me by e-mail, if anybody wants to contact me.               
+		</p>
+	</div>
+	<div class="clearEverything twentypx">&nbsp;</div>
+	<div id="" class="controls" style="width:51%; margin:5px auto 0 279px;">
+		<button type="button" class="simpleGreenCTAButton" aria-hidden="true" id="communication">Save</button>
+		<a class="cancel cancelProfilePopup"  aria-hidden="true" >
+			<strong>Cancel</strong>
+		</a>
+	</div>
+	<div class="clearEverything">&nbsp;</div>
+</script>

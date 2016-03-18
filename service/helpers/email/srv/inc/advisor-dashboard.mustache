@@ -1,0 +1,82 @@
+<br/>
+<br/>
+<table cellpadding='0' cellspacing='0' border='0' width='90%'>
+    <tbody>
+        <tr>
+            <td style='color: #898989; padding-bottom:24px;color:#3E3E3E;font-family:Arial,Helvetica,sans-serif;font-size:14px;text-align:left;'>
+                <table cellpadding='5' cellspacing='0' border='0' width='100%' style='color: #898989;'>
+		    <thead>
+                        <tr>
+                            <th style='font-family:Arial,Helvetica, sans-serif; width:33%;padding:10px 0px;border-bottom:1px solid #cecece;font-size:18px;color:#000; text-align:left'>Name</th>
+                            <th style='font-family:Arial,Helvetica, sans-serif; width:10%;padding:10px 0px;border-bottom:1px solid #cecece;font-size:18px;color:#000'>Score</th>
+                            <th style='font-family:Arial,Helvetica, sans-serif; width:30%;padding:10px 0px;border-bottom:1px solid #cecece;font-size:18px;color:#000'>&nbsp;</th>
+                            <th style='font-family:Arial,Helvetica, sans-serif; width:27%;padding:10px 0px;border-bottom:1px solid #cecece;font-size:18px;color:#000'><center>Action</center></th>
+                        </tr>
+		    </thead>
+                    <tbody>
+                        {{#topScoreChangedConsumers}}
+                            <tr>
+                                <td style='font-family:Arial,Helvetica, sans-serif; font-size:18px;vertical-align:top;color:#000;padding:10px 0px;border-bottom:1px solid #cecece;'>{{firstname}} {{lastname}}</td>
+                                <td style='vertical-align:top;border-bottom:1px solid #cecece;padding:10px 0px;'>
+                                    <span style='font-family:Arial,Helvetica, sans-serif; font-size:20px;font-weight:bold;color:#000'><b>{{totalscore}}</b></span>
+				</td>
+				<td style="border-bottom:1px solid #cecece;padding:10px 0px;">
+                                    {{#negative}}
+                                        <div style='color:#ff0000; font-family:Arial,Helvetica, sans-serif; font-weight:bold; font-size:14px;'>{{scoredifferencetext}}</div>
+				    {{/negative}}
+				    {{#positive}}
+                                        <div style='color:#5FA439; padding:0px; margin:0px; font-family:Arial,Helvetica, sans-serif; font-weight:bold; font-size:14px;'>{{scoredifferencetext}}</div>
+				    {{/positive}}
+                                    <span style="font-family:Arial,Helvetica,sans-serif; font-size:11px;color:#898989">last 90 days change</span>
+                                </td>
+				<td style="border-bottom:1px solid #cecece;padding:10px 0px;">
+                                    <center>
+                                        <table cellpadding='0' cellspacing='0' border='0'>
+                                            <tr>
+                                                <td align="center" style="border-radius:1px solid #b3b3b3" bgcolor="#f5f5f5">
+                                                    <a href='{{app-url}}'
+                                                       style="font-size:9pt;
+                                                       font-weight:bold;
+                                                       text-decoration:none;
+                                                       font-family:Arial,Helvetica, sans-serif;
+                                                       color:#767676;
+                                                       padding:6px 10px;
+                                                       border:1px solid #b3b3b3;
+                                                       display:inline-block"
+                                                       target="_blank">{{buttonname}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </center>
+				</td>
+                            </tr>
+                        {{/topScoreChangedConsumers}}
+                    </tbody>
+                </table>
+                <br/>
+                <br/>
+                <center>
+                    <table cellpadding='0' cellspacing='0' border='0'>
+                        <tr>
+                            <td align="center" style="border-radius:20px/50%" bgcolor="#5fa439">
+                                <a href='{{app-url}}'
+                                   style="font-size:9pt;
+                                   font-weight:bold;
+                                   text-decoration:none;
+                                   font-family:Arial,Helvetica, sans-serif;
+                                   color:#ffffff;
+                                   padding:11px 17px;
+                                   border:0px solid #4c872e;
+                                   display:inline-block"
+                                   target="_blank">Access Your Dashboard
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </td>
+        </tr>
+    <!--#SPACER--><tr><td>&#160;</td></tr><!--/SPACER-->
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+<script id="profile-pic-template" type="text/x-handlebars-template">
+
+    	<div class="clearEverything">&nbsp;
+        </div>
+        <div class="signupTitleArea">
+			<div class="uploadPhoto"> <h3>Current Photo</h3>
+				<div id="profile-img" >
+
+                                {{#compare userdata.urole "user" operator="=="}}
+                                     <img alt="upload photo" src="{{userdata.userpic}}" id="pic">
+
+                                {{else}}
+                                    <img alt="upload photo" src="{{userdata.profilepic}}" id="pic">
+                                {{/compare}}
+
+				</div>
+                                <div class="img" id="profile-pic">
+                                </div>
+				<div class="clearEverything twentypx">&nbsp;</div>
+				<form name="profilepic-form" id="profilepic-form" method="post">
+
+				<div class="control-group" style="" id="uploadProfileDiv">
+                        <label class="signupFormLabel"><strong>Upload Profile Picture</strong></label>
+						 <div id="filenamediv" class="controls">
+							<input type='file' id ="profile" name='profile_pic' /><br>
+							<div id="filenameBubble" class="errorBubble hdn">
+									<div class="inside">
+										<p id="filenameError"></p>
+										<div class="point">
+										</div>
+									</div>
+							</div>
+						</div>
+				</div>
+			</form>
+			</div>
+			<div class="cropPhoto hdn">
+				<h3>Crop and scale your photo</h3>
+				<div align="center" id="cropboxContainer" class="img">
+				  <img id="cropbox" alt="crop and scale photo" src="" >
+				  <div style="height: 20px">&nbsp;</div>
+				</div>
+				<button class="lsPillBtnGreen btn btn-success" id="crop_photo" type="button" style="width: 140px; margin-top: 3px; margin-left:27px;">&nbsp;Save&nbsp;</button>
+				<a class="cancel "  aria-hidden="true" >
+					<strong>Cancel</strong>
+				</a>
+			</div>
+		<div class="article">
+                    <input type="hidden" value='0' id="x" name="x" />
+                    <input type="hidden" value='0' id="y" name="y" />
+                    <input type="hidden" value='0' id="w" name="w" />
+                    <input type="hidden" value='0' id="h" name="h" />
+                    <input type="hidden" id="src" value="" />
+		</div>
+                <div class="clearEverything">&nbsp;</div>
+                <div class="photo-success hdn"><div id="msg"></div></div>
+      </div>
+		<link type="text/css" href="./ui/css/jquery.Jcrop.css" rel="stylesheet"/>
+	</script>

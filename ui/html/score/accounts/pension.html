@@ -1,0 +1,155 @@
+<script id="accountspension-template" type="text/x-handlebars-template">
+<!-- Pension -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}pensionProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox  {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}pensionAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}pensionCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragpension" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglepension" class="floatR simulationToggle advisorPermissionToggle">
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelpension" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelpension" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}pensionFAQArrow" class="floatL faqArrow">	        				                    	        			                                                                                                                                                                                                                                                                                              
+                </div>
+                <span class="profileEmph" id="{{id}}PensionNameSummary">{{#if id}}{{nameSummary}}{{else}}Add Pension{{/if}}
+                </span>
+                {{#if refId}}
+                    {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}pensionManual" class="fdIcon1b">&nbsp; </span>
+                    {{else}}
+                    <span id="{{id}}pensionManual">Manual Entry</span>
+                    {{/compare}}
+                {{else}}
+                    <span id="{{id}}pensionManual">Manual Entry</span>
+                {{/if}}
+<!--	            <span id="{{id}}pensionLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>  -->
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}pensionCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonpension" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 55%;" class="floatL">
+                <p>
+                    <span class="profileEmph">Name for this Account
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue profileAccName" id="{{id}}PensionInputName">{{name}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName" placeholder="Enter a name" id="{{id}}PensionInputName" value="{{name}}">
+                    {{/unless}}
+                </p>
+                <p>
+                    <span class="profileEmph">Are Beneficiaries Listed and Up to Date?
+                    </span>
+                    <br>
+                    {{#if permission}}
+                     <span class="readOnlyValue">{{#if id}} {{#compare beneficiary 1 operator="=="}} Yes {{/compare}} {{#compare beneficiary "0" operator="=="}} No {{/compare}} {{#compare beneficiary 2 operator="=="}} Not Sure {{/compare}}{{/if}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare beneficiary 1 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PensionBeneficiaries" id="{{id}}PensionBeneficiaries" value="1">&nbsp;Yes&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare beneficiary "0" operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PensionBeneficiaries" id= "{{id}}PensionBeneficiaries" value="0">&nbsp;No&nbsp;&nbsp;
+                    <input type="radio" style="border:0 none;" {{#if id}}{{#compare beneficiary 2 operator="=="}}checked{{/compare}}{{/if}} name="{{id}}PensionBeneficiaries" id= "{{id}}PensionBeneficiaries" value="2">&nbsp;Not Sure
+                    {{/unless}}
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div style="width: 45%;" class="floatR">
+                <p>
+                    <span class="profileEmph">Estimated Payout
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                     {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}PensionInputPayout">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter payout" id="{{id}}PensionInputPayout" value="{{amount}}" class="dollaramount">
+                    {{/unless}}
+                    <span class="profileEmph">per month
+                    </span>
+                    <select style="display:none">
+                        <option>monthly
+                        </option>
+                        <option>annually
+                        </option>
+                    </select>
+                </p>
+                <p>
+                    <span class="profileEmph">Earliest age you anticipate payout?
+                    </span>
+                    <br>
+                     {{#if permission}}
+                     <span class="readOnlyValue profileAccYear numberamount" id="{{id}}PensionInputPayoutYear">{{agepayout}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccYear numberamount" placeholder="Enter year" value="{{agepayout}}" id="{{id}}PensionInputPayoutYear">
+                    {{/unless}}
+                    <span class="profileEmph">yrs old
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}pensionSaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}} 
+            <div class="floatL">
+                <button id="{{id}}UpdatePensionButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updatePensionButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelPensionButton" class="cancelPensionButton" href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonpension" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createPensionButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="pensionRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}pensionProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

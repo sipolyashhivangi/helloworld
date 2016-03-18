@@ -1,0 +1,121 @@
+<script id="accountstaxes-template" type="text/x-handlebars-template">
+<!-- Estate Planning -->
+<div id="{{misc.id}}taxesProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">
+    <div id="{{misc.id}}taxesAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper">
+        <span class="profileEmph" id="{{misc.id}}taxesNameSummary"><h3>Taxes</h3>
+        </span>
+    </div>
+    <div class="accordion-body mediumGray roundBottom" id="{{misc.id}}taxesCollapseBox" style="height: auto;">
+        <div id="{{misc.id}}PermissionToggleButtontaxes" class="permissionToggleButton" style="display:none"></div>
+        <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 100%;">
+                <div style="padding-top:25px;width:50%" class="floatL">
+                    <span class="profileEmph">After completing your taxes each year, do you usually get money back or do you have to pay more?</span>
+                    <div style="padding-top:7px">
+                     {{#if permission}}
+                     <span class="readOnlyValue">
+                        {{#compare misc.taxpay 1 operator="=="}}Money Back {{/compare}}
+                        {{#compare misc.taxpay "0" operator="=="}}Pay More{{/compare}}
+                     </span>
+                    {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" class="taxes" style="border:0 none;" {{#compare misc.taxpay 1 operator="=="}}checked{{/compare}} name="TaxesMoney" id="taxesMoney" value="1" >&nbsp;Money Back&nbsp;&nbsp;
+                        <input type="radio" class="taxes" style="border:0 none;" {{#compare misc.taxpay "0" operator="=="}}checked{{/compare}} name="TaxesMoney" id="taxesMoney" value="0" >&nbsp;Pay More
+                    {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px;width:45%;padding-left:15px" class="floatL">
+                    <span class="profileEmph">How Much?</span>
+                    <div style="padding-top:7px">
+                        {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.taxvalue "3" operator="=="}}Enter Amount {{/compare}}
+                            {{#compare misc.taxvalue "0" operator="=="}}$0-$1,000{{/compare}}
+                            {{#compare misc.taxvalue 1 operator="=="}}$1,001-$2,500{{/compare}}
+                            {{#compare misc.taxvalue 2 operator="=="}}$2,500+{{/compare}}
+                         </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <select id="TaxAmount" class="profileAccType taxes">
+                            <option value="3" {{#compare misc.taxvalue "3" operator="=="}}selected{{/compare}}>Enter Amount
+                            </option>
+                            <option value="0" {{#compare misc.taxvalue "0" operator="=="}}selected{{/compare}}>$0-$1,000
+                            </option>
+                            <option value="1" {{#compare misc.taxvalue 1 operator="=="}}selected{{/compare}}>$1,001-$2,500
+                            </option>
+                            <option value="2" {{#compare misc.taxvalue 2 operator="=="}}selected{{/compare}}>$2,500+
+                            </option>
+                        </select>
+                        {{/unless}}
+                    </div>
+                </div>
+                <div class="clearOnly"></div>
+                <div style="padding-top:25px;">
+                    <span class="profileEmph">Combining federal and state income taxes, what tax bracket are you in?</span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.taxbracket "4" operator="=="}}Enter Tax Bracket{{/compare}}
+                            {{#compare misc.taxbracket "0" operator="=="}}0-18%{{/compare}}
+                            {{#compare misc.taxbracket 1 operator="=="}}19-29%{{/compare}}
+                            {{#compare misc.taxbracket 2 operator="=="}}30% and higher{{/compare}}
+                             {{#compare misc.taxbracket 3 operator="=="}}Not Sure{{/compare}}
+                         </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <select id="TaxBracket" class="profileAccType taxes">
+                            <option value="4" {{#compare misc.taxbracket "4" operator="=="}}selected{{/compare}}>Enter Tax Bracket
+                            </option>
+                            <option value="0" {{#compare misc.taxbracket "0" operator="=="}}selected{{/compare}}>0-18%
+                            </option>
+                            <option value="1" {{#compare misc.taxbracket 1 operator="=="}}selected{{/compare}}>19-29%
+                            </option>
+                            <option value="2" {{#compare misc.taxbracket 2 operator="=="}}selected{{/compare}}>30% and higher
+                            </option>
+                            <option value="3" {{#compare misc.taxbracket 3 operator="=="}}selected{{/compare}}>Not Sure
+                            </option>
+                        </select>
+                        {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px;">
+                    <span class="profileEmph">Are your retirement contributions deductible?</span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.taxcontri 1 operator="=="}}Yes{{/compare}}
+                            {{#compare misc.taxcontri "0" operator="=="}}No{{/compare}}
+                            {{#compare misc.taxcontri 2 operator="=="}}Not Sure{{/compare}}
+                            
+                         </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" class="taxes" {{#compare misc.taxcontri 1 operator="=="}}checked{{/compare}} name="TaxesDeductible" id="TaxesDeductible" value="1" >&nbsp;Yes&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="taxes" {{#compare misc.taxcontri "0" operator="=="}}checked{{/compare}} name="TaxesDeductible" id="TaxesDeductible" value="0" >&nbsp;No&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" class="taxes" {{#compare misc.taxcontri 2 operator="=="}}checked{{/compare}} name="TaxesDeductible" id="TaxesDeductible" value="2" >&nbsp;Not Sure
+                        {{/unless}}
+                    </div>
+                </div>
+                <div style="padding-top:25px;">
+                    <span class="profileEmph">When filing your annual tax return, do you usually take the standard deduction or do you itemize deductions to achieve more write-offs?</span>
+                    <div style="padding-top:7px">
+                    {{#if permission}}
+                         <span class="readOnlyValue">
+                            {{#compare misc.taxStdOrItemDed 1 operator="=="}}Standard Deduction{{/compare}}
+                            {{#compare misc.taxStdOrItemDed "0" operator="=="}}Itemized Deduction{{/compare}}
+                            </span>
+                        {{/if}}
+                    {{#unless permission}}
+                        <input type="radio" class="taxes" style="border:0 none;" {{#compare misc.taxStdOrItemDed 1 operator="=="}}checked{{/compare}} name="TaxesDeduction"  id="TaxesDeduction" value="1" >&nbsp;Standard Deduction&nbsp;&nbsp;
+                        <input type="radio" class="taxes" style="border:0 none;" {{#compare misc.taxStdOrItemDed "0" operator="=="}}checked{{/compare}} name="TaxesDeduction" id="TaxesDeduction" value="0" >&nbsp;Itemized Deduction
+                    {{/unless}}
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{misc.id}}taxesProfileVSpace" class="profileVSpace">
+</div>
+</script>

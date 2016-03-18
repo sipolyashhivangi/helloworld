@@ -1,0 +1,335 @@
+<script id="goalsdebtgoal-template" type="text/x-handlebars-template">
+<!-- debt Goals -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+    {{#if id}}
+    <div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+        <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+        </div>
+        <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+        </div>
+    </div>
+    {{/if}}
+{{/unless}}
+    <div id="{{id}}debtProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable goalDraggable{{/if}}">
+        <div id="{{id}}debtAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}debtCollapseBox">
+            <div class="floatL" style="margin-top: 5px;">
+                <a href="javascript:void(0);" class="accordion-toggle">
+                    <div id="{{id}}debtFAQArrow" class="floatL faqArrow">
+                    </div>
+                    <span class="profileEmph" id="{{id}}DebtNameSummary">{{#if id}}{{goalnamesummary}}{{else}}Add Pay Off Debt Goal{{/if}}
+                    </span>
+                    <span id="{{id}}debtLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>
+                </a>
+            </div>
+            {{#unless permission}}
+            <div class="floatR {{#unless id}}hdn{{/unless}}"><span id="{{id}}goalDragdebt" class="goalDrag">&nbsp;</span></div>
+            {{/unless}}
+            <div class="clearOnly"></div>
+        </div>
+        <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}debtCollapseBox" style="height: 0px;">
+            <div class="profileDataboxPadding profileDatabox2">
+                <div class="floatL" style="width: 65%;">
+                    <p>
+                        <span class="profileEmph">Name for this Goal
+                        </span>
+                        <br>
+                        {{#if permission}}
+                            <span class="readOnlyValue profileAccName" id="{{id}}DebtInputNameSpan">{{goalnamesummary}}</span>
+                            <input type="hidden" value="{{goalname}}" id="{{id}}DebtInputName">
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" class="profileAccName goalName" placeholder="Enter a name" value="{{goalname}}" id="{{id}}DebtInputName">
+                        {{/unless}}
+                    </p>
+                    <span class="profileEmph">How would you like to accomplish this goal?
+                    </span>
+                    <br>
+                    {{#unless permission}}
+                        <input type="radio" style="border:0 none;" {{#unless permonth}}checked{{else}}{{#compare permonth "0.00" operator="=="}}checked{{/compare}}{{/unless}} name="{{id}}DebtAchieve" id="{{id}}DebtDateGoal" class="debtAccomplishGoal" value="1">&nbsp;Set a date for completion
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" style="border:0 none;" {{#if permonth}}{{#compare permonth "0.00" operator="!="}}checked{{/compare}}{{/if}} name="{{id}}DebtAchieve" id="{{id}}DebtContributionGoal" class="debtAccomplishGoal" value="0">&nbsp;Set a total amount to pay toward debt
+                    <br>
+                    {{/unless}}
+                    <div class="floatL accomplishGoalDiv ddmmyy" style="{{#unless permission}}padding-top:10px;{{/unless}}{{#if permonth}}{{#compare permonth "0.00" operator="!="}}display:none{{/compare}}{{/if}}" id="{{id}}DebtDateDiv">
+                    {{#if permission}}
+                        {{#unless permonth}}
+                            <input type="hidden" checked name="{{id}}DebtAchieve" id="{{id}}DebtDateGoal" value="1">
+                            Set a date for completion:
+                        {{else}}
+                            <input type="hidden" {{#compare permonth "0.00" operator="=="}}checked{{/compare}} name="{{id}}DebtAchieve" id="{{id}}DebtDateGoal" value="1">
+                            {{#compare permonth "0.00" operator="=="}}Set a date for completion:{{/compare}}
+                        {{/unless}}
+                    {{/if}}
+
+                       {{#if permission}}
+                            <span id="{{id}}DebtMonthSpan">
+                             {{#months}}
+                                {{#if debtmonth}}
+                                    {{value}} /
+                                {{/if}}
+                            {{/months}}
+                             </span>
+                            <input type="hidden" value="{{#months}}{{#if debtmonth}}{{value}}{{/if}}{{/months}}" id="{{id}}DebtMonth">
+                        {{/if}}
+                      {{#unless permission}}
+                        <select id="{{id}}DebtMonth" class="aboutSelectType debtSelectType">{{#months}}                                                                                                 
+                        <option value="{{value}}" {{#if debtmonth}}selected{{/if}}>{{month}}
+                            </option>{{/months}}
+                        </select>
+                        {{/unless}}
+
+                        {{#if permission}}
+                            <span id="{{id}}DebtDaySpan">
+                             {{#days}}
+                                {{#if debtday}}
+                                    {{day}} /
+                                {{/if}}
+                            {{/days}}
+                            <input type="hidden" value="{{#days}}{{#if debtday}}{{day}}{{/if}}{{/days}}" id="{{id}}DebtDay">
+                             </span>
+
+                        {{/if}}
+                      {{#unless permission}}
+                        <select id="{{id}}DebtDay" class="debtSelectType">
+                        {{#days}}
+                            <option value="{{day}}" {{#if debtday}}selected{{/if}}>{{day}}
+                            </option>
+                                {{/days}}
+                            </select>
+                        {{/unless}}
+
+
+                        {{#if permission}}
+                            <span id="{{id}}DebtYearSpan">
+                             {{#years}}
+                                {{#if debtyear}}
+                                    {{year}}
+                                {{/if}}
+                            {{/years}}
+                            <input type="hidden" value="{{#years}}{{#if debtyear}}{{year}}{{/if}}{{/years}}" id="{{id}}DebtYear">
+                             </span>
+
+                        {{/if}}
+                      {{#unless permission}}
+                        <select id="{{id}}DebtYear" class="debtSelectType">
+                        {{#years}}
+                            <option value="{{year}}" {{#if debtyear}}selected{{/if}}>{{year}}
+                            </option>
+                        {{/years}}
+                        </select>
+                        {{/unless}}
+                    </div>
+                    <div class="floatL accomplishGoalDiv" style="{{#unless permission}}padding-top:10px;padding-left:250px;{{/unless}}{{#unless permonth}}display:none{{else}}{{#compare permonth "0.00" operator="=="}}display:none{{/compare}}{{/unless}} " id="{{id}}DebtContributionDiv">
+                    {{#if permission}}
+                        {{#if permonth}}
+                            <input type="hidden" {{#compare permonth "0.00" operator="!="}}checked{{/compare}} name="{{id}}DebtAchieve" id="{{id}}DebtContributionGoal" value="0">
+                            {{#compare permonth "0.00" operator="!="}}Set a monthly contribution:{{/compare}}
+                        {{/if}}
+                    {{/if}}
+                        <span class="profileEmphDollar">$</span>
+                        {{#if permission}}
+                         <span class="readOnlyValue dollaramount" id="{{id}}DebtContributionSpan">{{permonth}}</span>
+                        <input type="hidden" value="{{permonth}}" id="{{id}}DebtContribution">
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="text" placeholder="Enter an amount" value="{{permonth}}" id="{{id}}DebtContribution" class="dollaramount"> per month
+                        {{/unless}}
+
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <div class="floatL" style="padding-top:5px">
+                        <span class="profileEmph">Which debt would you like to include in this goal?
+                        </span>
+                        <br>
+                     {{#if permission}}
+                            {{#unless payoffdebts}}
+                                        All my debt
+                                        <span id="{{id}}TotalDebtSpan">(${{debtTotal}})</span>
+                                        <input type="hidden" checked name="{{id}}DebtChoice" value="0">
+										<div id="{{id}}DebtDebtListDiv" style="display:none">
+										{{#debts}}
+											{{#compare status "0" operator="=="}}
+											{{#compare monthly_payoff_balances 0 operator="=="}}
+											<div>
+													<input type="hidden" checked name="{{goalid}}DebtCheck" value="{{id}}#{{amountSummary}}">                                        
+													&nbsp;&nbsp;{{name}} - (${{amountSummary}}})
+											</div>
+											{{/compare}}
+											{{/compare}}
+										{{/debts}}
+										</div>
+										<br>
+                            {{/unless}}
+                            {{#if payoffdebts}}
+                                Custom
+                                <span id="{{id}}DebtDebtSpan">(${{debtTotal}})</span>
+                                <input type="hidden" checked name="{{id}}DebtChoice" value="1">
+                                
+                                <div id="{{id}}DebtDebtListDiv">
+                                {{#debts}}
+                                    {{#compare status "0" operator="=="}}
+                                    {{#compare monthly_payoff_balances 0 operator="=="}}
+		                            <div>
+			                            {{#if payoffdebts}}
+											<input type="hidden" checked name="{{goalid}}DebtCheck" value="{{id}}#{{amountSummary}}">                                        
+											&nbsp;&nbsp;{{name}} - (${{amountSummary}}})
+                                        {{/if}}
+		                            </div>
+                                    {{/compare}}
+                                    {{/compare}}
+                                {{/debts}}
+                                <br>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                        {{#unless permission}}
+                        <input type="radio" style="border:0 none;" {{#unless payoffdebts}}checked{{/unless}} name="{{id}}DebtChoice"  value="0" class="debtButton" checked>&nbsp;All my debt <span id="{{id}}TotalDebt" style="{{#if payoffdebts}}display:none{{/if}}">(${{debtTotal}})</span>
+                        <br>
+                        {{/unless}}
+                        {{#unless permission}}
+                        <input type="radio" style="border:0 none;" {{#if payoffdebts}}checked{{/if}} name="{{id}}DebtChoice" value="1" class="debtButton">&nbsp;Custom <span id="{{id}}DebtDebt" style="{{#unless payoffdebts}}display:none{{/unless}}">(${{customTotal}})</span>
+                        <div id="{{id}}DebtDebtList" style="{{#unless payoffdebts}}display:none{{/unless}}">
+                            {{#debts}}
+                            {{#compare status "0" operator="=="}}
+                            {{#compare monthly_payoff_balances 0 operator="=="}}
+                            <div>
+                                <input type="checkbox" name="{{goalid}}DebtCheck" {{#if payoffdebts}}checked{{/if}} class="debtSelection" value="{{id}}#{{amountSummary}}">&nbsp;&nbsp;{{name}} - (${{amountSummary}}})
+                            </div>
+                            {{/compare}}
+                            {{/compare}}
+                            {{/debts}}
+                        </div>
+                        <br>
+                        {{/unless}}
+                    </div>
+                    <div class="clearOnly">
+                    </div>
+                    <br>
+                    <div id="{{id}}myDebtAccordion" class="myAdvisorContent accordion goalAccordion" style="width:75%">
+                        <div class="row-fluid allRound accordion-group">
+                            <div data-target="#{{id}}myDebtCollapse" data-toggle="collapse" class="accordion-heading collapsed" style="padding: 10px;">
+                                <a href="javascript:void(0);" class="accordion-toggle">
+                                <div class="floatL faqArrow">
+                                </div>
+                                <div class="floatL" style="padding-top:2px">
+                                <strong class="drkGrey">Assumptions</strong></a>
+                                </div>
+                            </div>
+                            <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}myDebtCollapse" style="height:0px;">
+                                <div class="accordion-inner roundBottom" style="padding-left:35px">
+                                    <label>Minimum Monthly Debt Payment
+                                    </label>&nbsp;&nbsp;&nbsp;
+                                    {{#if permission}}
+                                        <span class="profileEmph" id="{{id}}DebtMinimumPaymentsSpan" style="width:30px;text-align:center;padding-right:5px">{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}2{{/if}}
+                                        </span>&nbsp;%
+                                        <input type="hidden" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}2{{/if}}" id="{{id}}DebtMinimumPayments" >
+                                    {{/if}}
+                                    {{#unless permission}}
+                                    <span class="profileEmph">
+                                       <input type="text" class="profileAccPercent assumptionsPercent" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}2{{/if}}" id="{{id}}DebtMinimumPayments" style="width:40px;text-align:center;padding-right:2px">&nbsp;%
+                                    </span>
+                                    {{/unless}}
+
+                                    <div class="clearOnly tenpx">
+                                    </div>
+                                    <label>Order of Pay Off
+                                    </label>&nbsp;&nbsp;&nbsp;
+                                    {{#if permission}}
+                                        <span class="profileEmph" id="{{id}}DebtPayoffTypeSpan" style="width:30px;text-align:center;padding-right:5px">
+                                            {{#compare goalassumptions_2 "71" operator="=="}}Lowest To Highest Balances{{else}}{{#unless goalassumptions_2}}Lowest To Highest Balances{{/unless}}{{/compare}}
+                                            {{#compare goalassumptions_2 "72" operator="=="}}Highest To Lowest Balances{{/compare}}
+                                            {{#compare goalassumptions_2 "73" operator="=="}}Highest To Lowest APR{{/compare}}
+                                            {{#compare goalassumptions_2 "74" operator="=="}}Lowest To Highest APR{{/compare}}
+                                        </span>
+				                        <input type="hidden" value="{{goalassumptions_2}}" id="{{id}}DebtPayoffType">
+                                    {{/if}}
+                                    {{#unless permission}}
+                                    <span class="profileEmph">
+                                        <select id="{{id}}DebtPayoffType" class="choiceSelectType debtSelectType">
+                                            <option value="71" {{#compare goalassumptions_2 "71" operator="=="}}selected{{else}}{{#unless goalassumptions_2}}selected{{/unless}}{{/compare}}>Lowest To Highest Balances</option>
+                                            <option value="72" {{#compare goalassumptions_2 "72" operator="=="}}selected{{/compare}}>Highest To Lowest Balances</option>
+                                            <option value="73" {{#compare goalassumptions_2 "73" operator="=="}}selected{{/compare}}>Highest To Lowest APR</option>
+                                            <option value="74" {{#compare goalassumptions_2 "74" operator="=="}}selected{{/compare}}>Lowest To Highest APR</option>
+                                        </select>
+                                    </span>
+                                    {{/unless}}
+                                    <div class="clearOnly tenpx">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floatR profileCompleteRight" style="width:30%;height:250px;margin-top:20px">
+                    <br>
+                    <div>
+                        <div class="profileEmph" style="padding-bottom:5px">Current time until completion</div>
+                        <div id="{{id}}DebtCompletionNever" style="display:none">Never
+                        </div>
+                        <div id="{{id}}DebtCompletion" style="display:none">
+                            <span id="{{id}}DebtCompletionYears">0</span> years,&nbsp;<span id="{{id}}DebtCompletionMonths">0</span> months
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="profileEmph" style="padding-bottom:5px">Amount you'll need to pay</div>
+                        <div id="{{id}}DebtMonthlyNeedsDiv" style="display:none">$<span id="{{id}}DebtMonthlyNeeds">0</span> per month</div>
+                        <div id="{{id}}DebtMonthlyNeedsNever" style="display:none">Way Too Much</div>
+                    </div>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Interest you'll have paid</div>
+                    <div id="{{id}}DebtCompletionInterestDiv" style="display:none">$<span id="{{id}}DebtCompletionInterest">0</span></div>
+                    <div id="{{id}}DebtCompletionInterestNever" style="display:none">Way Too Much</div>
+                    <br>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Calculations are based on what you entered in the Debts section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+                <br>
+                {{#unless permission}}
+                <hr>
+                {{/unless}}
+                <input type="hidden" id="{{id}}debtSaveNeeded" class="saveNeeded" value="false" />
+                <button id="{{id}}DebtCalculateButton" style="display:none" type="button" class="lsPillBtnGreen btn btn-success calculateDebtButton calculateGoalButton">&nbsp;Update Goal&nbsp;</button>
+                {{#unless permission}}
+                {{#if id}}
+                <div class="floatL">
+                    <button id="{{id}}UpdateDebtButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateDebtButton">&nbsp;Update Goal&nbsp;</button>
+                </div>
+                <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="{{id}}CancelDebtButton" class="cancelDebtButton"href="#">Cancel</a>
+                </div>
+                <div class="floatR profileFootLinks">
+                    <a id="{{id}}DeleteGoalButtondebt" class="deleteGoalButton" href="#">Delete Goal</a>
+                </div>
+                {{else}}
+                <div class="floatL">
+                    <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createDebtButton">&nbsp;Add Goal&nbsp;</button>
+                </div>
+                <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="debtRemoveNewGoalButton" class="removeNewGoalButton" href="#">Cancel</a>
+                </div>
+                {{/if}}
+                {{/unless}}
+                <div class="clearOnly">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="{{id}}debtProfileVSpace" class="profileVSpace">
+    </div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

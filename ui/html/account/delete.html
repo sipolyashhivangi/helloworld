@@ -1,0 +1,37 @@
+<script id="delete-template" type="text/x-handlebars-template">
+<form class="form-horizontal formProfileAssets">
+<div style="width:95%;margin:0 auto;text-align:center">
+	<div style="padding:10px">
+		<label class="signupFormLabel control-label" style="width:100%;font-size:10pt">
+			<strong>Your account will be deleted from our system and you will no longer be able to access the application.</strong>
+		</label>
+	</div>
+	<div class="clearOnly"></div>
+	<div id="deleteMessage" style="text-align:center;padding-bottom:0px;padding-top:10px;color:red">&nbsp;</div>
+    <div style="padding:10px">
+        <div id="termscheckdiv" class="controls" style="margin-left:0px">
+            <div class="floatL" style="width:75px;text-align:right">
+                <input id="termscheck" type="checkbox" style="width:15px;height:15px">
+            </div>
+            <div class="floatL" style="padding-top:1px;padding-left:0px;width:80%">
+                I understand and accept that I will no longer be able to access my FlexScore account. 
+            </div>
+            <div class="clearOnly">
+            </div>
+            <div id="termscheckbubble" class="errorBubble hdn">
+                <div class="inside">
+                    <p id="termscheckerror">You must check here in order to delete your account.</p>
+                    <div class="point">
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div style="padding:10px">
+    	<div>
+        	<button id="deleteAccountButton" type="submit" class="simpleGreenCTAButton">Delete Account</button>
+	    </div>
+	</div>
+</div>
+</form>
+</script>

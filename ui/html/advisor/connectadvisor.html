@@ -1,0 +1,203 @@
+<script id="profile-template" type="text/x-handlebars-template">
+	<a class="floatR accX accTopX cancelAdvisorPopup">&nbsp;</a>		      
+  <div class="lightGray roundTop bevelBottom sectionHeaderDouble">			          
+    <div class="floatL accDataboxIcon accDataboxIcon3 titleIconMargin">         
+    </div>			          
+    <div class="floatLconnect">				              
+      <span class="accTitle">Connect To Advisor              
+      </span>			          
+    </div>			          
+    <div class="clearOnly">         
+    </div>		      
+  </div>		      
+  <div class="clearOnly" style="height:10px">&nbsp;</div>
+	<div class="alert alert-success hdn" id="success-msg">
+		<a class="close" href="#">×</a>
+		<div id="msg"></div>
+	</div>
+	<div class="alert alert-error hdn" id="error-msg">
+		<a class="close" href="#">×</a>
+		<div id="msg1"></div>
+	</div>
+  <form action="#" class="formMyAdvisors" style="margin:0px">
+	<div id ="form-contents" style="padding-left:25px">
+	<ul class="no-border">
+		<li class="width_contect_100 fl width100">
+			<div class="control-group" style="" id="advisorType">
+				<label class="dbTitle control-label"><strong>How would you like to be contacted?</strong>
+				</label>
+				<div id="advTypediv" class="controls" style="padding-top:5px">
+					<input type="radio" id="ChkEmail" value="1" name='mode' checked="checked" class="floatL connectvia"/>
+						<label class="floatL paddingright">
+							<strong>Via Email</strong>
+						</label>
+					<input type="radio" id="ChkPhone" value="2" name='mode' class="floatL connectvia"/>
+						<label class="floatL paddingright">
+							<strong>Via Phone</strong>
+						</label>
+					<input type="radio" id="ChkBoth" value="3" name='mode' id="advTypeOption" class="floatL connectvia"/>
+						<label class="floatL paddingright">
+							<strong>Both/Either</strong>
+						</label>							
+					<div id="advTypeBubble" class="errorBubble hdn">
+							<div class="inside">
+								<p id="advTypeError"></p>
+								<div class="point">
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearOnly"></div>
+		</li>
+		<li class="width_contect_30 li-boeder-bottom fl">			
+            <div id="emailADDress" class="controls">
+                <label class="dbTitle paddingright fl" style="padding-top:5px"><strong>Email Address</strong></label>
+                <div class="clearOnly">
+                	&nbsp;&nbsp;<span id="user-email-span"></span>
+                	<input type="hidden" id="user-email" />
+                </div>
+            </div>
+			<div class="clearOnly"></div>
+		</li>
+		<li class="width_contect_70 li-boeder-bottom fl">				
+                 <div id="phone" class="controls">
+                    <label class="dbTitle paddingright fl width90" style="padding-top:5px;"><strong>Phone Number</strong> (If you are outside the US, please select Via Email.)</label>
+                    <input type="text" id="user-phone" disabled="disabled" class="input-width fl">
+                    <!-- error tooltip -->
+                    <div id="phonebubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="phoneerror">Invalid Email Address</p>
+                            <div class="point">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end error tooltip -->
+                </div>
+				
+				<div class="clearOnly"></div>
+		</li>
+		<li class="width_contect_30 li-boeder-bottom fl">
+			<label class="dbTitle paddingright fl width90"><strong>Topic</strong></label>
+			<select class="input-width fl" id="topic">
+				<option value="">Choose a topic</option>
+				<option value="401(K)">401(K)</option>
+				<option value="Insurance Planning">Insurance Planning</option>
+				<option value="Debt Management">Debt Management</option>
+				<option value="Annuities">Annuities</option>
+				<option value="Long Term Care">Long Term Care</option>
+				<option value="College Cost Planning">College Cost Planning</option>
+                <option value="Overall Financial Planning">Overall Financial Planning</option>
+                <option value="Tax Planning">Tax Planning</option>
+                <option value="Investment Management">Investment Management</option>
+                <option value="Retirement Planning">Retirement Planning</option>
+                <option value="Estate Planning">Estate Planning</option>
+			</select>
+			<div class="clearOnly"></div>
+		</li>
+		<li class="width_contect_70 li-boeder-bottom fl width50">
+			<div class="control-group">
+				<label  class="dbTitle paddingright fl width90">
+					<strong>Personal Message</strong>
+				</label>
+				<div id="descriptiontextdiv" class="controls fl width100">
+					<textarea name='description' style="width:93%" id="message" maxlength="650"></textarea>
+					<br />
+                    
+					<div id="descriptionBubble" class="errorBubble hdn">
+                    <div class="pointUp">
+							</div>
+						<div class="inside">
+							<p id="descriptionError"></p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearOnly"></div>
+		</li>
+		<li class="li-boeder-bottom fl bmargin10 width97">
+		<div class="row-fluid allRound accordion-group allRound{{advisor_id}}">                                                                                                    
+            <div data-target="#collapse{{advisor_id}}" advisor="{{advisor_id}}"  data-toggle="collapse" class="accordion-heading toshowpermission" id="toshowpermission{{advisor_id}}" style="padding: 10px;">
+				<a href="javascript:void(0);" class="accordion-toggle" advisor="{{advisor_id}}">
+					<div class="faqArrow" advisor="{{advisor_id}}"></div>
+					<strong class="drkGrey" advisor="{{advisor_id}}">Set Advisor Permissions:</strong>
+					<span class="font-ad-size_blue apStatMsg advper" style="color: #5FA439;"></span>
+				</a>
+			</div>
+			<div class="permission{{advisor_id}} accordion-body mediumGray roundBottom collapse in" id="collapse{{advisor_id}}" style="height:auto">
+			    <div class="accordion-inner roundBottom" id="advpermission{{advisor_id}}">
+					<input type="radio" id="a2radio1" value="RO" name="permission" checked="checked" class="rouserConnect advisorPermission{{advisor_id}} fl" advisor={{advisor_id}} />&nbsp;
+					<label for="a2radio1" class="fl"><strong>View Only:</strong> This advisor can view but cannot edit my profile and financial information.                                    
+					</label>                                                                               
+					<div class="clearOnly fivepx"></div>                                                                                                                       
+					<input type="radio" id="a2radio2" value="RW" name="permission" class="rouserConnect fl advisorPermission{{advisor_id}}" advisor={{advisor_id}} />&nbsp;                                    
+					<label for="a2radio2" class="fl"><strong>View + Edit:</strong> This advisor can view and edit my profile and financial information. </label>                       
+						<div class="clearOnly fivepx"></div> 
+						<input type="radio" id="a2radio3" value="N" name="permission" class="rouserConnect fl advisorPermission{{advisor_id}}" advisor={{advisor_id}} />&nbsp;                                    
+						<label for="a2radio3" class="fl"><strong>None:</strong> This advisor cannot view or edit my profile and financial information. 
+						</label>
+						<input type="hidden" id="defaultvalue{{advisor_id}}" value=""/>
+						<div class="clearOnly tenpx"></div>   
+					    
+				</div>                                                                               
+            </div>                                                                                     
+        </div>
+
+		<div class="clearOnly"></div>
+		<div id="indemnification" class="permitIndem ">
+			<div>
+				<div class="scroll_div_head drkGrey"><strong> THE BELOW PARAGRAPH NEEDS TO BE AGREED TO / CHECKED OFF BEFORE YOU CAN CONNECT WITH AN ADVISOR.</strong></div>
+				<div class="scrolling-div">
+					By connecting to an advisor, FlexScore does not necessarily guarantee, 
+						approve, or endorse the information or products the advisor makes available to 
+						you.  The advisor is NOT an employee of FlexScore and you SHOULD NOT consider 
+						your ability to connect with an advisor as FlexScore’s warranty of the 
+						advisor.  We do our best to provide a selection of advisors who will fulfill 
+						your needs and objectives. But, these advisors are all separate entities from 
+						FlexScore and, therefore, are outside of our control.  Your connection to the 
+						advisor is contingent upon you accepting the customer agreement of the 
+						respective advisor, which is a separate agreement from FlexScore’s.
+				</div>
+				<div id="termtextdiv" class="controls" style="padding-top:5px;padding-bottom:5px">
+					<input type="checkbox"  id="terms" advisor={{advisor_id}} />
+					<div id="termBubble" class="errorBubble hdn" style="top: -35px; left: -123px;">
+						<div class="inside">
+							<p id="termError"></p>
+							<div class="point">
+							</div>
+						</div>
+					</div>
+					<span style="padding-left:5px;">I understand and agree to the above FlexScore indemnification statement.</span>
+				</div>
+				
+			</div>
+		</div>
+		<!--warning message-->
+		<div id="warning" style="display:none;" class="warning">
+			<span class="drkGrey padd-all" style="font-weight: bold;"></span>
+			<div>
+				<button type="button" class="lsPillBtnGray btn btn-success cancelleadupdation" aria-hidden="true" id="cancelleadupdation">No</button>	
+					
+				<button type="button" class="simpleGreenCTAButton cancel myadvisors savepermission changeLeadAdvisor{{advisor_id}}" aria-hidden="true" id="connectAdvisor" adv-id = {{advisor_id}}>Yes</button>
+			</div>
+		</div>
+		<!--warning message-->
+	</li>	
+	</ul>
+	<div class="clearOnly"></div>
+  </div>	
+	<div class="profileBottomRow roundBottom">
+		<div class="profileBottomRow roundBottom" id="actionBtn">
+			<div class="clearEverything">  </div>
+			<div class="floatR" style="padding-right: 25px;margin:10px">
+				<div class="floatR"><button type="button" id="saveConnnectMode" class="simpleGreenCTAButton savepermission" aria-hidden="true" adv-id = {{advisor_id}} >Send Request</button>
+				</div>
+			</div>
+			<input type="hidden" id = "user-email-hdn" />
+			<div class="floatR cancel-bt-width" style="margin-top:10px;padding: 5px 0;border:0"><a class="cancelAdvisorPopup" href="#">Cancel</a></div>
+		</div>
+		<div class="clearEverything">  </div>
+	</div>
+  </form>
+</script>

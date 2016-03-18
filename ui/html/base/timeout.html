@@ -1,0 +1,44 @@
+<script id="timeoutheader-template" type="text/x-handlebars-template">
+    <div class="dialogContent row-fluid" id="securityContent">
+        <div class="lightGray roundTop bevelBottom sectionHeaderDouble line2">
+            <div class="floatL accDataboxIcon accDataboxIcon0 titleIconMargin">
+            </div>
+            <div class="floatL">
+                <span class="accTitle">Your Session Expired</span>
+            </div>
+            <div class="clearOnly"></div>
+        </div>
+        <div class="mediumGray bevelBottom">
+            <p style="padding:5px 20px 0px">
+                For your protection, sessions are open for a limited period of time on our website.
+            </p>
+            <p style="padding:0px 20px 0px">
+                Enter your password to pick up where you left off.
+            </p>
+            <div class="control-group" style="padding:0px 20px 0px">
+                <div id="password1div" class="controls">
+                    <input type="password" id="password1" placeholder="Password" style="height:1.2em;width:235px">
+                    <div id="password1bubble" class="errorBubble hdn">
+                        <div class="inside">
+                            <p id="password1error"></p>
+                            <div class="point">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls" style="padding: 0px 20px 25px 20px;">
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+        </div>
+        <div class="darkGray roundBottom bevelTop" style="height: 50px; padding-top: 15px; margin-bottom: 0px">
+            <div style="padding-right: 20px;margin-top:0px" class="floatR">
+                <button class="lsPillBtnGreen btn btn-success keepAliveTimeout" type="button">&nbsp;Resume Session&nbsp;</button>&nbsp;&nbsp;
+            </div>
+            <div class="floatR" style="padding-right: 15px;">
+                <button class="lsPillBtnGray btn btn-success signOutTimeout" type="button" style="width: 130px; margin-top: 0px">&nbsp;Log out&nbsp;</button>
+            </div>
+            <div class="clearEverything">&nbsp;</div>
+        </div>
+    </div>
+</script>

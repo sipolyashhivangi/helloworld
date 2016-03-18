@@ -1,0 +1,53 @@
+<script id="usergoals-template" type="text/x-handlebars-template">
+
+        <div>
+        <button class="btn btn-heading-adjust floatR goalsHeader" type="button">Manage Goals</button>    
+        </div>
+        <div class="div.clearOnly">&nbsp;</div> 
+    <div class="roundBottom" style="padding-bottom:30px; margin-top: 0px;">
+    {{#goals}}
+    {{#compare @index 5 operator="<"}}
+         <div {{#compare goalcount 2 operator='<='}}style="padding-top:25px"{{else}}{{#compare goalcount 4 operator='<'}}style="padding-top:15px"{{else}}{{#compare goalcount 5 operator='<'}}style="padding-top:5px"{{/compare}}{{/compare}}{{/compare}}>
+            <div class="header2">{{goalname}}
+                <span class="regBold3">
+                    {{#if hideLinks}}
+                        <span class="{{#compare status 'Needs Attention' operator='=='}}redtext{{/compare}}" style="{{#compare status 'Needs Attention' operator='!='}}color:#5fa439{{/compare}}">{{status}}</span>
+                    {{else}}
+                        <a href="#" id="{{goalid}}addGoals" class="addGoals {{#compare status 'Needs Attention' operator='=='}}redtext{{/compare}}">{{status}}</a>
+                    {{/if}}
+                </span>
+            </div>                              
+            <div class="progressBarWrapper">                                    
+                <div class="{{classes}}" style='width: {{#compare percentage "98" operator=">"}}98{{else}}{{percentage}}{{/compare}}%;{{#unless percentage}}display:none{{/unless}}'>
+                </div>                              
+            </div>                              
+            <div class="progressRightf" style="padding-right:10px">{{percentage}}<span class="percent">%
+                </span>
+            </div>                              
+            <div class="clearOnly" style="padding-top:6px">&nbsp;</div>
+        </div>
+    {{/compare}}                                
+    {{/goals}}
+    {{#unless goals}}
+        <div class="goalWrapper">
+            <div class="header2" style="font-size:0.9em">
+                <span class="regBold3">
+                Fill out your <a href="#" class="goalsHeader">Goals</a> to see how you are doing.
+                </span>
+            </div>
+        </div>
+    {{else}} 
+        {{#unless hideLinks}}
+        {{#compare goalcount 5 operator="<"}}
+        <div {{#compare goalcount 2 operator='<='}}style="padding-top:25px"{{else}}{{#compare goalcount 4 operator='<'}}style="padding-top:15px"{{else}}{{#compare goalcount 5 operator='<'}}style="padding-top:5px"{{/compare}}{{/compare}}{{/compare}}>
+            <div class="header2" style="font-size:0.9em">
+                <span class="regBold3">
+                Fill out your <a href="#" class="goalsHeader">Goals</a> to see how you are doing.
+                </span>
+            </div>
+        </div>
+        {{/compare}}
+        {{/unless}}
+    {{/unless}}
+    </div>                  
+</script>

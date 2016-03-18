@@ -1,0 +1,40 @@
+<script id="lsummaryview-template" type="text/x-handlebars-template">
+    <div class="container presscontainer">
+        <div class="pressheader">
+            <div>
+                <div class="pressheading"><h1>Press</h1></div>
+                <div class="presscontent">
+                    {{#article}}            
+                        {{#if articleImage}}
+                        <div class="presspostcontent"><img src="{{articleImage}}"></div>
+                        {{else}}
+                         <div class="presstitle">{{post_title}}</div>
+                        {{/if}}
+                        <div class="presspostcontent">{{{post_content}}}</div>
+                        <hr class="sidebar">
+                    {{/article}}
+                </div>
+            </div>
+        </div>
+        <div class="prheader">
+            <div style="height:78px;"></div>
+            <div>
+                <div class="prheading">Press Releases</h1><br/></div>
+                <div style="margin: 0px 10px 0px 0px;">
+					<div style="padding-bottom:5px;top:-10px;position:relative;color:#888;">
+						Email our press team at: 
+						<a href="mailto:pr@flexscore.com">pr@flexscore.com</a>
+					</div>
+                    {{#pdf}}                        
+                        {{#pressInfo}}
+                            <div>{{{press_release_date}}}</div>
+                            <div class="presslink"><a href="{{pdf_external_link}}" target="_blank">{{post_title}}</a></div><br/>                            
+                        {{/pressInfo}}
+                    {{/pdf}}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</script>

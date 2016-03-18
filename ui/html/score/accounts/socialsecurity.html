@@ -1,0 +1,107 @@
+<script id="accountssocialsecurity-template" type="text/x-handlebars-template">
+<!-- Social Security -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn accountDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound accountDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}socialsecurityProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable accountDraggable{{/if}}">
+    <div id="{{id}}socialsecurityAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}socialsecurityCollapseBox">
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}" style="padding-left:10px"><span id="{{id}}accountDragsocialsecurity" class="accountDrag">&nbsp;</span></div>
+        {{/unless}}
+        {{#if id}}
+        <div id="{{id}}PermissionTogglesocialsecurity" class="floatR simulationToggle advisorPermissionToggle">
+            {{#unless permission}}
+            <div class="simToggleSlider">
+            </div>
+            <div id="{{id}}toggleOnLabelsocialsecurity" class="toggleOnLabel">ON
+            </div>
+            <div id="{{id}}toggleOffLabelsocialsecurity" class="toggleOffLabel hdn">OFF
+            </div>
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+        {{/if}}
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}socialsecurityFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph">{{#if id}}{{nameSummary}}{{else}}Add Social Security{{/if}}
+                </span>
+            {{#if refId}}
+                {{#compare refId 0 operator="!="}}
+                    <span id="{{id}}socialsecurityManual" class="fdIcon1b">&nbsp; </span>
+                {{else}}
+                    <span id="{{id}}socialsecurityManual">Manual Entry</span>
+                {{/compare}}
+            {{else}}
+                <span id="{{id}}socialsecurityManual">Manual Entry</span>
+            {{/if}}
+            </a>
+        </div>
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}socialsecurityCollapseBox" style="height: 0px;">
+        <div id="{{id}}PermissionToggleButtonsocialsecurity" class="permissionToggleButton" style="display:none"></div>
+    <div class="profileDataboxPadding profileDatabox2">
+            <div style="width: 75%;" class="floatL">
+                <p>
+                    <span class="profileEmph">What is your social security benefit starting at age {{socialSecurityStartAge}}?
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$
+                    </span>
+                    {{#if permission}}
+                     <span class="readOnlyValue dollaramount" id="{{id}}SocialSecurityInputContribution">{{amount}}</span>
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter an amount" id="{{id}}SocialSecurityInputContribution" value="{{amount}}" class="dollaramount">
+                    {{/unless}}
+                    <span class="profileEmph">per month
+                    </span>
+                </p>
+                <div class="clearOnly">
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            {{#unless permission}}
+            <hr>
+            <input type="hidden" id="{{id}}socialsecuritySaveNeeded" class="saveNeeded" value="true" />
+            {{#if id}}
+            <div class="floatL">
+                <button id="{{id}}UpdateSocialSecurityButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateSocialSecurityButton">&nbsp;Update Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelSocialSecurityButton" class="cancelSocialSecurityButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteAccountButtonsocialsecurity" class="deleteAccountButton" href="#">Delete Account</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createSocialSecurityButton">&nbsp;Add Account&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="socialsecurityRemoveNewAccountButton" class="removeNewAccountButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}socialsecurityProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

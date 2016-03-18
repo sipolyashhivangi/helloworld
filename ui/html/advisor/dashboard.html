@@ -1,0 +1,170 @@
+<script id="advisorhome-template" type="text/x-handlebars-template">
+ <!--<h1 class="infoH1">My Clients<input id="inputIcon" class="span2 leftNavSrc" type="text" placeholder="Search" style=" float: right; width: 150px !important;"></h1>-->
+<div style="">
+    <div id="allAdvisors" class="round mediumGray smallGlow">
+        <div class="lightGray roundTop bevelBottom ">
+            {{#compare verified "1" operator="=="}}
+            <h3>
+                <span class="pagination"></span>
+            </h3>
+            {{/compare}}
+            <div class="sectionHeader1">
+                 <h3 style="margin-left:10px;">
+                     <span class="financialPeople"></span>My Clients
+                     {{#compare verified "1" operator="=="}}
+                     <span style="color: #666" id='total_clients'></span>
+                         <input class="btn" value="Create New Clients" roleId="999" type="button" id="btnCreateNewClient" class="floatR" style="margin-left:10px;" />
+                         <input class="btn" value="Upload Clients" roleId="999" type="button" id="btnUploadNewClient" class="floatR" style="margin-left:10px;" />
+                     {{/compare}}
+                 </h3>
+            </div>
+        </div>
+        <div class="myAdvisorCol12">
+            {{#compare verified "1" operator="=="}}
+            <ul class="list">
+                <li class="advisordash">
+                    <ul class="innerlist advisorBox_100 list-heading">
+                        <li style="cursor:pointer" sorttype="name" id="nameSorting" class="width20Per_ag sorting">Name &amp; Contact Info
+                            {{#ifeq sortBy "name"}}
+                            {{#ifeq sortOrder "DESC"}}
+                            <i sorttype="name" class="icon icon-arrow-up"></i>
+                            {{/ifeq}}
+                            {{#ifeq sortOrder "ASC"}}
+                            <i sorttype="name" class="icon icon-arrow-down"></i>
+                            {{/ifeq}}
+                            {{/ifeq}}
+
+                        </li>
+
+                        <li style="cursor:pointer" sorttype="score" id="scoreSorting" class="score_RelatedClients sorting">Score
+                            {{#ifeq sortBy "score"}}
+                            {{#ifeq sortOrder "DESC"}}
+                            <i sorttype="score" class="icon icon-arrow-up"></i>
+                            {{/ifeq}}
+                            {{#ifeq sortOrder "ASC"}}
+                            <i sorttype="score" class="icon icon-arrow-down"></i>
+                            {{/ifeq}}
+                            {{/ifeq}}
+                        </li>
+                        <li style="width:9%">&nbsp;</li>
+                        <li style="cursor:pointer" sorttype="date" id="dateSorting" class="RelatedClients sorting">Date Connected
+                            {{#ifeq sortBy "date"}}
+                            {{#ifeq sortOrder "DESC"}}
+                            <i sorttype="date" class="icon icon-arrow-up"></i>
+                            {{/ifeq}}
+                            {{#ifeq sortOrder "ASC"}}
+                            <i sorttype="date" class="icon icon-arrow-down"></i>
+                            {{/ifeq}}
+                            {{/ifeq}}
+                        </li>
+                        <li class="RelatedClients">Permissions</li>
+                        <li class="width20">Actions</li>
+                    </ul>
+                </li>
+                {{#each userdata}}
+                <li class="user{{userid}}">
+                    <div class="advisorBox advisorBox_100">
+                        <ul class="innerlist" style="width:100% !important;">
+                            <li class="width20Per_ag advisorName">
+                                <span id="firstnme" class="name list-heading clearEverything" style="display:block;">{{firstname}} {{lastname}}
+                                </span>
+                                <span class="contact advisorPaleText">
+                                    {{email}}
+                                    {{#compare phone '' operator="!="}}
+                                    <br />{{phone}}
+                                    {{/compare}}
+                                </span>
+                            </li>
+                            <li class="score_RelatedClients">
+                                <span class="score">{{#ifeq totalscore null}}N/A{{/ifeq}}
+                                    {{totalscore}}
+                                </span> <br />
+                                    {{#if notifications}}
+                                    <div style="position:relative;cursor:pointer;left:-15px;padding-left:18px"><img src="./ui/images/alert.png" style="width:25px">
+                                    <div class="tool-tip slideIn right">
+                                        <div id="pop{{userid}}" class="tool-content">
+                                        {{#each notifications}}
+                                                <div style="font-size:11px;float:left"><b>{{{finame}}}</b></div><div align="right"> {{#if lastmodified}}Last Modified: {{lastmodified}} {{/if}} </div>
+                                                <div style="font-size:11px;">{{{message}}} </div><hr />
+                                         {{/each}}
+                                    </div>
+                                    </div>
+                                    </div>
+                                    {{/if}}
+                            </li>
+                            <li class="width9" style="font-size:12px;">
+                                {{#compare scoretype '+' operator="=="}}
+                                <div style="color:#5FA439; font-weight:bold;font-size:14px;">{{daychanges}}</div>
+                                <span style="font-size:0.9em;color:#898989">last 90 days <br />change</span>
+                                {{/compare}}
+
+                                {{#unless daychanges}}
+                                <div style="color:#5FA439; font-weight:bold;font-size:14px;">+ 0 pts</div>
+                                <span style="font-size:0.9em;color:#898989">last 90 days <br />change</span>
+                                {{/unless}}
+
+                                {{#compare scoretype '-' operator="=="}}
+                                <div style="color:#FF0000; font-weight:bold;font-size:14px;">{{daychanges}}</div>
+                                <span style="font-size:0.9em;color:#898989">last 90 days <br />change</span>
+                                {{/compare}}
+                                &nbsp;
+                            </li>
+                            <li class="RelatedClients">
+                                <span class="date advisorPaleText pendingreq{{user_id}}">
+                                    {{#ifeq status "0"}}Pending <br/> <span style="color:#5FA439; font-weight:bold;"> New!</span>{{/ifeq}}
+                                    {{#ifeq status "1"}}{{dateconnect}}{{/ifeq}}
+                                </span>
+                                <span id="dateConnect{{user_id}}" class="advisorPaleText" clientId = {{user_id}}></span>
+                            </li>
+                            {{#ifeq permission "RW"}}
+                            <li class="RelatedClients">
+                                <span class="none advisorPaleText">Read/Write</span>
+                            </li>
+                            {{/ifeq}}
+                            {{#ifeq permission "RO"}}
+                            <li class="RelatedClients">
+                                <span class="none advisorPaleText">Read Only</span>
+                            </li>
+                            {{/ifeq}}
+                            {{#ifeq permission "N"}}
+                            <li class="RelatedClients">
+                                <span class="none advisorPaleText">None</span>
+                            </li>
+                            {{/ifeq}}
+                            <li class="width20">
+                            <li class="width15 acceptView{{user_id}}"></li>
+                            {{#ifeq status "1"}}{{#ifeq permission "RW"}}<button id="viewfinanceSummary" class="btn" type="button" clientId="{{user_id}}">Financial Summary</button>&nbsp;{{/ifeq}}{{/ifeq}}
+                            {{#ifeq status "1"}}{{#ifeq permission "RO"}}<button id="viewfinanceSummary" class="btn" type="button" clientId="{{user_id}}">Financial Summary</button>&nbsp;{{/ifeq}}{{/ifeq}}
+                            {{#ifeq status "0"}}<button id="acceptRequest" title="Accept the request." clientId="{{user_id}}" clientEmail={{email}} type="button" data-toggle="button" class="btn margin-right10 acceptRequest widta acceptRequest{{user_id}}">View Message</button>{{/ifeq}}
+                            <button deleteId = {{user_id}} status = {{status}} clientemail={{email}} class="btn margin-right10 list-heading btndeleteClient advisordell">Delete</button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                {{/each}}
+                <li style="display:none;" class="norecorderror"></li>
+            </ul>
+            {{else}}
+            <div style="padding:20px 50px 0px">By the end of the next business day, FlexScore will verify your CRD#, and approve you on to the system.  CRD is FINRA's central licensing and registration system for the U.S. securities industry and its regulators.  If you haven't already given us your CRD# in your <a href="#" class="aboutHeaderadvisor">About You</a> profile, please do so now (find your CRD # <a href="http://brokercheck.finra.org/Search/Search.aspx" target="_blank">here</a>).  Email us with questions, <a href="mailto:support@flexscore.com" target="_blank">support@flexscore.com</a></div>
+            {{/compare}}
+        </div>
+        <div class="clearOnly twentypx"></div>
+        {{#compare verified "1" operator="=="}}
+            <span class="pagination"></span>
+        {{/compare}}
+        <div class="clearOnly twentypx"></div>
+    </div>
+    <div class="clearOnly twentypx"></div>
+</div>
+<!-- left column -->
+<div class="lightGray round smallGlow" style="width: 240px; float:left">
+    <div class="clearOnly">
+    </div>
+</div>
+<div class="vSpace"></div>
+<input type="hidden" id="sortBy" value="">
+<input type="hidden" id="sortOrder" value="">
+<input type="hidden" id="pageNo" value="">
+<input type="hidden" id="recordPerPage" value="">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</script>

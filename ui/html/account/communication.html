@@ -1,0 +1,32 @@
+<script id="communication-template" type="text/x-handlebars-template">
+<form class="form-horizontal formProfileAssets">
+    <div class="clearEverything">&nbsp;</div>
+    <div class="signupTitleArea">
+        <div class="alert alert-success alert-dismissable hdn">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="msg" style="text-align:left;"></div>
+        </div>
+        <div class="floatL" style="width:40%">
+        	<p><input type="checkbox" {{#compare notify 1 operator="=="}} checked ="checked" {{/compare}} id="notifyContact" value='1'  name="notifyContact" />
+    	        &nbsp;<span style="color:#3E3E3E;font-weight:bold">Receive Notifications Via Email</span>
+	        </p>
+        </div>
+        <div class="floatL" style="width:50%;text-align:left;margin-left:50px">
+        	<p><span style="color:#3E3E3E;font-weight:bold">Notifications Email Address</span>
+        	</p>
+        	<p>
+        	    <span>Email address where you will receive notifications.</span>
+        	</p>
+        	<p>
+        	    <input type="text" disabled="" id="notificationsEmail" value="{{email}}" class="profileAccSpecial" {{#compare emaillength "20" operator=">"}}style="width:250px"{{/compare}}>
+	        </p>
+        </div>
+        <div class="clearOnly"></div>
+    </div>
+    <div style="text-align:center; margin-left: 130px;">
+        <button type="button" class="simpleGreenCTAButton hdn" id="communicationButton">Save</button>
+    </div>
+    <div class="clearEverything">&nbsp;</div>
+    <div class="user-settings-success hdn"><div id="communicationMsg"></div></div>
+</form>
+</script>

@@ -1,0 +1,31 @@
+<script id="accountstatus-template" type="text/x-handlebars-template">
+{{#unless oldaccount}}
+<div id="{{id}}profileAssetsStatus" class="profileAssets">
+    <div class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">	                                 
+        <div class="accordion-heading profileDataboxPadding arw-wrapper collapsed" data-toggle="collapse" data-target="#{{id}}pendingCollapseBox">                                      
+            <div class="floatL" style="margin-top: 5px;">
+                <a href="javascript:void(0);" class="accordion-toggle">
+                    <div id="{{id}}pendingFAQArrow" class="floatL faqArrow"></div>
+                    <span class="profileEmphDollar" id="{{id}}connectTitle">{{title}}</span>
+                    <div id="{{id}}currentFIURL" class="currentFIURL" style="padding-left:18px;top:5px;position:relative;display:none"></div>
+                </a>
+            </div>
+        </div>                                                                                                  
+	<div class="accordion-body mediumGray roundBottom collapse" id="{{id}}pendingCollapseBox" style="height: 0px;"> 
+            <div id="{{id}}connectDesc" class="profileDataboxPadding profileDatabox2">
+{{/unless}}
+                <p class="profileEmph">{{status}}</p>
+                <hr>
+           	    <div class="floatL">
+                    <button id="{{id}}RetryHarvesting" class="lsPillBtnGreen btn btn-success checkStatus" type="button" style="width: 120px; margin-top:3px">&nbsp;Check Status&nbsp;</button>&nbsp;&nbsp;
+                    <button id="{{id}}DeleteHarvesting" class="lsPillBtnGreenSec btn btn-success deleteStatus" type="button" style="width: 120px; margin-top:3px">&nbsp;Remove&nbsp;</button>&nbsp;&nbsp;
+                </div>
+      		<div class="clearOnly"></div>
+            </div>
+{{#unless oldaccount}}
+        </div>
+    </div>
+    <br>
+</div>
+{{/unless}}
+</script>

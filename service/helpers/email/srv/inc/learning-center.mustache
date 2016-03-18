@@ -1,0 +1,75 @@
+<br/>
+<br/>
+<table cellpadding='10' cellspacing='0' border='0' width='100%'>
+    <tbody>
+        {{#learningcenter}}
+        <tr>
+            <td valign='middle' width='240'>
+                <a href='{{app-url}}learningcenter/{{post_name}}' style='
+                    display:block;
+                    text-decoration:none;'>
+                    <img src='{{image}}' width='220' style='
+                        border:0;
+                        display:block;
+                        margin:0 auto;
+                        outline:none;
+                        text-decoration:none;
+                        -ms-interpolation-mode:bicubic;'/>
+                </a>
+            </td>
+            <td valign='middle' width='320' style='
+                padding:0 7px;
+                text-align:left;'>
+                <p style='
+                    color:#898989;
+                    font-family:Arial,Helvetica,sans-serif;
+                    font-size:12px;
+                    margin:0 0 .4em;'>
+                    <a href='{{app-url}}learningcenter/{{post_name}}' style='
+                        color:#898989;
+                        display:block;
+                        text-decoration:none;'>
+                        {{category}}
+                    </a>
+                </p>
+                <b style='
+                    color:#3E3E3E;
+                    display:block;
+                    font-family:Arial,Helvetica,sans-serif;
+                    font-size:18px;'>
+                    <a href='{{app-url}}learningcenter/{{post_name}}' style='
+                        color:#3E3E3E;
+                        display:block;
+                        text-decoration:none;'>
+                        {{{post_title}}}
+                    </a>
+                </b>
+                <p style='
+                    color:#898989;
+                    line-height:1.3;
+                    margin:.5em 0;
+                    font-family:Arial,Helvetica,sans-serif;
+                    font-size:12px;'>
+                    <a href='{{app-url}}learningcenter/{{post_name}}' style='
+                        color:#898989;
+                        display:block;
+                        text-decoration:none;'>
+                        {{{post_excerpt}}}
+                    </a>
+                </p>
+                <p style='
+                    color:#898989;
+                    font-family:Arial,Helvetica,sans-serif;
+                    font-size:13px;
+                    margin:.5em 0;'>
+                    <a href='{{app-url}}learningcenter/{{post_name}}' style='
+                        color:#5fa439;
+                        font-weight:bold;
+                        text-decoration:none;'>Read more</a>
+                </p>
+            </td>
+        </tr>
+        {{/learningcenter}}
+<!--#SPACER--><tr><td>&#160;</td></tr><!--/SPACER-->
+    </tbody>
+</table>

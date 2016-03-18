@@ -1,0 +1,58 @@
+<script id="lsearchview-template" type="text/x-handlebars-template">
+<div class="lcArticles">			                                                   
+    <div class="row-fluid">                                                                     
+        <div class="span12 roundTop smallGlow whiteBg">                                                                                       
+            <div class="sectionHeader">       
+                <div class="floatL" style="padding-top:10px">
+                    <span class="add-on"><img src="./ui/images/icon_search.png" alt="FlexScore - Search Icon"></span>
+                </div>
+                <div class="floatL" style="padding-left:5px;">
+                    <h3 style="padding-top:0px">Search&nbsp;Results</h3>                                                                                                     
+                </div>  
+                <div class="floatR" style="padding:10px;"><a href="./reports"><< Back To Report Page</a>
+
+                <div class="clearEverything"></div>                                                                         
+            </div>      	                                                             
+        </div>                                                         
+    </div>
+
+    {{#if items}}
+    <!-- row one -->
+    <div class="row-fluid bevelTop roundBottom mediumGray smallGlow" style="">    		                                                             
+        {{#items}}
+        <div class="span4 tinyGlow learningCenterCard {{#if flexEmail}}readMoreSearch{{/if}}" id="{{id}}RecommendedHead" style="margin-left:18px;">  
+            <div class="actionStepHeader"> 
+                <div class="articleCopy {{#unless images.link}}{{#unless videos.link}}{{#unless youtube.link}}full{{else}}search{{/unless}}{{else}}search{{/unless}}{{else}}search{{/unless}}">                                                                        
+                    {{#if type}}<div class="actionName actionSpecial"><strong>Type:</strong>&nbsp;{{type}}</div>{{/if}}
+                    {{#if accounttype}}<div class="actionName actionSpecial"><strong>Sub-type:</strong>&nbsp;{{accounttype}}</div>{{/if}}
+                    {{#if sum}}<div class="actionName actionSpecial"><strong>Total Balance:</strong>&nbsp;{{sum}}</div>{{/if}}
+                    {{#if average}}<div class="actionName actionSpecial"><strong>Average Balance:</strong>&nbsp;{{average}}</div>{{/if}}
+                    {{#if count}}<div class="actionName actionSpecial"><strong>Number of Accounts:</strong>&nbsp;{{count}}</div>{{/if}}
+                    {{#if usercount}}<div class="actionName actionSpecial"><strong>Users</strong>&nbsp;(Total):&nbsp;{{usercount}}</div>{{/if}}
+                    {{#if assetcount}}<div class="actionName actionSpecial"><strong>Users</strong>&nbsp;(Assets):&nbsp;{{assetcount}}</div>{{/if}}
+                    {{#if debtcount}}<div class="actionName actionSpecial"><strong>Users</strong>&nbsp;(Debts):&nbsp;{{debtcount}}</div>{{/if}}
+                    {{#if insurancecount}}<div class="actionName actionSpecial"><strong>Users</strong>&nbsp;(Insurance):&nbsp;{{insurancecount}}</div>{{/if}}
+                    {{#if flexEmail}}<div class="actionName"><strong>Email:</strong>&nbsp;{{flexEmail}}</div>{{/if}}
+                    {{#if ceEmail}}<div class="actionName"><strong>CE User Email:</strong>&nbsp;{{ceEmail}}</div>{{/if}}
+                    {{#if ceUserId}}<div class="actionName"><strong>CE User ID:</strong>&nbsp;{{ceUserId}}</div>{{/if}}
+                    {{#statusCount}}
+                        <div class="actionName"><strong>{{type}}:</strong>&nbsp;{{count}}</div>
+                    {{/statusCount}}
+                    {{#if modified}}<div class="actionName"><strong>Last Modified:</strong>&nbsp;{{modified}}</div>{{/if}}
+                </div>
+                <div class="clearOnly">&nbsp;</div>
+                <div class="articleSummary">   
+                    <div class="actionName {{#if images.link}}search{{else}}{{#if videos.link}}search{{else}}{{#if youtube.link}}search{{/if}}{{/if}}{{/if}}">{{post_excerpt}}</div>
+                </div>     		                                                                                               
+            </div>
+        </div>
+        {{/items}}
+        <div class="clearEverything">&nbsp;</div>           
+    </div>
+    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    {{else}}
+        <div class="articleContent mediumGray smallGlow round" style="color:#767676">No results found</div>
+    {{/if}}
+</div>
+<div class="clearOnly">&nbsp;</div>
+</script>

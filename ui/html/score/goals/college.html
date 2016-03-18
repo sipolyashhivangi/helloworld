@@ -1,0 +1,239 @@
+<script id="goalscollegegoal-template" type="text/x-handlebars-template">
+<!-- College Goals -->
+{{#unless permission}}
+<div id="{{index}}PriorityDiv" class="priorityIndex">
+{{#if id}}
+<div id="{{id}}DroppableDiv" class="hdn goalDroppableDiv">
+    <div id="{{id}}Droppable" class="droppable allRound goalDroppable">
+    </div>
+    <div id="{{id}}DroppableProfileVSpace" class="profileVSpace">
+    </div>
+</div>
+{{/if}}
+{{/unless}}
+<div id="{{id}}collegeProfileDataBox" class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox {{#if id}}draggable goalDraggable{{/if}}">
+    <div id="{{id}}collegeAccordionHeader" class="accordion-heading profileDataboxPadding arw-wrapper collapsed specialCollapseBox" data-toggle="collapse" data-target="#{{id}}collegeCollapseBox">
+        <div class="floatL" style="margin-top: 5px;">
+            <a href="javascript:void(0);" class="accordion-toggle">
+                <div id="{{id}}collegeFAQArrow" class="floatL faqArrow">
+                </div>
+                <span class="profileEmph" id="{{id}}CollegeNameSummary">{{#if id}}{{goalnamesummary}}{{else}}Add Save for College Goal{{/if}}
+                </span>
+                <span id="{{id}}collegeLoading" style="display:none"><img src="./ui/images/bx_loader.gif" style="width:20px;height:20px;" width="20" /></span>
+            </a>
+        </div>
+        {{#unless permission}}
+        <div class="floatR {{#unless id}}hdn{{/unless}}"><span id="{{id}}goalDragcollege" class="goalDrag">&nbsp;</span></div>
+        <div class="clearOnly"></div>
+        {{/unless}}
+    </div>
+    <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}collegeCollapseBox" style="height: 0px;">
+        <div class="profileDataboxPadding profileDatabox2">
+            <div class="floatL" style="width: 70%;">
+                <p>
+                    <span class="profileEmph">Name for this Goal
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}CollegeInputNameSpan">{{goalnamesummary}}</span>
+                        <input type="hidden" value="{{goalname}}" id="{{id}}CollegeInputName">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" class="profileAccName goalName" placeholder="Enter a name" value="{{goalname}}" id="{{id}}CollegeInputName">
+                    {{/unless}}
+
+                </p>
+                <div class="floatL" style="padding-top:10px;">
+                    <span class="profileEmph">College Cost per year
+                    </span>
+                    <br>
+                    <span class="profileEmphDollar">$</span>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}CollegeCostSpan">{{goalincome}}</span>
+                        <input type="hidden" value="{{goalincome}}" id="{{id}}CollegeCost">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter cost" value="{{goalincome}}" id="{{id}}CollegeCost" class="dollaramount">
+                    {{/unless}}
+
+                </div>
+                <div class="floatL" style="padding-top:10px;padding-left:25px">
+                    <span class="profileEmph">Date College Begins
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span id="{{id}}CollegeMonthSpan">
+                        {{#months}}
+                            {{#if collegemonth}}
+                                {{value}} /
+                            {{/if}}
+                        {{/months}}
+                        </span>
+                        <input type="hidden" value="{{#months}}{{#if collegemonth}}{{value}}{{/if}}{{/months}}" id="{{id}}CollegeMonth">
+                    {{/if}}
+                  {{#unless permission}}
+                    <select id="{{id}}CollegeMonth" class="aboutSelectType collegeSelectType">
+                    {{#months}}
+                        <option value="{{value}}" {{#if collegemonth}}selected{{/if}}>{{month}}
+                        </option>
+                    {{/months}}
+                    </select>
+                    {{/unless}}
+                    {{#if permission}}
+                        <span id="{{id}}CollegeYearSpan">
+                         {{#years}}
+                            {{#if collegeyear}}
+                                {{year}}
+                            {{/if}}
+                        {{/years}}
+                        </span>
+                        <input type="hidden" value="{{#years}}{{#if collegeyear}}{{year}}{{/if}}{{/years}}" id="{{id}}CollegeYear">
+                    {{/if}}
+                    {{#unless permission}}
+                        <select id="{{id}}CollegeYear" class="collegeSelectType">
+                        {{#years}}
+                            <option value="{{year}}" {{#if collegeyear}}selected{{/if}}>{{year}}
+                            </option>
+                        {{/years}}
+                        </select>
+                    {{/unless}}
+
+                </div>
+                <div class="floatL" style="padding-top:10px;padding-left:25px">
+                    <span class="profileEmph">Years in College
+                    </span>
+                    <br>
+                    {{#if permission}}
+                        <span class="readOnlyValue profileAccName" id="{{id}}CollegeYrs">{{#if collegeyears}}{{collegeyears}}{{else}}4{{/if}}</span>
+                        <input type="hidden" value="{{#if collegeyears}}{{collegeyears}}{{else}}4{{/if}}" id="{{id}}CollegeYears">
+                    {{/if}}
+                    {{#unless permission}}
+                    <input type="text" placeholder="Enter years" value="{{#if collegeyears}}{{collegeyears}}{{else}}4{{/if}}" id="{{id}}CollegeYears" class="numberamount">
+                    {{/unless}}
+
+                </div>
+                <div class="clearOnly">
+                </div>
+                <div class="floatL" style="padding-top:25px">
+                    <span class="profileEmph">How much have you saved so far?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount" id="{{id}}CollegeSavedSpan">{{saved}}</span>
+                        <input type="hidden" id="{{id}}CollegeSaved" value="{{saved}}" />
+                    </div>
+               </div>
+                <div class="floatL" style="padding-top:25px;padding-left:75px">
+                    <span class="profileEmph">How much do you contribute?
+                    </span>
+                    <div class="infoTip" style="background-size:1025%;background-position:-190px -128px;margin:0">
+                        <!-- info bubble -->
+                        <div style="top:-75px;left:-130px" class="infoBubble">
+                            <div class="inside">
+                                <p>Value is based on what you entered in the Assets section and our FlexScore Goal Logic℠ technology.</p>
+                                <div class="point"></div>
+                            </div>
+                        </div>
+                        <!-- /info bubble -->
+                    </div>
+                    <div style="color:#777;top:-10px;position:relative">
+                        <span class="">$</span><span class="readOnlyValue dollaramount " id="{{id}}CollegeContributionSpan">{{contributions}}</span>
+                        <span class="">per month</span>
+                        <input type="hidden" id="{{id}}CollegeContribution" value="{{contributions}}" />
+                    </div>
+                </div>
+                <div class="clearOnly">
+                </div>
+                <br>
+                <div id="{{id}}myCollegeAccordion" class="myAdvisorContent accordion goalAccordion" style="width:50%">
+                    <div class="row-fluid allRound accordion-group">
+                        <div data-target="#{{id}}myCollegeCollapse" data-toggle="collapse" class="accordion-heading collapsed" style="padding: 10px;">
+                            <a href="javascript:void(0);" class="accordion-toggle">
+                            <div class="floatL faqArrow"></div>
+                            <div class="floatL" style="padding-top:2px">
+                            <strong class="drkGrey">Assumptions</strong></a>
+                            </div>
+                        </div>
+                        <div class="accordion-body mediumGray roundBottom collapse" id="{{id}}myCollegeCollapse" style="height:0px;">
+                            <div class="accordion-inner roundBottom" style="padding-left:35px">
+                                <label>Annual Cost Increase
+                                </label>&nbsp;&nbsp;&nbsp;
+                                {{#if permission}}
+                                    <span class="profileEmph" id="{{id}}CollegeCostIncreaseSpan" style="width:30px;text-align:center;padding-right:2px">{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}5.8{{/if}}</span><span class="profileEmph">%</span>
+                                    <input type="hidden" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}5.8{{/if}}" id="{{id}}CollegeCostIncrease">
+                                {{/if}}
+                                {{#unless permission}}
+                                <span class="profileEmph">
+                                   <input type="text" class="profileAccPercent assumptionsPercent" value="{{#if goalassumptions_1}}{{goalassumptions_1}}{{else}}5.8{{/if}}" id="{{id}}CollegeCostIncrease" style="width:40px;text-align:center;padding-right:2px">&nbsp;%
+                                </span>
+                                {{/unless}}
+                                <div class="clearOnly tenpx">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floatR profileCompleteRight" style="width:25%;height:250px;margin-top:20px">
+                <br>
+                <div id="{{id}}CollegeMonthlyNeedsDiv" style="display:none">
+                    <div class="profileEmph" style="padding-bottom:5px">Amount you'll need to save</div>
+                    &nbsp;&nbsp;$<span id="{{id}}CollegeMonthlyTotal">0</span> per month
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Current savings</div>
+                    &nbsp;&nbsp;$<span id="{{id}}CollegeMonthlyCurrent">0</span> per month
+                    <br>
+                    <br>
+                    <div class="profileEmph" style="padding-bottom:5px">Additional savings needed</div>
+                    &nbsp;&nbsp;<span id="{{id}}colorChange" style="color:#33CC00">$<span id="{{id}}CollegeMonthlyNeeds">0</span> per month</span>
+                </div>
+            </div>
+            <div class="clearOnly">
+            </div>
+            <br>
+            {{#unless permission}}
+            <hr>
+            {{/unless}}
+            <input type="hidden" id="{{id}}collegeSaveNeeded" class="saveNeeded" value="false" />
+            <button id="{{id}}CollegeCalculateButton" style="display:none" type="button" class="lsPillBtnGreen btn btn-success calculateCollegeButton calculateGoalButton">&nbsp;Update Goal&nbsp;</button>
+            {{#unless permission}}
+            {{#if id}}
+            <div class="floatL">
+                <button id="{{id}}UpdateCollegeButton" style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success updateCollegeButton">&nbsp;Update Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="{{id}}CancelCollegeButton" class="cancelCollegeButton"href="#">Cancel</a>
+            </div>
+            <div class="floatR profileFootLinks">
+                <a id="{{id}}DeleteGoalButtoncollege" class="deleteGoalButton" href="#">Delete Goal</a>
+            </div>
+            {{else}}
+            <div class="floatL">
+                <button style="width: 140px; margin-top: 3px" type="button" class="lsPillBtnGreen btn btn-success createCollegeButton">&nbsp;Add Goal&nbsp;</button>
+            </div>
+            <div class="floatL profileFootLinks">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="collegeRemoveNewGoalButton" class="removeNewGoalButton" href="#">Cancel</a>
+            </div>
+            {{/if}}
+            {{/unless}}
+            <div class="clearOnly">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="{{id}}collegeProfileVSpace" class="profileVSpace">
+</div>
+{{#unless permission}}
+</div>
+{{/unless}}
+</script>

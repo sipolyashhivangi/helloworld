@@ -1,0 +1,556 @@
+<script id="lsummaryview-template" type="text/x-handlebars-template">
+    <!-- this template is using for learning center -->
+    {{#if action}}
+    <div class="container">
+    <div class="lcSearch floatR hidden-phone">                                                             
+    <div class="control-group">                                                                          
+    <div class="controls">                                                                                         
+    <div class="input-append">                                                                                                       
+    <input class="span3" id="inputIcon" type="text" placeholder="Search">                                                                                                        
+    <span class="add-on">                                                                                          
+    <a href="#" class="searchBtnHome" id="{{searchurl}}-link">                                                                                                    
+    <img alt="" src="./ui/images/icon_search.png" id="{{searchurl}}-image">
+    </a>                                                                                
+    </span>                                                                                        
+    </div>                                                                           
+    </div>                                                             
+    </div>                                               
+    </div>                                             
+    <!-- spacer for phones -->                                                 
+    <div class="visible-phone" style="height: 20px">&nbsp;                                         
+    </div>                     
+    <!-- recommended reading -->   
+    <!-- beginning articles -->                                                  
+    {{#if recoposts}}
+    <div class="lcArticles">                                                               
+    <div class="row-fluid">                                                                     
+    <div class="span12 roundTop smallGlow whiteBg">                                                                                       
+    <div class="sectionHeaderls">                                                                                                               
+    <div class="lcReading">                                                                                                    
+    <div class="financialDivls">
+    {{#compare searchurl "blogsearch" operator="=="}}
+    <h3>Latest&nbsp;News</h3>       
+    {{else}}
+    <h3>Recommended&nbsp;Reading</h3>       
+    {{/compare}}                                                                                              
+    </div>                                                                                          
+    </div>                                                                                     
+    </div>                                                                       
+    </div>                                                         
+    </div>   
+
+    <!-- row one -->
+    <div class="row-fluid bevelTop roundBottom mediumGray smallGlow" style="">                                                                       
+    {{#recoposts}}
+    <div class="span3 tinyGlow learningCenterCard readMoreSummary" id="{{post_id}}RecommendedHead" style="margin-left: 18px">                                                                                      
+    <div class="actionStepHeader">
+    {{#if images.link}}
+    <div class="cardImage"> 
+    <img alt="FlexScore - {{post_title}}" src="{{images.link}}">   
+    </div>  
+    {{else}}
+    {{#if videos.link}}
+    <div class="cardImage">
+    <video poster={{videos.link}} width="100%" height="100%" controls>
+    <source src="{{videos.link}}" type="video/{{videos.ext}}">
+    Your browser does not support the video tag.
+    </video>
+    </div>
+    {{else}}
+    {{#if youtube.link}}
+    <div class="cardImage">
+    <img alt="FlexScore - {{post_title}}" src="https://img.youtube.com/vi/{{youtube.link}}/0.jpg">
+    <div class="playButton">
+    <img alt="FlexScore - Play Icon" src="./ui/images/purplePlay.svg" width="40" style="width:40px !important;">
+    </div>
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    <div class="articleCopy {{#unless images.link}}{{#unless videos.link}}{{#unless youtube.link}}full{{else}}short{{/unless}}{{else}}short{{/unless}}{{else}}short{{/unless}}">                                                                        
+    <div class="actionName">{{categoryname}}</div>
+    <h3>{{post_title}}</h3>
+    </div>
+    <div class="clearOnly">&nbsp;</div>
+    <div class="articleSummary">   
+    <div class="actionName {{#if images.link}}short{{else}}{{#if videos.link}}short{{else}}{{#if youtube.link}}short{{/if}}{{/if}}{{/if}}">{{post_excerpt}}</div>
+    <div class="actionStepCTA"><a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}RecommendedLink" class="readMoreSummary" name="RecommendedLink">Read more</a></div>
+    </div>                                                                                                         
+    </div>
+    </div>
+    {{/recoposts}}
+
+    {{#if recopostsmore}}
+    <div id="row2" class="hdn">                                                                                                        
+    {{#recopostsmore}}
+    <div class="span3 tinyGlow learningCenterCard readMoreSummary" id="{{post_id}}RecommendedHead" style="margin-left: 18px" >  
+    <div class="actionStepHeader"> 
+    {{#if images.link}}
+    <div class="cardImage"> 
+    <img alt="FlexScore - {{post_title}}" src="{{images.link}}">   
+    </div>  
+    {{else}}
+    {{#if videos.link}}
+    <div class="cardImage">
+    <video poster={{videos.link}} width="100%" height="100%" controls>
+    <source src="{{videos.link}}" type="video/{{videos.ext}}">
+    Your browser does not support the video tag.
+    </video>
+    </div>
+    {{else}}
+    {{#if youtube.link}}
+    <div class="cardImage">
+    <img alt="FlexScore - {{post_title}}" src="https://img.youtube.com/vi/{{youtube.link}}/0.jpg">
+    <div class="playButton">
+    <img alt="FlexScore - Play Icon" src="./ui/images/purplePlay.svg" width="40" style="width:40px !important;">
+    </div>
+
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    <div class="articleCopy {{#unless images.link}}{{#unless videos.link}}{{#unless youtube.link}}full{{else}}short{{/unless}}{{else}}short{{/unless}}{{else}}short{{/unless}}">                                                                        
+    <div class="actionName">{{categoryname}}</div>
+    <h3>{{post_title}}</h3>
+    </div>
+    <div class="clearOnly">&nbsp;</div>
+    <div class="articleSummary">   
+    <div class="actionName {{#if images.link}}short{{else}}{{#if videos.link}}short{{else}}{{#if youtube.link}}short{{/if}}{{/if}}{{/if}}">{{post_excerpt}}</div>
+    <div class="actionStepCTA"><a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}RecommendedLink" class="readMoreSummary" name="RecommendedLink">Read more</a></div>
+    </div>                                                                                                         
+    </div>
+    </div>
+    {{/recopostsmore}}
+    <div style="text-align: center">                                   
+    <div class="clearEverything">&nbsp;</div>
+    <button class="btn" type="button" onclick="$('#row2').hide(); $('#showBttn').show();">See Fewer Recommendations                                                                                 
+    </button>                                                                                          
+    </div>                                                                           
+    </div>
+    <div id="showBttn" style="text-align: center">
+    <div class="clearEverything">&nbsp;</div>
+    <button class="btn" type="button" onclick="$('#row2').show(); $('#showBttn').hide();">See More Recommendations</button>
+    </div>                                   
+    {{/if}}                                       
+    <div class="clearEverything">&nbsp;                                                             
+    </div>           
+    </div>
+    </div>
+    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    {{/if}}
+
+    <div class="clearEverything">&nbsp;                                         
+    </div>          
+
+    {{#if topics}}
+    <div class="row-fluid">                                                                
+    <div class="span12 roundTop smallGlow whiteBg">                                                                                 
+    <div class="sectionHeaderls">                                                                                                        
+    <div class="lcTopics">                                                                                          
+    <div class="financialDivls">
+    <h3>Topics</h3>                                                                                       
+    </div>                                                                                
+    </div>                                                                                
+    </div>                                                                 
+    </div>                                                   
+    </div>      
+
+    <div class="row-fluid roundBottom">                                                                
+    <div class="span12 smallGlow roundBottom">                                                                               
+    <div class="topics list_carousel responsive roundBottom" >                                                                                             
+    <ul id="foo6" style="left: 0">                                                                                                           
+    {{#topics}}
+    <li>                                                                                                                 
+    <div class="round smallGlow lcCarImageDiv">                                                                                                                            
+    <div style="height: 220px; background: {{background}}">                                                                                                                                          
+    <img alt="" style="{{style}}" src="{{source}}" />                                                                                          
+    </div>
+    <h3>{{name}}</h3>                                                                                                                
+    </div>                                                                                                               
+    <div class="darkGray round smallGlow carLinks hdn">                                                                                                                            
+    <div class="roundTop links">                                                                                                                                             
+    <div class="actionName" style="padding-top: 5px">Featured Articles                                                                                                     
+    </div>                                                                                                                                           
+    <table>     
+    {{#articles}}                                                                                                                                                   
+    <tr>
+    <td>                                                                                                                                  
+    <a class="closeArrow" id="{{post_id}}TopicsCloseLink" href="{{baseUrl}}/{{post_url}}/{{post_name}}">&nbsp;</a>
+    </td>
+    <td>                                                                                                                                  
+    <a id="{{post_id}}TopicsArticLink" href="{{baseUrl}}/{{post_url}}/{{post_name}}">{{post_title}}</a>
+    </td>                                                                                                                                                          
+    </tr>       
+    {{/articles}}                                                                                                                                                  
+    </table>                         
+    <div class="lcVideoFooter">                                                                                                                        
+    <a href="{{baseUrl}}/{{post_url}}/{{id}}" id="{{id}}CategoryLink" class="clickCatSummary">See all</a>                                                                                                              
+    </div>
+    </div>                                                                                                                             
+    <div class="lightGray roundBottom">                                                                                                                                          
+    <div style="margin-left:-5px; margin-top:-1px"><h3>{{name}}</h3>                                                                                                              
+    </div>                                                                                                                             
+    </div>                                                                                                               
+    </div>                                                                                                           
+    </li>
+    {{/topics}}
+    </ul>
+    <div class="clearfix">
+    </div>
+    <div id="pager_container2" class="pagerCar">                                                                      
+    </div>                                                                               
+    </div>                                                                 
+    </div>                                                   
+    </div>                                                           
+    <div class="vSpace25">&nbsp;                                         
+    </div>
+    {{/if}}
+
+    {{#if featvideos}}
+    <div class="row-fluid">                                                                
+    <div class="span12 roundTop smallGlow whiteBg">                                                                                 
+    <div class="sectionHeaderls">                                                                                                         
+    <div class="lcVideos">                                                                                          
+    <div class="financialDivls" >
+    <h3 style="width: 90%">Videos</h3>
+    </div>
+    </div> 
+    <div class="floatR" style="width: 70px; margin-top: 10px; margin-right: 0px; padding: 0; font-family: arial; font-weight: bold; font-size: 14px">
+    <a href="type=video"></a>
+    </div>
+    <div class="clearOnly">&nbsp;</div>                                                                               
+    </div>                                                                 
+    </div>                                                   
+    </div>                                                   
+    <div class="row-fluid roundBottom">                                                                
+    <div class="span12 smallGlow roundBottom">                                                                               
+    <div class="list_carousel responsive lightGray roundBottom">                                                                                               
+    <ul id="foo5" style="left: 0">  
+    {{#featvideos}}
+    {{#videos}}
+    <li>
+    <div class="span3 tinyGlow learningCenterCard readMoreSummary" id="{{post_id}}FeaturedVidHead">
+    <div class="actionStepHeader">    
+    {{#if source}}                                
+    <div class="cardImage">
+    <video poster="{{source}}" width="208" height="140" controls>
+    <source src="{{source}}" type="video/{{ext}}">
+    Your browser does not support the video tag.
+    </video>
+    </div>                 
+    {{/if}}
+    <div class="actionName">{{categoryname}}</div>
+    <h3>{{post_title}}</h3>
+    <div class="actionName short">{{post_excerpt}}</div>
+    <div class="actionStepCTA">
+    <a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}FeaturedVidLink" class="readMoreSummary" name="FeaturedVidLink">Read more</a>
+    </div>
+    </div>
+    </div>
+    </li>
+    {{/videos}}
+    {{#youtube}}
+    <li>
+    <div class="span3 tinyGlow learningCenterCard readMoreSummary" id="{{post_id}}FeaturedVidHead" >
+    <div class="actionStepHeader videoHeader">
+    {{#if source}}                                
+    <div class="cardImage videoImage">
+    <img alt="FlexScore - {{post_title}}" src="https://img.youtube.com/vi/{{source}}/0.jpg">
+    <div class="playButton">
+    <img alt="FlexScore - Play Icon" src="./ui/images/purplePlay.svg" width="40" style="width:40px !important;">
+    </div>
+    </div>
+    {{/if}}
+    <div class="actionName">{{categoryname}}</div>
+    <h3>{{post_title}}</h3>
+    <!-- <div class="actionName short">{{post_excerpt}}</div> -->
+    <div class="actionStepCTA">
+    <a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}FeaturedVidLink" class="readMoreSummary" name="FeaturedVidLink">Read more</a>
+    </div>
+    </div>
+    </div>
+    </li>
+    {{/youtube}}
+    {{/featvideos}}                       
+    </ul>
+    <div class="clearfix">                                                                      
+    </div>                                                                                             
+    <div id="pager_container" class="pagerCar">                                                                      
+    </div>                                                                               
+    </div>                                                                 
+    </div>                                                   
+    </div>                                                   
+    {{#compare searchurl "search" operator="=="}}
+    <div class="vSpace25">&nbsp;                                         
+    </div>
+    {{/compare}}
+    {{/if}}
+
+    {{#compare searchurl "search" operator="=="}}
+    <div class="row-fluid">                                                                
+    <div class="span12 roundTop smallGlow whiteBg">                                                                          
+    <div class="span12 roundTop smallGlow whiteBg">                                                                                           
+    <div class="sectionHeaderls">                                                                                                                   
+    <div class="lcGlossary">                                                                                                    
+    <div class="financialDivls">
+    <h3>Financial&nbsp;Glossary  </h3>                                                                                                    
+    </div>                                                                                          
+    </div>                                                                                          
+    </div>                                                                           
+    </div>                                                             
+    </div>
+    <div  id="glossaryIndex" class="span12 mediumGray bevelTop roundBottom smallGlow glossaryIndex" style="text-align: center; padding: 10px; padding-bottom: 0; padding-top: 0; margin-left: 0">                                                                                    
+    <br>                                                                                     
+    <span id="numGlossaryInactive" class="articleNavOn hdn"><b>#</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="numGlossaryActive"><a id="#" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/0">#</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="AGlossaryInactive" class="articleNavOn hdn"><b>A</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="AGlossaryActive"><a id="A" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/A">A</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="BGlossaryInactive" class="articleNavOn hdn"><b>B</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="BGlossaryActive"><a id="B" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/B">B</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="CGlossaryInactive" class="articleNavOn hdn"><b>C</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="CGlossaryActive"><a id="C" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/C">C</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="DGlossaryInactive" class="articleNavOn hdn"><b>D</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="DGlossaryActive"><a id="D" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/D">D</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="EGlossaryInactive" class="articleNavOn hdn"><b>E</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="EGlossaryActive"><a id="E" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/E">E</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="FGlossaryInactive" class="articleNavOn hdn"><b>F</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="FGlossaryActive"><a id="F" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/F">F</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="GGlossaryInactive" class="articleNavOn hdn"><b>G</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="GGlossaryActive"><a id="G" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/G">G</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="HGlossaryInactive" class="articleNavOn hdn"><b>H</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="HGlossaryActive"><a id="H" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/H">H</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="IGlossaryInactive" class="articleNavOn hdn"><b>I</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="IGlossaryActive"><a id="I" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/I">I</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="JGlossaryInactive" class="articleNavOn hdn"><b>J</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="JGlossaryActive"><a id="J" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/J">J</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="KGlossaryInactive" class="articleNavOn hdn"><b>K</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="KGlossaryActive"><a id="K" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/K">K</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="LGlossaryInactive" class="articleNavOn hdn"><b>L</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="LGlossaryActive"><a id="L" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/L">L</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="MGlossaryInactive" class="articleNavOn hdn"><b>M</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="MGlossaryActive"><a id="M" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/M">M</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="NGlossaryInactive" class="articleNavOn hdn"><b>N</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="NGlossaryActive"><a id="N" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/N">N</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="OGlossaryInactive" class="articleNavOn hdn"><b>O</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="OGlossaryActive"><a id="O" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/O">O</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="PGlossaryInactive" class="articleNavOn hdn"><b>P</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="PGlossaryActive"><a id="P" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/P">P</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="QGlossaryInactive" class="articleNavOn hdn"><b>Q</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="QGlossaryActive"><a id="Q" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/Q">Q</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="RGlossaryInactive" class="articleNavOn hdn"><b>R</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="RGlossaryActive"><a id="R" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/R">R</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="SGlossaryInactive" class="articleNavOn hdn"><b>S</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="SGlossaryActive"><a id="S" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/S">S</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="TGlossaryInactive" class="articleNavOn hdn"><b>T</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="TGlossaryActive"><a id="T" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/T">T</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="UGlossaryInactive" class="articleNavOn hdn"><b>U</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="UGlossaryActive"><a id="U" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/U">U</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="VGlossaryInactive" class="articleNavOn hdn"><b>V</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="VGlossaryActive"><a id="V" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/V">V</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="WGlossaryInactive" class="articleNavOn hdn"><b>W</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="WGlossaryActive"><a id="W" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/W">W</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="XGlossaryInactive" class="articleNavOn hdn"><b>X</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="XGlossaryActive"><a id="X" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/X">X</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="YGlossaryInactive" class="articleNavOn hdn"><b>Y</b>&nbsp;&nbsp;|&nbsp;</span>                                                                               
+    <span id="YGlossaryActive"><a id="Y" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/Y">Y</a>&nbsp;&nbsp;|&nbsp;</span>
+    <span id="ZGlossaryInactive" class="articleNavOn hdn"><b>Z</b></span>                                                                               
+    <span id="ZGlossaryActive"><a id="Z" class="articleNavOff glossarySummary" href="{{baseUrl}}/glossary/Z">Z</a></span>
+    <br>&nbsp;
+    </div>
+    </div>
+    {{/compare}}                                                                                              
+
+    <div class="row-fluid">                                                                   
+    <div class="vSpace">&nbsp;                                                   
+    </div>                                                           
+    <!-- contact support -->                                                                    
+    <div class="row-fluid">                                                                      
+    <div class="span12">                                                                                   
+    <div class="contactSupport allRound">                                                                                                                                                                                                                   
+    <div class="csText floatL">                                                                                                                                                              
+    <span>Need help?                                                                                                                          
+    </span>
+    </div> 
+    <button id="supportLCBtn" type="submit" onclick="javascript:window.location = 'mailto:support@flexscore.com';return false;" class="lsPillBtnGreen btn btn-success">&nbsp;Contact Support&nbsp;</button>             
+    </div>                                                                       
+    </div>                                                           
+    </div>                                                                                                                                                    
+    <div class="clearEverything tenpx">&nbsp;                                                                                                                              
+    </div>                                                                                                            
+    </div>                           
+    </div>
+
+    {{/if}}  
+    <!---end of learning center template --->
+    
+    
+
+    <!--Start of Separate Blog Template. Later we will create a separate handlebar template for blog page           -->
+
+    {{#if getLatestArticles}}
+	<div class="navSpacer">&nbsp;</div>
+    <div class="container">
+    <div class="row">
+    <div class="floatL">
+    <!-- beginning articles -->                                                  
+
+    <div class="lcArticles articles">                                                              
+
+    {{#getLatestArticles}}  
+    {{#compare @index "0" operator=">"}}<br>{{/compare}}    
+    <div id="{{post_id}}FeaturedVidHead" class="span9 round lightGray smallGlow readMoreSummary" style="margin-left:0px;margin-right:0px">
+        <div class="articleContent" id="{{post_id}}ArticleContent">
+            <p>
+            {{#categories}}{{#compare @index "0" operator=">"}}, {{/compare}}<a href="{{baseUrl}}/blogcategory/{{categoryslug}}" id="{{post_id}}FeaturedVidLink" class="readMoreSummary categoryLink" name="FeaturedVidLink">{{categoryname}}</a>{{/categories}}
+            </p>
+            <h1 class="smallerHeader">{{post_title}}</h1>
+            <div class="clearEverything">&nbsp;</div>
+                {{#if images.link}}
+                    <div>
+                        <img alt="" src="{{images.link}}" style="width:100%">
+                    </div>
+                    <br>
+                {{/if}}
+                {{#if youtube.link}}
+                    <div class="videoContainer">
+                        <iframe {{#if showSandbox}}sandbox="allow-scripts allow-same-origin"{{/if}} width="560" height="315" src="https://www.youtube.com/embed/{{youtube.link}}?autoplay=0&amp;rel=0&amp;autohide=1&amp;wmode=transparent&amp;showinfo=0{{#if showSandbox}}&amp;html5=1{{/if}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <br>
+                {{/if}}
+                        <div class="floatL" style="padding-top:15px;">{{posted_date}} / By {{display_name}} </div>
+            <div class="floatR" id="{{post_id}}shareDiv"></div>
+            <div class="clearEverything">&nbsp;</div>
+            <div class="entry-content">
+                {{{post_excerpt}}}
+            </div>
+             {{#if relatedarticle}}
+            <div class="clearEverything">&nbsp;</div>
+            <p class="regBold">Related Articles</p>
+            <ul class="grnList">
+                 {{#relatedarticle}}
+                 <li><a href="{{post_url}}/{{post_name}}">{{post_title}}</a></li>
+                 {{/relatedarticle}}
+             </ul>
+             {{/if}}
+            <div class="actionStepCTA">
+                <a href="{{baseUrl}}/{{post_url}}/{{post_name}}" id="{{post_id}}FeaturedVidLink" class="readMoreSummary" name="FeaturedVidLink">Read more</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearOnly"></div>
+    <br>        
+    {{/getLatestArticles}}
+	</div>
+    <!-- end articles -->                                                                                                                                                                                                                                                                                                                                                                      
+    </div>
+
+    <div style="width:150px" class="floatL">     
+                <div class="span3 round lightGray smallGlow"  style="width:220px;"><!-- left column -->
+                    <div class="articleNavls">
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span2" id="inputIcon" type="text" placeholder="Search" style="width:150px">
+                                    <span class="add-on searchBtnHome" id="{{searchurl}}-link"><img alt="" src="./ui/images/icon_search.png" id="{{searchurl}}-image"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="articleNavHdr">Topics</span>
+                        <ul>
+                            {{#categories}}
+                            <li id="{{categoryId}}CategoryListActive" class="articleNavOn hdn">
+                                {{categoryName}}
+                            </li>
+                            <li id="{{categoryId}}CategoryListInActive"  class="articleNavOff">
+                                <a href="{{baseUrl}}/{{post_url}}/{{categorySlug}}" class="lcTopicsLink clickCatPost" id="{{categoryId}}CategoryLink">{{categoryName}}</a>
+                            </li>
+                            {{/categories}}
+                        </ul>
+                        <div class="clearEverything">&nbsp;</div>
+                        <!--- Share Buttons-->
+                        <h3>Connect With Us</h3>
+                        <div style="width:85%">
+                            <div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:5px">
+                                <a target="_blank" href="https://facebook.com/flexscore" class="facebookPage">
+                                    <img width="32" alt="FlexScore Facebook Page" src="./ui/images/facebook.png" title="Check out our Facebook Page" style="width:32px;">
+                                </a>
+                            </div>
+                            <div class="floatL" style="padding-left:5px;padding-right:5px">
+                                <a target="_blank" href="https://twitter.com/flexscore" class="twitterPage">
+                                    <img width="50" alt="FlexScore Twitter Page" src="./ui/images/twitter.png" title="Check out our Twitter Page" style="width:50px;">
+                                </a>
+                            </div>
+                            <div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:5px">
+                                <a target="_blank" href="https://plus.google.com/105392538218647163512" class="googleplusPage">
+                                    <img width="32" alt="FlexScore Google+ Page" src="./ui/images/googleplus.jpg" title="Check out our Google+ Page" style="width:32px;">
+                                </a>
+                            </div>
+                            <div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:15px">
+                                <a target="_blank" href="https://youtube.com/flexscoretv" class="youtubePage">
+                                    <img width="32" alt="FlexScore YouTube Channel" src="./ui/images/youtube.png" title="Check out our YouTube Channel" style="width:32px;">
+                                </a>
+                            </div>
+                            <div class="floatL" style="padding-top:10px;padding-left:5px;padding-right:10px">
+                                <a target="_blank" href="https://pinterest.com/flexscore" class="pinterestPage">
+                                    <img width="35" alt="FlexScore Pinterest Page" src="./ui/images/pinterest.png" title="Check out our Pinterest Page" style="width:35px;">
+                                </a>
+                            </div>
+                            <div class="floatL" style="padding-top:10px;padding-left:10px;padding-right:0px">
+                                <a target="_blank" href="http://www.linkedin.com/company/3066612" class="linkedinPage">
+                                    <img width="35" alt="FlexScore LinkedIn Page" src="./ui/images/linkedin.png" title="Check out our LinkedIn Page" style="width:35px;">
+                                </a>
+                            </div>
+                            <div class="clearEverything" style="padding-top:25px"></div>
+                        </div>
+                        <!--Add Recommended Articles-->                            
+                        {{#if recoposts}}
+                            <h3 style="line-height:25px">Recommended&nbsp;Reading</h3>
+                                <ul class="recomList" style="padding-left:0px;">
+                                {{#recoposts}}
+                                <li class="item">                            
+                                    <a href="{{post_url}}/{{post_name}}">{{post_title}}</a>
+                                    <a href="category/{{categoryslug}}" style="font-size:0.8em;color:#3E3E3E">{{categoryname}} / {{posted_date}}</a>
+                                </li>
+                                {{/recoposts}}
+                            </ul>
+                            <div style="padding-bottom:10px"></div>
+                        {{/if}}                           
+                        <!--Recommended Articles End-->
+                    </div>
+                </div>                
+                <div class="clearEverything">&nbsp;</div>
+                
+                {{#compare checklogin "not_loggedin" operator="=="}}
+                <!---purple signup for blog-->              
+                <button type="button" class="lsPillBtnGreen btn btn-success signupPopup" id="signupPopupButton" style="display:none">&nbsp;See your FlexScore Now: Sign Up for Free&nbsp;</button>  
+                <div id="signupbox" class="span3 round" style="position: relative;height:330px;width:220px">
+                    <div style="text-align: center; width: 100%">               
+                        <h3 style="font-size:1.20em;color:#FFFFFF">Create Your Free Account</h3>
+                        <div id="bottomSignUpDiv" style="text-align: center; width: 100%; margin: 0 auto; margin-top:-10px">   
+                        </div>          
+                    </div>      
+                </div>                     
+                <!--end purple signup for blog-->
+                {{/compare}}                 
+    </div>
+    <div class="clearEverything">&nbsp;</div>           
+    </div>
+    <!-- contact support -->                                                                    
+    <div class="row-fluid">                                                                      
+    <div class="span12">                                                                                   
+    <div class="contactSupport allRound">                                                                                                                                                                                                                   
+    <div class="csText floatL">                                                                                                                                                              
+    <span>Need help?                                                                                                                          
+    </span>
+    </div> 
+    <button id="supportLCBtn" type="submit" onclick="javascript:window.location = 'mailto:support@flexscore.com';return false;" class="lsPillBtnGreen btn btn-success">&nbsp;Contact Support&nbsp;</button>             
+    </div>                                                                       
+    </div>                                                           
+    </div>                  
+    </div>
+    <br>
+    {{/if}}  
+
+
+    <!-- End of Blog Template -->
+</script>

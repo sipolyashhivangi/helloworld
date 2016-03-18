@@ -1,0 +1,67 @@
+<script id="connectsearch-template" type="text/x-handlebars-template">
+   
+    <div class="clear">&nbsp;</div>
+
+    
+    <div class="profileDataEntry" style="padding-bottom:20px">
+   
+    <div class="row-fluid allRound accordion-group smallGlow lightGray profileDatabox">	                                                                                                                         
+    <div class="accordion-heading profileDataboxPadding arw-wrapper" style="cursor:auto">                                      
+    <span class="profileEmphDollar" id="connectTitle">Connect An Account</span>
+    <div id="currentFIURL" class="currentFIURL" style="top:5px;position:relative;display:none"></div>
+    </div>                                                                                                                          
+    <div class="accordion-body mediumGray roundBottom" style="height: auto;">                                    
+    <div id="connectDesc" class="profileDataboxPadding profileDatabox2">
+    <form class="formProfileAssets" id="search-item">
+    {{#if comingsoon}}
+    <div style="color:#666;padding:10px 0px">Connect Accounts is coming soon! In the meantime, please click on one of the tabs on the left to complete your profile.                                                       
+    </div>                                                                            		
+    {{else}}                    	
+    <p>                                                        
+    <span class="advisorName" style="color:#333">Search for an account                                                         
+    </span>                                                        
+    <br>							                                                         
+    <input type="text" class="profileAccName" placeholder="Bank" id="search">                                                  
+    <a href="#" class="searchButton" id="searchButton">
+    <img alt="" src="./ui/images/icon_search.png">
+    </a>
+    </p>
+    <div>
+    <div id="popularAccounts">
+    <span class="advisorName" style="color:#333;">Popular Searches:                                                         
+    </span>                                                        
+    <br>							                                                         
+    <div id="popularResults" style="padding-top:5px">
+    <div class="floatL" style="width:50%">
+    {{#popularAccountsLeft}}
+    <div style="width:90%;padding-top:5px">
+    <a class="searchPopular" href="#">{{name}}</a>
+    </div> 
+    {{/popularAccountsLeft}}
+    </div>
+    <div class="floatL" style="width:50%">
+    {{#popularAccountsRight}}
+    <div style="width:90%;padding-top:5px">
+    <a class="searchPopular" href="#">{{name}}</a>
+    </div> 
+    {{/popularAccountsRight}}
+    </div>
+    <div style="line-height:50px;text-align:right">
+    You can view <a href="./faqs#connectingAccounts" target="_blank">FAQ</a>.
+    </div>
+    <div class="clearOnly" style="padding-top:5px"></div>
+    </div>
+    </div>
+    <div id="searchAccounts" style="display:none">
+    <div id="connWait" style="display:none">
+    </div>
+    </div>
+    </div>
+    {{/if}}
+    </form>
+    </div>  
+    </div>
+    </div>
+    </div>
+    
+</script>

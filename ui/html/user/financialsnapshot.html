@@ -1,0 +1,357 @@
+<script id="userfinancialsnapshot-template" type="text/x-handlebars-template">
+    <input type="hidden" id="currentPage" value="financialsnapshot" />
+    <div class="topSection">
+        <div class="col300" style="float: left">
+            <div class="col300 round smallGlow vPad" style="float: left;">
+                <div class="lightGray roundTop bevelBottom">
+                    <div class="sectionHeader">
+                        <h3>
+                            <div class="financialScore" style="background:none">
+                                <div class="financialDiv">Financial&nbsp;Details
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+                <!-- cash -->
+                <div class="mediumGray bevelBoth myScoreTopicDiv" id="cashHeader">
+                    <div class="financialCoins" style="margin-left: 10px; float: left;">
+                    </div>
+                    <div class="fsMSTitle">Cash&nbsp;&nbsp;
+                        <a id="closeCash" class="closeArrow lower" href="#">&nbsp;</a>
+                    </div>
+                    <div class="floatR fsMSValue">
+                        <a id="addCash" class="addAssets" href="#">Add</a>
+                        <span id="cashSummarySpan">{{cashTotalForShow}}</span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+                <div id="cashSummary">
+                    {{#cash}}
+                    {{#compare status 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn cashHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a id="{{id}}addAssetsCashName" class="addAssets" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="{{id}}addAssetsCashAmount" class="addAssets" href="#">
+                                {{amountSummaryForShow}}
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/cash}}
+                    {{#if cash}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn cashHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addAssetsCashAmount" class="addAssets" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                <!-- debts -->
+                <div class="mediumGray bevelBoth myScoreTopicDiv" id="debtHeader">
+                    <div class="financialDebt" style="margin-left: 10px; float: left;">
+                    </div>
+                    <div class="fsMSTitle">Debts&nbsp;&nbsp;
+                        <a id="closeDebts" class="closeArrow lower" href="#">&nbsp;</a>
+                    </div>
+                    <div class="floatR fsMSValue">
+                        <a id="addDebts" class="addDebts" href="#">Add</a>
+                        <span id="debtSummarySpan">{{debtTotalForShow}}</span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+                <div id="debtsSummary">
+                    {{#debts}}
+                    {{#compare status 0 operator="=="}}
+                    {{#compare monthly_payoff_balances 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn debtHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a  id="{{id}}addDebtsName" class="addDebts" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a  id="{{id}}addDebtsAmount" class="addDebts" href="#">
+                                {{amountSummaryForShow}}
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/compare}}
+                    {{/debts}}
+                    {{#if debts}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn debtHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addDebtsAmount" class="addDebts" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="mediumGray bevelBoth myScoreTopicDiv" id="investHeader">
+                    <div class="financialInvestments" style="margin-left: 10px; float: left;">
+                    </div>
+                    <div class="fsMSTitle">Investments
+                        <a id="closeInvestments" class="closeArrow lower" href="#">&nbsp;</a>
+                    </div>
+                    <div class="floatR fsMSValue">
+                        <a id="addInvestments" class="addAssets" href="#">Add</a>
+                        <span id="investmentsSummarySpan">{{investmentTotalForShow}}</span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+                <div id="investmentSummary">
+                    {{#investment}}
+                    {{#compare status 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn investHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a  id="{{id}}addAssetsInvestmentName" class="addAssets" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a  id="{{id}}addAssetsInvestmentAmount" class="addAssets" href="#">
+                                {{amountSummaryForShow}}
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/investment}}
+                    {{#if investment}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn investHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addAssetsInvestmentAmount" class="addAssets" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="mediumGray bevelBoth myScoreTopicDiv" id="otherHeader">
+                    <div class="financialGrowth" style="margin-left: 10px; float: left;">
+                    </div>
+                    <div class="fsMSTitle">Assets
+                        <a id="closeOther" class="closeArrow lower" href="#">&nbsp;</a>
+                    </div>
+                    <div class="floatR fsMSValue">
+                        <a id="addOther" class="addAssets" href="#">Add</a>
+                        <span id="otherSummarySpan">{{otherTotalForShow}}</span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+                <div id="otherSummary">
+                    {{#other}}
+                    {{#compare status 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn otherHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a id="{{id}}addAssetsOtherName" class="addAssets" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="{{id}}addAssetsOtherAmount" class="addAssets" href="#">
+                                {{amountSummaryForShow}}
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/other}}
+					{{#silent}}
+                    {{#compare status 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn otherHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a id="{{id}}addAssetsSilentName" class="addAssets" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="{{id}}addAssetsSilentAmount" class="addAssets" href="#">
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/silent}}
+                    {{#if other}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn otherHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addAssetsOtherAmount" class="addAssets" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{else}}
+                    {{#if silent}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn otherHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addAssetsSilentAmount" class="addAssets" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                </div>
+                <div class="mediumGray bevelTop myScoreTopicDiv" id="insureHeader">
+                    <div class="financialInsurance" style="margin-left: 10px; float: left;">
+                    </div>
+                    <div class="fsMSTitle">Insurance
+                        <a id="closeInsurance" class="closeArrow lower" href="#">&nbsp;</a>
+                    </div>
+                    <div class="floatR fsMSValue">
+                        <a id="addInsurance" class="addInsurance" href="#">Add</a>
+                        <span id="insuranceSummarySpan">{{insuranceTotalForShow}}</span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+                <div id="insuranceSummary">
+                    {{#insurance}}
+                    {{#compare status 0 operator="=="}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn insureHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                            <a id="{{id}}addInsuranceName" class="addInsurance" href="#">
+                                {{nameSummary}}
+                            </a>
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="{{id}}addInsuranceAmount" class="addInsurance" href="#">
+                                {{amountSummaryForShow}}
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/compare}}
+                    {{/insurance}}
+                    {{#if insurance}}
+                    <div class="darkGray bevelBoth myScoreTopicDiv hdn insureHeaderDetails">
+                        <div class="fsMSDetailsTitle">
+                        </div>
+                        <div class="floatR fsMSValue">
+                            <a id="addInsuranceAmount" class="addInsurance" href="#">
+                                Add
+                            </a>
+                        </div>
+                        <div class="clearOnly">&nbsp;
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                <div id="netWorthDiv" class="darkGray roundBottom" style="height: 46px; padding-top: 8px">
+                    <div class="myScoreTopic" style="width:100px">
+                        <span id="netWorthDescSpan" style="font-size: 20px">Net Worth
+                        </span>
+                    </div>
+                    <div class="myScoreNumber" style="width:150px">
+                        <span id="netWorthNumberSpan" style="font-size: 14px">
+                            <a id="addNetWorth" class="financialDetails" href="#">Complete&nbsp;Profile</a>
+                            <span id="netWorthSummarySpan">{{networthForShow}}</span>
+                        </span>
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="col300 round smallGlow vPad" style="float: left; margin-top: 20px">
+                <div class="lightGray roundTop bevelBottom">
+                    <div class="sectionHeader">
+                        <h3>
+                            <div class="financialPerson">
+                                <div class="financialDiv">Profile
+                                </div>
+                            </div>
+                            <button class="btn btn-heading-adjust floatR financialDetails" id="manageProfile" type="button">Manage Profile
+                            </button>
+                        </h3>
+                    </div>
+                </div>
+                <div class="mediumGray bevelBoth chartWrapper">
+                    <div {{#unless impersonation}}style="cursor: pointer;" id="profileAvatar"  class="settings"{{/unless}}>
+                        <img class="profileUser" id="profileUser" alt="advisor" src="./ui/images/genericAvatar.png" style="border-radius: 70px; height: 90px; width: 90px; margin-left: -6px; margin-top: -10px; z-index: 100;">
+                    </div>
+                    <div style="margin: 15px;">
+	                <img style="" class="floatedProfileCompleteImage" alt="myScoreChart" width="165" src="./ui/images/horseshoes/variations/profile/ProfileHorseShoe0.png">
+                    </div>
+                    <div class="clearOnly">&nbsp;
+                    </div>
+                    <div class="floatedProfileComplete">
+                    </div>
+
+                </div>
+                <div class="darkGray roundBottom bevelTop myScoreTopicDivFull">
+                    <div class="myScoreTopicFull">Earn additional points by completing your
+                        <a class="financialDetails" href="#">profile</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col620" style="float: right">
+        <div id="assetsChartWrapper" class="col300 round smallGlow vPad" style="float: left; position: relative"><div class="lightGray roundTop bevelBottom"><div class="sectionHeader"><div class="financialCoins"><div class="financialDiv"><h3>Assets</h3></div></div><button id="editAssets" type="button" class="btn btn-heading-adjust floatR addAssets" style="display:none">Edit</button><div class="clearOnly">&nbsp;</div></div></div><div class="darkGray  myScoreTopicDiv" style="height: 290px; position: relative"><div id="assetsPieChart"></div><div id="assetsPieInfo" class="round smallGlow quickScore" style="display:none;position: absolute; left: 20px; top: 120px; width: 240px">Link Accounts and fill out your <a class="addAssets" href="#">Profile</a> to see your charts.</div></div><div class="mediumGray  myScoreTopicDiv roundBottom" style="height: 25px"></div><div style="position: absolute; bottom: 5px; left: 15px"><div id="assetsChartTotal" class="hdn"><span style="font-size: 12px">Total</span><br><span id="cumulativeAssetsTotal" style="font-size: 23px; font-family: OpenSansRegular; font-weight: bold"></span></div></div></div>
+        <div id="debtsChartWrapper" class="col300 round smallGlow vPad" style="float: left;margin-left:20px; position: relative"><div class="lightGray roundTop bevelBottom"><div class="sectionHeader"><div class="financialDebt"><div class="financialDiv"><h3>Debts</h3></div></div><button type="button" id="editDebts" class="btn btn-heading-adjust floatR addDebts"  style="display:none">Edit</button><div class="clearOnly">&nbsp;</div></div></div><div class="darkGray  myScoreTopicDiv" style="height: 290px; position: relative"><div id="debtsPieChart"></div><div id="debtsPieInfo" class="round smallGlow quickScore" style="display:none;position: absolute; left: 20px; top: 120px; width: 240px">Link Accounts and fill out your <a class="addDebts" href="#">Profile</a> to see your charts.</div></div><div class="mediumGray  myScoreTopicDiv roundBottom" style="height: 25px"></div><div style="position: absolute; bottom: 5px; left: 15px"><div id="debtsChartTotal" class="hdn"><span style="font-size: 12px">Total</span><br><span id="cumulativeDebtsTotal" style="font-size: 23px; font-family: OpenSansRegular; font-weight: bold"></span></div></div></div>
+
+        <div class="col320 round smallGlow vPad" style="float: left; margin-top: 20px;position:relative;"><div class="lightGray roundTop bevelBottom sectionHeader"><div class="floatL"><div class="financialGrowth"><div class="financialDiv"><h3>Net&nbsp;Worth&nbsp;Growth&nbsp;&nbsp;<span id="growth" style="color: #898989; font-weight: normal; letter-spacing: 0em"></span></h3></div></div></div>
+        <div class="sortDD floatR" style="z-index:1">                                                                                                     
+                            <button data-toggle="dropdown" class="recButton" id="milesButton" style="width:105px"><span id="networthButtonSpan">7 Days</span>
+                                <span class="caret" style="float:right;margin-left:25px">                                                                                              
+                                </span>                                                                                    
+                            </button>                                                                                                     
+                            <ul class="dropdown-menu" style="min-width:105px">                                                                                                                 
+                                <li>                                                                                              
+                                    <a id="01DateRange" class="networthDateRange" href="#">7 Days</a> 
+                                </li>
+                                <li>
+                                    <a id="02DateRange" class="networthDateRange" href="#">1 Month</a>
+                                </li>
+                                <li>
+                                    <a id="03DateRange" class="networthDateRange" href="#">3 Months</a>
+                                </li>
+                                <li>
+                                    <a id="04DateRange" class="networthDateRange" href="#">6 Months</a>
+                                </li>
+                              </ul>
+                        </div>
+                        <div class="clearOnly">&nbsp;</div></div><div id="netWorthBarChart"></div><div id="netWorthBarInfo" class="milegraphpopupArea quickScore" style="display:none;"><span>It requires minimum seven days data to plot the graph.</span></div></div><div class="clearEverything"></div>
+
+        <div class="col620 round smallGlow vPad" style="float: right; margin-top: 20px;position:relative"><div class="lightGray roundTop bevelBottom sectionHeader"><div class="financialCost"><div class="financialDiv"><h3>Debt&nbsp;by&nbsp;Cost</h3></div></div><div class="clearOnly">&nbsp;</div></div><div id="debtsBarChart"  class="content-chart roundBottom" style="position:relative"></div><div id="debtsBarInfo" style="position: absolute; left: 90px; top: 160px; width: 440px" class="round smallGlow quickScore addDebts">Link Accounts and fill out your <a href="#">Profile</a> to see your charts.</div></div><div class="clearEverything"></div><div class="vSpace">&nbsp;</div></div><div class="clearEverything"></div></div><div class="clearEverything">&nbsp;</div>
+</script>

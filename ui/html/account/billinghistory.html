@@ -1,0 +1,43 @@
+<script id="history-template" type="text/x-handlebars-template">
+    <div class="clearEverything" tenpx">&nbsp;</div>
+   
+    <div id="historyContent" class="hdn">
+        <ul style="list-style: none outside none; padding: 0px 5px 7px 20px" class="questionLabelBlack">
+            <li style="float: left; width: 30%;">Subscription Plan</li>
+            <li style="float: left; width: 30%;">Period</li>
+            <li style="float: left; width: 20%;">Invoice Date</li>
+            <li  style="float: left; width: 10%;">Amount</li>
+            <li  style="float: left; width: 10%;"></li>
+        </ul>
+        {{#each invoices}}
+        <div class="">
+            <ul style="list-style: none outside none; padding: 20px 5px 7px 20px">
+                <li style="float: left; width: 30%;">
+                    <span class="clearEverything">{{plan}}
+                    </span>
+                </li>
+                <li style="float: left; width: 30%;">
+                    <span class="clearEverything">{{period_start}} - {{period_end}}
+                    </span>
+                </li>
+                <li style="float: left; width: 20%;">
+                    <span class="clearEverything">{{invoice_date}}
+                    </span>
+                </li>
+                <li style="float: left; width: 10%;">
+                    <span class="clearEverything">$ {{amount}}
+                    </span>
+                </li>
+                <li>
+                    <span class="clearEverything"><a href="{{{pdflink}}}" target="_blank"><img src="./ui/images/pdf-icon-transparent.png"></a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        {{/each}}
+        <div class="clearEverything"></div>
+    </div>
+    <div id="historyMessage" class="hdn" style="padding: 10px 5px; text-align: center">&nbsp;{{message}}&nbsp;</div>
+    <div class="clearOnly twentypx">&nbsp;</div>
+
+</script>
